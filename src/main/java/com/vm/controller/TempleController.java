@@ -33,7 +33,7 @@ public class TempleController extends ServiceController<UsersService> {
 
         setRequestAttr("name","zhangke");
 
-        return "frontend/index";
+        return "frontendbak/index";
     }
 
     @RequestMapping("/b")
