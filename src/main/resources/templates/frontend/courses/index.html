@@ -81,7 +81,7 @@
 
 </head>
 
-<body>
+<body th:with="indexUrl=@{${'/courses/list'}(size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})}">
 
 
 <!--nav-->

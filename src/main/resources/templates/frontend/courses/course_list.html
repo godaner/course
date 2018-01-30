@@ -5,169 +5,62 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body id="course_list_body">
+<!--变量-->
 
+<!--<th:block th:with="courseUrl='/courses/list?start=${#httpServletRequest.getAttribute('start')}&size=${#httpServletRequest.getAttribute('size')}&orderBy=${#httpServletRequest.getAttribute('orderBy')}&orderType=${#httpServletRequest.getAttribute('orderType')}'">-->
+
+<!--</th:block>-->
 <div class="container layout layout-margin-top">
-    <p th:text="${#httpServletRequest.getAttribute('courseList')}"
-       th:unless="${#httpServletRequest.getAttribute('courseList')== null}">11</p>
+    <!--<p th:text="${#httpServletRequest.getAttribute('courseList')}"-->
+       <!--th:unless="${#httpServletRequest.getAttribute('courseList')== null}">11</p>-->
 
-    <p th:text="${#httpServletRequest.getAttribute('tagGroupsList')}"
-       th:unless="${#httpServletRequest.getAttribute('tagGroupsList')== null}">11</p>
+    <!--<p th:text="${#httpServletRequest.getAttribute('tagGroupsList')}"-->
+       <!--th:unless="${#httpServletRequest.getAttribute('tagGroupsList')== null}">11</p>-->
 
     <div class="row">
         <div class="col-md-12 layout-body">
 
             <div class="content">
-                <div class="row course-cates">
-                    <div class="col-md-1 course-cates-title">类别：</div>
-                    <div class="col-md-11 course-cates-content">
-                        <a class="active" href="/courses/?course_type=all&amp;tag=all">毕设</a>
-                        <a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=free">Java</a><!-- 免费-->
-                        <a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">.net</a><!-- 限免-->
-                        <a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=member">PHP</a><!-- 会员-->
-                        <a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=member">C++</a><!-- 自己添上的-->
+
+                <div th:each="tagGroup,status : ${#httpServletRequest.getAttribute('tagGroupsList')}"
+                     class="row course-cates">
+                    <div th:text="${tagGroup.tagGroupName}"
+                         class="col-md-1 course-cates-title">
                     </div>
-                </div>
-                <div class="row course-cates">
-                    <div class="col-md-1 course-cates-title">标签：</div>
+
+
                     <div class="col-md-11 course-cates-content">
-                        <a class="active" href="/courses/?course_type=all&amp;fee=all">学科</a>
+                        <a class="active" th:href="@{${indexUrl}(${query.tagIds})}">全部</a>
+                        <th:block th:each="tag,status : ${tagGroup.tags}">
 
-                        <a class="" href="/courses/?course_type=all&amp;tag=Python&amp;fee=all">Python</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=C%2FC%2B%2B&amp;fee=all">C/C++</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Linux&amp;fee=all">Linux</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Web&amp;fee=all">Web</a>
-
-                        <a class=""
-                           href="/courses/?course_type=all&amp;tag=%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8&amp;fee=all">信息安全</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=PHP&amp;fee=all">PHP</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Java&amp;fee=all">Java</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=NodeJS&amp;fee=all">NodeJS</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Android&amp;fee=all">Android</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=GO&amp;fee=all">GO</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Spark&amp;fee=all">Spark</a>
-
-                        <a class=""
-                           href="/courses/?course_type=all&amp;tag=%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E8%AF%BE&amp;fee=all">计算机专业课</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Hadoop&amp;fee=all">Hadoop</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=HTML5&amp;fee=all">HTML5</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Scala&amp;fee=all">Scala</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Ruby&amp;fee=all">Ruby</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=R&amp;fee=all">R</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=%E7%BD%91%E7%BB%9C&amp;fee=all">网络</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Git&amp;fee=all">Git</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=SQL&amp;fee=all">SQL</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=NoSQL&amp;fee=all">NoSQL</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=%E7%AE%97%E6%B3%95&amp;fee=all">算法</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Docker&amp;fee=all">Docker</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Swift&amp;fee=all">Swift</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=%E6%B1%87%E7%BC%96&amp;fee=all">汇编</a>
-
-                        <a class="" href="/courses/?course_type=all&amp;tag=Windows&amp;fee=all">Windows</a>
+                            <a th:text="${tag.tagName}"
+                               class=""
+                               th:href="@{${indexUrl}(${query.tagIds},${tag.tagId})}">
+                            </a>
+                        </th:block>
 
                     </div>
+
+
                 </div>
+
             </div>
 
             <div class="content position-relative">
                 <ul class="nav nav-tabs" role="tablist">
 
                     <li class="active"><a href="/courses/?course_type=all&amp;tag=all&amp;fee=all">全部</a></li>
-                    <!--<li class="dropdown ">-->
-                    <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">-->
-                    <!--课程类型-->
-                    <!--<span class="caret"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu">-->
-                    <!--<li><a class="active" href="../courses/index.html" >全部课程</a></li>-->
-                    <!--<li><a class="" href="../courses/index.html?status=preview" >知识精讲</a></li>-->
-                    <!--<li><a class="" href="../developer/index.html">项目实战</a></li>-->
-                    <!--<li><a class="" href="../developer/index.html">就业指导</a></li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
-                    <!--<li class="dropdown ">-->
-                    <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">-->
-                    <!--难度等级-->
-                    <!--<span class="caret"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu">-->
-                    <!--<li><a class="active" href="../courses/index.html" >全部课程</a></li>-->
-                    <!--<li><a class="" href="../courses/index.html?status=preview" >初级</a></li>-->
-                    <!--<li><a class="" href="../developer/index.html">中级</a></li>-->
-                    <!--<li><a class="" href="../developer/index.html">高级</a></li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
 
-                    <!--
-                    <li class="active"><a href="/courses/?course_type=all&amp;tag=all&amp;fee=all">已上线</a></li>
-                    <li class=""><a href="/courses/?status=preview" class="stat-event" data-stat="preview_course">即将上线</a></li>
-                    -->
                 </ul>
                 <div class="clearfix"></div>
-                <div class="courses-sort">
-                    <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;order=latest">最新</a>
-                    /
-                    <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;order=hotest">最热</a>
-                </div>
+
                 <div class="search-result"></div>
                 <div class="row">
 
 
-                    <!--<div class="col-md-3 col-sm-6  course">-->
-                    <!--<a class="course-box" th:href="@{/f/courses/show}">-->
-                    <!--<div class="sign-box">-->
-
-
-                    <!--<i class="fa fa-star-o course-follow pull-right"-->
-                    <!--data-follow-url="/courses/63/follow"-->
-                    <!--data-unfollow-url="/courses/63/unfollow" style="display:none"></i>-->
-
-                    <!--</div>-->
-                    <!--<div class="course-img">-->
-
-                    <!--<img alt="JavaScript全面深入教程" src="../img/JS全面教程.png">-->
-
-                    <!--</div>-->
-
-                    <!--<div class="course-body">-->
-                    <!--<span class="course-title" data-toggle="tooltip" data-placement="bottom"-->
-                    <!--title="JavaScript全面深入教程">JavaScript全面深入教程</span>-->
-                    <!--</div>-->
-                    <!--<div class="course-footer">-->
-                    <!--<span class="course-per-num pull-left">-->
-                    <!--<i class="fa fa-users"></i>-->
-
-                    <!--下载量1342-->
-
-                    <!--</span>-->
-                    <!--<span class="course-money pull-right">128人已学习</span>-->
-                    <!--</div>-->
-                    <!--</a>-->
-                    <!--</div>-->
                     <div class="col-md-3 col-sm-6  course"
                          th:each="course,courseStatus : ${#httpServletRequest.getAttribute('courseList')}">
-                        <a class="course-box" th:href="@{/f/courses/show}">
+                        <a class="course-box" href="">
                             <div class="sign-box">
 
 
@@ -178,7 +71,7 @@
                             </div>
                             <div class="course-img">
 
-                                <img th:alt="${course.name}" src="../img/JS全面教程.png">
+                                <img th:alt="${course.name}" th:src="${course.imgUrl}" th:unless="${course.imgUrl == null}">
 
                             </div>
 

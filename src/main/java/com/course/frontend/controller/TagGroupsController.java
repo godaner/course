@@ -21,6 +21,6 @@ public class TagGroupsController extends ServiceController<TagGroupsService>{
         Long tagGroupsCount = service.getTagGroupsWithTagsCount(pageBean,queryBean);
         model.addAttribute("tagGroupsList", tagGroupsList);
         model.addAttribute("tagGroupsCount", tagGroupsCount);
-        return "forward:/courses/list?start=0&size=10";
+        return "frontend/courses/index";
     }
 }

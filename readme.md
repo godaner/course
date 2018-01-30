@@ -1,1 +1,1 @@
-http://localhost:8888/tagGroup/list
+http://localhost:8888/courses/index

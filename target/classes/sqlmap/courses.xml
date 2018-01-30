@@ -202,8 +202,8 @@
     <select id="getCoursesList" resultMap="CoursesMap">
         SELECT DISTINCT c.*
         FROM
-        courses c,course_tag_realations r
-        where  r.course_id = c.id
+        courses c left join course_tag_realations r
+        on r.course_id = c.id
         and c.status = #{query.status}
         and r.status = #{query.status}
         <if test="query.keyword!=null">
@@ -225,8 +225,8 @@
     <select id="getCoursesCount" resultType="long">
         SELECT  count(DISTINCT c.id)
         FROM
-        courses c,course_tag_realations r
-        where  r.course_id = c.id
+        courses c left join course_tag_realations r
+        on r.course_id = c.id
         and c.status = #{query.status}
         and r.status = #{query.status}
         <if test="query.keyword!=null">
