@@ -18,6 +18,10 @@ public class PageHunterController {
     public Object frontend(@PathVariable("name") String name) {
         return "frontend/"+name;
     }
+    @RequestMapping("/f/courses/{name}")
+    public Object courses(@PathVariable("name") String name) {
+        return "frontend/courses/"+name;
+    }
     @RequestMapping("/b/{name}")
     public Object backend(@PathVariable("name") String name) {
         return "backend/"+name;
