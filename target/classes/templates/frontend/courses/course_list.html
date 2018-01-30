@@ -134,7 +134,39 @@
                 <div class="row">
 
 
-                    <div class="col-md-3 col-sm-6  course">
+                    <!--<div class="col-md-3 col-sm-6  course">-->
+                    <!--<a class="course-box" th:href="@{/f/courses/show}">-->
+                    <!--<div class="sign-box">-->
+
+
+                    <!--<i class="fa fa-star-o course-follow pull-right"-->
+                    <!--data-follow-url="/courses/63/follow"-->
+                    <!--data-unfollow-url="/courses/63/unfollow" style="display:none"></i>-->
+
+                    <!--</div>-->
+                    <!--<div class="course-img">-->
+
+                    <!--<img alt="JavaScript全面深入教程" src="../img/JS全面教程.png">-->
+
+                    <!--</div>-->
+
+                    <!--<div class="course-body">-->
+                    <!--<span class="course-title" data-toggle="tooltip" data-placement="bottom"-->
+                    <!--title="JavaScript全面深入教程">JavaScript全面深入教程</span>-->
+                    <!--</div>-->
+                    <!--<div class="course-footer">-->
+                    <!--<span class="course-per-num pull-left">-->
+                    <!--<i class="fa fa-users"></i>-->
+
+                    <!--下载量1342-->
+
+                    <!--</span>-->
+                    <!--<span class="course-money pull-right">128人已学习</span>-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <div class="col-md-3 col-sm-6  course"
+                         th:each="course,courseStatus : ${#httpServletRequest.getAttribute('courseList')}">
                         <a class="course-box" th:href="@{/f/courses/show}">
                             <div class="sign-box">
 
@@ -146,518 +178,30 @@
                             </div>
                             <div class="course-img">
 
-                                <img alt="JavaScript全面深入教程" src="../img/JS全面教程.png">
+                                <img th:alt="${course.name}" src="../img/JS全面教程.png">
 
                             </div>
 
                             <div class="course-body">
                                 <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="JavaScript全面深入教程">JavaScript全面深入教程</span>
+                                      th:title="${course.name}">
+                                    <span th:text="${course.name}">Onions</span>
+                                </span>
                             </div>
                             <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量1342
-
-			</span>
-                                <span class="course-money pull-right">128人已学习</span>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/1/follow"
-                                   data-unfollow-url="/courses/1/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="企业项目实战PC专题页" src="../img/企业项目PC端.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="企业项目实战PC专题页">企业项目实战PC专题页</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量972
-
-			</span>
-
-                                <span class="course-money pull-right">97人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/719/follow"
-                                   data-unfollow-url="/courses/719/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="百度外卖项目教程" src="../img/百度外卖.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="百度外卖项目教程">百度外卖项目教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量2260
-
-			</span>
-
-                                <span class="course-money pull-right">185人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/717/follow"
-                                   data-unfollow-url="/courses/717/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Ajax从入门到精通" src="../img/Ajax入门到精通.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Ajax从入门到精通">Ajax从入门到精通</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量3304
-
-			</span>
-
-                                <span class="course-money pull-right">226人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/721/follow"
-                                   data-unfollow-url="/courses/721/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Vue2.0从入门到实战" src="../img/Vue2.0从入门到实战.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Vue2.0从入门到实战">Vue2.0从入门到实战</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量4939
-
-			</span>
-
-                                <span class="course-money pull-right">213人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/729/follow"
-                                   data-unfollow-url="/courses/729/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="2017版C/C++与数据库开发" src="../img/2017版C教程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="2017版C/C++与数据库开发">2017版C/C++与数据库开发</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量2312
-
-			</span>
-
-                                <span class="course-money pull-right">136人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/713/follow"
-                                   data-unfollow-url="/courses/713/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="2017年版服务器开发之Linux网络编程" src="../img/Linux网络编程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="2017年版服务器开发之Linux网络编程">2017年版服务器开发之Linux网络编程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量2663
-
-			</span>
-
-                                <span class="course-money pull-right">130人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/698/follow"
-                                   data-unfollow-url="/courses/698/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Bootstrap教程" src="../img/Bootstrap教程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Bootstrap教程">Bootstrap教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量7081
-
-			</span>
-
-                                <span class="course-money pull-right">415人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/702/follow"
-                                   data-unfollow-url="/courses/702/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="C语言小白入门教程" src="../img/C语言小白入门教程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="C语言小白入门教程">C语言小白入门教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量4909
-
-			</span>
-
-                                <span class="course-money pull-right">230人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/726/follow"
-                                   data-unfollow-url="/courses/726/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Python入门教程完整版" src="../img/Python入门教程完整版.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Python入门教程完整版">Python入门教程完整版</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量14970
-
-			</span>
-
-                                <span class="course-money pull-right">1230人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/725/follow"
-                                   data-unfollow-url="/courses/725/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="PHP初级 - CSS教程" src="../img/PHP初级CSS教程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="PHP初级 - CSS教程">PHP初级 - CSS教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量1479
-
-			</span>
-
-                                <span class="course-money pull-right">530人已学习</span>
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/724/follow"
-                                   data-unfollow-url="/courses/724/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="13天学会Java编程" src="../img/13天学会Java编程.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="13天学会Java编程">13天学会Java编程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量7823
-
-			</span>
-                                <span class="course-money pull-right">730人已学习</span>
-
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/716/follow"
-                                   data-unfollow-url="/courses/716/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Java教程_面试题破解之交通管理系统教程" src="../img/Java交通面试题.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Java教程_面试题破解之交通管理系统教程">Java教程_面试题破解之交通管理系统教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量1873
-
-			</span>
-
-
-                                <span class="course-money pull-right">123人已学习</span>
-
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/715/follow"
-                                   data-unfollow-url="/courses/715/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="美食美刻网站制作实战" src="../img/美食美刻网站制作实战.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="美食美刻网站制作实战">美食美刻网站制作实战</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量5202
-
-			</span>
-
-
-                                <span class="course-money pull-right">395人已学习</span>
-
-
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-6  course">
-                        <a class="course-box" th:href="@{/f/courses/show}">
-                            <div class="sign-box">
-
-
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/708/follow"
-                                   data-unfollow-url="/courses/708/unfollow" style="display:none"></i>
-
-                            </div>
-                            <div class="course-img">
-
-                                <img alt="Scrapy爬虫框架教程" src="../img/Scrapy爬虫框架.png">
-
-                            </div>
-
-                            <div class="course-body">
-                                <span class="course-title" data-toggle="tooltip" data-placement="bottom"
-                                      title="Scrapy爬虫框架教程">Scrapy爬虫框架教程</span>
-                            </div>
-                            <div class="course-footer">
-			<span class="course-per-num pull-left">
-                <i class="fa fa-users"></i>
-
-                下载量8242
-
-			</span>
-
-
-                                <span class="course-money pull-right">359人已学习</span>
-
-
+                            <span class="course-per-num pull-left">
+                                <i class="fa fa-users"></i>
+
+                                下载量
+                                <span th:text="${course.downloadNumber}">Onions</span>
+
+                            </span>
+                                <span class="course-money pull-right">
+
+                                    <span th:text="${course.learnNumber}">Onions
+                                    </span>
+                                    人已学习
+                            </span>
                             </div>
                         </a>
                     </div>
@@ -730,104 +274,6 @@
 
         </div>
 
-
-        <!--<div class="col-md-3 layout-side">
-
-
-
-
-
-
-<div class="panel panel-default panel-userinfo">
-    <div class="panel-body body-userinfo">
-        <div class="media userinfo-header">
-            <div class="media-left">
-                <div class="user-avatar">
-
-                     <a class="avatar" href="#sign-modal" data-toggle="modal" data-sign="signin">
-                         <img class="circle" src="../img/logo-grey.png">
-                     </a>
-
-                </div>
-             </div>
-            <div class="media-body">
-
-                 <span class="media-heading username">欢迎来到实验楼</span>
-                 <p class="vip-remain">做实验，学编程</p>
-
-            </div>
-        </div>
-
-        <div class="row userinfo-data">
-
-            <hr>
-            <div class="btn-group-lr">
-            <a href="#sign-modal" type="button" class="btn btn-success col-md-5 col-xs-6 login-btn" data-toggle="modal" data-sign="signin">登录</a>
-            <a href="#sign-modal" type="button" class="btn btn-success col-md-5 col-xs-6 col-md-offset-1 register-btn" data-toggle="modal" data-sign="signup">注册</a>
-            </div>
-
-        </div>
-
-        <div class="userinfo-footer row">
-            <div class="col-md-6 col-xs-6 pos-left">
-
-                <a href="#sign-modal" data-toggle="modal" data-sign="signin"><span class="glyphicon glyphicon-bookmark"></span> 加入私有课</a>
-
-            </div>
-            <div class="col-md-6 col-xs-6 pos-right">
-                <a href="/contribute" target="_blank"><span class="glyphicon glyphicon-send"></span> 我要投稿</a>
-            </div>
-
-            <div id="join-private-course" class="modal fade words-ctrl" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">加入私有课</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div style="margin:15px 0; font:16px;">输入教师提供的私有课程码可以加入教师的私有课程。</div>
-                            <form id="private-course-form" method="POST" action="/courses/join">
-                                <div class="form-group">
-                                    <label for="code">邀请码</label>
-                                    <input class="form-control" id="code" name="code" type="text" value="">
-                                    <input name="_csrf_token" type=hidden value="1483780974##87f89328c5616669f00302a263fe9061bb852818">
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary" onclick="document.getElementById('private-course-form').submit();">确定</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="sidebox">
-
-	<div class="sidebox-header">
-		<h4 class="sidebox-title">最热路径</h4>
-	</div>
-	<div class="sidebox-body course-content side-list-body">
-        <a href="/paths/python"><img style="width:25px;height:25px" src="../img/1471513769430.png"> Python 研发工程师</a>
-        <a href="/paths/bigdata"><img style="width:25px;height:25px" src="../img/1471513926288.png"> 大数据工程师</a>
-        <a href="/paths/cpp"><img style="width:25px;height:25px" src="../img/1471513793360.png"> C++ 研发工程师</a>
-        <a href="/paths/security"><img style="width:25px;height:25px" src="../img/1471513867033.png"> 信息安全工程师</a>
-        <a href="/paths/linuxsys"><img style="width:25px;height:25px" src="../img/1471514004752.png"> Linux 运维工程师</a>
-	</div>
-
-</div>
-
-<div class="side-image side-qrcode">
-    <img src="../img/ShiyanlouQRCode.png">
-    <div class="side-image-text">关注公众号，手机看教程</div>
-</div>
-
-        </div>-->
     </div>
 </div>
 

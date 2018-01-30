@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.vm.dao.mapper.TagGroupsMapper">
-<resultMap type="com.vm.dao.po.TagGroups"  id="TagGroupsMap">
-  <id column="id" property="id"/>
-  <result column="status" property="status"/>
-  <result column="create_time" property="createTime"/>
-  <result column="update_time" property="updateTime"/>
-  <result column="name" property="name"/>
-</resultMap>
+<mapper namespace="com.course.dao.mapper.TagGroupsMapper">
+    <resultMap type="com.course.dao.po.TagGroups" id="TagGroupsMap">
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="name" property="name"/>
+    </resultMap>
 
     <sql id="BASE_ALL_CLOUM">
         id,
         <include refid="BASE_COLUM_WITHOUT_ID"/>
     </sql>
 
-	<sql id="BASE_COLUM_WITHOUT_ID">
+    <sql id="BASE_COLUM_WITHOUT_ID">
 		status,
 		create_time,
 		update_time,
@@ -24,28 +24,27 @@
 	</sql>
 
 
+    <select id="count" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        tag_groups
+        <include refid="queryCondition"/>
+    </select>
 
-	<select id="count" resultType="int">
-		SELECT 
-			count(1)
-		FROM
-		tag_groups
-		<include refid="queryCondition" />
-	</select>
-
-<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tag_groups(
         <include refid="BASE_COLUM_WITHOUT_ID"/>
         )
         VALUES (
-#{status},
-#{createTime},
-#{updateTime},
-#{name}
-       )
-				 </insert>
+        #{status},
+        #{createTime},
+        #{updateTime},
+        #{name}
+        )
+    </insert>
 
-<delete id="delete">
+    <delete id="delete">
 		DELETE
 		FROM
 			tag_groups
@@ -53,76 +52,76 @@
 			id = #{id}
 	</delete>
 
-<update id="update" parameterType="com.vm.dao.po.TagGroups" >
-UPDATE
-		tag_groups
-<set>
-<if test="status != null">status=#{status},</if>
-<if test="createTime != null">create_time=#{createTime},</if>
-<if test="updateTime != null">update_time=#{updateTime},</if>
-<if test="name != null">name=#{name}</if>
-</set>
-WHERE
-id=#{id}
-</update>
+    <update id="update" parameterType="com.course.dao.po.TagGroups">
+        UPDATE
+        tag_groups
+        <set>
+            <if test="status != null">status=#{status},</if>
+            <if test="createTime != null">create_time=#{createTime},</if>
+            <if test="updateTime != null">update_time=#{updateTime},</if>
+            <if test="name != null">name=#{name}</if>
+        </set>
+        WHERE
+        id=#{id}
+    </update>
 
 
-	<select id="selectList" resultMap="TagGroupsMap">
-		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
-		FROM
-		tag_groups
-		<include refid="queryCondition" />
-		LIMIT #{start},#{size}
+    <select id="selectList" resultMap="TagGroupsMap">
+        SELECT
+        <include refid="BASE_ALL_CLOUM"/>
+        FROM
+        tag_groups
+        <include refid="queryCondition"/>
+        LIMIT #{start},#{size}
 
-	</select>
+    </select>
 
-	<select id="selectListOrderBy" resultMap="TagGroupsMap">
-		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
-		FROM
-		tag_groups
-		<include refid="queryCondition" />
-	<if test="orderBy != null and orderType != null">
-			order by ${orderBy} ${orderType}
-		</if>
-		limit #{start},#{size}
+    <select id="selectListOrderBy" resultMap="TagGroupsMap">
+        SELECT
+        <include refid="BASE_ALL_CLOUM"/>
+        FROM
+        tag_groups
+        <include refid="queryCondition"/>
+        <if test="orderBy != null and orderType != null">
+            order by ${orderBy} ${orderType}
+        </if>
+        limit #{start},#{size}
 
-	</select>
+    </select>
 
-<sql id="queryCondition">
-<trim prefix="where" prefixOverrides="and">
-<if test="query != null">
-<if test="query.status != null ">
-		and status=#{query.status}
-</if>
-<if test="query.createTime != null ">
-		and create_time=#{query.createTime}
-</if>
-<if test="query.updateTime != null ">
-		and update_time=#{query.updateTime}
-</if>
-<if test="query.name != null ">
-		and name=#{query.name}
-</if>
-</if>
-</trim>
-</sql>
+    <sql id="queryCondition">
+        <trim prefix="where" prefixOverrides="and">
+            <if test="query != null">
+                <if test="query.status != null ">
+                    and status=#{query.status}
+                </if>
+                <if test="query.createTime != null ">
+                    and create_time=#{query.createTime}
+                </if>
+                <if test="query.updateTime != null ">
+                    and update_time=#{query.updateTime}
+                </if>
+                <if test="query.name != null ">
+                    and name=#{query.name}
+                </if>
+            </if>
+        </trim>
+    </sql>
 
 
-<insert id="batchInsert"  useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
+    <insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
         INSERT INTO tag_groups(
         <include refid="BASE_COLUM_WITHOUT_ID"/>
-)        VALUES 
-   <foreach collection ="list" item ="item" index ="index" separator =","> 
-(
-#{item.status},
-#{item.createTime},
-#{item.updateTime},
-#{item.name}
-)
-</foreach> 
-</insert>
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.status},
+            #{item.createTime},
+            #{item.updateTime},
+            #{item.name}
+            )
+        </foreach>
+    </insert>
 
 
     <select id="select" resultMap="TagGroupsMap">
@@ -144,48 +143,59 @@ id=#{id}
 
     <select id="selectIdList" resultType="java.lang.Long">
         SELECT
- 		 id 
+        id
         FROM
         tag_groups
-        <include refid="queryCondition" />
+        <include refid="queryCondition"/>
 
     </select>
 
 
-	<select id="selectBy" resultMap="TagGroupsMap">
-		SELECT * 
-		FROM
-		tag_groups
-		<include refid="queryCondition" />
+    <select id="selectBy" resultMap="TagGroupsMap">
+        SELECT *
+        FROM
+        tag_groups
+        <include refid="queryCondition"/>
+    </select>
+
+
+    <select id="selectOneBy" resultMap="TagGroupsMap">
+        SELECT *
+        FROM
+        tag_groups
+        <include refid="queryCondition"/>
+        LIMIT 1
+    </select>
+
+    <!--**************************** 自定义mapper start ****************************-->
+    <resultMap id="getTagGroupsWithTagsMap" type="com.course.dao.po.custom.TagGroupsWithTags">
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="name" property="name"/>
+        <collection property="tags" ofType="com.course.dao.po.Tags">
+
+            <id column="tag_id" property="id"/>
+            <result column="status" property="status"/>
+            <result column="create_time" property="createTime"/>
+            <result column="update_time" property="updateTime"/>
+            <result column="tag_name" property="name"/>
+        </collection>
+    </resultMap>
+    <select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">
+		select g.*,t.id as tag_id,t.`name` as tag_name
+		from tag_groups g,tag_group_realations r,tags t
+		where g.status =#{query.status}
+		and r.status =#{query.status}
+		and t.status =#{query.status}
+		and t.id = r.tag_id
+		and r.group_id = g.id
 	</select>
-
-
-	<select id="selectOneBy" resultMap="TagGroupsMap">
-		SELECT * 
-		FROM
-		tag_groups
-		<include refid="queryCondition" />
-		LIMIT 1 
+    <select id="getTagGroupsWithTagsCount" resultType="long">
+		select count(g.id)
+		from tag_groups g
+		where g.status =#{query.status}
 	</select>
-
-	<!--**************************** 自定义mapper start ****************************-->
-	<resultMap id="getTagGroupsWithTagsMap" type="com.vm.dao.po.custom.TagGroupsWithTags">
-		<id column="id" property="id"/>
-		<result column="status" property="status"/>
-		<result column="create_time" property="createTime"/>
-		<result column="update_time" property="updateTime"/>
-		<result column="name" property="name"/>
-		<collection property="tags" ofType="com.vm.dao.po.Tags">
-
-			<id column="id" property="id"/>
-			<result column="status" property="status"/>
-			<result column="create_time" property="createTime"/>
-			<result column="update_time" property="updateTime"/>
-			<result column="name" property="name"/>
-		</collection>
-	</resultMap>
-	<select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">
-
-	</select>
-	<!--**************************** 自定义mapper end ****************************-->
+    <!--**************************** 自定义mapper end ****************************-->
 </mapper>
