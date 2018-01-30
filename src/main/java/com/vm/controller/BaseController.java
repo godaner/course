@@ -1,7 +1,9 @@
 package com.vm.controller;
 
 
-import com.vm.base.bo.Response;
+
+import com.vm.util.CommonUtil;
+import com.vm.util.Response;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.ServletContext;
@@ -12,10 +14,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
+
 /**
  * Created by ZhangKe on 2017/11/24.
  */
-public class BaseController {
+public class BaseController extends CommonUtil{
     //响应对象
     protected Response response = new Response();
     //响应键值对

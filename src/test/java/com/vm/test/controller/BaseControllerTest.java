@@ -1,14 +1,10 @@
 package com.vm.test.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.google.common.collect.ImmutableMap;
 import com.vm.BootApp;
-import com.vm.base.utils.LoggerWrapper;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -29,7 +25,7 @@ public class BaseControllerTest {
     @Value("${local.server.port}")// 注入端口号
     protected int port;
 
-    protected static final LoggerWrapper logger = LoggerWrapper.newLoggerWrapper(BaseControllerTest.class);
+//    protected static final LoggerWrapper logger = LoggerWrapper.newLoggerWrapper(BaseControllerTest.class);
 
     @Rule
     // 这里注意，使用@Rule注解必须要用public

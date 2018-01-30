@@ -1,6 +1,7 @@
 package com.vm.dao.po;
 
-import com.vm.base.bo.ByteConstantVar;
+
+import com.vm.util.ByteConstantVar;
 
 /**
  * <b>Title:</b>
