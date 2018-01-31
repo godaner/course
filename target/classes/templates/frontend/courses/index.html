@@ -76,8 +76,18 @@
             text-align: center;
             font-size: 14px;
         }
-    </style>
 
+
+
+    </style>
+    <style>
+
+
+        .active_tag{
+            background-color: rgb(8,191,145);
+            border-radius:9px;
+        }
+    </style>
 
 </head>
 
@@ -113,8 +123,9 @@
 ></div>
 
 <!--?=2016121272249-->
-<script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
 <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
+<script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
+<script th:src="@{/frontend/app/dest/util.js}"></script>
 <script th:src="@{/frontend/static/ace/1.2.5/ace.js}"></script>
 <script th:src="@{/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js}"></script>
 <script th:src="@{/frontend/static/highlight.js/9.8.0/highlight.min.js}"></script>
@@ -147,7 +158,46 @@
 
 <!--tail-->
 <div th:include="/frontend/courses/footer :: #footer_body"></div>
+<script type="text/javascript">
 
+
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var $tags = $("#tags_father .tag");
+
+
+    $tags.click(function(){
+        //重复点击切换状态
+        if($(this).attr("class").indexOf("active_tag")>=0){
+            $(this).removeClass("active_tag");
+        }else{
+            $(this).addClass("active_tag");
+        }
+
+        var $active_tags = $("#tags_father .active_tag");
+
+        var tagIds =[];
+        $active_tags.each(function(i,item){
+            tagIds.push($(item).attr("tagid"));
+        });
+        console.info(tagIds);
+        var keyword = [[${query.keyword}]];
+        var size = [[${page.size}]];
+        var start = [[${page.start}]];
+        var orderBy = [[${page.orderBy}]];
+        var orderType = [[${page.orderType}]];
+//        (,size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType}}
+        var url = [[${indexUrl}]];
+        url = url+"?keyword="+keyword+"&size="+size+"&start="+start+"&orderBy="+orderBy+"&orderType="+orderType
+        url = contactUrlWithArray(url,"tagIds",tagIds);
+        console.info(url);
+        window.location.href=url;
+    });
+    /*]]>*/
+
+</script>
 
 </body>
+
 </html>

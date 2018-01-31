@@ -211,7 +211,7 @@
         </if>
         <if test="query.tagIds!=null">
             and r.tag_id IN
-            <foreach collection="#{query.tagIds}" item="item" open="(" separator="," close=")">
+            <foreach item="item" index="index" collection="query.tagIds" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
@@ -234,7 +234,7 @@
         </if>
         <if test="query.tagIds!=null">
             and r.tag_id IN
-            <foreach collection="#{query.tagIds}" item="item" open="(" separator="," close=")">
+            <foreach item="item" index="index" collection="query.tagIds" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
