@@ -25,7 +25,7 @@
     <link rel="stylesheet" th:href="@{/frontend/static/highlight.js/9.8.0/monokai-sublime.min.css}">
     <link rel="stylesheet" th:href="@{/frontend/app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/frontend/app/css/libs/katex/0.6.0/katex.min.css}">
-    <link rel="stylesheet" th:href="@{/frontend/app/css/libs/videojs/5.11.7/video-js.min.css}">
+    <!--<link rel="stylesheet" th:href="@{/frontend/app/css/libs/videojs/5.11.7/video-js.min.css}">-->
     <!--?=2016121272249-->
     <link rel="stylesheet" th:href="@{/frontend/app/css/dest/styles.css}">
 
@@ -126,10 +126,10 @@
 
 
     <style>
-        #m_player{
+        #m_player {
             min-width: 800px;
-            width:100%;
-            height:500px;
+            width: 100%;
+            height: 500px;
         }
     </style>
 </head>
@@ -178,8 +178,8 @@
                     </li>
 
                     <!--<li role="presentation">-->
-                        <!--<a href="#comments" class="stat-event" aria-controls="comments" role="tab"-->
-                           <!--data-stat="course_comment" data-toggle="tab">课程评论(1194)</a>-->
+                    <!--<a href="#comments" class="stat-event" aria-controls="comments" role="tab"-->
+                    <!--data-stat="course_comment" data-toggle="tab">课程评论(1194)</a>-->
                     <!--</li>-->
                     <!--
                         <li role="presentation">
@@ -203,9 +203,9 @@
                             </p>
                             <!--<a style="text-decoration: none;font-size: 16px;font: '微软雅黑';color: #002B36;">1、Javascript基本及高级应用</a><br/><br/>-->
                             <!--<a style="text-decoration: none;font-size: 16px;font: '微软雅黑';color:#002B36;">2、Web-->
-                                <!--API</a><br/><br/>-->
+                            <!--API</a><br/><br/>-->
                             <!--<a style="text-decoration: none;font-size: 16px;font: '微软雅黑';color: #002B36;">3、Javascript-->
-                                <!--面向对象</a><br/><br/>-->
+                            <!--面向对象</a><br/><br/>-->
                             <!--<a style="text-decoration: none;font-size: 16px;font: '微软雅黑';color: #002B36;">4、贪吃蛇游戏开发</a>-->
                         </div>
                     </div>
@@ -213,94 +213,75 @@
                         以下是课程目录的代码
                     -->
 
-                    <div role="tabpanel" class="tab-pane active" id="labs">
+                    <div role="tabpanel" class="tab-pane " id="labs">
 
-                        <div class="lab-item ">
-                            <div class="lab-item-status">
-                                <img src="../img/lab-not-ok.png">
-                            </div>
-                            <div class="lab-item-index">第1节</div>
-                            <div class="lab-item-title" data-toggle="tooltip" data-placement="bottom" title="概念介绍">
-                                概念介绍
-                            </div>
-                            <div class="pull-right lab-item-ctrl">
+                        <th:block th:each="src,status : ${course.courseSourcesDtoList}">
 
-                                <a class="btn btn-default" href="#sign-modal" data-toggle="modal" data-sign="signin"
-                                   data-next="/courses/1">播放</a>
-                                <!--
-                                    <a class="btn btn-primary" href="#sign-modal" data-toggle="modal" data-sign="signin" data-next="/courses/1">开始实验</a>
-                                -->
-
-
-                            </div>
-                        </div>
+                            <!--//    courseSourceDescription-->
+                            <!--//        :-->
+                            <!--//        "这是第一节"-->
+                            <!--//    courseSourceId-->
+                            <!--//        :-->
+                            <!--//        1-->
+                            <!--//    courseSourceName-->
+                            <!--//        :-->
+                            <!--//        "第一节"-->
+                            <!--//    courseSourceSort-->
+                            <!--//        :-->
+                            <!--//        1-->
+                            <!--//    courseSourceUrl-->
+                            <!--//        :-->
+                            <!--//        "/courses/src/1"-->
 
 
-                        <div class="lab-item ">
-                            <div class="lab-item-status">
-                                <img src="../img/lab-not-ok.png">
-                            </div>
-                            <div class="lab-item-index">第2节</div>
-                            <div class="lab-item-title" data-toggle="tooltip" data-placement="bottom" title="概念介绍DOM">
-                                概念介绍DOM
-                            </div>
-                            <div class="pull-right lab-item-ctrl">
-                                <a class="btn btn-default" href="#sign-modal" data-toggle="modal" data-sign="signin"
-                                   data-next="/courses/1">播放</a>
-                            </div>
-                        </div>
+                            <div class="lab-item ">
+                                <div class="lab-item-status">
+                                    <img src="../img/lab-not-ok.png">
+                                </div>
+                                <div th:text="${src.courseSourceName}" class="lab-item-index">标题</div>
+                                <div th:text="${src.courseSourceDescription}" class="lab-item-title"
+                                     data-toggle="tooltip" data-placement="bottom" title="概念介绍">
+                                    概念介绍
+                                </div>
+                                <div class="pull-right lab-item-ctrl">
+
+                                    <a th:attr="srcId='${src.courseSourceId}',srcUrl='${src.courseSourceUrl}'"
+                                       class="btn btn-default play-btn" href="JavaScript:void(0);" data-toggle="modal"
+                                       data-sign="signin"
+                                       data-next="/courses/1">播放</a>
+                                    <!--
+                                        <a class="btn btn-primary" href="#sign-modal" data-toggle="modal" data-sign="signin" data-next="/courses/1">开始实验</a>
+                                    -->
 
 
-                        <div class="lab-item ">
-                            <div class="lab-item-status">
-                                <img src="../img/lab-not-ok.png">
+                                </div>
                             </div>
-                            <div class="lab-item-index">第3节</div>
-                            <div class="lab-item-title" data-toggle="tooltip" data-placement="bottom" title="根据id获取元素">
-                                根据id获取元素
-                            </div>
-                            <div class="pull-right lab-item-ctrl">
-                                <a class="btn btn-default" href="#sign-modal" data-toggle="modal" data-sign="signin"
-                                   data-next="/courses/1">播放</a>
-                            </div>
-                        </div>
 
 
-                        <div class="lab-item ">
-                            <div class="lab-item-status">
-                                <img src="../img/lab-not-ok.png">
-                            </div>
-                            <div class="lab-item-index">第4节</div>
-                            <div class="lab-item-title" data-toggle="tooltip" data-placement="bottom" title="根据标签获取元素">
-                                根据标签获取元素
-                            </div>
-                            <div class="pull-right lab-item-ctrl">
-                                <a class="btn btn-default" href="#sign-modal" data-toggle="modal" data-sign="signin"
-                                   data-next="/courses/1">播放</a>
-                            </div>
-                        </div>
+                        </th:block>
+
 
                     </div>
                     <!--
                         以上是课程目录的代码
                     -->
                     <!--<div role="tabpanel" class="tab-pane course-comment" id="comments">-->
-                        <!--<div class="comment-box">-->
-                            <!--<div class="comment-form">-->
+                    <!--<div class="comment-box">-->
+                    <!--<div class="comment-form">-->
 
-                                <!--<div class="comment-form-unlogin">-->
-                                    <!--请-->
-                                    <!--<a href="#sign-modal" data-toggle="modal" data-sign="signin" data-next="/courses/1">-->
-                                        <!--登录 </a>-->
-                                    <!--后发表评论-->
-                                <!--</div>-->
+                    <!--<div class="comment-form-unlogin">-->
+                    <!--请-->
+                    <!--<a href="#sign-modal" data-toggle="modal" data-sign="signin" data-next="/courses/1">-->
+                    <!--登录 </a>-->
+                    <!--后发表评论-->
+                    <!--</div>-->
 
-                            <!--</div>-->
-                            <!--<div class="comment-title">最新评论</div>-->
-                            <!--<div class="comment-list">-->
-                            <!--</div>-->
-                            <!--<div class="pagination-container"></div>-->
-                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="comment-title">最新评论</div>-->
+                    <!--<div class="comment-list">-->
+                    <!--</div>-->
+                    <!--<div class="pagination-container"></div>-->
+                    <!--</div>-->
                     <!--</div>-->
 
                     <!--
@@ -370,85 +351,33 @@
 
             <div class="sidebox mooc-teacher">
                 <div class="sidebox-header mooc-header">
-                    <h4 class="sidebox-title">JavaScript全面深入教程</h4>
+                    <h4 class="sidebox-title" th:text="${course.name}"></h4>
                 </div>
                 <!--<div class="sidebox-body ">-->
-                    <!--<a href="#" target="_blank" style="text-decoration: none;">-->
-                        <!--播放上一节&nbsp;&nbsp;&nbsp;&nbsp;-->
-                    <!--</a>-->
-                    <!--<a href="#" target="_blank" style="text-decoration: none;">-->
-                        <!--播放下一节-->
-                    <!--</a>-->
+                <!--<a href="#" target="_blank" style="text-decoration: none;">-->
+                <!--播放上一节&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--</a>-->
+                <!--<a href="#" target="_blank" style="text-decoration: none;">-->
+                <!--播放下一节-->
+                <!--</a>-->
 
-                    <!--<div class="mooc-extra-info">-->
-                        <!--<div class="word long-paragraph">-->
-                            <!--难度:中级&nbsp;&nbsp;&nbsp;&nbsp;时长:4节&nbsp;&nbsp;&nbsp;&nbsp;87人正在学习-->
-                        <!--</div>-->
-                    <!--</div>-->
+                <!--<div class="mooc-extra-info">-->
+                <!--<div class="word long-paragraph">-->
+                <!--难度:中级&nbsp;&nbsp;&nbsp;&nbsp;时长:4节&nbsp;&nbsp;&nbsp;&nbsp;87人正在学习-->
+                <!--</div>-->
+                <!--</div>-->
                 <!--</div>-->
                 <div class="sidebox-footer mooc-footer">
-                    <a href="/teacher/20406" target="_blank">下载完整视频 ></a>
+                    <a class="video-download-btn" href="javascript:void(0);" target="_blank">下载视频 ></a>
                 </div>
             </div>
 
-
-            <!--<div class="side-image">-->
-                <!--<a href="#" target="_blank">-->
-                    <!--<img src="../img/Python入门精品.png">-->
-                <!--</a>-->
-            <!--</div>-->
-
-
-            <!--<div class="sidebox adv-course">-->
-                <!--<div class="sidebox-header">-->
-                    <!--<h4 class="sidebox-title">看过该课程的同学还看过</h4>-->
-                <!--</div>-->
-                <!--<div class="sideobx-body course-content">-->
-
-                    <!--<a href="/courses/204">Java教程|AJax视频教程-适合掌握Javaweb的同学</a>-->
-
-                    <!--<a href="/courses/2">JavaScript &&jQuery精品教程</a>-->
-
-                    <!--<a href="/courses/68">网页设计实战</a>-->
-
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="sidebox adv-course">-->
-                <!--<div class="sidebox-header">-->
-                    <!--<h4 class="sidebox-title">最近8位同学与你共同奋战</h4>-->
-                <!--</div>-->
-                <!--<div class="sideobx-body course-content">-->
-                    <!--<style>-->
-                        <!--.imgage {-->
-                            <!--border-radius: 40px;-->
-                            <!--width: 40px;-->
-                            <!--height: 40px;-->
-                            <!--margin: 10px 8px;-->
-                        <!--}-->
-
-                        <!--.box {-->
-                            <!--text-align: center;-->
-                        <!--}-->
-                    <!--</style>-->
-                    <!--<img class="imgage" src="../img/13天学会Java编程.png" title="小鱼">-->
-                    <!--<img class="imgage" src="../img/Java交通面试题.png" title="二狗">-->
-                    <!--<img class="imgage" src="../img/Python入门教程完整版.png" title="狗蛋">-->
-                    <!--<img class="imgage" src="../img/2017版C教程.png" title="傻逼">-->
-                    <!--<img class="imgage" src="../img/13天学会Java编程.png" title="小鱼">-->
-                    <!--<img class="imgage" src="../img/Java交通面试题.png" title="二狗">-->
-                    <!--<img class="imgage" src="../img/Python入门教程完整版.png" title="狗蛋">-->
-                    <!--<img class="imgage" src="../img/2017版C教程.png" title="傻逼">-->
-
-                <!--</div>-->
-            </div>
         </div>
-
-
     </div>
+
+
 </div>
-
-
+</div>
 
 
 <!--
@@ -797,19 +726,65 @@
 <!--tail-->
 <div th:include="/frontend/courses/footer :: #footer_body"></div>
 
-<script>
+<script type="text/javascript">
 
-    var videoObject = {
-        container: '#m_player',//“#”代表容器的ID，“.”或“”代表容器的class
-        variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
-//        poster: options.poster,//封面图片
-        autoplay: false,//默认自动播放
-        volume: 1.0,//初始化音量
-        flashplayer: true,//如果强制使用flashplayer则设置成true
-        video: "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4"//视频地址http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4
 
-    };
-    var player = new ckplayer(videoObject);
 </script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    //    courseSourceDescription
+    //        :
+    //        "这是第一节"
+    //    courseSourceId
+    //        :
+    //        1
+    //    courseSourceName
+    //        :
+    //        "第一节"
+    //    courseSourceSort
+    //        :
+    //        1
+    //    courseSourceUrl
+    //        :
+    //        "/courses/src/1"
+    var srcs = [[${course.courseSourcesDtoList}]];
+
+    console.info(srcs);
+    var video = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4";
+    if (srcs != undefined && srcs[0] != undefined && srcs[0].courseSourceUrl != undefined) {
+        video = srcs[0].courseSourceUrl;
+    }
+    initPlayer(video);
+
+    $(".play-btn").click(function () {
+        var srcId = $(this).attr("srcId");
+        var srcUrl = $(this).attr("srcUrl");
+        console.info(srcId);
+        console.info(srcUrl);
+        $(".video-download-btn").attr("href", srcUrl);
+        initPlayer(srcUrl);
+    });
+
+    function initPlayer(srcUrl) {
+        var videoObject = {
+            container: '#m_player',//“#”代表容器的ID，“.”或“”代表容器的class
+            variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+            autoplay: true,//默认自动播放
+            volume: 1.0,//初始化音量
+            flashplayer: true,//如果强制使用flashplayer则设置成true
+            video: srcUrl//视频地址http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4
+
+        };
+
+        var player = new ckplayer(videoObject);
+    }
+    /*]]>*/
+
+
+</script>
+
+
 </body>
 </html>

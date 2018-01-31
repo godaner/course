@@ -65,4 +65,5 @@ public class CourseController extends ServiceController<CourseService> {
             IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
         }
     }
+
 }

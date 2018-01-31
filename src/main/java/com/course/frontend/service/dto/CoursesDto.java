@@ -12,8 +12,8 @@ public class CoursesDto {
     private String imgUrl;
     private String name;
     private String description;
-    private String downloadNumber;
-    private String learnNumber;
+    private Long downloadNumber;
+    private Long learnNumber;
     private List<CourseSourcesDto> courseSourcesDtoList;
 
     @Override
@@ -68,19 +68,19 @@ public class CoursesDto {
         this.description = description;
     }
 
-    public String getDownloadNumber() {
+    public Long getDownloadNumber() {
         return downloadNumber;
     }
 
-    public void setDownloadNumber(String downloadNumber) {
+    public void setDownloadNumber(Long downloadNumber) {
         this.downloadNumber = downloadNumber;
     }
 
-    public String getLearnNumber() {
+    public Long getLearnNumber() {
         return learnNumber;
     }
 
-    public void setLearnNumber(String learnNumber) {
+    public void setLearnNumber(Long learnNumber) {
         this.learnNumber = learnNumber;
     }
 }
