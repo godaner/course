@@ -1,7 +1,7 @@
 package com.course.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.course.service.exception.VmRuntimeException;
+import com.course.service.exception.CourseRuntimeException;
 import com.course.util.CommonUtil;
 import com.course.util.Response;
 import javassist.*;
@@ -60,7 +60,7 @@ public class ControllerServiceAop extends CommonUtil {
             } else {//页面转发
                 return data;
             }
-        } catch (VmRuntimeException e) {//提供详细错误信息输出到前台
+        } catch (CourseRuntimeException e) {//提供详细错误信息输出到前台
             e.printStackTrace();
             logger.error("ERROR ==> [{} # {}] ==> {}", method.toString(), methodArgsNameAndValue, e.toString());
             response.setCode(e.getErrorCode());

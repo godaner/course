@@ -239,5 +239,45 @@
             </foreach>
         </if>
     </select>
+
+    <resultMap id="getCourseWithSourcesMap" type="com.course.dao.po.custom.CoursesWithSources">
+        <id column="id" property="id"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="download_number" property="downloadNumber"/>
+        <result column="learn_number" property="learnNumber"/>
+        <collection property="courseSourcesList" ofType="com.course.dao.po.CourseSources">
+            <id column="source_id" property="id"/>
+            <result column="course_id" property="courseId"/>
+            <result column="source_name" property="name"/>
+            <result column="url" property="url"/>
+            <result column="sort" property="sort"/>
+            <result column="source_description" property="description"/>
+        </collection>
+    </resultMap>
+
+    <select id="getCourseWithSources" resultMap="getCourseWithSourcesMap">
+        SELECT
+            c.*,
+            s.id as source_id,
+            s.`NAME` AS source_name,
+            s.description AS source_description,
+            s.url,
+            s.sort
+        FROM
+            courses c,
+            course_sources s
+        WHERE
+            s.course_id = c.id
+            and s.status = #{query.status}
+            and c.status = #{query.status}
+            and c.id = #{courseId}
+        <if test="page.orderBy != null and page.orderType != null">
+            order by ${page.orderBy} ${page.orderType}
+        </if>
+    </select>
+
+
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>

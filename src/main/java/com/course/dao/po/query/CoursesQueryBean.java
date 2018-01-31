@@ -5,9 +5,7 @@ import org.assertj.core.util.Lists;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
+
 public class CoursesQueryBean extends BaseQueryBean {
     private List<Long> tagIds;
 

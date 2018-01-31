@@ -7,7 +7,7 @@
 <body id="nav_body">
 
 
-<nav class="navbar navbar-default navbar-fixed-top header">
+<nav class="navbar navbar-default navbar-fixed-top header" th:with="indexUrl='/courses/list'">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -36,12 +36,17 @@
 
             <form class="navbar-form navbar-right" th:action="@{${indexUrl}}" method="get" role="search">
                 <div class="form-group">
-                    <input th:value="${query.keyword}" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
+                    <th:block th:if="${query != null and query.keyword != null}">
+                        <input th:value="${query.keyword}" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
+                    </th:block>
+                    <th:block th:if="${query == null or query.keyword == null}">
+                        <input value="" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
+                    </th:block>
                     <!--(size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})-->
                     <input type="hidden" name="size" th:value="12"/>
                     <input type="hidden" name="start" th:value="0"/>
-                    <input type="hidden" name="orderBy" th:value="${page.orderBy}"/>
-                    <input type="hidden" name="orderType" th:value="${page.orderType}"/>
+                    <input type="hidden" name="orderBy" value="create_time"/>
+                    <input type="hidden" name="orderType" value="desc"/>
 
                 </div>
             </form>

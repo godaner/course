@@ -11,4 +11,6 @@ public interface CourseService {
     List<CoursesDto> getCoursesList(PageBean pageBean, CoursesQueryBean queryBean) throws Exception;
 
     Long getCoursesCount(PageBean pageBean, CoursesQueryBean queryBean) throws Exception;
+
+    CoursesDto getCourseInfo(PageBean pageBean, Long courseId);
 }

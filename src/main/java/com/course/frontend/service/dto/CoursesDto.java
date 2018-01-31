@@ -1,5 +1,9 @@
 package com.course.frontend.service.dto;
 
+import com.course.dao.po.CourseSources;
+
+import java.util.List;
+
 /**
  * Created by ZhangKe on 2018/1/30.
  */
@@ -10,6 +14,7 @@ public class CoursesDto {
     private String description;
     private String downloadNumber;
     private String learnNumber;
+    private List<CourseSourcesDto> courseSourcesDtoList;
 
     @Override
     public String toString() {
@@ -21,6 +26,14 @@ public class CoursesDto {
                 ", downloadNumber='" + downloadNumber + '\'' +
                 ", learnNumber='" + learnNumber + '\'' +
                 '}';
+    }
+
+    public List<CourseSourcesDto> getCourseSourcesDtoList() {
+        return courseSourcesDtoList;
+    }
+
+    public void setCourseSourcesDtoList(List<CourseSourcesDto> courseSourcesDtoList) {
+        this.courseSourcesDtoList = courseSourcesDtoList;
     }
 
     public Long getCourseId() {

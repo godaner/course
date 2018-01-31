@@ -17,31 +17,31 @@ import java.util.Map;
  * <br/>
  * <b>Date:</b>2017/11/24 9:55
  */
-public class VmRuntimeException extends RuntimeException {
+public class CourseRuntimeException extends RuntimeException {
     protected int errorCode;
     protected Map params;
 
-    public VmRuntimeException(int errorCode, String message, Map params, Throwable e) {
+    public CourseRuntimeException(int errorCode, String message, Map params, Throwable e) {
 
         super(message, e);
         this.errorCode = errorCode;
         this.params = params;
     }
 
-    public VmRuntimeException(int errorCode, String message, Map data) {
+    public CourseRuntimeException(int errorCode, String message, Map data) {
 
         this(errorCode, message, data, null);
     }
 
-    public VmRuntimeException(int errorCode, String message) {
+    public CourseRuntimeException(int errorCode, String message) {
         this(errorCode, message, null, null);
     }
 
-    public VmRuntimeException(Response.ResponseCode errorCode) {
+    public CourseRuntimeException(Response.ResponseCode errorCode) {
         this(errorCode.getCode(), errorCode.getMsg(), null, null);
     }
 
-    public VmRuntimeException(String message) {
+    public CourseRuntimeException(String message) {
 
         this(Response.ResponseCode.FAILURE.getCode(), message, null, null);
     }

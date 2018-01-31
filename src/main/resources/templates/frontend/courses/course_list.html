@@ -33,7 +33,8 @@
                             <th:block th:each="tag,status : ${tagGroup.tags}">
 
                                 <!--active-->
-                                <th:block th:if="${!#arrays.isEmpty(query.tagIds) and #arrays.contains(query.tagIds, tag.tagId)}">
+                                <th:block
+                                        th:if="${!#arrays.isEmpty(query.tagIds) and #arrays.contains(query.tagIds, tag.tagId)}">
                                     <a th:text="${tag.tagName}"
                                        class="tag active_tag"
                                        th:attr="tagId=${tag.tagId}"
@@ -41,7 +42,8 @@
                                     </a>
                                 </th:block>
                                 <!--de active-->
-                                <th:block th:if="${#arrays.isEmpty(query.tagIds) or !#arrays.contains(query.tagIds, tag.tagId)}">
+                                <th:block
+                                        th:if="${#arrays.isEmpty(query.tagIds) or !#arrays.contains(query.tagIds, tag.tagId)}">
                                     <a th:text="${tag.tagName}"
                                        class="tag"
                                        th:attr="tagId=${tag.tagId}"
@@ -74,7 +76,7 @@
 
                     <div class="col-md-3 col-sm-6  course"
                          th:each="course,courseStatus : ${#httpServletRequest.getAttribute('courseList')}">
-                        <a class="course-box" href="">
+                        <a class="course-box" th:href="@{/courses/{courseId}(courseId=${course.courseId})}">
                             <div class="sign-box">
 
 

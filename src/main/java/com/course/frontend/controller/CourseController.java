@@ -39,13 +39,30 @@ public class CourseController extends ServiceController<CourseService> {
         return "forward:/tagGroup/list";
     }
 
+    @RequestMapping(value = "/{courseId}")
+    public String getCourseInfo(Model model, PageBean pageBean, @PathVariable("courseId") Long courseId) throws Exception {
+        CoursesDto coursesDto = service.getCourseInfo(pageBean, courseId);
+        model.addAttribute("course", coursesDto);
+        return "frontend/courses/show";
+    }
+
     @RequestMapping(value = "/img/{name}")
     public void getCourseImg(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
         try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + name), httpServletResponse.getOutputStream());
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + name + ".png"), httpServletResponse.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
             IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + "default.png"), httpServletResponse.getOutputStream());
+        }
+    }
+
+    @RequestMapping(value = "/src/{name}")
+    public void getCourseSrc(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
+        try {
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
         }
     }
 }
