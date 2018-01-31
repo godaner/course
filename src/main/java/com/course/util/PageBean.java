@@ -40,15 +40,12 @@ public class PageBean {
     }
 
     public PageBean() {
+        this.setStart(0);
+        this.setSize(12);
+        this.setOrderBy("create_time");
+        this.setOrderType("desc");
     }
 
-    public PageBean(Integer start, Integer size, String orderBy, String orderType) {
-
-        this.start = start;
-        this.size = size;
-        this.orderBy = orderBy;
-        this.orderType = orderType;
-    }
 
     @Override
     public String toString() {

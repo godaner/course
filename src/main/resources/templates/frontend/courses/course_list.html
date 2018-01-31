@@ -12,10 +12,10 @@
 <!--</th:block>-->
 <div class="container layout layout-margin-top">
     <!--<p th:text="${#httpServletRequest.getAttribute('courseList')}"-->
-       <!--th:unless="${#httpServletRequest.getAttribute('courseList')== null}">11</p>-->
+    <!--th:unless="${#httpServletRequest.getAttribute('courseList')== null}">11</p>-->
 
     <!--<p th:text="${#httpServletRequest.getAttribute('tagGroupsList')}"-->
-       <!--th:unless="${#httpServletRequest.getAttribute('tagGroupsList')== null}">11</p>-->
+    <!--th:unless="${#httpServletRequest.getAttribute('tagGroupsList')== null}">11</p>-->
 
     <div class="row">
         <div class="col-md-12 layout-body">
@@ -30,12 +30,12 @@
 
 
                     <div class="col-md-11 course-cates-content">
-                        <a class="active" th:href="@{${indexUrl}(${query.tagIds})}">全部</a>
+                        <a class="active" th:href="@{${indexUrl}(tagIds=${query.tagIds})}">全部</a>
                         <th:block th:each="tag,status : ${tagGroup.tags}">
 
                             <a th:text="${tag.tagName}"
                                class=""
-                               th:href="@{${indexUrl}(${query.tagIds},${tag.tagId})}">
+                               th:href="@{${indexUrl}(tagIds=${query.tagIds},tagIds=${tag.tagId})}">
                             </a>
                         </th:block>
 
@@ -71,7 +71,8 @@
                             </div>
                             <div class="course-img">
 
-                                <img th:alt="${course.name}" th:src="${course.imgUrl}" th:unless="${course.imgUrl == null}">
+                                <img th:alt="${course.name}" th:src="${course.imgUrl}"
+                                     th:unless="${course.imgUrl == null}">
 
                             </div>
 
@@ -106,58 +107,30 @@
                 <nav class="pagination-container">
                     <ul class="pagination">
 
-                        <li class="disabled">
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">上一页</span>
-                            </a>
-                        </li>
+
+
+                        <th:block th:if="${page.start}/12  gt 0">
+                            <li class="">
+                                <a th:href="@{${indexUrl}(keyword=${query.keyword},size=${page.size},start=${page.start}-12,orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})}" aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                        </th:block>
 
 
                         <li class="active">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=1">1</a>
+                            <a href="#" th:text="${page.start}/12 + 1"></a>
                         </li>
 
 
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=2">2</a>
-                        </li>
-
-
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=3">3</a>
-                        </li>
-
-
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=4">4</a>
-                        </li>
-
-
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=5">5</a>
-                        </li>
-
-
-                        <li>
-                            <a href='#'>...</a>
-                        </li>
-
-
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=24">24</a>
-                        </li>
-
-
-                        <li class="">
-                            <a href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=25">25</a>
-                        </li>
-
-
-                        <li class="">
-                            <a aria-label="Next" href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=2">
-                                <span aria-hidden="true">下一页</span>
-                            </a>
-                        </li>
+                        <th:block th:if="${#httpServletRequest.getAttribute('courseCount')}/12 gt (${page.start} + 12)/12">
+                            <li class="">
+                                <a aria-label="Next"
+                                   th:href="@{${indexUrl}(keyword=${query.keyword},size=${page.size},start=${page.start}+12,orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})}">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                        </th:block>
 
                     </ul>
                 </nav>

@@ -61,9 +61,9 @@
             </div>
 
 
-            <form class="navbar-form navbar-right" action="../search" method="get" role="search">
+            <form class="navbar-form navbar-right" th:action="@{${indexUrl}(size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})}" method="get" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="search" autocomplete="off" placeholder="搜索 课程">
+                    <input th:value="${query.keyword}" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
                 </div>
             </form>
         </div>

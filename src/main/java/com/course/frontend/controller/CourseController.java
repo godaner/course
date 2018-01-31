@@ -23,27 +23,13 @@ import java.util.List;
 public class CourseController extends ServiceController<CourseService> {
 
     @RequestMapping("/index")
-    public String index(PageBean pageBean, CoursesQueryBean queryBean) {
-        if(pageBean.getStart() == null){
-            pageBean.setStart(0);
-        }
-        if(pageBean.getSize() == null){
-            pageBean.setSize(10);
-        }
-        if(pageBean.getOrderBy() == null){
-            pageBean.setOrderBy("create_time");
-        }
-        if(pageBean.getOrderType() == null){
-            pageBean.setOrderType("desc");
-        }
-        return "forward:/courses/list?start="+pageBean.getStart()+
-                "&size="+pageBean.getSize()+
-                "&orderBy="+pageBean.getOrderBy()+
-                "&orderType="+pageBean.getOrderType();
+    public String index() {
+        return "forward:/courses/list";
     }
 
     @RequestMapping(value = "/list")
     public String getCourseList(Model model, PageBean pageBean, CoursesQueryBean queryBean) throws Exception {
+
         List<CoursesDto> courseList = service.getCoursesList(pageBean, queryBean);
         Long courseCount = service.getCoursesCount(pageBean, queryBean);
         model.addAttribute("courseList", courseList);

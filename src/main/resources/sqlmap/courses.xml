@@ -204,8 +204,8 @@
         FROM
         courses c left join course_tag_realations r
         on r.course_id = c.id
-        and c.status = #{query.status}
-        and r.status = #{query.status}
+        where c.status = #{query.status}
+        and (r.`status` is NULL or r.`status`=#{query.status})
         <if test="query.keyword!=null">
             and c.`name` LIKE concat('%',#{query.keyword},'%')
         </if>
@@ -227,8 +227,8 @@
         FROM
         courses c left join course_tag_realations r
         on r.course_id = c.id
-        and c.status = #{query.status}
-        and r.status = #{query.status}
+        where c.status = #{query.status}
+        and (r.`status` is NULL or r.`status`=#{query.status})
         <if test="query.keyword!=null">
             and c.`name` LIKE concat('%',#{query.keyword},'%')
         </if>

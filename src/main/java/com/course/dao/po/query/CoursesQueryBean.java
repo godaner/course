@@ -1,12 +1,12 @@
 package com.course.dao.po.query;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by ZhangKe on 2018/1/30.
  */
 public class CoursesQueryBean extends BaseQueryBean {
-    private String keyword;
     private List<Long> tagIds;
 
     public List<Long> getTagIds() {
@@ -18,12 +18,4 @@ public class CoursesQueryBean extends BaseQueryBean {
         return this;
     }
 
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public CoursesQueryBean setKeyword(String keyword) {
-        this.keyword = keyword;
-        return this;
-    }
 }

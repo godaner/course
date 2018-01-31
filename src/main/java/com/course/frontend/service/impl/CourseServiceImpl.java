@@ -24,6 +24,9 @@ public class CourseServiceImpl extends BaseService implements CourseService {
 
     @Override
     public List<CoursesDto> getCoursesList(PageBean pageBean, CoursesQueryBean queryBean) throws Exception {
+        if(isEmptyList(queryBean.getTagIds())){
+            queryBean.setTagIds(null);
+        }
         return coursesMapper.getCoursesList(pageBean, queryBean).stream().parallel().map(
                 courses -> {
                     CoursesDto coursesDto = new CoursesDto();
@@ -40,6 +43,9 @@ public class CourseServiceImpl extends BaseService implements CourseService {
 
     @Override
     public Long getCoursesCount(PageBean pageBean, CoursesQueryBean queryBean) throws Exception {
+        if(isEmptyList(queryBean.getTagIds())){
+            queryBean.setTagIds(null);
+        }
         return coursesMapper.getCoursesCount(pageBean, queryBean);
     }
 }
