@@ -12,7 +12,8 @@
         <result column="name" property="name"/>
         <result column="description" property="description"/>
         <result column="download_number" property="downloadNumber"/>
-        <result column="learn_number" property="learnNumber"/>
+        <result column="collect_number" property="collectNumber"/>
+        <result column="watch_number" property="watchNumber"/>
     </resultMap>
 
     <sql id="BASE_ALL_CLOUM">
@@ -21,15 +22,16 @@
     </sql>
 
     <sql id="BASE_COLUM_WITHOUT_ID">
-		status,
-		create_time,
-		update_time,
-		img_url,
-		name,
-		description,
-		download_number,
-		learn_number
-	</sql>
+        status,
+        create_time,
+        update_time,
+        img_url,
+        name,
+        description,
+        download_number,
+        collect_number,
+        watch_number
+    </sql>
 
 
     <select id="count" resultType="int">
@@ -52,17 +54,18 @@
         #{name},
         #{description},
         #{downloadNumber},
-        #{learnNumber}
+        #{collectNumber},
+        #{watchNumber}
         )
     </insert>
 
     <delete id="delete">
-		DELETE
-		FROM
-			courses
-		WHERE
-			id = #{id}
-	</delete>
+        DELETE
+        FROM
+        courses
+        WHERE
+        id = #{id}
+    </delete>
 
     <update id="update" parameterType="com.course.dao.po.Courses">
         UPDATE
@@ -75,7 +78,8 @@
             <if test="name != null">name=#{name},</if>
             <if test="description != null">description=#{description},</if>
             <if test="downloadNumber != null">download_number=#{downloadNumber},</if>
-            <if test="learnNumber != null">learn_number=#{learnNumber}</if>
+            <if test="collectNumber != null">collect_number=#{collectNumber},</if>
+            <if test="watchNumber != null">watch_number=#{watchNumber}</if>
         </set>
         WHERE
         id=#{id}
@@ -129,8 +133,11 @@
                 <if test="query.downloadNumber != null ">
                     and download_number=#{query.downloadNumber}
                 </if>
-                <if test="query.learnNumber != null ">
-                    and learn_number=#{query.learnNumber}
+                <if test="query.collectNumber != null ">
+                    and collect_number=#{query.collectNumber}
+                </if>
+                <if test="query.watchNumber != null ">
+                    and watch_number=#{query.watchNumber}
                 </if>
             </if>
         </trim>
@@ -150,7 +157,8 @@
             #{item.name},
             #{item.description},
             #{item.downloadNumber},
-            #{item.learnNumber}
+            #{item.collectNumber},
+            #{item.watchNumber}
             )
         </foreach>
     </insert>
@@ -198,6 +206,8 @@
         <include refid="queryCondition"/>
         LIMIT 1
     </select>
+
+
     <!--**************************** 自定义mapper start ****************************-->
     <select id="getCoursesList" resultMap="CoursesMap">
         SELECT DISTINCT c.*
@@ -246,12 +256,14 @@
         <result column="name" property="name"/>
         <result column="description" property="description"/>
         <result column="download_number" property="downloadNumber"/>
-        <result column="learn_number" property="learnNumber"/>
+        <result column="watch_number" property="watchNumber"/>
+        <result column="collect_number" property="collectNumber"/>
         <collection property="courseSourcesList" ofType="com.course.dao.po.CourseSources">
             <id column="source_id" property="id"/>
             <result column="course_id" property="courseId"/>
             <result column="source_name" property="name"/>
-            <result column="url" property="url"/>
+            <result column="download_url" property="downloadUrl"/>
+            <result column="watch_url" property="watchUrl"/>
             <result column="sort" property="sort"/>
             <result column="source_description" property="description"/>
         </collection>
@@ -263,7 +275,8 @@
         s.id as source_id,
         s.`NAME` AS source_name,
         s.description AS source_description,
-        s.url,
+        s.download_url,
+        s.watch_url,
         s.sort
         FROM
         courses c

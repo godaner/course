@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
@@ -57,13 +58,16 @@ public class CourseController extends ServiceController<CourseService> {
     }
 
     @RequestMapping(value = "/src/{name}")
-    public void getCourseSrc(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
-        try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
-        }
+    public void getCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+        service.getCourseSrc(name, courseId, httpServletResponse);
+
+    }
+
+    @RequestMapping(value = "/download/{name}")
+    public void downloadCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+
+        service.downloadCourseSrc(name, courseId, httpServletResponse);
+
     }
 
 }

@@ -6,9 +6,18 @@ package com.course.frontend.service.dto;
 public class CourseSourcesDto {
     private Long courseSourceId;
     private String courseSourceName;
-    private String courseSourceUrl;
+    private String courseWatchSourceUrl;
+    private String courseDownloadSourceUrl;
     private Integer courseSourceSort;
     private String courseSourceDescription;
+
+    public String getCourseDownloadSourceUrl() {
+        return courseDownloadSourceUrl;
+    }
+
+    public void setCourseDownloadSourceUrl(String courseDownloadSourceUrl) {
+        this.courseDownloadSourceUrl = courseDownloadSourceUrl;
+    }
 
     public Long getCourseSourceId() {
         return courseSourceId;
@@ -26,12 +35,12 @@ public class CourseSourcesDto {
         this.courseSourceName = courseSourceName;
     }
 
-    public String getCourseSourceUrl() {
-        return courseSourceUrl;
+    public String getCourseWatchSourceUrl() {
+        return courseWatchSourceUrl;
     }
 
-    public void setCourseSourceUrl(String courseSourceUrl) {
-        this.courseSourceUrl = courseSourceUrl;
+    public void setCourseWatchSourceUrl(String courseWatchSourceUrl) {
+        this.courseWatchSourceUrl = courseWatchSourceUrl;
     }
 
     public Integer getCourseSourceSort() {

@@ -12,10 +12,15 @@ import com.course.frontend.service.dto.CourseSourcesDto;
 import com.course.frontend.service.dto.CoursesDto;
 import com.course.util.BaseService;
 import com.course.util.PageBean;
+import com.course.util.ProjectConfig;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -52,20 +57,52 @@ public class CourseServiceImpl extends BaseService implements CourseService {
     @Transactional
     public CoursesDto getCourseInfo(PageBean pageBean, Long courseId) {
 
-        Courses courses = coursesMapper.select(courseId);
-        if (courses == null) {
-            throw new CoursesException("getCourseInfo select is fail !! pageBean is : " + pageBean + " ,courseId is : " + courseId);
-        }
-        courses.setLearnNumber(courses.getLearnNumber() + 1);
-
-        if (coursesMapper.update(courses) <= 0) {
-            throw new CoursesException("getCourseInfo update is fail !! pageBean is : " + pageBean + " ,courseId is : " + courseId);
-        }
-
         CourseSourcesQueryBean queryBean = new CourseSourcesQueryBean();
         queryBean.setStatus(BasePo.Status.NORMAL.getCode());
         CoursesWithSources coursesWithSources = coursesMapper.getCourseWithSources(pageBean, queryBean, courseId);
         return makeCourseDto(coursesWithSources);
+    }
+
+    @Override
+    public void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+
+        Courses courses = coursesMapper.select(courseId);
+        if (courses == null) {
+            throw new CoursesException("getCourseSrc select is fail !! name is : " + name + " ,courseId is : " + courseId);
+        }
+        courses.setWatchNumber(courses.getWatchNumber() + 1);
+
+        if (coursesMapper.update(courses) <= 0) {
+            throw new CoursesException("getCourseSrc update is fail !! name is : " + name + " ,courseId is : " + courseId);
+        }
+        try {
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
+        }
+    }
+
+    @Override
+    public void downloadCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+        Courses courses = coursesMapper.select(courseId);
+        if (courses == null) {
+            throw new CoursesException("getCourseSrc select is fail !! name is : " + name + " ,courseId is : " + courseId);
+        }
+        courses.setDownloadNumber(courses.getDownloadNumber() + 1);
+
+        if (coursesMapper.update(courses) <= 0) {
+            throw new CoursesException("getCourseSrc update is fail !! name is : " + name + " ,courseId is : " + courseId);
+        }
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletResponse.setContentType("video/mp4");
+        httpServletResponse.addHeader("Content-Disposition", "attachment; filename=" + name + ".mp4");
+        try {
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
+        }
     }
 
     private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {
@@ -73,7 +110,8 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         coursesDto.setCourseId(coursesWithSources.getId());
         coursesDto.setDescription(coursesWithSources.getDescription());
         coursesDto.setDownloadNumber(coursesWithSources.getDownloadNumber());
-        coursesDto.setLearnNumber(coursesWithSources.getLearnNumber());
+        coursesDto.setWatchNumber(coursesWithSources.getWatchNumber());
+        coursesDto.setCollectNumber(coursesWithSources.getCollectNumber());
         coursesDto.setName(coursesWithSources.getName());
         coursesDto.setImgUrl(coursesWithSources.getImgUrl());
         List<CourseSourcesDto> courseSourcesDtos = coursesWithSources.getCourseSourcesList().stream().parallel().map(courseSources -> {
@@ -83,7 +121,8 @@ public class CourseServiceImpl extends BaseService implements CourseService {
             courseSourcesDto.setCourseSourceId(courseSources.getId());
             courseSourcesDto.setCourseSourceName(courseSources.getName());
             courseSourcesDto.setCourseSourceSort(courseSources.getSort());
-            courseSourcesDto.setCourseSourceUrl(courseSources.getUrl());
+            courseSourcesDto.setCourseWatchSourceUrl(courseSources.getWatchUrl());
+            courseSourcesDto.setCourseDownloadSourceUrl(courseSources.getDownloadUrl());
 
             return courseSourcesDto;
         }).collect(toList());
@@ -96,7 +135,8 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         coursesDto.setCourseId(courses.getId());
         coursesDto.setDescription(courses.getDescription());
         coursesDto.setDownloadNumber(courses.getDownloadNumber());
-        coursesDto.setLearnNumber(courses.getLearnNumber());
+        coursesDto.setWatchNumber(courses.getWatchNumber());
+        coursesDto.setCollectNumber(courses.getCollectNumber());
         coursesDto.setName(courses.getName());
         coursesDto.setImgUrl(courses.getImgUrl());
         return coursesDto;

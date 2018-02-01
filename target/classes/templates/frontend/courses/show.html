@@ -153,7 +153,7 @@
         </li>
 
         <li>
-            <a id="nowLean" href="javascript:void(0);" ></a>
+            <a id="nowLean" href="javascript:void(0);"></a>
         </li>
     </ol>
 
@@ -225,7 +225,7 @@
                             <!--//    courseSourceSort-->
                             <!--//        :-->
                             <!--//        1-->
-                            <!--//    courseSourceUrl-->
+                            <!--//courseWatchSourceUrleUrl-->
                             <!--//        :-->
                             <!--//        "/courses/src/1"-->
 
@@ -347,9 +347,6 @@
             </div>
 
 
-
-
-
             <div class="sidebox mooc-teacher">
                 <div class="sidebox-header mooc-header">
                     <h4 class="sidebox-title" th:text="${course.name}"></h4>
@@ -364,14 +361,15 @@
 
 
                     <div class="mooc-extra-info">
-                        <div th:text="'下载数:'+${course.downloadNumber}+'    观看数:'+${course.learnNumber}"
+                        <div th:text="'下载数:'+${course.downloadNumber}+'    观看数:'+${course.watchNumber}+'    收藏数数:'+${course.collectNumber}"
                              class="word long-paragraph">
 
                         </div>
                     </div>
                 </div>
                 <div class="sidebox-footer mooc-footer">
-                    <a class="video-download-btn" href="http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4" target="_blank">下载视频 ></a>
+                    <a class="video-download-btn" href="http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4"
+                       target="_blank">下载视频 ></a>
                 </div>
             </div>
         </div>
@@ -754,66 +752,100 @@
     //    courseSourceSort
     //        :
     //        1
-    //    courseSourceUrl
+    //    courseWatchSourceUrl
     //        :
     //        "/courses/src/1"
     var currtSrcIndex = 0;
     var srcs = [[${course.courseSourcesDtoList}]];
+    var courseId = [[${course.courseId}]];
     var $nowLean = $("#nowLean");
     var $videoDownloadBtn = $(".video-download-btn");
-    c(srcs);
     var video = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4";
-    if (srcs != undefined && srcs[currtSrcIndex] != undefined && srcs[currtSrcIndex].courseSourceUrl != undefined) {
-        video = srcs[currtSrcIndex].courseSourceUrl;
-        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
-    }else{
-        $nowLean.html("无学习视频");
-    }
-    initPlayer(video);
 
+    displayCourseSource(currtSrcIndex);
+
+    /**********************触发事件********************/
     $(".play-btn").click(function () {
         var srcIndex = $(this).attr("srcIndex");
         currtSrcIndex = srcIndex;
-        var src = srcs[currtSrcIndex];
-        c("正在播放:"+src.courseSourceName);
-        c("播放连接:"+src.courseSourceUrl);
-        $videoDownloadBtn.attr("href", src.courseSourceUrl);
-        $nowLean.html("正在学习 : "+src.courseSourceName);
-        initPlayer(src.courseSourceUrl);
+        displayCourseSource(currtSrcIndex);
     });
 
     $("#preSrc").click(function () {
-        if((currtSrcIndex-1)<0 ){
+        if ((currtSrcIndex - 1) < 0) {
             messageModel.show("这已经是第一节了");
-            return ;
+            return;
         }
-        --currtSrcIndex ;
-        var srcUrl = srcs[currtSrcIndex].courseSourceUrl;
-        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
-        initPlayer(srcUrl);
+        --currtSrcIndex;
+        displayCourseSource(currtSrcIndex);
     });
     $("#nextSrc").click(function () {
-        if((currtSrcIndex+1)>srcs.length){
+        if ((currtSrcIndex + 1) > srcs.length) {
 
             messageModel.show("这已经是最后一节了");
-            return ;
+            return;
         }
-        ++currtSrcIndex ;
-        var srcUrl = srcs[currtSrcIndex].courseSourceUrl;
-        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
-        initPlayer(srcUrl);
+        ++currtSrcIndex;
+        displayCourseSource(currtSrcIndex);
+
     });
 
+    /*********************** 功能方法 ***************************/
 
+    function courseInfoTransformer(couseInfo) {
 
-    function initPlayer(srcUrl) {
+        if (couseInfo == undefined) {
+            couseInfo = {};
+        }
+        var courseWatchUrl = couseInfo.courseWatchSourceUrl;
+        var courseName = couseInfo.courseSourceName;
+        var courseDownloadUrl = couseInfo.courseDownloadSourceUrl;
+        return {
+            courseName: courseName,
+            courseWatchUrl: courseWatchUrl,
+            courseDownloadUrl: courseDownloadUrl
+        };
+    }
+    function displayCourseSource(currtSrcIndex) {
+        if (srcs == undefined) {
+            srcs = [];
+        }
+        renderPageInfo(courseInfoTransformer(srcs[currtSrcIndex]));
+    }
+
+    function renderPageInfo(info) {
+        initPlayer(info.courseWatchUrl);
+        setDownloadUrl(info.courseDownloadUrl);
+        setNowLearn(info.courseName);
+    }
+    function setNowLearn(learnName) {
+        var msg = "正在学习 : " + learnName;
+        if (learnName == undefined || learnName == "") {
+            msg = "无学习视频";
+        }
+        $nowLean.html(msg);
+    }
+
+    function setDownloadUrl(originalDownloadUrl) {
+        var s = originalDownloadUrl + "?courseId=" + courseId;
+        if (originalDownloadUrl == undefined || originalDownloadUrl == "") {
+            s = "javascript:void(0);";
+        }
+        $videoDownloadBtn.attr("href", s);
+    }
+
+    function initPlayer(watchUrl) {
+        s = watchUrl + "?courseId=" + courseId;
+        if (watchUrl == undefined || watchUrl == "") {
+            s = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4";
+        }
         var videoObject = {
             container: '#m_player',//“#”代表容器的ID，“.”或“”代表容器的class
             variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
             autoplay: true,//默认自动播放
             volume: 1.0,//初始化音量
             flashplayer: true,//如果强制使用flashplayer则设置成true
-            video: srcUrl//视频地址http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4
+            video: s//视频地址http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4
 
         };
 

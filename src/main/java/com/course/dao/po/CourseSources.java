@@ -5,7 +5,8 @@ package com.course.dao.po;
  */
 public class CourseSources extends BasePo {
     private String name;
-    private String url;
+    private String watchUrl;
+    private String downloadUrl;
     private Integer sort;
     private String description;
 
@@ -17,12 +18,20 @@ public class CourseSources extends BasePo {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public String getWatchUrl() {
+        return watchUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setWatchUrl(String watchUrl) {
+        this.watchUrl = watchUrl;
+    }
+
+    public String getDownloadUrl() {
+        return downloadUrl;
+    }
+
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
     }
 
     public Integer getSort() {

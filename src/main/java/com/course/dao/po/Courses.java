@@ -8,7 +8,8 @@ public class Courses extends BasePo{
     private String name;
     private String description;
     private Long downloadNumber;
-    private Long learnNumber;
+    private Long watchNumber;
+    private Long collectNumber;
 
     public String getImgUrl() {
         return imgUrl;
@@ -42,11 +43,19 @@ public class Courses extends BasePo{
         this.downloadNumber = downloadNumber;
     }
 
-    public Long getLearnNumber() {
-        return learnNumber;
+    public Long getWatchNumber() {
+        return watchNumber;
     }
 
-    public void setLearnNumber(Long learnNumber) {
-        this.learnNumber = learnNumber;
+    public void setWatchNumber(Long watchNumber) {
+        this.watchNumber = watchNumber;
+    }
+
+    public Long getCollectNumber() {
+        return collectNumber;
+    }
+
+    public void setCollectNumber(Long collectNumber) {
+        this.collectNumber = collectNumber;
     }
 }

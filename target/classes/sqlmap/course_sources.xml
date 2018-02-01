@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.course.dao.mapper.CourseSourcesMapper">
-<resultMap type="com.course.dao.po.CourseSources"  id="CourseSourcesMap">
-  <id column="id" property="id"/>
-  <result column="status" property="status"/>
-  <result column="create_time" property="createTime"/>
-  <result column="update_time" property="updateTime"/>
-  <result column="course_id" property="courseId"/>
-  <result column="name" property="name"/>
-  <result column="url" property="url"/>
-  <result column="sort" property="sort"/>
-  <result column="description" property="description"/>
-</resultMap>
+	<resultMap type="com.course.dao.po.CourseSources"  id="CourseSourcesMap">
+		<id column="id" property="id"/>
+		<result column="status" property="status"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="course_id" property="courseId"/>
+		<result column="name" property="name"/>
+		<result column="watch_url" property="watchUrl"/>
+		<result column="sort" property="sort"/>
+		<result column="description" property="description"/>
+		<result column="download_url" property="downloadUrl"/>
+	</resultMap>
 
-    <sql id="BASE_ALL_CLOUM">
-        id,
-        <include refid="BASE_COLUM_WITHOUT_ID"/>
-    </sql>
+	<sql id="BASE_ALL_CLOUM">
+		id,
+		<include refid="BASE_COLUM_WITHOUT_ID"/>
+	</sql>
 
 	<sql id="BASE_COLUM_WITHOUT_ID">
 		status,
@@ -26,66 +27,69 @@
 		update_time,
 		course_id,
 		name,
-		url,
+		watch_url,
 		sort,
-		description
+		description,
+		download_url
 	</sql>
 
 
 
 	<select id="count" resultType="int">
-		SELECT 
-			count(1)
+		SELECT
+		count(1)
 		FROM
 		course_sources
 		<include refid="queryCondition" />
 	</select>
 
-<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO course_sources(
-        <include refid="BASE_COLUM_WITHOUT_ID"/>
-        )
-        VALUES (
-#{status},
-#{createTime},
-#{updateTime},
-#{courseId},
-#{name},
-#{url},
-#{sort},
-#{description}
-       )
-				 </insert>
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO course_sources(
+		<include refid="BASE_COLUM_WITHOUT_ID"/>
+		)
+		VALUES (
+		#{status},
+		#{createTime},
+		#{updateTime},
+		#{courseId},
+		#{name},
+		#{watchUrl},
+		#{sort},
+		#{description},
+		#{downloadUrl}
+		)
+	</insert>
 
-<delete id="delete">
+	<delete id="delete">
 		DELETE
 		FROM
-			course_sources
+		course_sources
 		WHERE
-			id = #{id}
+		id = #{id}
 	</delete>
 
-<update id="update" parameterType="com.course.dao.po.CourseSources" >
-UPDATE
+	<update id="update" parameterType="com.course.dao.po.CourseSources" >
+		UPDATE
 		course_sources
-<set>
-<if test="status != null">status=#{status},</if>
-<if test="createTime != null">create_time=#{createTime},</if>
-<if test="updateTime != null">update_time=#{updateTime},</if>
-<if test="courseId != null">course_id=#{courseId},</if>
-<if test="name != null">name=#{name},</if>
-<if test="url != null">url=#{url},</if>
-<if test="sort != null">sort=#{sort},</if>
-<if test="description != null">description=#{description}</if>
-</set>
-WHERE
-id=#{id}
-</update>
+		<set>
+			<if test="status != null">status=#{status},</if>
+			<if test="createTime != null">create_time=#{createTime},</if>
+			<if test="updateTime != null">update_time=#{updateTime},</if>
+			<if test="courseId != null">course_id=#{courseId},</if>
+			<if test="name != null">name=#{name},</if>
+			<if test="watchUrl != null">watch_url=#{watchUrl},</if>
+			<if test="sort != null">sort=#{sort},</if>
+			<if test="description != null">description=#{description},</if>
+			<if test="downloadUrl != null">download_url=#{downloadUrl}</if>
+		</set>
+		WHERE
+		id=#{id}
+	</update>
 
 
 	<select id="selectList" resultMap="CourseSourcesMap">
 		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
+		<include refid="BASE_ALL_CLOUM"/>
 		FROM
 		course_sources
 		<include refid="queryCondition" />
@@ -95,97 +99,101 @@ id=#{id}
 
 	<select id="selectListOrderBy" resultMap="CourseSourcesMap">
 		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
+		<include refid="BASE_ALL_CLOUM"/>
 		FROM
 		course_sources
 		<include refid="queryCondition" />
-	<if test="orderBy != null and orderType != null">
+		<if test="orderBy != null and orderType != null">
 			order by ${orderBy} ${orderType}
 		</if>
 		limit #{start},#{size}
 
 	</select>
 
-<sql id="queryCondition">
-<trim prefix="where" prefixOverrides="and">
-<if test="query != null">
-<if test="query.status != null ">
-		and status=#{query.status}
-</if>
-<if test="query.createTime != null ">
-		and create_time=#{query.createTime}
-</if>
-<if test="query.updateTime != null ">
-		and update_time=#{query.updateTime}
-</if>
-<if test="query.courseId != null ">
-		and course_id=#{query.courseId}
-</if>
-<if test="query.name != null ">
-		and name=#{query.name}
-</if>
-<if test="query.url != null ">
-		and url=#{query.url}
-</if>
-<if test="query.sort != null ">
-		and sort=#{query.sort}
-</if>
-<if test="query.description != null ">
-		and description=#{query.description}
-</if>
-</if>
-</trim>
-</sql>
+	<sql id="queryCondition">
+		<trim prefix="where" prefixOverrides="and">
+			<if test="query != null">
+				<if test="query.status != null ">
+					and status=#{query.status}
+				</if>
+				<if test="query.createTime != null ">
+					and create_time=#{query.createTime}
+				</if>
+				<if test="query.updateTime != null ">
+					and update_time=#{query.updateTime}
+				</if>
+				<if test="query.courseId != null ">
+					and course_id=#{query.courseId}
+				</if>
+				<if test="query.name != null ">
+					and name=#{query.name}
+				</if>
+				<if test="query.watchUrl != null ">
+					and watch_url=#{query.watchUrl}
+				</if>
+				<if test="query.sort != null ">
+					and sort=#{query.sort}
+				</if>
+				<if test="query.description != null ">
+					and description=#{query.description}
+				</if>
+				<if test="query.downloadUrl != null ">
+					and download_url=#{query.downloadUrl}
+				</if>
+			</if>
+		</trim>
+	</sql>
 
 
-<insert id="batchInsert"  useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
-        INSERT INTO course_sources(
-        <include refid="BASE_COLUM_WITHOUT_ID"/>
-)        VALUES 
-   <foreach collection ="list" item ="item" index ="index" separator =","> 
-(
-#{item.status},
-#{item.createTime},
-#{item.updateTime},
-#{item.courseId},
-#{item.name},
-#{item.url},
-#{item.sort},
-#{item.description}
-)
-</foreach> 
-</insert>
+	<insert id="batchInsert"  useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
+		INSERT INTO course_sources(
+		<include refid="BASE_COLUM_WITHOUT_ID"/>
+		)        VALUES
+		<foreach collection ="list" item ="item" index ="index" separator =",">
+			(
+			#{item.status},
+			#{item.createTime},
+			#{item.updateTime},
+			#{item.courseId},
+			#{item.name},
+			#{item.watchUrl},
+			#{item.sort},
+			#{item.description},
+			#{item.downloadUrl}
+			)
+		</foreach>
+	</insert>
 
 
-    <select id="select" resultMap="CourseSourcesMap">
+	<select id="select" resultMap="CourseSourcesMap">
         SELECT * FROM course_sources WHERE id = #{id}
     </select>
 
 
-    <select id="selectInIds" resultMap="CourseSourcesMap">
-        SELECT
-        <include refid="BASE_ALL_CLOUM"/>
-        FROM
-        course_sources
-        WHERE id IN
-        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-    </select>
+	<select id="selectInIds" resultMap="CourseSourcesMap">
+		SELECT
+		<include refid="BASE_ALL_CLOUM"/>
+		FROM
+		course_sources
+		WHERE id IN
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
 
 
-    <select id="selectIdList" resultType="java.lang.Long">
-        SELECT
- 		 id 
-        FROM
-        course_sources
-        <include refid="queryCondition" />
+	<select id="selectIdList" resultType="java.lang.Long">
+		SELECT
+		id
+		FROM
+		course_sources
+		<include refid="queryCondition" />
 
-    </select>
+	</select>
 
 
 	<select id="selectBy" resultMap="CourseSourcesMap">
-		SELECT * 
+		SELECT *
 		FROM
 		course_sources
 		<include refid="queryCondition" />
@@ -193,11 +201,11 @@ id=#{id}
 
 
 	<select id="selectOneBy" resultMap="CourseSourcesMap">
-		SELECT * 
+		SELECT *
 		FROM
 		course_sources
 		<include refid="queryCondition" />
-		LIMIT 1 
+		LIMIT 1
 	</select>
 
 </mapper>

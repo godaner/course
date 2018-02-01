@@ -13,28 +13,9 @@ public class CoursesDto {
     private String name;
     private String description;
     private Long downloadNumber;
-    private Long learnNumber;
+    private Long watchNumber;
+    private Long collectNumber;
     private List<CourseSourcesDto> courseSourcesDtoList;
-
-    @Override
-    public String toString() {
-        return "CoursesDto{" +
-                "courseId=" + courseId +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", downloadNumber='" + downloadNumber + '\'' +
-                ", learnNumber='" + learnNumber + '\'' +
-                '}';
-    }
-
-    public List<CourseSourcesDto> getCourseSourcesDtoList() {
-        return courseSourcesDtoList;
-    }
-
-    public void setCourseSourcesDtoList(List<CourseSourcesDto> courseSourcesDtoList) {
-        this.courseSourcesDtoList = courseSourcesDtoList;
-    }
 
     public Long getCourseId() {
         return courseId;
@@ -76,11 +57,27 @@ public class CoursesDto {
         this.downloadNumber = downloadNumber;
     }
 
-    public Long getLearnNumber() {
-        return learnNumber;
+    public Long getWatchNumber() {
+        return watchNumber;
     }
 
-    public void setLearnNumber(Long learnNumber) {
-        this.learnNumber = learnNumber;
+    public void setWatchNumber(Long watchNumber) {
+        this.watchNumber = watchNumber;
+    }
+
+    public Long getCollectNumber() {
+        return collectNumber;
+    }
+
+    public void setCollectNumber(Long collectNumber) {
+        this.collectNumber = collectNumber;
+    }
+
+    public List<CourseSourcesDto> getCourseSourcesDtoList() {
+        return courseSourcesDtoList;
+    }
+
+    public void setCourseSourcesDtoList(List<CourseSourcesDto> courseSourcesDtoList) {
+        this.courseSourcesDtoList = courseSourcesDtoList;
     }
 }
