@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,9 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/users")
 public class UserController extends ServiceController<UserService> {
     @RequestMapping(value = "/regist")
+    @ResponseBody
     public Object regist(UsersDto usersDto) throws Exception {
         service.regist(usersDto,getSession());
-        return "frontend/courses/index";
+        return response.setMsg("注册成功");
     }
 
 }

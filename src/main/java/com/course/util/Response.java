@@ -85,27 +85,6 @@ public class Response {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Response{" +
-                "code=" + code +
-                ", data=" + data +
-                ", msg='" + msg + '\'' +
-                '}';
-    }
-
-    /**
-     * <b>Title:</b>
-     * <br/>
-     * <br/>
-     * <b>Description:</b>响应异常
-     * <br/>
-     * <br/>
-     * <b>Author:</b>ZhangKe
-     * <br/>
-     * <br/>
-     * <b>Date:</b>2017/11/24 10:03
-     */
     public enum ResponseCode {
 
         //通用
