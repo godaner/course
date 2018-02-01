@@ -223,7 +223,7 @@
         </if>
     </select>
     <select id="getCoursesCount" resultType="long">
-        SELECT  count(DISTINCT c.id)
+        SELECT count(DISTINCT c.id)
         FROM
         courses c left join course_tag_realations r
         on r.course_id = c.id
@@ -259,20 +259,23 @@
 
     <select id="getCourseWithSources" resultMap="getCourseWithSourcesMap">
         SELECT
-            c.*,
-            s.id as source_id,
-            s.`NAME` AS source_name,
-            s.description AS source_description,
-            s.url,
-            s.sort
+        c.*,
+        s.id as source_id,
+        s.`NAME` AS source_name,
+        s.description AS source_description,
+        s.url,
+        s.sort
         FROM
-            courses c,
-            course_sources s
+        courses c
+        LEFT JOIN course_sources s
+        ON s.course_id = c.id
         WHERE
-            s.course_id = c.id
-            and s.status = #{query.status}
-            and c.status = #{query.status}
-            and c.id = #{courseId}
+        (
+        s. STATUS = #{query.status}
+        OR s.`status` IS NULL
+        )
+        and c.status = #{query.status}
+        and c.id = #{courseId}
         <if test="page.orderBy != null and page.orderType != null">
             order by ${page.orderBy} ${page.orderType}
         </if>
