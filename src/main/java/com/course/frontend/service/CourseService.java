@@ -19,4 +19,6 @@ public interface CourseService {
     void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
 
     void downloadCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
+
+    void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 }

@@ -15,9 +15,11 @@ import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,6 +29,7 @@ import static java.util.stream.Collectors.toList;
 
 
 @Service
+@Scope("prototype")
 public class CourseServiceImpl extends BaseService implements CourseService {
     @Autowired
     private CoursesMapper coursesMapper;
@@ -73,11 +76,12 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         if (coursesMapper.update(courses) <= 0) {
             throw new CoursesException("getCourseSrc update is fail !! name is : " + name + " ,courseId is : " + courseId);
         }
+        ServletOutputStream outputStream = httpServletResponse.getOutputStream();
         try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), outputStream);
         } catch (IOException e) {
             e.printStackTrace();
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), outputStream);
         }
     }
 
@@ -95,11 +99,24 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("video/mp4");
         httpServletResponse.addHeader("Content-Disposition", "attachment; filename=" + name + ".mp4");
+
+        ServletOutputStream outputStream = httpServletResponse.getOutputStream();
         try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), httpServletResponse.getOutputStream());
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), outputStream);
         } catch (IOException e) {
             e.printStackTrace();
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), httpServletResponse.getOutputStream());
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), outputStream);
+        }
+    }
+
+    @Override
+    public void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception {
+        ServletOutputStream outputStream = httpServletResponse.getOutputStream();
+        try {
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + name + ".png"), outputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + "default.png"), outputStream);
         }
     }
 

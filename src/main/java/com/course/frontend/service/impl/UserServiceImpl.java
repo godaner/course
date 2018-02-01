@@ -8,14 +8,22 @@ import com.course.frontend.service.UserService;
 import com.course.frontend.service.dto.UsersDto;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
+import com.course.util.ProjectConfig;
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 
 @Service
+@Scope("prototype")
 public class UserServiceImpl extends BaseService implements UserService {
     @Autowired
     private UsersMapper usersMapper;
@@ -61,6 +69,23 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
         session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, users);
 
+    }
+
+    @Override
+    public void logout(HttpSession session) throws Exception {
+        session.removeAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+        session.invalidate();
+    }
+
+    @Override
+    public void getUserImg(String name, HttpServletResponse httpServletResponse) throws Exception {
+        ServletOutputStream outputStream = httpServletResponse.getOutputStream();
+        try {
+            IOUtils.copy(new FileInputStream(ProjectConfig.USER_IMG_PATH + name + ".png"), outputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+            IOUtils.copy(new FileInputStream(ProjectConfig.USER_IMG_PATH + "default.png"), outputStream);
+        }
     }
 
     private Users makeUsers(UsersDto usersDto) {

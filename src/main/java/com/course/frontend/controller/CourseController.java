@@ -7,6 +7,7 @@ import com.course.frontend.service.dto.CoursesDto;
 import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
 import org.apache.commons.io.IOUtils;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/courses")
+@Scope("prototype")
 public class CourseController extends ServiceController<CourseService> {
 
     @RequestMapping("/index")
@@ -49,12 +51,9 @@ public class CourseController extends ServiceController<CourseService> {
 
     @RequestMapping(value = "/img/{name}")
     public void getCourseImg(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
-        try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + name + ".png"), httpServletResponse.getOutputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + "default.png"), httpServletResponse.getOutputStream());
-        }
+
+        service.getCourseImg(name, httpServletResponse);
+
     }
 
     @RequestMapping(value = "/src/{name}")

@@ -7,6 +7,7 @@ import com.course.frontend.service.dto.TagGroupsDto;
 import com.course.frontend.service.dto.TagsDto;
 import com.course.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import static java.util.stream.Collectors.toList;
 
 
 @Service
+@Scope("prototype")
 public class TagGroupsServiceImpl implements TagGroupsService {
 
     @Autowired

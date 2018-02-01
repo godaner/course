@@ -28,10 +28,18 @@
             </ul>
 
 
-            <div class="navbar-right btns">
-                <a class="btn btn-default navbar-btn sign-in" data-sign="signin" href="#sign-modal" data-toggle="modal">登录</a>
-                <a class="btn btn-default navbar-btn sign-up" data-sign="signup" href="#sign-modal" data-toggle="modal">注册</a>
-            </div>
+            <th:block th:if="${session.onlineUser==null}">
+                <div class="navbar-right btns">
+                    <a class="btn btn-default navbar-btn sign-in" data-sign="signin" href="#sign-modal" data-toggle="modal">登录</a>
+                    <a class="btn btn-default navbar-btn sign-up" data-sign="signup" href="#sign-modal" data-toggle="modal">注册</a>
+                </div>
+            </th:block>
+            <th:block th:if="${session.onlineUser!=null}">
+                <div class="navbar-right btns">
+                    <img style="width: 30px;height: 30px;" class="img-circle" th:src="@{${session.onlineUser.imgUrl}}" alt="头像"/>
+                    <a class="btn btn-default navbar-btn sign-up" data-sign="signup" th:href="@{/users/logout}" data-toggle="modal">注销</a>
+                </div>
+            </th:block>
 
 
             <form class="navbar-form navbar-right" th:action="@{${indexUrl}}" method="get" role="search">
