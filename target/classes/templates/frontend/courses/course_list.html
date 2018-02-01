@@ -77,14 +77,14 @@
                     <div class="col-md-3 col-sm-6  course"
                          th:each="course,courseStatus : ${#httpServletRequest.getAttribute('courseList')}">
                         <a class="course-box" th:href="@{/courses/{courseId}(courseId=${course.courseId})}">
-                            <div class="sign-box">
+                            <!--<div class="sign-box">-->
 
 
-                                <i class="fa fa-star-o course-follow pull-right"
-                                   data-follow-url="/courses/63/follow"
-                                   data-unfollow-url="/courses/63/unfollow" style="display:none"></i>
+                            <!--<i class="fa fa-star-o course-follow pull-right"-->
+                            <!--data-follow-url="/courses/63/follow"-->
+                            <!--data-unfollow-url="/courses/63/unfollow" style="display:none"></i>-->
 
-                            </div>
+                            <!--</div>-->
                             <div class="course-img">
 
                                 <img th:alt="${course.name}" th:src="${course.imgUrl}"
@@ -102,16 +102,20 @@
                             <span class="course-per-num pull-left">
                                 <i class="fa fa-users"></i>
 
-                                下载量
+                                下载
                                 <span th:text="${course.downloadNumber}">Onions</span>
+                                &nbsp;
+                                收藏
+                                <span th:text="${course.collectNumber}">Onions</span>
 
                             </span>
-                                <span class="course-money pull-right">
+                            <span class="course-money pull-right">
+                                播放次数
+                                <span th:text="${course.watchNumber}">Onions
+                                </span>
 
-                                    <span th:text="${course.learnNumber}">Onions
-                                    </span>
-                                    人已学习
                             </span>
+
                             </div>
                         </a>
                     </div>
