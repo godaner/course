@@ -1,8 +1,5 @@
 package com.course.dao.po;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
 public class CourseSources extends BasePo {
     private String name;
     private String watchUrl;

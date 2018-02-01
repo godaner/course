@@ -4,9 +4,7 @@ import com.course.dao.po.CourseSources;
 
 import java.util.List;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
+
 public class CoursesDto {
     protected Long courseId;
     private String imgUrl;

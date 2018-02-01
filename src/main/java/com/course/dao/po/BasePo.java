@@ -3,18 +3,7 @@ package com.course.dao.po;
 
 import com.course.util.ByteConstantVar;
 
-/**
- * <b>Title:</b>
- * <br/>
- * <br/>
- * <b>Description:</b>
- * <br/>
- * <br/>
- * <b>Author:</b>ZhangKe
- * <br/>
- * <br/>
- * <b>Date:</b>2017/11/24 10:16
- */
+
 public class BasePo {
     /**
      * 主键自增id

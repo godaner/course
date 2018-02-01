@@ -69,6 +69,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
+                    <!--登录-->
                     <div role="tabpanel" class="tab-pane active" id="signin-form">
                         <form action="/login" method="post">
                             <div class="form-group">
@@ -115,14 +116,15 @@
                             </div>
                         </form>
                     </div>
+                    <!--注册-->
                     <div role="tabpanel" class="tab-pane" id="signup-form">
-                        <form action="/register" method="post">
+                        <form action="/users" method="post">
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-envelope" style="margin:0;"></i>
                                     </div>
-                                    <input type="email" name="email" class="form-control" placeholder="请输入邮箱">
+                                    <input type="text" name="username" class="form-control" placeholder="请输入用户名">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,28 +135,28 @@
                                     <input type="password" name="password" class="form-control" placeholder="请输入密码">
                                 </div>
                             </div>
-                            <div class="form-inline">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="text" name="captcha_v" class="form-control" placeholder="请输入验证码">
-                                    </div>
-                                </div>
-                                <img class="verify-code" src="" source="img/captcha.gif">
-                            </div>
+                            <!--<div class="form-inline">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="input-group">-->
+                                        <!--<input type="text" name="captcha_v" class="form-control" placeholder="请输入验证码">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<img class="verify-code" src="" source="img/captcha.gif">-->
+                            <!--</div>-->
                             <div class="form-group">
                                 <input class="btn btn-primary" name="submit" type="submit" value="注册">
                             </div>
                             <div class="form-group agree-privacy">
-                                注册表示您已经同意我们的<a href="../privacy/index.html" target="_blank">隐私条款</a>
+                                注册表示您已经同意我们的<a href="javascript:void(0);" target="_blank">隐私条款</a>
                             </div>
-                            <div class="form-group widget-signup">
-                                <span>快速注册</span>
-                                <a href="/auth/qq?next="><i class="fa fa-qq"></i></a>
-                                <a href="/auth/weibo?next="><i class="fa fa-weibo"></i></a>
-                                <a href="/auth/weixin?next="><i class="fa fa-weixin"></i></a>
-                                <a href="/auth/github?next="><i class="fa fa-github"></i></a>
-                                <a href="/auth/renren?next="><i class="fa fa-renren"></i></a>
-                            </div>
+                            <!--<div class="form-group widget-signup">-->
+                                <!--<span>快速注册</span>-->
+                                <!--<a href="/auth/qq?next="><i class="fa fa-qq"></i></a>-->
+                                <!--<a href="/auth/weibo?next="><i class="fa fa-weibo"></i></a>-->
+                                <!--<a href="/auth/weixin?next="><i class="fa fa-weixin"></i></a>-->
+                                <!--<a href="/auth/github?next="><i class="fa fa-github"></i></a>-->
+                                <!--<a href="/auth/renren?next="><i class="fa fa-renren"></i></a>-->
+                            <!--</div>-->
                             <div class="form-group error-msg">
                                 <div class="alert alert-danger" role="alert"></div>
                             </div>
@@ -166,5 +168,17 @@
     </div>
 </div>
 
+<!--message model-->
+<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var msg = [[${msg}]];
+    messageModel.show(msg);
+    /*]]>*/
+
+
+</script>
 </body>
 </html>

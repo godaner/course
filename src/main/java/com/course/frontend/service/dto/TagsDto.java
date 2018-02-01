@@ -1,8 +1,6 @@
 package com.course.frontend.service.dto;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
+
 public class TagsDto {
     private Long tagId;
     private String tagName;

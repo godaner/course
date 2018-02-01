@@ -1,8 +1,6 @@
 package com.course.frontend.service.dto;
 
-/**
- * Created by ZhangKe on 2018/1/31.
- */
+
 public class CourseSourcesDto {
     private Long courseSourceId;
     private String courseSourceName;

@@ -1,8 +1,6 @@
 package com.course.dao.po;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
+
 public class Courses extends BasePo{
     private String imgUrl;
     private String name;

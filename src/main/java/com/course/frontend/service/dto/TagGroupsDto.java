@@ -2,23 +2,13 @@ package com.course.frontend.service.dto;
 
 import java.util.List;
 
-/**
- * Created by ZhangKe on 2018/1/30.
- */
+
 public class TagGroupsDto {
 
     private Long tagGroupId;
     private String tagGroupName;
     private List<TagsDto> tags;
 
-    @Override
-    public String toString() {
-        return "TagGroupsDto{" +
-                "tagGroupId=" + tagGroupId +
-                ", tagGroupName='" + tagGroupName + '\'' +
-                ", tags=" + tags +
-                '}';
-    }
 
     public String getTagGroupName() {
         return tagGroupName;
