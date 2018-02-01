@@ -33,9 +33,7 @@
         $modelMessage: $("#modal-message"),
         show: function (msg) {
             this.$modelMessage.find(".modal-body").html(msg);
-            this.$modelMessage.modal({
-                keyboard: true
-            })
+            this.$modelMessage.modal('show')
         },
         hide: function () {
             this.$modelMessage.modal('hide')
@@ -45,7 +43,7 @@
 
     /*默认显示msg*/
     var msg = [[${msg}]];
-    if(msg!=undefined&&msg!=""){
+    if (msg != undefined && msg != "") {
 
         messageModel.show(msg);
     }

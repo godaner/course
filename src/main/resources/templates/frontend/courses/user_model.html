@@ -31,7 +31,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-envelope" style="margin:0;"></i>
                                     </div>
-                                    <input type="email" name="login" class="form-control" placeholder="请输入邮箱">
+                                    <input id="login_username" type="text" name="username" class="form-control"
+                                           placeholder="请输入用户名">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -39,35 +40,15 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-lock" style="margin:0;"></i>
                                     </div>
-                                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                                    <input id="login_password" type="password" name="password" class="form-control"
+                                           placeholder="请输入密码">
                                 </div>
                             </div>
-                            <div class="form-inline verify-code-item" style="display:none;">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="text" name="captcha_v" class="form-control" placeholder="请输入验证码">
-                                    </div>
-                                </div>
-                                <img class="verify-code" src="" source="img/captcha.gif">
-                            </div>
-                            <div class="form-group remember-login">
-                                <input name="remember" type="checkbox" value="y"> 下次自动登录
-                                <a class="pull-right" href="../reset_password/index.html">忘记密码？</a>
-                            </div>
+
                             <div class="form-group">
-                                <input class="btn btn-primary" name="submit" type="submit" value="进入实验楼">
+                                <input id="login-btn" class="btn btn-primary" name="submit" type="submit" value="登录">
                             </div>
-                            <div class="form-group widget-signin">
-                                <span>快速登录</span>
-                                <a href="/auth/qq?next="><i class="fa fa-qq"></i></a>
-                                <a href="/auth/weibo?next="><i class="fa fa-weibo"></i></a>
-                                <a href="/auth/weixin?next="><i class="fa fa-weixin"></i></a>
-                                <a href="/auth/github?next="><i class="fa fa-github"></i></a>
-                                <a href="/auth/renren?next="><i class="fa fa-renren"></i></a>
-                            </div>
-                            <div class="form-group error-msg">
-                                <div class="alert alert-danger" role="alert"></div>
-                            </div>
+
                         </form>
                     </div>
                     <!--注册-->
@@ -136,6 +117,7 @@
 
 
     //    var $registForm = $("#signup-form");
+    //注册
     var $registBtn = $("#regist-btn");
     $registBtn.unbind('click');
     $registBtn.click(function () {
@@ -152,13 +134,45 @@
                 //请求前
             },
             success: function (result) {
-                if (CODE_OF_REQUEST_SUCCESS == result.code) {
-                    userModel.hide();
-                }else{
-
+                userModel.hide();
+                if (result.code == CODE_OF_REQUEST_SUCCESS) {
+                    window.location.reload();
+                } else {
+                    messageModel.show(result.msg);
                 }
-                //请求成功时
-                messageModel.show(result.msg);
+            },
+            complete: function () {
+                //请求结束时
+            },
+            error: function () {
+                //请求失败时
+            }
+        })
+    });
+    var $loginBtn = $("#login-btn");
+    $loginBtn.unbind('click');
+    $loginBtn.click(function () {
+//        var data = $registForm.serialize();
+        $.ajax({
+            url: '/users/login',
+            data: {
+                username: $("#login_username").val(),
+                password: $("#login_password").val()
+            },
+            cache: false,//false是不缓存，true为缓存
+            async: true,//true为异步，false为同步
+            beforeSend: function () {
+                //请求前
+            },
+            success: function (result) {
+                userModel.hide();
+                if (result.code == CODE_OF_REQUEST_SUCCESS) {
+                    window.location.reload();
+                } else {
+                    //请求成功时
+                    messageModel.show(result.msg);
+                }
+
             },
             complete: function () {
                 //请求结束时
@@ -169,14 +183,11 @@
         })
     });
 
-
     /********************功能性方法************************/
     var userModel = {
         $userModel: $("#sign-modal"),
-        show: function (msg) {
-            this.$userModel.modal({
-                keyboard: true
-            })
+        show: function () {
+            this.$userModel.modal('show')
         },
         hide: function () {
             this.$userModel.modal('hide')

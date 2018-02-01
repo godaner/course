@@ -32,7 +32,7 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public void regist(UsersDto usersDto, HttpSession session) throws UsersException {
+    public void regist(UsersDto usersDto, HttpSession session) throws Exception {
         Users user = makeUsers(usersDto);
 
         if (this.exitsUsername(usersDto.getUsername())) {
@@ -44,6 +44,23 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException("regist insert is fail !! userDto is : " + usersDto);
         }
         session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, user);
+    }
+
+    @Override
+    public void login(UsersDto usersDto, HttpSession session) throws Exception {
+        Users users = this.getUserByUsername(usersDto.getUsername());
+        if (users == null) {
+            logger.error("login username is not exits !! userDto is : " + usersDto);
+            throw new UsersException(UsersException.ErrorCode.USERNAME_IS_NOT_EXITS.getCode(),
+                    UsersException.ErrorCode.USERNAME_IS_NOT_EXITS.getMsg());
+        }
+        if (!users.getPassword().equals(usersDto.getPassword())) {
+            logger.error("login password is error !! userDto is : " + usersDto);
+            throw new UsersException(UsersException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
+                    UsersException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
+        }
+        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, users);
+
     }
 
     private Users makeUsers(UsersDto usersDto) {

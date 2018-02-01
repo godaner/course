@@ -21,5 +21,11 @@ public class UserController extends ServiceController<UserService> {
         service.regist(usersDto,getSession());
         return response.setMsg("注册成功");
     }
+    @RequestMapping(value = "/login")
+    @ResponseBody
+    public Object login(UsersDto usersDto) throws Exception {
+        service.login(usersDto,getSession());
+        return response.setMsg("登录成功");
+    }
 
 }
