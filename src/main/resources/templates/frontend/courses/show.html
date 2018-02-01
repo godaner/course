@@ -241,7 +241,7 @@
                                 </div>
                                 <div class="pull-right lab-item-ctrl">
 
-                                    <a th:attr="srcId=${src.courseSourceId},srcUrl=${src.courseSourceUrl}"
+                                    <a th:attr="srcIndex=${status.index}"
                                        class="btn btn-default play-btn" href="JavaScript:void(0);" data-toggle="modal"
                                        data-sign="signin"
                                        data-next="/courses/1">播放</a>
@@ -355,10 +355,10 @@
                     <h4 class="sidebox-title" th:text="${course.name}"></h4>
                 </div>
                 <div class="sidebox-body ">
-                    <a href="#" target="_blank"style="text-decoration: none;">
+                    <a id="preSrc" href="javascript:void(0);" style="text-decoration: none;">
                         播放上一节&nbsp;&nbsp;&nbsp;&nbsp;
                     </a>
-                    <a href="#" target="_blank"style="text-decoration: none;">
+                    <a id="nextSrc" href="javascript:void(0);" style="text-decoration: none;">
                         播放下一节
                     </a>
 
@@ -673,6 +673,7 @@
 <!--?=2016121272249-->
 <script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
 <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
+<script th:src="@{/frontend/app/dest/util.js}"></script>
 <script th:src="@{/frontend/static/ace/1.2.5/ace.js}"></script>
 <script th:src="@{/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js}"></script>
 <script th:src="@{/frontend/static/highlight.js/9.8.0/highlight.min.js}"></script>
@@ -729,6 +730,10 @@
 <!--tail-->
 <div th:include="/frontend/courses/footer :: #footer_body"></div>
 
+
+<!--message model-->
+<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+
 <script type="text/javascript">
 
 
@@ -752,25 +757,50 @@
     //    courseSourceUrl
     //        :
     //        "/courses/src/1"
+    var currtSrcIndex = 0;
     var srcs = [[${course.courseSourcesDtoList}]];
     var $nowLean = $("#nowLean");
     var $videoDownloadBtn = $(".video-download-btn");
     c(srcs);
     var video = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4";
-    if (srcs != undefined && srcs[0] != undefined && srcs[0].courseSourceUrl != undefined) {
-        video = srcs[0].courseSourceUrl;
-        $nowLean.html("正在学习 : "+srcs[0].courseSourceName);
+    if (srcs != undefined && srcs[currtSrcIndex] != undefined && srcs[currtSrcIndex].courseSourceUrl != undefined) {
+        video = srcs[currtSrcIndex].courseSourceUrl;
+        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
     }else{
         $nowLean.html("无学习视频");
     }
     initPlayer(video);
 
     $(".play-btn").click(function () {
-        var srcId = $(this).attr("srcId");
-        var srcUrl = $(this).attr("srcUrl");
-        c("正在播放:"+srcId);
-        c("正在播放:"+srcUrl);
-        $videoDownloadBtn.attr("href", srcUrl);
+        var srcIndex = $(this).attr("srcIndex");
+        currtSrcIndex = srcIndex;
+        var src = srcs[currtSrcIndex];
+        c("正在播放:"+src.courseSourceName);
+        c("播放连接:"+src.courseSourceUrl);
+        $videoDownloadBtn.attr("href", src.courseSourceUrl);
+        $nowLean.html("正在学习 : "+src.courseSourceName);
+        initPlayer(src.courseSourceUrl);
+    });
+
+    $("#preSrc").click(function () {
+        if((currtSrcIndex-1)<0 ){
+            messageModel.show("这已经是第一节了");
+            return ;
+        }
+        --currtSrcIndex ;
+        var srcUrl = srcs[currtSrcIndex].courseSourceUrl;
+        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
+        initPlayer(srcUrl);
+    });
+    $("#nextSrc").click(function () {
+        if((currtSrcIndex+1)>srcs.length){
+
+            messageModel.show("这已经是最后一节了");
+            return ;
+        }
+        ++currtSrcIndex ;
+        var srcUrl = srcs[currtSrcIndex].courseSourceUrl;
+        $nowLean.html("正在学习 : "+srcs[currtSrcIndex].courseSourceName);
         initPlayer(srcUrl);
     });
 
