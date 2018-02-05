@@ -8,6 +8,16 @@ public class UsersDto {
     private String description;
     private String username;
     private String password;
+    private String rePassword;
+
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
+    }
 
     public Long getUserId() {
         return userId;

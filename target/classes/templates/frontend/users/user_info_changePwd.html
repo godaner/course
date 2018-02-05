@@ -6,7 +6,37 @@
 </head>
 <body id="user_info_changePwd_body">
 
-</div>
+<form class="form-horizontal" th:action="@{'/users/updateOnlinePwd'}" role="form">
 
+    <div class="form-group">
+
+        <label class="col-sm-2 control-label">请输入新密码</label>
+        <div class="col-sm-3 ">
+            <!--<div class="input-group-addon">-->
+            <!--<i class="fa fa-envelope" style="margin:0;"></i>-->
+            <!--</div>-->
+            <input id="new_password" type="password" name="password" class="form-control"
+                   placeholder="请输入新密码">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">请再次输入新密码</label>
+        <div class="col-sm-3">
+            <!--<div class="input-group-addon">-->
+            <!--<i class="fa fa-envelope" style="margin:0;"></i>-->
+            <!--</div>-->
+            <input id="re_new_password" type="password" name="rePassword" class="form-control"
+                   placeholder="请再次输入新密码">
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-3">
+            <button type="submit" class="btn btn-default">保存</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>

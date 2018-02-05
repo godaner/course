@@ -25,22 +25,23 @@
         <div class="content">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
-                    <a href="#basicinfo" aria-controls="introduce" role="tab" data-toggle="tab">个人信息</a>
+                    <a href="#basicinfo" class="stat-event" aria-controls="basicinfo" role="tab"
+                       data-toggle="tab">个人信息</a>
                 </li>
                 <li role="presentation">
-                    <a href="#changePwd" class="stat-event" aria-controls="labs" role="tab"
+                    <a href="#changePwd" class="stat-event" aria-controls="changePwd" role="tab"
                        data-toggle="tab">修改密码</a>
                 </li>
                 <li role="presentation">
-                    <a href="#changeHead" class="stat-event" aria-controls="labs" role="tab"
+                    <a href="#changeHead" class="stat-event" aria-controls="changeHead" role="tab"
                        data-toggle="tab">修改头像</a>
                 </li>
                 <li role="presentation">
-                    <a href="#downloadCourse" class="stat-event" aria-controls="labs" role="tab"
+                    <a href="#downloadCourse" class="stat-event" aria-controls="downloadCourse" role="tab"
                        data-toggle="tab">下载的课程</a>
                 </li>
                 <li role="presentation">
-                    <a href="#collectCourse" class="stat-event" aria-controls="labs" role="tab"
+                    <a href="#collectCourse" class="stat-event" aria-controls="collectCourse" role="tab"
                        data-toggle="tab">收藏的课程</a>
                 </li>
 
@@ -50,7 +51,7 @@
                     <div th:include="/frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane " id="changePwd">
+                <div role="tabpanel" class="tab-pane" id="changePwd">
 
                     <div th:include="/frontend/users/user_info_changePwd :: #user_info_changePwd_body"></div>
 

@@ -76,6 +76,8 @@
     <div th:include="/frontend/courses/nav :: #nav_body"></div>
     <!--user_info_content-->
     <div th:include="/frontend/users/user_info_content :: #user_info_content_body"></div>
+    <!--tail-->
+    <div th:include="/frontend/courses/footer :: #footer_body"></div>
 </th:block>
 
 
@@ -107,10 +109,10 @@
 <script th:src="@{/frontend/app/dest/course/index.js}"></script>
 
 
-<!--tail-->
-<div th:include="/frontend/courses/footer :: #footer_body"></div>
-<!--message-->
-<!--<div th:include="/frontend/courses/message_model :: #message_model_body"></div>-->
+
+<!--message model-->
+<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+
 <script type="text/javascript">
 
 

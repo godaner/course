@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
@@ -46,22 +47,22 @@ public class UserController extends ServiceController<UserService> {
     }
 
     @RequestMapping(value = "/{userId}")
-    public Object getUser(Model model, @PathVariable("userId") Long userId) throws Exception {
+    public Object getUser(HttpServletRequest request, @PathVariable("userId") Long userId) throws Exception {
         UsersDto usersDto = service.getUser(userId);
-        model.addAttribute("users", usersDto);
+        request.setAttribute("users", usersDto);
         return "frontend/users/user_info";
     }
 
     @RequestMapping(value = "/updateOnlineUser")
     public Object updateOnlineUser(UsersDto usersDto) throws Exception {
-        try {
-            service.updateOnlineUser(usersDto, getSession());
-        } catch (Exception e) {
-            e.printStackTrace();
-            //离线
-            setRequestAttr("msg","您已离线");
-            return "forward:/courses/list";
-        }
+        service.updateOnlineUser(usersDto, getRequest());
         return "frontend/users/user_info";
     }
+
+    @RequestMapping(value = "/updateOnlinePwd")
+    public Object updateOnlinePwd(UsersDto usersDto) throws Exception {
+        service.updateOnlinePwd(usersDto, getRequest());
+        return "frontend/users/user_info";
+    }
+
 }

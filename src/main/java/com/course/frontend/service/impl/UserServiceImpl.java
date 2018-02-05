@@ -14,8 +14,10 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.FileInputStream;
@@ -113,9 +115,11 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public void updateOnlineUser(UsersDto usersDto, HttpSession session) {
-        UsersDto sessionUser = (UsersDto) session.getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+    public void updateOnlineUser(UsersDto usersDto, HttpServletRequest request) {
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
         if (null == sessionUser) {
+            request.setAttribute("msg", "您已离线");
+            request.setAttribute("forward", "forward:/courses/list");
             throw new UsersException("updateOnlineUser sessionUser is null !! usersDto is :" + usersDto);
         }
         usersDto.setUserId(sessionUser.getUserId());
@@ -123,7 +127,51 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         usersMapper.update(user);
         // update session user
-        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId())));
+        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId())));
+
+    }
+
+    @Override
+    @Transactional
+    public void updateOnlinePwd(UsersDto usersDto, HttpServletRequest request) {
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+        if (null == sessionUser) {
+            request.setAttribute("msg", "您已离线");
+            request.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("updateOnlinePwd sessionUser is null !! usersDto is :" + usersDto);
+        }
+        usersDto.setUserId(sessionUser.getUserId());
+
+        if (isEmptyString(usersDto.getPassword()) || isEmptyString(usersDto.getRePassword())) {
+            request.setAttribute("msg", "密码不能为空");
+            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            throw new UsersException("updateOnlinePwd password or repassword is null !! usersDto is :" + usersDto);
+        }
+
+        if (!usersDto.getPassword().equals(usersDto.getRePassword())) {
+            request.setAttribute("msg", "两次密码不一致");
+            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            throw new UsersException("updateOnlinePwd password and repassword is not same !! usersDto is :" + usersDto);
+        }
+
+        Users users = this.getUserByUserId(sessionUser.getUserId());
+
+        if (users == null) {
+            request.setAttribute("msg", "账户目前不可用");
+            request.setAttribute("forward", "forward:/courses/list");
+            request.getSession().removeAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+            throw new UsersException("updateOnlinePwd users can not use now !! usersDto is :" + usersDto);
+        }
+
+        users.setPassword(usersDto.getPassword());
+
+        if (usersMapper.update(users) != 1) {
+            request.setAttribute("msg", "修改密码失败");
+            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            throw new UsersException("updateOnlinePwd update users is fail !! usersDto is :" + usersDto);
+        }
+
+        request.setAttribute("msg", "修改成功");
     }
 
     private Users makeUpdateOnlineUser(UsersDto usersDto) {
