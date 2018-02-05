@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Lei Shi">
+    <meta http-equiv="Cache-Control" content="o-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="csrf-token" content="1483780974##87f89328c5616669f00302a263fe9061bb852818">
+
+
+    <title>课程 - 黑马</title>
+
+
+    <meta content="实验楼课程分为基础课和项目课，内容涵盖了Linux、Python、Java、C语言、Ruby、Android、IOS开发、大数据、信息安全等IT技术领域。" name="description">
+    <meta content="实验楼课程,IT培训课程,IT实训课程,IT在线课程,all" name="keywords">
+
+    <meta content="" name="author">
+
+    <link rel="shortcut icon" th:href="@{/frontend/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/frontend/static/font-awesome//4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/frontend/static/highlight.js/9.8.0/monokai-sublime.min.css}">
+    <link rel="stylesheet" th:href="@{/frontend/app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/frontend/app/css/libs/katex/0.6.0/katex.min.css}">
+    <link rel="stylesheet" th:href="@{/frontend/app/css/libs/videojs/5.11.7/video-js.min.css}">
+    <!--?=2016121272249-->
+    <link rel="stylesheet" th:href="@{/frontend/app/css/dest/styles.css}">
+
+
+
+
+
+
+    <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
+    <script th:src="@{/frontend/app/dest/project_util.js}"></script>
+    <script th:src="@{/frontend/app/dest/util.js}"></script>
+    <script th:src="@{/frontend/static/ace/1.2.5/ace.js}"></script>
+    <script th:src="@{/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js}"></script>
+    <script th:src="@{/frontend/static/highlight.js/9.8.0/highlight.min.js}"></script>
+    <script th:src="@{/frontend/static/jspdf/1.2.61/jspdf.min.js}"></script>
+    <script th:src="@{/frontend/static/plupload/2.1.9/js/plupload.full.min.js}"></script>
+    <script th:src="@{/frontend/static/zeroclipboard/2.2.0/ZeroClipboard.min.js}"></script>
+    <script th:src="@{/frontend/static/videojs/video.min.js}"></script>
+    <script th:src="@{/frontend/static/bootstrap-tour/0.11.0/js/bootstrap-tour.min.js}"></script>
+    <script th:src="@{/frontend/static/bootstrap-table/1.11.0/bootstrap-table.min.js}"></script>
+    <script th:src="@{/frontend/static/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script th:src="@{/frontend/static/bootstrap-table/1.11.0/extensions/filter-control/bootstrap-table-filter-control.min.js}"></script>
+
+    <script th:src="@{/frontend/static/ravenjs/3.7.0/raven.min.js}"></script>
+    <script>
+        Raven.config('https://bc3878b7ed0a4468a65390bd79e6e73f@sentry.xxxxxx.com/5', {
+            release: '3.12.13'
+        }).install();
+    </script>
+
+
+
+
+
+
+
+
+    <style>
+
+
+    </style>
+
+</head>
+
+
+<!--nav-->
+<div th:include="/frontend/courses/nav :: #nav_body"></div>
+
+
+
+
+
+
+<div id="base-data"
+
+
+     data-flash="false"
+
+
+     data-is-login=false
+
+     data-is-jwt=true
+     data-socket-url="wss://comet.xxxxxx.com"
+     data-msg-user=""
+     data-msg-system=""
+></div>
+
+<!--?=2016121272249-->
+<script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
+
+
+
+<div id="jinja-data"
+     data-loginurl="/login"
+     data-private-course-url="/courses/join"
+     data-site-type="0"
+
+></div>
+<!--?=2016121272249-->
+<script th:src="@{/frontend/app/dest/course/index.js}"></script>
+
+
+<!--tail-->
+<div th:include="/frontend/courses/footer :: #footer_body"></div>
+<!--message-->
+<!--<div th:include="/frontend/courses/message_model :: #message_model_body"></div>-->
+<script type="text/javascript">
+
+
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    /*]]>*/
+
+</script>
+
+</body>
+
+</html>

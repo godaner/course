@@ -1,10 +1,12 @@
 package com.course.frontend.controller;
 
 import com.course.controller.ServiceController;
+import com.course.dao.po.Users;
 import com.course.frontend.service.UserService;
 import com.course.frontend.service.dto.UsersDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,15 +34,21 @@ public class UserController extends ServiceController<UserService> {
     }
 
     @RequestMapping(value = "/logout")
+    @ResponseBody
     public Object logout() throws Exception {
         service.logout(getSession());
-        return "frontend/course/index";
+        return response;
     }
 
     @RequestMapping(value = "/img/{name}")
-    public Object getUserImg(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
+    public void getUserImg(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
         service.getUserImg(name, httpServletResponse);
-        return response.setMsg("获取成功");
+    }
+    @RequestMapping(value = "/{userId}")
+    public Object getUser(Model model,@PathVariable("userId") Long userId) throws Exception {
+        UsersDto usersDto = service.getUser(userId);
+        model.addAttribute("user",usersDto);
+        return "frontend/courses/user_info";
     }
 
 }

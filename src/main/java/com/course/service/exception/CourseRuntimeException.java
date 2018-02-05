@@ -5,18 +5,6 @@ import com.course.util.Response;
 
 import java.util.Map;
 
-/**
- * <b>Title:</b>
- * <br/>
- * <br/>
- * <b>Description:</b>
- * <br/>
- * <br/>
- * <b>Author:</b>ZhangKe
- * <br/>
- * <br/>
- * <b>Date:</b>2017/11/24 9:55
- */
 public class CourseRuntimeException extends RuntimeException {
     protected int errorCode;
     protected Map params;

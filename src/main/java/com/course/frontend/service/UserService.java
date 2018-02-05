@@ -14,4 +14,6 @@ public interface UserService {
     void logout(HttpSession session) throws Exception;
 
     void getUserImg(String name, HttpServletResponse httpServletResponse) throws Exception;
+
+    UsersDto getUser(Long userId);
 }

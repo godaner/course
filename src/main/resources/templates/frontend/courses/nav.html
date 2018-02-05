@@ -30,14 +30,19 @@
 
             <th:block th:if="${session.onlineUser==null}">
                 <div class="navbar-right btns">
-                    <a class="btn btn-default navbar-btn sign-in" data-sign="signin" href="#sign-modal" data-toggle="modal">登录</a>
-                    <a class="btn btn-default navbar-btn sign-up" data-sign="signup" href="#sign-modal" data-toggle="modal">注册</a>
+                    <a class="btn btn-default navbar-btn sign-in" data-sign="signin" href="#sign-modal"
+                       data-toggle="modal">登录</a>
+                    <a class="btn btn-default navbar-btn sign-up" data-sign="signup" href="#sign-modal"
+                       data-toggle="modal">注册</a>
                 </div>
             </th:block>
             <th:block th:if="${session.onlineUser!=null}">
                 <div class="navbar-right btns">
-                    <img style="width: 30px;height: 30px;" class="img-circle" th:src="@{${session.onlineUser.imgUrl}}" alt="头像"/>
-                    <a class="btn btn-default navbar-btn sign-up" data-sign="signup" th:href="@{/users/logout}" data-toggle="modal">注销</a>
+                    <a th:href="@{'/users/'+${session.onlineUser.userId}}">
+                        <img style="width: 30px;height: 30px;" class="img-circle"
+                             th:src="@{${session.onlineUser.imgUrl}}" alt="头像"/>
+                    </a>
+                    <a id="logout-btn" class="btn btn-default navbar-btn sign-up " href="javascript:void(0);">注销</a>
                 </div>
             </th:block>
 
@@ -45,10 +50,12 @@
             <form class="navbar-form navbar-right" th:action="@{${indexUrl}}" method="get" role="search">
                 <div class="form-group">
                     <th:block th:if="${query != null and query.keyword != null}">
-                        <input th:value="${query.keyword}" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
+                        <input th:value="${query.keyword}" type="text" class="form-control" name="keyword"
+                               autocomplete="off" placeholder="搜索 课程">
                     </th:block>
                     <th:block th:if="${query == null or query.keyword == null}">
-                        <input value="" type="text" class="form-control" name="keyword" autocomplete="off" placeholder="搜索 课程">
+                        <input value="" type="text" class="form-control" name="keyword" autocomplete="off"
+                               placeholder="搜索 课程">
                     </th:block>
                     <!--(size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})-->
                     <input type="hidden" name="size" th:value="12"/>
@@ -72,6 +79,32 @@
 <script>
 
 
+    var $logoutBtn = $("#logout-btn");
+    $logoutBtn.unbind('click');
+    $logoutBtn.click(function () {
+//        var data = $registForm.serialize();
+        $.ajax({
+            url: '/users/logout',
+            cache: false,//false是不缓存，true为缓存
+            async: true,//true为异步，false为同步
+            beforeSend: function () {
+                //请求前
+            },
+            success: function (result) {
+                if (result.code == CODE_OF_REQUEST_SUCCESS) {
+                    window.location.reload();
+                } else {
+                    messageModel.show(result.msg);
+                }
+            },
+            complete: function () {
+                //请求结束时
+            },
+            error: function () {
+                //请求失败时
+            }
+        })
+    });
 
 </script>
 </body>

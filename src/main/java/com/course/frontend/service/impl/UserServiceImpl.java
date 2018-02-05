@@ -51,7 +51,18 @@ public class UserServiceImpl extends BaseService implements UserService {
         if (usersMapper.insert(user) != 1) {
             throw new UsersException("regist insert is fail !! userDto is : " + usersDto);
         }
-        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, user);
+        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(user));
+    }
+
+    private UsersDto makeUsersDto(Users user) {
+        UsersDto usersDto = new UsersDto();
+        usersDto.setUserId(user.getId());
+        usersDto.setPassword("");
+        usersDto.setBirthday(user.getBirthday());
+        usersDto.setImgUrl(user.getImgUrl());
+        usersDto.setSex(user.getSex());
+        usersDto.setUsername(user.getUsername());
+        return usersDto;
     }
 
     @Override
@@ -67,7 +78,7 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException(UsersException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
                     UsersException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
         }
-        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, users);
+        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(users));
 
     }
 
@@ -86,6 +97,22 @@ public class UserServiceImpl extends BaseService implements UserService {
             e.printStackTrace();
             IOUtils.copy(new FileInputStream(ProjectConfig.USER_IMG_PATH + "default.png"), outputStream);
         }
+    }
+
+    @Override
+    public UsersDto getUser(Long userId) {
+        if (userId == null) {
+            throw new UsersException("getUser userId is null !! userId is : " + userId);
+        }
+        return makeUsersDto(this.getUserByUserId(userId));
+    }
+
+    private Users getUserByUserId(Long userId) {
+        Users users = usersMapper.select(userId);
+        if (users == null || !users.getStatus().equals(BasePo.Status.NORMAL)) {
+            users = null;
+        }
+        return users;
     }
 
     private Users makeUsers(UsersDto usersDto) {
