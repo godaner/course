@@ -29,10 +29,6 @@
     <link rel="stylesheet" th:href="@{/frontend/app/css/dest/styles.css}">
 
 
-
-
-
-
     <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
     <script th:src="@{/frontend/app/dest/project_util.js}"></script>
     <script th:src="@{/frontend/app/dest/util.js}"></script>
@@ -56,90 +52,31 @@
     </script>
 
 
-
-
-
-
-
-
-    <style>
-        @font-face {
-            font-family: "lantingxihei";
-            src: url("../fonts/FZLTCXHJW.TTF");
-        }
-
-        /* modal 模态框*/
-        #invite-user .modal-body {
-            overflow: hidden;
-        }
-
-        #invite-user .modal-body .form-label {
-            margin-bottom: 16px;
-            font-size: 14px;
-        }
-
-        #invite-user .modal-body .form-invite {
-            width: 80%;
-            padding: 6px 12px;
-            background-color: #eeeeee;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            float: left;
-            margin-right: 10px;
-        }
-
-        #invite-user .modal-body .msg-modal-style {
-            background-color: #7dd383;
-            margin-top: 10px;
-            padding: 6px 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        #invite-user .modal-body .modal-flash {
-            position: absolute;
-            top: 53px;
-            right: 74px;
-            z-index: 999;
-        }
-
-        /* end modal */
-
-        .en-footer {
-            padding: 30px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-
-
-    </style>
     <style>
 
 
-        .active_tag{
-            background-color: rgb(8,191,145);
-            border-radius:9px;
-        }
     </style>
 
 </head>
 
-<!--<body th:with="indexUrl=@{${'/courses/list'}(size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType},tagIds=${query.tagIds})}">-->
-<body th:with="indexUrl=@{${'/courses/list'}}">
+<!--<body th:with="onlineUser=${#httpSession.getAttribute('onlineUser')}">-->
+<body th:with="onlineUser=${session.onlineUser}">
+<!--离线跳转-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var onlineUser = [[${onlineUser}]];
 
-<!--nav-->
-<div th:include="/frontend/courses/nav :: #nav_body"></div>
-
-
-<!--课程列表-->
-<div th:include="/frontend/courses/course_list :: #course_list_body"></div>
-
-
-
-<!--models-->
-<div th:include="/frontend/courses/models :: #models_body"></div>
-
+    if (onlineUser == ""||onlineUser == null || onlineUser == undefined) {
+        window.location.href = [[@{'/courses/list'}]];
+    }
+    /*]]>*/
+</script>
+<th:block th:if="${onlineUser} != null">
+    <!--nav-->
+    <div th:include="/frontend/courses/nav :: #nav_body"></div>
+    <!--user_info_content-->
+    <div th:include="/frontend/users/user_info_content :: #user_info_content_body"></div>
+</th:block>
 
 
 <div id="base-data"
@@ -160,7 +97,6 @@
 <script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
 
 
-
 <div id="jinja-data"
      data-loginurl="/login"
      data-private-course-url="/courses/join"
@@ -174,43 +110,14 @@
 <!--tail-->
 <div th:include="/frontend/courses/footer :: #footer_body"></div>
 <!--message-->
-<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+<!--<div th:include="/frontend/courses/message_model :: #message_model_body"></div>-->
 <script type="text/javascript">
 
 
 </script>
 <script th:inline="javascript">
     /*<![CDATA[*/
-    var $tags = $("#tags_father .tag");
 
-
-    $tags.click(function(){
-        //重复点击切换状态
-        if($(this).attr("class").indexOf("active_tag")>=0){
-            $(this).removeClass("active_tag");
-        }else{
-            $(this).addClass("active_tag");
-        }
-
-        var $active_tags = $("#tags_father .active_tag");
-
-        var tagIds =[];
-        $active_tags.each(function(i,item){
-            tagIds.push($(item).attr("tagid"));
-        });
-        console.info(tagIds);
-        var keyword = [[${query.keyword}]];
-        var size = [[${page.size}]];
-        var start = [[${page.start}]];
-        var orderBy = [[${page.orderBy}]];
-        var orderType = [[${page.orderType}]];
-//        (,size=${page.size},start=${page.start},orderBy=${page.orderBy},orderType=${page.orderType}}
-        var url = [[${indexUrl}]];
-        url = url+"?keyword="+keyword+"&size="+size+"&start="+start+"&orderBy="+orderBy+"&orderType="+orderType
-        url = contactUrlWithArray(url,"tagIds",tagIds);
-        console.info(url);
-        window.location.href=url;
-    });
     /*]]>*/
 
 </script>

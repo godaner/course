@@ -29,10 +29,6 @@
     <link rel="stylesheet" th:href="@{/frontend/app/css/dest/styles.css}">
 
 
-
-
-
-
     <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
     <script th:src="@{/frontend/app/dest/project_util.js}"></script>
     <script th:src="@{/frontend/app/dest/util.js}"></script>
@@ -56,12 +52,6 @@
     </script>
 
 
-
-
-
-
-
-
     <style>
 
 
@@ -69,13 +59,24 @@
 
 </head>
 
+<!--<body th:with="onlineUser=${#httpSession.getAttribute('onlineUser')}">-->
+<body th:with="onlineUser=${session.onlineUser}">
+<!--离线跳转-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var onlineUser = [[${onlineUser}]];
 
-<!--nav-->
-<div th:include="/frontend/courses/nav :: #nav_body"></div>
-
-
-
-
+    if (onlineUser == ""||onlineUser == null || onlineUser == undefined) {
+        window.location.href = [[@{'/courses/list'}]];
+    }
+    /*]]>*/
+</script>
+<th:block th:if="${onlineUser} != null">
+    <!--nav-->
+    <div th:include="/frontend/courses/nav :: #nav_body"></div>
+    <!--user_info_content-->
+    <div th:include="/frontend/users/user_info_content :: #user_info_content_body"></div>
+</th:block>
 
 
 <div id="base-data"
@@ -94,7 +95,6 @@
 
 <!--?=2016121272249-->
 <script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
-
 
 
 <div id="jinja-data"

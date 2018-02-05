@@ -198,7 +198,7 @@
         $active_tags.each(function(i,item){
             tagIds.push($(item).attr("tagid"));
         });
-        console.info(tagIds);
+        c(tagIds);
         var keyword = [[${query.keyword}]];
         var size = [[${page.size}]];
         var start = [[${page.start}]];
@@ -208,7 +208,7 @@
         var url = [[${indexUrl}]];
         url = url+"?keyword="+keyword+"&size="+size+"&start="+start+"&orderBy="+orderBy+"&orderType="+orderType
         url = contactUrlWithArray(url,"tagIds",tagIds);
-        console.info(url);
+        c(url);
         window.location.href=url;
     });
     /*]]>*/

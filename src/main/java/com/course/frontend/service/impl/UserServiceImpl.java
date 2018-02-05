@@ -104,12 +104,16 @@ public class UserServiceImpl extends BaseService implements UserService {
         if (userId == null) {
             throw new UsersException("getUser userId is null !! userId is : " + userId);
         }
-        return makeUsersDto(this.getUserByUserId(userId));
+        Users users = this.getUserByUserId(userId);
+        if(isNullObject(users)){
+            throw new UsersException("getUser users is null !! userId is : " + userId);
+        }
+        return makeUsersDto(users);
     }
 
     private Users getUserByUserId(Long userId) {
         Users users = usersMapper.select(userId);
-        if (users == null || !users.getStatus().equals(BasePo.Status.NORMAL)) {
+        if (users == null || !users.getStatus().equals(BasePo.Status.NORMAL.getCode())) {
             users = null;
         }
         return users;

@@ -38,7 +38,7 @@
             </th:block>
             <th:block th:if="${session.onlineUser!=null}">
                 <div class="navbar-right btns">
-                    <a th:href="@{'/user/'+${session.onlineUser.userId}}">
+                    <a th:href="@{'/users/'+${session.onlineUser.userId}}">
                         <img style="width: 30px;height: 30px;" class="img-circle"
                              th:src="@{${session.onlineUser.imgUrl}}" alt="头像"/>
                     </a>
@@ -72,8 +72,8 @@
 
 <!--message model-->
 <div th:include="/frontend/courses/message_model :: #message_model_body"></div>
-<!--message model-->
-<div th:include="/frontend/courses/user_model :: #user_model_body"></div>
+usersuser model-->
+<div th:include="/frontend/users/user_model :: #user_model_body"></div>
 
 
 <script>

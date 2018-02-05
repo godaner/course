@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body id="user_info_content_body">
+
+<div class="row" style="margin-top: 88px">
+    <div class="col-md-3 layout-side">
+
+        <div class="side-image side-image-pc">
+            <img th:alt="${onlineUser.username}" th:src="${onlineUser.imgUrl}"
+                 th:unless="${onlineUser.imgUrl == null}">
+        </div>
+
+    </div>
+
+    <div class="col-md-9 layout-body">
+        <div class="content">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#basicinfo" aria-controls="introduce" role="tab" data-toggle="tab">个人信息</a>
+                </li>
+
+                <li role="presentation">
+                    <a href="#downloadCourse" class="stat-event" aria-controls="labs" role="tab"
+                       data-toggle="tab">下载的课程</a>
+                </li>
+                <li role="presentation">
+                    <a href="#collectCourse" class="stat-event" aria-controls="labs" role="tab"
+                       data-toggle="tab">收藏的课程</a>
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="basicinfo">
+                    <div th:include="/frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="downloadCourse">
+
+                    <div th:include="/frontend/users/user_info_downloadCourse :: #user_info_downloadCourse_body"></div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="collectCourse">
+
+                    <div th:include="/frontend/users/user_info_collectCourse :: #user_info_collectCourse_body"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

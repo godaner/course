@@ -47,8 +47,8 @@ public class UserController extends ServiceController<UserService> {
     @RequestMapping(value = "/{userId}")
     public Object getUser(Model model,@PathVariable("userId") Long userId) throws Exception {
         UsersDto usersDto = service.getUser(userId);
-        model.addAttribute("user",usersDto);
-        return "frontend/courses/user_info";
+        model.addAttribute("users",usersDto);
+        return "frontend/users/user_info";
     }
 
 }

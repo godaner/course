@@ -2,17 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_basicInfo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info_basicInfo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info_collectCourse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info_content.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info_downloadCourse.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/PageHunterController.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/exception/CourseRuntimeException.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/exception/CourseRuntimeException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/base/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/base/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/bootcamp/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/bootcamp/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/course/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/course/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/course/labs.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/course/labs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/frontend/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/frontend/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/member/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/member/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/path/path.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/path/path.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/question/details.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/question/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/question/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/question/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/report/details.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/report/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/user/index.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/user/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/labs/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/labs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/questions/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/questions/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/ace/1.2.5/ace.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/ace/1.2.5/ace.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/highlight.js/9.8.0/highlight.min.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/highlight.js/9.8.0/highlight.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/plupload/2.1.9/js/plupload.full.min.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/plupload/2.1.9/js/plupload.full.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/ravenjs/3.7.0/raven.min.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/ravenjs/3.7.0/raven.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/videojs/video.min.js" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/static/videojs/video.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/base/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/base/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/bootcamp/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/bootcamp/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/course/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/course/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/course/labs.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/course/labs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/frontend/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/frontend/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/member/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/member/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/path/path.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/path/path.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/question/details.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/question/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/question/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/question/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/report/details.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/report/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/user/index.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/app/dest/user/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/courses/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/nav.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/courses/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/user_model.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/courses/user_model.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/show.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/courses/show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/labs/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/labs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/questions/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/questions/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/ace/1.2.5/ace.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/ace/1.2.5/ace.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/highlight.js/9.8.0/highlight.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/highlight.js/9.8.0/highlight.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/plupload/2.1.9/js/plupload.full.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/plupload/2.1.9/js/plupload.full.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/ravenjs/3.7.0/raven.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/ravenjs/3.7.0/raven.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/static/videojs/video.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/static/videojs/video.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_model.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/user_info.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/courses/user_model.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_model.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,92 +72,59 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/vm$BootApp.coverage" NAME="BootApp Coverage Results" MODIFIED="1517463560793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/vm$BootApp.coverage" NAME="BootApp Coverage Results" MODIFIED="1517798218811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nav.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#th:block#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user_model.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_model.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4536">
-              <caret line="168" column="61" lean-forward="false" selection-start-line="168" selection-start-column="61" selection-end-line="169" selection-end-column="45" />
+            <state relative-caret-position="27">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2430">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseRuntimeException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/exception/CourseRuntimeException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-371">
-              <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="883">
+              <caret line="210" column="9" lean-forward="false" selection-start-line="210" selection-start-column="9" selection-end-line="210" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="user_info.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="113" column="31" lean-forward="true" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
+            <state relative-caret-position="351">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/course_list.html">
+      <file leaf-file-name="user_info_content.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="150" column="45" lean-forward="false" selection-start-line="150" selection-start-column="45" selection-end-line="150" selection-end-column="45" />
+            <state relative-caret-position="-594">
+              <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java">
+      <file leaf-file-name="show.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state relative-caret-position="349">
+              <caret line="191" column="42" lean-forward="true" selection-start-line="190" selection-start-column="4" selection-end-line="191" selection-end-column="42" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1517794779908" expanded="false" signature="7677:7743" ph="..." />
+                <marker date="1517794779908" expanded="false" signature="7995:8061" ph="..." />
               </folding>
             </state>
           </provider>
@@ -117,8 +133,8 @@
       <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2538">
-              <caret line="115" column="5" lean-forward="false" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+            <state relative-caret-position="298">
+              <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,30 +142,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/util/Response.java">
+      <file leaf-file-name="user_info_downloadCourse.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1431">
-              <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
+            <state relative-caret-position="162">
+              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_info_basicInfo.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_basicInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#334#350#0" expanded="false" />
-                <element signature="e#474#475#0" expanded="false" />
-                <element signature="e#501#502#0" expanded="false" />
-                <element signature="e#538#539#0" expanded="false" />
-                <element signature="e#570#571#0" expanded="false" />
-                <element signature="e#600#601#0" expanded="false" />
-                <element signature="e#626#627#0" expanded="false" />
-                <element signature="e#747#748#0" expanded="false" />
-                <element signature="e#774#775#0" expanded="false" />
-                <element signature="e#2051#2052#0" expanded="false" />
-                <element signature="e#2086#2087#0" expanded="false" />
-                <element signature="e#2127#2128#0" expanded="false" />
-                <element signature="e#2167#2168#0" expanded="false" />
-                <element signature="e#2201#2202#0" expanded="false" />
-                <element signature="e#2235#2236#0" expanded="false" />
-                <element signature="e#2277#2278#0" expanded="false" />
-                <element signature="e#2315#2316#0" expanded="false" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1140#1141#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,18 +187,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>th:href=&quot;@{/frontend/courses/show}&quot;</find>
-      <find>query</find>
-      <find>queryBean</find>
-      <find>getCoursesCount</find>
-      <find>courseList</find>
-      <find>course-cates-content</find>
-      <find>.course-cates</find>
-      <find>course-cates</find>
-      <find>getCoursesList</find>
-      <find>foreach</find>
-      <find>page.end</find>
-      <find>@{</find>
       <find>course-follow</find>
       <find>.course-follow</find>
       <find>CoursesDto coursesDto = new CoursesDto();</find>
@@ -197,6 +205,18 @@
       <find>signin-form</find>
       <find>projec</find>
       <find>Long</find>
+      <find>dev</find>
+      <find>us</find>
+      <find>user_model</find>
+      <find>users</find>
+      <find>user</find>
+      <find>user——mode</find>
+      <find>user—mode</find>
+      <find>usermode</find>
+      <find>user_mode</find>
+      <find>window.location.href</find>
+      <find>getAttribute</find>
+      <find>course.imgUrl == null</find>
     </findStrings>
     <replaceStrings>
       <replace>{/frontend</replace>
@@ -217,13 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/CoursesException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/course_sources.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/project.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/TagGroupsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/Tags.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/TagGroups.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/TagGroupRealations.java" />
@@ -247,7 +260,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/Users.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/course_list.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/util/Response.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/message_model.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/static.js" />
@@ -264,10 +276,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/PageHunterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info_content.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_basicInfo.html" />
       </list>
     </option>
   </component>
@@ -325,9 +345,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -377,6 +394,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -718,6 +765,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="aop" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -742,6 +819,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -752,12 +832,9 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\zk\course\src\main\resources\templates\frontend\courses" />
-      <recent name="E:\zk\course\doc\db" />
-      <recent name="E:\zk\course\src\main\resources\sqlmap" />
-      <recent name="E:\zk\course\src\main\resources\templates\frontend\static" />
-      <recent name="E:\zk\course\src\main\resources\templates\frontend\app\dest" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\zk\course\src\main\resources\templates\frontend\user" />
+      <recent name="E:\zk\course\src\main\resources\templates\frontend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.course.frontend.exception" />
@@ -766,8 +843,12 @@
       <recent name="com.course.frontend.service.dto" />
       <recent name="com.course.dao.po.query" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\zk\course\src\main\resources\templates\frontend" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\course\src\main\resources\templates\frontend\users" />
+      <recent name="E:\zk\course\src\main\resources\templates\frontend\courses" />
+      <recent name="E:\zk\course\doc\db" />
+      <recent name="E:\zk\course\src\main\resources\sqlmap" />
+      <recent name="E:\zk\course\src\main\resources\templates\frontend\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1270,49 +1351,51 @@
       <workItem from="1517271913090" duration="71376000" />
       <workItem from="1517453598107" duration="8488000" />
       <workItem from="1517464071489" duration="10908000" />
-      <workItem from="1517792831860" duration="94000" />
+      <workItem from="1517792831860" duration="5869000" />
+      <workItem from="1517800196409" duration="2810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95787000" />
+    <option name="totallyTimeSpent" value="104372000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1056" extended-state="1" />
+    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.50213677" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19391026" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3525641" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27952328" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3488248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1732" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1330,7 +1413,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5980498" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1343,7 +1426,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3525641" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34508547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1377,55 +1460,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/CourseSources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/BaseQueryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/TagsDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/CoursesDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/TagGroupsDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/CourseSourcesDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UsersQueryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/UserCollectCourse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1521,6 +1555,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="79" column="5" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1538,13 +1573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="35" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/RuntimeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1556,13 +1584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1585,6 +1606,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding>
+            <element signature="e#220#221#0" expanded="false" />
+            <element signature="e#261#262#0" expanded="false" />
+            <element signature="e#336#337#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1627,13 +1653,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/TagGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1648,42 +1668,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="12" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#886#887#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1691,36 +1676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1431">
           <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#334#350#0" expanded="false" />
-            <element signature="e#474#475#0" expanded="false" />
-            <element signature="e#501#502#0" expanded="false" />
-            <element signature="e#538#539#0" expanded="false" />
-            <element signature="e#570#571#0" expanded="false" />
-            <element signature="e#600#601#0" expanded="false" />
-            <element signature="e#626#627#0" expanded="false" />
-            <element signature="e#747#748#0" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#2051#2052#0" expanded="false" />
-            <element signature="e#2086#2087#0" expanded="false" />
-            <element signature="e#2127#2128#0" expanded="false" />
-            <element signature="e#2167#2168#0" expanded="false" />
-            <element signature="e#2201#2202#0" expanded="false" />
-            <element signature="e#2235#2236#0" expanded="false" />
-            <element signature="e#2277#2278#0" expanded="false" />
-            <element signature="e#2315#2316#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="115" column="5" lean-forward="false" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1728,35 +1683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4536">
-          <caret line="168" column="61" lean-forward="false" selection-start-line="168" selection-start-column="61" selection-end-line="169" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2430">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1768,29 +1694,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/PageHunterController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/TagGroupsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="113" column="31" lean-forward="true" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
+        <state relative-caret-position="84">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/course_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="150" column="45" lean-forward="false" selection-start-line="150" selection-start-column="45" selection-end-line="150" selection-end-column="45" />
+        <state relative-caret-position="-54">
+          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="65" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="354" column="9" lean-forward="false" selection-start-line="354" selection-start-column="9" selection-end-line="354" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="53" />
+        <state relative-caret-position="675">
+          <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#th:block#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="32" />
+          <folding>
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="210" column="9" lean-forward="false" selection-start-line="210" selection-start-column="9" selection-end-line="210" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="191" column="42" lean-forward="true" selection-start-line="190" selection-start-column="4" selection-end-line="191" selection-end-column="42" />
+          <folding>
+            <marker date="1517794779908" expanded="false" signature="7677:7743" ph="..." />
+            <marker date="1517794779908" expanded="false" signature="7995:8061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_basicInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
