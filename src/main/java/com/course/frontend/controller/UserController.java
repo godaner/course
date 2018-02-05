@@ -44,11 +44,23 @@ public class UserController extends ServiceController<UserService> {
     public void getUserImg(@PathVariable("name") String name, HttpServletResponse httpServletResponse) throws Exception {
         service.getUserImg(name, httpServletResponse);
     }
+
     @RequestMapping(value = "/{userId}")
-    public Object getUser(Model model,@PathVariable("userId") Long userId) throws Exception {
+    public Object getUser(Model model, @PathVariable("userId") Long userId) throws Exception {
         UsersDto usersDto = service.getUser(userId);
-        model.addAttribute("users",usersDto);
+        model.addAttribute("users", usersDto);
         return "frontend/users/user_info";
     }
 
+    @RequestMapping(value = "/updateOnlineUser")
+    public Object updateOnlineUser(UsersDto usersDto) throws Exception {
+        try {
+            service.updateOnlineUser(usersDto, getSession());
+        } catch (Exception e) {
+            e.printStackTrace();
+            //离线
+            return "frontend/courses/list";
+        }
+        return "frontend/users/user_info";
+    }
 }

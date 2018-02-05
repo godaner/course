@@ -64,4 +64,17 @@ public class UsersDto {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "UsersDto{" +
+                "userId=" + userId +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", description='" + description + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

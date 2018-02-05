@@ -62,6 +62,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         usersDto.setImgUrl(user.getImgUrl());
         usersDto.setSex(user.getSex());
         usersDto.setUsername(user.getUsername());
+        usersDto.setDescription(user.getDescription());
         return usersDto;
     }
 
@@ -105,10 +106,31 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException("getUser userId is null !! userId is : " + userId);
         }
         Users users = this.getUserByUserId(userId);
-        if(isNullObject(users)){
+        if (isNullObject(users)) {
             throw new UsersException("getUser users is null !! userId is : " + userId);
         }
         return makeUsersDto(users);
+    }
+
+    @Override
+    public void updateOnlineUser(UsersDto usersDto, HttpSession session) {
+        UsersDto sessionUser = (UsersDto) session.getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+        if (null == sessionUser) {
+            throw new UsersException("updateOnlineUser sessionUser is null !! usersDto is :" + usersDto);
+        }
+        usersDto.setUserId(sessionUser.getUserId());
+        Users user = makeUpdateOnlineUser(usersDto);
+
+        usersMapper.update(user);
+    }
+
+    private Users makeUpdateOnlineUser(UsersDto usersDto) {
+        Users user = new Users();
+        user.setDescription(usersDto.getDescription());
+        user.setSex(usersDto.getSex());
+        user.setUpdateTime(DateUtil.unixTime().intValue());
+        user.setId(usersDto.getUserId());
+        return user;
     }
 
     private Users getUserByUserId(Long userId) {
