@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 
 @Service
@@ -129,6 +131,8 @@ public class UserServiceImpl extends BaseService implements UserService {
         // update session user
         request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId())));
 
+        request.setAttribute("msg", "修改基本信息成功");
+
     }
 
     @Override
@@ -171,7 +175,49 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException("updateOnlinePwd update users is fail !! usersDto is :" + usersDto);
         }
 
-        request.setAttribute("msg", "修改成功");
+        request.setAttribute("msg", "修改密码成功");
+    }
+
+    @Override
+    @Transactional
+    public void updateOnlineUserHead(UsersDto usersDto, HttpServletRequest request) {
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+        if (null == sessionUser) {
+            request.setAttribute("msg", "您已离线");
+            request.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("updateOnlineUserHead sessionUser is null !! usersDto is :" + usersDto);
+        }
+
+        usersDto.setUserId(sessionUser.getUserId());
+
+
+        if (usersDto.getHeadFile().getOriginalFilename().equals("") || usersDto.getHeadFile().getOriginalFilename() == null) {
+            request.setAttribute("msg", "文件为空");
+            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            throw new UsersException("updateOnlineUserHead user head file is null !! usersDto is :" + usersDto);
+        }
+
+        String uuid = uuid();
+        try {
+            OutputStream outputStream = new FileOutputStream(ProjectConfig.USER_IMG_PATH + uuid + ".png");
+            IOUtils.copy(usersDto.getHeadFile().getInputStream(), outputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+            request.setAttribute("msg", "上传文件错误");
+            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            throw new UsersException("updateOnlineUserHead upload headImg is fail !! usersDto is :" + usersDto);
+        }
+
+        Users users = this.getUserByUserId(usersDto.getUserId());
+
+        users.setImgUrl("/users/img/" + uuid);
+
+
+        usersMapper.update(users);
+
+        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(sessionUser.getUserId())));
+
+        request.setAttribute("msg", "更新头像成功");
     }
 
     private Users makeUpdateOnlineUser(UsersDto usersDto) {

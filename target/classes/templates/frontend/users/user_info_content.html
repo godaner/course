@@ -11,7 +11,7 @@
         <div class="row content">
             <div style="margin: 35px 0px; " class="col-md-8 col-md-push-2">
                 <div class="side-image side-image-pc">
-                    <img th:alt="${onlineUser.username}" th:src="${onlineUser.imgUrl}"/>
+                    <img th:alt="${onlineUser.username}" th:src="@{${onlineUser.imgUrl} +'?t='+ ${new java.util.Date().getTime()}}"/>
                 </div>
                 <div style="font-size: 20px;text-align: center;border: gray;" th:text="${onlineUser.username}">
                 </div>
@@ -46,7 +46,7 @@
                 </li>
 
             </ul>
-            <div class="tab-content">
+            <div style="margin-top: 40px; " class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="basicinfo">
                     <div th:include="/frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
                 </div>

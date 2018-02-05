@@ -64,5 +64,9 @@ public class UserController extends ServiceController<UserService> {
         service.updateOnlinePwd(usersDto, getRequest());
         return "frontend/users/user_info";
     }
-
+    @RequestMapping(value = "/updateOnlineUserHead")
+    public Object updateOnlineUserHead(UsersDto usersDto) throws Exception {
+        service.updateOnlineUserHead(usersDto, getRequest());
+        return "frontend/users/user_info";
+    }
 }

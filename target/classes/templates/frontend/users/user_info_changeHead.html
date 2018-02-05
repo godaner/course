@@ -5,7 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body id="user_info_changeHead_body">
-user_info_changeHead
 
+
+<form class="form-horizontal" method="post" enctype="multipart/form-data" th:action="@{'/users/updateOnlineUserHead'}" role="form">
+
+    <div class="form-group">
+        <label for="headFile" class="col-sm-2 control-label">请选择新头像</label>
+        <div class="col-sm-3">
+            <input id="headFile" type="file" name="headFile">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-3">
+            <button type="submit" class="btn btn-default">修改</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>

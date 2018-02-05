@@ -40,7 +40,7 @@
                 <div class="navbar-right btns">
                     <a th:href="@{'/users/'+${session.onlineUser.userId}}">
                         <img style="width: 30px;height: 30px;" class="img-circle"
-                             th:src="@{${session.onlineUser.imgUrl}}" alt="头像"/>
+                             th:src="@{${session.onlineUser.imgUrl} +'?t='+ ${new java.util.Date().getTime()}}" alt="头像"/>
                     </a>
                     <a id="logout-btn" class="btn btn-default navbar-btn sign-up " href="javascript:void(0);">注销</a>
                 </div>

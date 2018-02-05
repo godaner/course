@@ -1,5 +1,7 @@
 package com.course.frontend.service.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UsersDto {
     private Long userId;
     private Byte sex;
@@ -9,7 +11,15 @@ public class UsersDto {
     private String username;
     private String password;
     private String rePassword;
+    private MultipartFile headFile;
 
+    public MultipartFile getHeadFile() {
+        return headFile;
+    }
+
+    public void setHeadFile(MultipartFile headFile) {
+        this.headFile = headFile;
+    }
 
     public String getRePassword() {
         return rePassword;

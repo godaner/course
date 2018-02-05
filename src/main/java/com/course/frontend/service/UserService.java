@@ -21,4 +21,6 @@ public interface UserService {
     void updateOnlineUser(UsersDto usersDto, HttpServletRequest request);
 
     void updateOnlinePwd(UsersDto usersDto, HttpServletRequest request);
+
+    void updateOnlineUserHead(UsersDto usersDto, HttpServletRequest request);
 }
