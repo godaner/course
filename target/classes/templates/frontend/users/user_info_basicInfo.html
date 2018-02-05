@@ -7,7 +7,7 @@
 <body id="user_info_basicInfo_body">
 
 </div>
-<form class="form-horizontal" th:action="@{'/users/updateOnlineUser/'+${onlineUser.userId}}" role="form">
+<form class="form-horizontal" th:action="@{'/users/updateOnlineUser'}" role="form">
 
     <div class="form-group" th:with="sex=${onlineUser.sex}">
         <label class="col-sm-2 control-label">性别</label>
@@ -24,7 +24,7 @@
             </label>
         </div>
     </div>
-    <p th:text="${onlineUser}"></p>
+    <!--<p th:text="${onlineUser}"></p>-->
     <div class="form-group">
         <label for="description" class="col-sm-2 control-label">简介</label>
         <div class="col-sm-3">

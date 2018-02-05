@@ -7,8 +7,8 @@
 <body id="user_info_content_body">
 
 <div class="row" style="margin: 88px 0px; ">
-    <div style="background-color: white;border-radius:5px;" class="col-md-3 layout-side">
-        <div class="row">
+    <div class="col-md-2 layout-side col-md-push-1">
+        <div class="row content">
             <div style="margin: 35px 0px; " class="col-md-8 col-md-push-2">
                 <div class="side-image side-image-pc">
                     <img th:alt="${onlineUser.username}" th:src="${onlineUser.imgUrl}"/>
@@ -21,7 +21,7 @@
 
     </div>
 
-    <div class="col-md-9 layout-body">
+    <div class="col-md-7 layout-body col-md-push-2">
         <div class="content">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
@@ -30,6 +30,10 @@
                 <li role="presentation">
                     <a href="#changePwd" class="stat-event" aria-controls="labs" role="tab"
                        data-toggle="tab">修改密码</a>
+                </li>
+                <li role="presentation">
+                    <a href="#changeHead" class="stat-event" aria-controls="labs" role="tab"
+                       data-toggle="tab">修改头像</a>
                 </li>
                 <li role="presentation">
                     <a href="#downloadCourse" class="stat-event" aria-controls="labs" role="tab"
@@ -51,6 +55,13 @@
                     <div th:include="/frontend/users/user_info_changePwd :: #user_info_changePwd_body"></div>
 
                 </div>
+
+                <div role="tabpanel" class="tab-pane " id="changeHead">
+
+                    <div th:include="/frontend/users/user_info_changeHead :: #user_info_changeHead_body"></div>
+
+                </div>
+
                 <div role="tabpanel" class="tab-pane " id="downloadCourse">
 
                     <div th:include="/frontend/users/user_info_downloadCourse :: #user_info_downloadCourse_body"></div>

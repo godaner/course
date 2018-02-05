@@ -59,7 +59,8 @@ public class UserController extends ServiceController<UserService> {
         } catch (Exception e) {
             e.printStackTrace();
             //离线
-            return "frontend/courses/list";
+            setRequestAttr("msg","您已离线");
+            return "forward:/courses/list";
         }
         return "frontend/users/user_info";
     }

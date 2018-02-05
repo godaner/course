@@ -122,6 +122,8 @@ public class UserServiceImpl extends BaseService implements UserService {
         Users user = makeUpdateOnlineUser(usersDto);
 
         usersMapper.update(user);
+        // update session user
+        session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId())));
     }
 
     private Users makeUpdateOnlineUser(UsersDto usersDto) {
