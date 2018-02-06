@@ -11,6 +11,7 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
     /********************************** common do ************************************/
+    /*对页面请求后的跳转处理*/
     var msg = [[${msg}]];
     if (msg != undefined && msg != "") {
         messageModel.showMsg(msg);

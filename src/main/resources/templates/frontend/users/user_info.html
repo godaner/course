@@ -117,15 +117,11 @@
 </script>
 <script th:inline="javascript">
     /*<![CDATA[*/
-    var onlineUser = [[${onlineUser}]];
+
+    var userId = [[${onlineUser.userId}]];
+    var reloadUrl = "/users/"+userId;
 
     /*]]>*/
-    var userId = undefined;
-    if(onlineUser == null || onlineUser==undefined){
-
-        userId = onlineUser.userId;
-    }debugger
-    var reloadUrl = "/users/"+userId;
 </script>
 
 <!--message model-->
