@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body id="common_do_body">
+
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    /********************************** common do ************************************/
+    /*对页面请求后的跳转处理*/
+    var msg = [[${msg}]];
+    if (msg != undefined && msg != "") {
+        messageModel.showMsg(msg);
+        history.replaceState(null, null, reloadUrl);
+
+    }
+
+    /*]]>*/
+</script>
+</body>
+</html>

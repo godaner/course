@@ -18,7 +18,7 @@
             </div>
             <div class="modal-footer">
                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
-                <button type="button" class="btn btn-primary confirm" data-dismiss="modal">确定</button>
+                <button  type="button" class="btn btn-primary confirm" data-dismiss="modal">确定</button>
             </div>
         </div>
     </div>
@@ -28,7 +28,6 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-
     var messageModel = {
         $modelMessage: $("#modal-message"),
         show: function (msg) {
@@ -37,19 +36,21 @@
         },
         hide: function () {
             this.$modelMessage.modal('hide')
+        },
+        showMsg:function (msg){
+
+            if(msg != undefined && msg != ""){
+                messageModel.show(msg);
+            }
+
+        },
+        onMessageModelClose:function(callfun){
+            this.$modelMessage.on('hidden.bs.modal',callfun)
         }
+
     };
 
 
-    /*默认显示msg*/
-    var msg = [[${msg}]];
-    c("msg is :" +msg);
-    c($);
-    c(messageModel);
-    if (msg != undefined && msg != "") {
-
-        messageModel.show(msg);
-    }
     /*]]>*/
 
 </script>

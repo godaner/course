@@ -38,7 +38,7 @@ public class UserController extends ServiceController<UserService> {
     @ResponseBody
     public Object logout() throws Exception {
         service.logout(getSession());
-        return response;
+        return response.setMsg("注销成功");
     }
 
     @RequestMapping(value = "/img/{name}")

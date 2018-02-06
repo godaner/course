@@ -121,8 +121,10 @@
             success: function (result) {
                 userModel.hide();
                 if (result.code == CODE_OF_REQUEST_SUCCESS) {
-                    a(reloadUrl);
-                    window.location.href=reloadUrl;
+                    messageModel.show(result.msg);
+                    messageModel.onMessageModelClose(function(){
+                        window.location.href=reloadUrl;
+                    });
                 } else {
                     messageModel.show(result.msg);
                 }
@@ -153,7 +155,11 @@
             success: function (result) {
                 userModel.hide();
                 if (result.code == CODE_OF_REQUEST_SUCCESS) {
-                    window.location.href=reloadUrl;
+
+                    messageModel.show(result.msg);
+                    messageModel.onMessageModelClose(function(){
+                        window.location.href=reloadUrl;
+                    });
 
                 } else {
                     messageModel.show(result.msg);

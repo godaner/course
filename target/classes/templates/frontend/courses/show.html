@@ -462,8 +462,6 @@
 <!--tail-->
 <div th:include="/frontend/courses/footer :: #footer_body"></div>
 
-<!--message model-->
-<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
 
 <script type="text/javascript">
 
@@ -476,6 +474,7 @@
     var courseId = [[${course.courseId}]];
 
     var reloadUrl = "/courses/"+courseId;
+
 
     //    courseSourceDescription
     //        :
@@ -595,5 +594,7 @@
 <!--message model-->
 <div th:include="/frontend/courses/message_model :: #message_model_body"></div>
 
+<!--common do-->
+<div th:include="/frontend/courses/common_do :: #common_do_body"></div>
 </body>
 </html>

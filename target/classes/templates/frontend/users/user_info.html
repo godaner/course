@@ -31,7 +31,7 @@
 
     <script th:src="@{/frontend/static/jquery/2.2.4/jquery.min.js}"></script>
     <script th:src="@{/frontend/app/dest/project_util.js}"></script>
-    <script th:src="@{/frontend/app/dest/util.js}"></script>
+    <script th:src="@{/frontend/app/dest/util.js}" charset="utf-8"></script>
     <script th:src="@{/frontend/static/ace/1.2.5/ace.js}"></script>
     <script th:src="@{/frontend/static/aliyun/aliyun-oss-sdk-4.3.0.min.js}"></script>
     <script th:src="@{/frontend/static/highlight.js/9.8.0/highlight.min.js}"></script>
@@ -110,8 +110,6 @@
 
 
 
-<!--message model-->
-<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
 
 <script type="text/javascript">
 
@@ -120,17 +118,21 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
     var onlineUser = [[${onlineUser}]];
+
+    /*]]>*/
     var userId = undefined;
     if(onlineUser == null || onlineUser==undefined){
 
         userId = onlineUser.userId;
-    }
+    }debugger
     var reloadUrl = "/users/"+userId;
-
-    /*]]>*/
-
 </script>
 
+<!--message model-->
+<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+
+<!--common do-->
+<div th:include="/frontend/courses/common_do :: #common_do_body"></div>
 </body>
 
 </html>

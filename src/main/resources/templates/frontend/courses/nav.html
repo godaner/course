@@ -90,7 +90,10 @@
             },
             success: function (result) {
                 if (result.code == CODE_OF_REQUEST_SUCCESS) {
-                    window.location.reload();
+                    messageModel.show(result.msg);
+                    messageModel.onMessageModelClose(function(){
+                        window.location.href=reloadUrl;
+                    });
                 } else {
                     messageModel.show(result.msg);
                 }
@@ -103,6 +106,13 @@
             }
         })
     });
+
+
+    /********************************** common do ************************************/
+    window.location.replace(reloadUrl);
+
+
+
 
 </script>
 </body>
