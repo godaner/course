@@ -24,13 +24,19 @@ public class HttpAop extends CommonUtil {
 
     @Around("declareJoinPointExpression()")
     public Object doAroundAdvice(ProceedingJoinPoint joinPoint) throws Exception {
-
+        Object data = null;
         try {
-            return joinPoint.proceed();
-        } catch (Throwable e) {
+            data = joinPoint.proceed();
+        } catch (CourseRuntimeException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
-            return getHttpServletRequest().getAttribute("forward");
+            String forward = (String) getHttpServletRequest().getAttribute("forward");
+            return forward;
+        }catch (Throwable e) {
+            logger.error(e.getMessage());
+            e.printStackTrace();
         }
+        return data;
 
     }
 

@@ -4,12 +4,16 @@ import com.course.service.exception.CourseRuntimeException;
 
 
 public class UsersException extends CourseRuntimeException {
-    public UsersException(int errorCode, String message) {
-        super(errorCode, message);
+    public UsersException(int errorCode, String errorMsg) {
+        super(errorCode, errorMsg);
     }
 
-    public UsersException(String message) {
-        super(message);
+    public UsersException(String logMsg, int errorCode, String errorMsg) {
+        super(logMsg, errorCode, errorMsg);
+    }
+
+    public UsersException(String logMsg) {
+        super(logMsg);
     }
 
     public enum ErrorCode {

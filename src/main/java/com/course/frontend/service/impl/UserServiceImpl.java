@@ -1,8 +1,13 @@
 package com.course.frontend.service.impl;
 
+import com.course.dao.mapper.CoursesMapper;
+import com.course.dao.mapper.UserCollectCourseMapper;
 import com.course.dao.mapper.UsersMapper;
 import com.course.dao.po.BasePo;
+import com.course.dao.po.Courses;
+import com.course.dao.po.UserCollectCourse;
 import com.course.dao.po.Users;
+import com.course.frontend.exception.CoursesException;
 import com.course.frontend.exception.UsersException;
 import com.course.frontend.service.UserService;
 import com.course.frontend.service.dto.UsersDto;
@@ -31,6 +36,10 @@ import java.io.OutputStream;
 public class UserServiceImpl extends BaseService implements UserService {
     @Autowired
     private UsersMapper usersMapper;
+    @Autowired
+    private CoursesMapper coursesMapper;
+    @Autowired
+    private UserCollectCourseMapper userCollectCourseMapper;
 
     private Users getUserByUsername(String username) {
         return usersMapper.selectOneBy(ImmutableMap.of(
@@ -218,6 +227,72 @@ public class UserServiceImpl extends BaseService implements UserService {
         request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(sessionUser.getUserId())));
 
         request.setAttribute("msg", "更新头像成功");
+    }
+
+    @Override
+    @Transactional
+    public void collectCourse(Long courseId, HttpServletRequest request) {
+
+        Courses courses = this.getCourseByCourseId(courseId);
+
+        if (courses == null) {
+            request.setAttribute("msg", "课程不存在");
+            request.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("collectCourse courses is not exits !! courseId is : " + courseId);
+        }
+
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+
+        if (null == sessionUser) {
+            request.setAttribute("msg", "离线状态不能收藏，请先登录");
+            request.setAttribute("forward", "forward:/courses/" + courseId);
+            throw new UsersException("collectCourse sessionUser is null !! sessionUser is :" + sessionUser);
+        }
+        Users users = this.getUserByUserId(sessionUser.getUserId());
+
+        UserCollectCourse userCollectCourse = this.getUserCollectCourseByUserIdAndCourseId(users.getId(), courseId);
+
+        if (userCollectCourse != null) {
+            request.setAttribute("msg", "本课程您已收藏过了");
+            return;
+        }
+        userCollectCourse = makeUserCollectCourse(users, courses);
+
+
+        if (userCollectCourseMapper.insert(userCollectCourse) != 1) {
+            request.setAttribute("msg", "课程不存在");
+            request.setAttribute("forward", "forward:/courses/" + courses.getId());
+            throw new UsersException("collectCourse insert userCollectCourse is fail !! userCollectCourse is : " + userCollectCourse);
+        }
+
+        request.setAttribute("msg", "收藏成功");
+    }
+
+    private UserCollectCourse getUserCollectCourseByUserIdAndCourseId(Long userId, Long courseId) {
+        UserCollectCourse userCollectCourse = new UserCollectCourse();
+        userCollectCourse.setUserId(userId);
+        userCollectCourse.setCourseId(courseId);
+        userCollectCourse = userCollectCourseMapper.selectOneBy(userCollectCourse);
+        return (userCollectCourse == null || !userCollectCourse.getStatus().equals(BasePo.Status.NORMAL.getCode())) ? null : userCollectCourse;
+    }
+
+    private UserCollectCourse makeUserCollectCourse(Users users, Courses courses) {
+        UserCollectCourse userCollectCourse = new UserCollectCourse();
+        Integer now = DateUtil.unixTime().intValue();
+        userCollectCourse.setUpdateTime(now);
+        userCollectCourse.setCreateTime(now);
+        userCollectCourse.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourse.setCourseId(courses.getId());
+        userCollectCourse.setUserId(users.getId());
+        return userCollectCourse;
+
+    }
+
+    private Courses getCourseByCourseId(Long courseId) {
+
+        Courses courses = coursesMapper.select(courseId);
+        return (courses == null || !courses.getStatus().equals(BasePo.Status.NORMAL.getCode())) ? null : courses;
+
     }
 
     private Users makeUpdateOnlineUser(UsersDto usersDto) {

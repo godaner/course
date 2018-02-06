@@ -47,20 +47,23 @@ public class AjaxAop extends CommonUtil {
                 response = (Response) data;
             }
             return response;
-        } catch (CourseRuntimeException e) {//提供详细错误信息输出到前台
+        } catch (CourseRuntimeException e) {//提倡使用
+            logger.error(e.getMessage());
             e.printStackTrace();
             response.setCode(e.getErrorCode());
-            response.setMsg(e.getMessage());
-
-        } catch (RuntimeException e) {//只输出failed信息，不提供详细错误信息
+            response.setMsg(e.getErrorMsg());
+        } catch (RuntimeException e) {//以下不提倡使用
+            logger.error(e.getMessage());
             e.printStackTrace();
             response.setCode(Response.ResponseCode.FAILURE.getCode());
             response.setMsg(Response.ResponseCode.FAILURE.getMsg());
         } catch (Exception e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             response.setCode(Response.ResponseCode.FAILURE.getCode());
             response.setMsg(Response.ResponseCode.FAILURE.getMsg());
         } catch (Throwable e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             response.setCode(Response.ResponseCode.FAILURE.getCode());
             response.setMsg(Response.ResponseCode.FAILURE.getMsg());

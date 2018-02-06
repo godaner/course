@@ -4,8 +4,8 @@ import com.course.dao.po.query.CoursesQueryBean;
 import com.course.frontend.service.dto.CoursesDto;
 import com.course.util.PageBean;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileNotFoundException;
 import java.util.List;
 
 
@@ -18,7 +18,7 @@ public interface CourseService {
 
     void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
 
-    void downloadCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
+    void downloadCourseSrc(String name, Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception;
 
     void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 }

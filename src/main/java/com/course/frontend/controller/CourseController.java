@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -63,10 +64,10 @@ public class CourseController extends ServiceController<CourseService> {
     }
 
     @RequestMapping(value = "/download/{name}")
-    public void downloadCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+    public Object downloadCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
-        service.downloadCourseSrc(name, courseId, httpServletResponse);
-
+        service.downloadCourseSrc(name, courseId, httpServletRequest,httpServletResponse);
+        return null;
     }
 
 }
