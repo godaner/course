@@ -114,13 +114,13 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public UsersDto getUser(Long userId) {
+    public UsersDto getUserBasicInfo(Long userId) {
         if (userId == null) {
-            throw new UsersException("getUser userId is null !! userId is : " + userId);
+            throw new UsersException("getUserBasicInfo userId is null !! userId is : " + userId);
         }
         Users users = this.getUserByUserId(userId);
         if (isNullObject(users)) {
-            throw new UsersException("getUser users is null !! userId is : " + userId);
+            throw new UsersException("getUserBasicInfo users is null !! userId is : " + userId);
         }
         return makeUsersDto(users);
     }

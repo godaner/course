@@ -6,8 +6,10 @@
 </head>
 <body id="user_info_changeHead_body">
 
-
+<!--@{${'/users/updateOnlineUser'}(currtTab='basicinfo')}-->
 <form class="form-horizontal" method="post" enctype="multipart/form-data" th:action="@{'/users/updateOnlineUserHead'}" role="form">
+
+    <input type="hidden" name='currtTab' value="changeHead"/>
 
     <div class="form-group">
         <label for="headFile" class="col-sm-2 control-label">请选择新头像</label>

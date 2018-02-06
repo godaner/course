@@ -1,15 +1,12 @@
 package com.course.frontend.controller;
 
 import com.course.controller.ServiceController;
-import com.course.dao.po.Users;
 import com.course.frontend.service.UserService;
 import com.course.frontend.service.dto.UsersDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,34 +43,38 @@ public class UserController extends ServiceController<UserService> {
         service.getUserImg(name, httpServletResponse);
     }
 
+    @RequestMapping(value = "/collect/course/{courseId}")
+    public Object collectCourse(HttpServletRequest request,@PathVariable("courseId") Long courseId) throws Exception {
+        service.collectCourse(courseId, getRequest());
+        return "forward:/courses/" + courseId;
+    }
     @RequestMapping(value = "/{userId}")
-    public Object getUser(HttpServletRequest request, @PathVariable("userId") Long userId) throws Exception {
-        UsersDto usersDto = service.getUser(userId);
+    public Object getUserBasicInfo(HttpServletRequest request, @PathVariable("userId") Long userId) throws Exception {
+        UsersDto usersDto = service.getUserBasicInfo(userId);
+        request.setAttribute("currtTab", request.getParameter("currtTab"));
         request.setAttribute("users", usersDto);
         return "frontend/users/user_info";
     }
 
     @RequestMapping(value = "/updateOnlineUser")
-    public Object updateOnlineUser(UsersDto usersDto) throws Exception {
+    public Object updateOnlineUser(HttpServletRequest request,UsersDto usersDto) throws Exception {
         service.updateOnlineUser(usersDto, getRequest());
+        request.setAttribute("currtTab", request.getParameter("currtTab"));
         return "frontend/users/user_info";
     }
 
     @RequestMapping(value = "/updateOnlinePwd")
-    public Object updateOnlinePwd(UsersDto usersDto) throws Exception {
+    public Object updateOnlinePwd(HttpServletRequest request,UsersDto usersDto) throws Exception {
         service.updateOnlinePwd(usersDto, getRequest());
+        request.setAttribute("currtTab", request.getParameter("currtTab"));
         return "frontend/users/user_info";
     }
 
     @RequestMapping(value = "/updateOnlineUserHead")
-    public Object updateOnlineUserHead(UsersDto usersDto) throws Exception {
+    public Object updateOnlineUserHead(HttpServletRequest request,UsersDto usersDto) throws Exception {
         service.updateOnlineUserHead(usersDto, getRequest());
+        request.setAttribute("currtTab", request.getParameter("currtTab"));
         return "frontend/users/user_info";
     }
 
-    @RequestMapping(value = "/collect/course/{courseId}")
-    public Object collectCourse(@PathVariable("courseId") Long courseId) throws Exception {
-        service.collectCourse(courseId, getRequest());
-        return "forward:/courses/" + courseId;
-    }
 }

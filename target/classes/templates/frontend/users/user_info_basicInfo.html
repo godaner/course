@@ -6,8 +6,9 @@
 </head>
 <body id="user_info_basicInfo_body">
 
-
+<!--currtTab=='basicinfo'-->
 <form class="form-horizontal" th:action="@{'/users/updateOnlineUser'}" role="form">
+    <input type="hidden" name='currtTab' value="basicinfo"/>
     <div class="form-group">
         <label for="description" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-3">

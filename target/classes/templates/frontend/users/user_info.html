@@ -67,8 +67,12 @@
     /*<![CDATA[*/
     var onlineUser = [[${onlineUser}]];
 
-    if (onlineUser == ""||onlineUser == null || onlineUser == undefined) {
-        window.location.href = [[@{'/courses/list'}]];
+    if (onlineUser == "" || onlineUser == null || onlineUser == undefined) {
+        window.location.href = [[@{
+            '/courses/list'
+        }
+    ]]
+        ;
     }
     /*]]>*/
 </script>
@@ -79,11 +83,11 @@
         /*<![CDATA[*/
 
         var onlineUser = [[${onlineUser}]];
-        var reloadUrl =undefined;
-        if (onlineUser != undefined && onlineUser != null && onlineUser != "" ) {
+        var reloadUrl = undefined;
+        if (onlineUser != undefined && onlineUser != null && onlineUser != "") {
             var userId = [[${onlineUser.userId}]];
 //        c(onlineUser);
-            reloadUrl = "/users/"+userId;
+            reloadUrl = "/users/" + userId;
         }
 
         /*]]>*/
@@ -94,7 +98,6 @@
     <div th:include="/frontend/users/user_info_content :: #user_info_content_body"></div>
     <!--tail-->
     <div th:include="/frontend/courses/footer :: #footer_body"></div>
-
 
 
     <div id="base-data"
@@ -123,8 +126,6 @@
     ></div>
     <!--?=2016121272249-->
     <script th:src="@{/frontend/app/dest/course/index.js}"></script>
-
-
 
 
     <script type="text/javascript">
