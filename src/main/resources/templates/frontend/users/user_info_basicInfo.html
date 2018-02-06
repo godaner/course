@@ -5,45 +5,47 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body id="user_info_basicInfo_body">
-
-<!--currtTab=='basicinfo'-->
-<form class="form-horizontal" th:action="@{'/users/updateOnlineUser'}" role="form">
-    <input type="hidden" name='currtTab' value="basicinfo"/>
-    <div class="form-group">
-        <label for="description" class="col-sm-2 control-label">用户名</label>
-        <div class="col-sm-3">
-            <input type="text" th:value="${onlineUser.username}" class="form-control" disabled="disabled">
+<th:block th:if="${onlineUser}!=null">
+    <!--currtTab=='basicinfo'-->
+    <form class="form-horizontal" th:action="@{'/users/updateOnlineUser'}" role="form">
+        <input type="hidden" name='currtTab' value="basicinfo"/>
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-3">
+                <input type="text" th:value="${onlineUser.username}" class="form-control" disabled="disabled">
+            </div>
         </div>
-    </div>
-    <div class="form-group" th:with="sex=${onlineUser.sex}">
-        <label class="col-sm-2 control-label">性别</label>
-        <div class="col-sm-10">
+        <div class="form-group" th:with="sex=${onlineUser.sex}">
+            <label class="col-sm-2 control-label">性别</label>
+            <div class="col-sm-10">
 
-            <label class="">
-                <input type="radio" name="sex" id="sex_m" th:checked="${sex == 1}" value="1"> 男
-            </label>
-            <label class="">
-                <input type="radio" name="sex" id="sex_w" th:checked="${sex == 2}" value="2"> 女
-            </label>
-            <label class="">
-                <input type="radio" name="sex" id="sex_u" th:checked="${sex == 3}" value="3"> 私密
-            </label>
+                <label class="">
+                    <input type="radio" name="sex" id="sex_m" th:checked="${sex == 1}" value="1"> 男
+                </label>
+                <label class="">
+                    <input type="radio" name="sex" id="sex_w" th:checked="${sex == 2}" value="2"> 女
+                </label>
+                <label class="">
+                    <input type="radio" name="sex" id="sex_u" th:checked="${sex == 3}" value="3"> 私密
+                </label>
+            </div>
         </div>
-    </div>
-    <!--<p th:text="${onlineUser}"></p>-->
-    <div class="form-group">
-        <label for="description" class="col-sm-2 control-label">简介</label>
-        <div class="col-sm-3">
+        <!--<p th:text="${onlineUser}"></p>-->
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">简介</label>
+            <div class="col-sm-3">
             <textarea id="description" name="description" style="width: 300px;height: 150px;resize: none;"
                       class="form-control" rows="3" th:text="${onlineUser.description}"></textarea>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-3">
-            <button type="submit" class="btn btn-default">保存</button>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <button type="submit" class="btn btn-default">保存</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</th:block>
+
 </body>
 </html>

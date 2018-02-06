@@ -1,13 +1,11 @@
 package com.course.frontend.service.impl;
 
-import com.course.dao.mapper.CourseSourcesMapper;
-import com.course.dao.mapper.CoursesMapper;
-import com.course.dao.mapper.UserDownloadCourseMapper;
-import com.course.dao.mapper.UsersMapper;
+import com.course.dao.mapper.*;
 import com.course.dao.po.*;
 import com.course.dao.po.custom.CoursesWithSources;
 import com.course.dao.po.query.CourseSourcesQueryBean;
 import com.course.dao.po.query.CoursesQueryBean;
+import com.course.dao.po.query.UserCollectCourseQueryBean;
 import com.course.frontend.exception.CoursesException;
 import com.course.frontend.service.CourseService;
 import com.course.frontend.service.UserService;
@@ -46,6 +44,8 @@ public class CourseServiceImpl extends BaseService implements CourseService {
     private UserDownloadCourseMapper userDownloadCourseMapper;
     @Autowired
     private UsersMapper usersMapper;
+    @Autowired
+    private UserCollectCourseMapper userCollectCourseMapper;
 
     @Override
     public List<CoursesDto> getCoursesList(PageBean pageBean, CoursesQueryBean queryBean) throws Exception {
@@ -180,6 +180,20 @@ public class CourseServiceImpl extends BaseService implements CourseService {
             e.printStackTrace();
             IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + "default.png"), outputStream);
         }
+    }
+
+    @Override
+    public List<CoursesDto> getUserCollectCourse(Long userId) {
+        UserCollectCourseQueryBean userCollectCourseQueryBean = new UserCollectCourseQueryBean();
+        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourseQueryBean.setUserId(userId);
+
+        List<Long> courseIds = userCollectCourseMapper.getCoursesByUserId(userCollectCourseQueryBean);
+
+        CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
+
+        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        return coursesMapper.getCoursesByIds(coursesQueryBean);
     }
 
     private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {

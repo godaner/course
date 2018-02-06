@@ -25,7 +25,7 @@
         <div class="content">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" th:class="${currtTab=='basicinfo'?'active':''}">
-                    <a href="#basicinfo" class="stat-event" aria-controls="basicinfo" role="tab"
+                    <a th:href="@{'/users/'+${onlineUser.userId}(currtTab='basicinfo')}" class="stat-event" aria-controls="basicinfo" role="tab"
                        data-toggle="tab">个人信息</a>
                 </li>
                 <li role="presentation" th:class="${currtTab=='changePwd'?'active':''}">
@@ -37,7 +37,7 @@
                        data-toggle="tab">修改头像</a>
                 </li>
                 <li role="presentation" th:class="${currtTab=='downloadCourse'?'active':''}">
-                    <a href="#downloadCourse" class="stat-event" aria-controls="downloadCourse" role="tab"
+                    <a th:href="@{'/users/'+${onlineUser.userId}(currtTab='basicinfo')}" class="stat-event" aria-controls="downloadCourse" role="tab"
                        data-toggle="tab">下载的课程</a>
                 </li>
                 <li role="presentation" th:class="${currtTab=='collectCourse'?'active':''}">

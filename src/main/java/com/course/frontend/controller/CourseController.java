@@ -7,6 +7,7 @@ import com.course.frontend.service.dto.CoursesDto;
 import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
 import org.apache.commons.io.IOUtils;
+import org.assertj.core.util.Lists;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,4 +71,14 @@ public class CourseController extends ServiceController<CourseService> {
         return null;
     }
 
+    @RequestMapping(value = "/user/collect/{userId}")
+    public Object getUserCollectCourse(HttpServletRequest httpServletRequest,@PathVariable("userId") Long userId) throws Exception {
+
+//
+
+
+        httpServletRequest.setAttribute("collectList", service.getUserCollectCourse(userId));
+        httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
+        return "/frontend/user_info";
+    }
 }

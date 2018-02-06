@@ -21,4 +21,6 @@ public interface CourseService {
     void downloadCourseSrc(String name, Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception;
 
     void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception;
+
+    List<CoursesDto> getUserCollectCourse(Long userId);
 }

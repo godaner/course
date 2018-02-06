@@ -294,6 +294,16 @@
         </if>
     </select>
 
-
+    <select id="getCoursesByIds" resultMap="CoursesMap">
+        SELECT *
+        from
+        courses
+        where
+        status = #{query.status}
+        and id in
+        <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>

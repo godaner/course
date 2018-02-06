@@ -176,4 +176,17 @@ id=#{id}
 		LIMIT 1 
 	</select>
 
+	<!--**************************** 自定义mapper start ****************************-->
+
+	<select id="getCoursesByUserId" resultMap="UserCollectCourseMap">
+		select *
+		from
+		user_collect_course
+		where
+		status = #{query.status}
+		and userId = #{query.userId}
+	</select>
+
+	<!--**************************** 自定义mapper end ****************************-->
+
 </mapper>
