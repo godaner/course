@@ -61,6 +61,7 @@
 
 <!--<body th:with="onlineUser=${#httpSession.getAttribute('onlineUser')}">-->
 <body th:with="onlineUser=${session.onlineUser}">
+
 <!--离线跳转-->
 <script th:inline="javascript">
     /*<![CDATA[*/
@@ -71,64 +72,74 @@
     }
     /*]]>*/
 </script>
+
 <th:block th:if="${onlineUser} != null">
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var onlineUser = [[${onlineUser}]];
+        var reloadUrl =undefined;
+        if (onlineUser != undefined && onlineUser != null && onlineUser != "" ) {
+            var userId = [[${onlineUser.userId}]];
+//        c(onlineUser);
+            reloadUrl = "/users/"+userId;
+        }
+
+        /*]]>*/
+    </script>
     <!--nav-->
     <div th:include="/frontend/courses/nav :: #nav_body"></div>
     <!--user_info_content-->
     <div th:include="/frontend/users/user_info_content :: #user_info_content_body"></div>
     <!--tail-->
     <div th:include="/frontend/courses/footer :: #footer_body"></div>
+
+
+
+    <div id="base-data"
+
+
+         data-flash="false"
+
+
+         data-is-login=false
+
+         data-is-jwt=true
+         data-socket-url="wss://comet.xxxxxx.com"
+         data-msg-user=""
+         data-msg-system=""
+    ></div>
+
+    <!--?=2016121272249-->
+    <script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
+
+
+    <div id="jinja-data"
+         data-loginurl="/login"
+         data-private-course-url="/courses/join"
+         data-site-type="0"
+
+    ></div>
+    <!--?=2016121272249-->
+    <script th:src="@{/frontend/app/dest/course/index.js}"></script>
+
+
+
+
+    <script type="text/javascript">
+
+
+    </script>
+
+
+    <!--message model-->
+    <div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+
+    <!--common do-->
+    <div th:include="/frontend/courses/common_do :: #common_do_body"></div>
 </th:block>
 
-
-<div id="base-data"
-
-
-     data-flash="false"
-
-
-     data-is-login=false
-
-     data-is-jwt=true
-     data-socket-url="wss://comet.xxxxxx.com"
-     data-msg-user=""
-     data-msg-system=""
-></div>
-
-<!--?=2016121272249-->
-<script th:src="@{/frontend/app/dest/lib/lib.js}"></script>
-
-
-<div id="jinja-data"
-     data-loginurl="/login"
-     data-private-course-url="/courses/join"
-     data-site-type="0"
-
-></div>
-<!--?=2016121272249-->
-<script th:src="@{/frontend/app/dest/course/index.js}"></script>
-
-
-
-
-<script type="text/javascript">
-
-
-</script>
-<script th:inline="javascript">
-    /*<![CDATA[*/
-
-    var userId = [[${onlineUser.userId}]];
-    var reloadUrl = "/users/"+userId;
-
-    /*]]>*/
-</script>
-
-<!--message model-->
-<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
-
-<!--common do-->
-<div th:include="/frontend/courses/common_do :: #common_do_body"></div>
 </body>
 
 </html>

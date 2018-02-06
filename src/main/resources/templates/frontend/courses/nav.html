@@ -38,7 +38,7 @@
             </th:block>
             <th:block th:if="${session.onlineUser!=null}">
                 <div class="navbar-right btns">
-                    <a th:href="@{'/users/'+${session.onlineUser.userId}}">
+                    <a th:href="@{'/users/'+${session.onlineUser.userId}(currtTab='changePwd')}">
                         <img style="width: 30px;height: 30px;" class="img-circle"
                              th:src="@{${session.onlineUser.imgUrl} +'?t='+ ${new java.util.Date().getTime()}}" alt="头像"/>
                     </a>
@@ -106,11 +106,6 @@
             }
         })
     });
-
-
-    /********************************** common do ************************************/
-    window.location.replace(reloadUrl);
-
 
 
 

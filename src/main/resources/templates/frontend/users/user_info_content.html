@@ -24,52 +24,52 @@
     <div class="col-md-7 layout-body col-md-push-2">
         <div class="content">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
+                <li role="presentation" th:class="${currtTab=='basicinfo'?'active':''}">
                     <a href="#basicinfo" class="stat-event" aria-controls="basicinfo" role="tab"
-                       data-toggle="tab">个人信息</a>
+                       data-toggle="tab" th:text="${currtTab}">个人信息</a>
                 </li>
-                <li role="presentation">
+                <li role="presentation" th:class="${currtTab=='changePwd'?'active':''}">
                     <a href="#changePwd" class="stat-event" aria-controls="changePwd" role="tab"
                        data-toggle="tab">修改密码</a>
                 </li>
-                <li role="presentation">
+                <li role="presentation" th:class="${currtTab=='changeHead'?'active':''}">
                     <a href="#changeHead" class="stat-event" aria-controls="changeHead" role="tab"
                        data-toggle="tab">修改头像</a>
                 </li>
-                <li role="presentation">
+                <li role="presentation" th:class="${currtTab=='downloadCourse'?'active':''}">
                     <a href="#downloadCourse" class="stat-event" aria-controls="downloadCourse" role="tab"
                        data-toggle="tab">下载的课程</a>
                 </li>
-                <li role="presentation">
+                <li role="presentation" th:class="${currtTab=='collectCourse'?'active':''}">
                     <a href="#collectCourse" class="stat-event" aria-controls="collectCourse" role="tab"
                        data-toggle="tab">收藏的课程</a>
                 </li>
 
             </ul>
             <div style="margin: 40px 0px; " class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="basicinfo">
+                <div role="tabpanel" th:class="${currtTab=='basicinfo'?'active':''}+' tab-pane'" id="basicinfo">
                     <div th:include="/frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="changePwd">
+                <div role="tabpanel" th:class="${currtTab=='changePwd'?'active':''}+' tab-pane'" id="changePwd">
 
                     <div th:include="/frontend/users/user_info_changePwd :: #user_info_changePwd_body"></div>
 
                 </div>
 
-                <div role="tabpanel" class="tab-pane " id="changeHead">
+                <div role="tabpanel" th:class="${currtTab=='changeHead'?'active':''}+' tab-pane'" id="changeHead">
 
                     <div th:include="/frontend/users/user_info_changeHead :: #user_info_changeHead_body"></div>
 
                 </div>
 
-                <div role="tabpanel" class="tab-pane " id="downloadCourse">
+                <div role="tabpanel" th:class="${currtTab=='downloadCourse'?'active':''}+' tab-pane'" id="downloadCourse">
 
                     <div th:include="/frontend/users/user_info_downloadCourse :: #user_info_downloadCourse_body"></div>
 
                 </div>
 
-                <div role="tabpanel" class="tab-pane " id="collectCourse">
+                <div role="tabpanel" th:class="${currtTab=='collectCourse'?'active':''}+' tab-pane'" id="collectCourse">
 
                     <div th:include="/frontend/users/user_info_collectCourse :: #user_info_collectCourse_body"></div>
 
