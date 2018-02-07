@@ -178,13 +178,13 @@ id=#{id}
 
 	<!--**************************** 自定义mapper start ****************************-->
 
-	<select id="getCoursesByUserId" resultMap="UserCollectCourseMap">
-		select *
+	<select id="getCourseIdsByUserId" resultType="long">
+		select course_id
 		from
 		user_collect_course
 		where
 		status = #{query.status}
-		and userId = #{query.userId}
+		and user_id = #{query.userId}
 	</select>
 
 	<!--**************************** 自定义mapper end ****************************-->

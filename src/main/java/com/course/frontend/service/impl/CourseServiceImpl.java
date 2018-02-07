@@ -182,20 +182,6 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         }
     }
 
-    @Override
-    public List<CoursesDto> getUserCollectCourse(Long userId) {
-        UserCollectCourseQueryBean userCollectCourseQueryBean = new UserCollectCourseQueryBean();
-        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
-        userCollectCourseQueryBean.setUserId(userId);
-
-        List<Long> courseIds = userCollectCourseMapper.getCoursesByUserId(userCollectCourseQueryBean);
-
-        CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
-
-        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
-        return coursesMapper.getCoursesByIds(coursesQueryBean);
-    }
-
     private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {
         CoursesDto coursesDto = new CoursesDto();
         coursesDto.setCourseId(coursesWithSources.getId());

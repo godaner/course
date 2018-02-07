@@ -19,5 +19,5 @@ public interface CoursesMapper extends BaseCrudMapper<Courses> {
 
     CoursesWithSources getCourseWithSources(@Param("page") PageBean pageBean, @Param("query") CourseSourcesQueryBean queryBean, @Param("courseId") Long courseId);
 
-    List<CoursesDto> getCoursesByIds(@Param("query") CoursesQueryBean coursesQueryBean);
+    List<Courses> getCoursesByIds(@Param("query") CoursesQueryBean coursesQueryBean);
 }

@@ -301,7 +301,7 @@
         where
         status = #{query.status}
         and id in
-        <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+        <foreach item="item" index="index" collection="query.courseIds" open="(" separator="," close=")">
             #{item}
         </foreach>
     </select>

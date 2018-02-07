@@ -71,14 +71,5 @@ public class CourseController extends ServiceController<CourseService> {
         return null;
     }
 
-    @RequestMapping(value = "/user/collect/{userId}")
-    public Object getUserCollectCourse(HttpServletRequest httpServletRequest,@PathVariable("userId") Long userId) throws Exception {
 
-//
-
-
-        httpServletRequest.setAttribute("collectList", service.getUserCollectCourse(userId));
-        httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
-        return "/frontend/user_info";
-    }
 }

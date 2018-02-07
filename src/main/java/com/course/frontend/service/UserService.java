@@ -1,10 +1,12 @@
 package com.course.frontend.service;
 
+import com.course.frontend.service.dto.CoursesDto;
 import com.course.frontend.service.dto.UsersDto;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 public interface UserService {
 
@@ -25,4 +27,6 @@ public interface UserService {
     void updateOnlineUserHead(UsersDto usersDto, HttpServletRequest request);
 
     void collectCourse(Long courseId, HttpServletRequest request);
+
+    List<CoursesDto> getUserCollectCourse(HttpServletRequest request);
 }

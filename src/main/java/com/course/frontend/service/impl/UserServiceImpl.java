@@ -7,9 +7,12 @@ import com.course.dao.po.BasePo;
 import com.course.dao.po.Courses;
 import com.course.dao.po.UserCollectCourse;
 import com.course.dao.po.Users;
+import com.course.dao.po.query.CoursesQueryBean;
+import com.course.dao.po.query.UserCollectCourseQueryBean;
 import com.course.frontend.exception.CoursesException;
 import com.course.frontend.exception.UsersException;
 import com.course.frontend.service.UserService;
+import com.course.frontend.service.dto.CoursesDto;
 import com.course.frontend.service.dto.UsersDto;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
@@ -29,6 +32,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 
 @Service
@@ -266,6 +272,43 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
 
         request.setAttribute("msg", "收藏成功");
+    }
+
+    @Override
+    public List<CoursesDto> getUserCollectCourse(HttpServletRequest request) {
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+
+        if (null == sessionUser) {
+            request.setAttribute("msg", "离线状态，请先登录");
+            request.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("getUserCollectCourse sessionUser is null !! sessionUser is :" + sessionUser);
+        }
+
+        Long userId = sessionUser.getUserId();
+
+        UserCollectCourseQueryBean userCollectCourseQueryBean = new UserCollectCourseQueryBean();
+        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourseQueryBean.setUserId(userId);
+
+        List<Long> courseIds = userCollectCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
+
+        CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
+        coursesQueryBean.setCourseIds(courseIds);
+
+        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        return coursesMapper.getCoursesByIds(coursesQueryBean).stream().parallel().map(
+                courses -> {
+                    CoursesDto coursesDto = new CoursesDto();
+                    coursesDto.setCollectNumber(courses.getCollectNumber());
+                    coursesDto.setWatchNumber(courses.getWatchNumber());
+                    coursesDto.setCourseId(courses.getId());
+                    coursesDto.setDescription(courses.getDescription());
+                    coursesDto.setImgUrl(courses.getImgUrl());
+                    coursesDto.setName(courses.getName());
+                    coursesDto.setDownloadNumber(courses.getDownloadNumber());
+                    return coursesDto;
+                }
+        ).collect(toList());
     }
 
     private UserCollectCourse getUserCollectCourseByUserIdAndCourseId(Long userId, Long courseId) {

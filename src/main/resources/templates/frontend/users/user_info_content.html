@@ -24,9 +24,10 @@
     <div class="col-md-7 layout-body col-md-push-2">
         <div class="content">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" th:class="${currtTab=='basicinfo'?'active':''}">
-                    <a th:href="@{'/users/'+${onlineUser.userId}(currtTab='basicinfo')}" class="stat-event" aria-controls="basicinfo" role="tab"
-                       data-toggle="tab">个人信息</a>
+                <li th:class="${currtTab=='basicinfo'?'active':''}">
+                    <a th:href="@{'/users/'+${onlineUser.userId}(currtTab='basicinfo')}">
+                        个人信息
+                    </a>
                 </li>
                 <li role="presentation" th:class="${currtTab=='changePwd'?'active':''}">
                     <a href="#changePwd" class="stat-event" aria-controls="changePwd" role="tab"
@@ -36,13 +37,15 @@
                     <a href="#changeHead" class="stat-event" aria-controls="changeHead" role="tab"
                        data-toggle="tab">修改头像</a>
                 </li>
-                <li role="presentation" th:class="${currtTab=='downloadCourse'?'active':''}">
-                    <a th:href="@{'/users/'+${onlineUser.userId}(currtTab='basicinfo')}" class="stat-event" aria-controls="downloadCourse" role="tab"
-                       data-toggle="tab">下载的课程</a>
+                <li th:class="${currtTab=='downloadCourse'?'active':''}">
+                    <a th:href="@{'/users/onlineUser/download'(currtTab='downloadCourse')}">
+                        下载的课程
+                    </a>
                 </li>
-                <li role="presentation" th:class="${currtTab=='collectCourse'?'active':''}">
-                    <a href="#collectCourse" class="stat-event" aria-controls="collectCourse" role="tab"
-                       data-toggle="tab">收藏的课程</a>
+                <li th:class="${currtTab=='collectCourse'?'active':''}">
+                    <a th:href="@{'/users/onlineUser/collect'(currtTab='collectCourse')}">
+                        收藏的课程
+                    </a>
                 </li>
 
             </ul>

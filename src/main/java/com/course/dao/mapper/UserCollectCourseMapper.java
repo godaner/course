@@ -9,5 +9,5 @@ import java.util.List;
 public interface UserCollectCourseMapper extends BaseCrudMapper<UserCollectCourse> {
 
 
-    List<Long> getCoursesByUserId(@Param("query") UserCollectCourseQueryBean userCollectCourseQueryBean);
+    List<Long> getCourseIdsByUserId(@Param("query") UserCollectCourseQueryBean userCollectCourseQueryBean);
 }
