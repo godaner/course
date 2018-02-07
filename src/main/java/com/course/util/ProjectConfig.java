@@ -1,7 +1,6 @@
 package com.course.util;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 //@PropertySource(value = {"classpath:config/project.properties"}, encoding = "utf-8")

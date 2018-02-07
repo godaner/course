@@ -5,7 +5,37 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body id="user_info_downloadCourse_body">
-user_info_downloadCourse
+
+
+<th:block th:each="course,status : ${courses}">
+
+
+    <div class="media">
+        <div class="media-left media-middle">
+            <a th:href="@{'/courses/'+${course.courseId}}">
+                <img style="width: 260px;height: 180px;" class="media-object" th:src="@{${course.imgUrl}}"
+                     th:alt="${course.name}">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading" th:text="${course.name}"></h4>
+            <p th:text="'描述：'+${course.description}">
+
+            </p>
+            <p th:text="'下载数：'+${course.downloadNumber}">
+
+            </p>
+            <p th:text="'观看数：'+${course.watchNumber}">
+
+            </p>
+            <p th:text="'收藏数：'+${course.collectNumber}">
+
+            </p>
+        </div>
+    </div>
+
+
+</th:block>
 
 </body>
 </html>

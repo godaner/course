@@ -83,5 +83,11 @@ public class UserController extends ServiceController<UserService> {
         httpServletRequest.setAttribute("courses", service.getUserCollectCourse(httpServletRequest));
         return "frontend/users/user_info";
     }
+    @RequestMapping(value = "/onlineUser/download")
+    public Object getUserDownloadCourse(HttpServletRequest httpServletRequest) throws Exception {
 
+        httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
+        httpServletRequest.setAttribute("courses", service.getUserDownloadCourse(httpServletRequest));
+        return "frontend/users/user_info";
+    }
 }

@@ -2,6 +2,7 @@ package com.course.frontend.service.impl;
 
 import com.course.dao.mapper.CoursesMapper;
 import com.course.dao.mapper.UserCollectCourseMapper;
+import com.course.dao.mapper.UserDownloadCourseMapper;
 import com.course.dao.mapper.UsersMapper;
 import com.course.dao.po.BasePo;
 import com.course.dao.po.Courses;
@@ -9,6 +10,7 @@ import com.course.dao.po.UserCollectCourse;
 import com.course.dao.po.Users;
 import com.course.dao.po.query.CoursesQueryBean;
 import com.course.dao.po.query.UserCollectCourseQueryBean;
+import com.course.dao.po.query.UserDownloadCourseQueryBean;
 import com.course.frontend.exception.CoursesException;
 import com.course.frontend.exception.UsersException;
 import com.course.frontend.service.UserService;
@@ -46,6 +48,8 @@ public class UserServiceImpl extends BaseService implements UserService {
     private CoursesMapper coursesMapper;
     @Autowired
     private UserCollectCourseMapper userCollectCourseMapper;
+    @Autowired
+    private UserDownloadCourseMapper userDownloadCourseMapper;
 
     private Users getUserByUsername(String username) {
         return usersMapper.selectOneBy(ImmutableMap.of(
@@ -303,17 +307,51 @@ public class UserServiceImpl extends BaseService implements UserService {
         coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
         return coursesMapper.getCoursesByIds(coursesQueryBean).stream().parallel().map(
                 courses -> {
-                    CoursesDto coursesDto = new CoursesDto();
-                    coursesDto.setCollectNumber(courses.getCollectNumber());
-                    coursesDto.setWatchNumber(courses.getWatchNumber());
-                    coursesDto.setCourseId(courses.getId());
-                    coursesDto.setDescription(courses.getDescription());
-                    coursesDto.setImgUrl(courses.getImgUrl());
-                    coursesDto.setName(courses.getName());
-                    coursesDto.setDownloadNumber(courses.getDownloadNumber());
-                    return coursesDto;
+                    return makeCourseDto(courses);
                 }
         ).collect(toList());
+    }
+
+    @Override
+    public List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest) {
+        UsersDto sessionUser = (UsersDto) httpServletRequest.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+
+        if (null == sessionUser) {
+            httpServletRequest.setAttribute("msg", "离线状态，请您先登录");
+            httpServletRequest.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("getUserCollectCourse sessionUser is null !! sessionUser is :" + sessionUser);
+        }
+
+        Long userId = sessionUser.getUserId();
+
+        UserDownloadCourseQueryBean userCollectCourseQueryBean = new UserDownloadCourseQueryBean();
+        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourseQueryBean.setUserId(userId);
+
+        List<Long> courseIds = userDownloadCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
+
+        CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
+        coursesQueryBean.setCourseIds(courseIds);
+
+        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        return coursesMapper.getCoursesByIds(coursesQueryBean).stream().parallel().map(
+                courses -> {
+                    return makeCourseDto(courses);
+                }
+        ).collect(toList());
+    }
+
+    private CoursesDto makeCourseDto(Courses courses) {
+
+        CoursesDto coursesDto = new CoursesDto();
+        coursesDto.setCollectNumber(courses.getCollectNumber());
+        coursesDto.setWatchNumber(courses.getWatchNumber());
+        coursesDto.setCourseId(courses.getId());
+        coursesDto.setDescription(courses.getDescription());
+        coursesDto.setImgUrl(courses.getImgUrl());
+        coursesDto.setName(courses.getName());
+        coursesDto.setDownloadNumber(courses.getDownloadNumber());
+        return coursesDto;
     }
 
     private UserCollectCourse getUserCollectCourseByUserIdAndCourseId(Long userId, Long courseId) {

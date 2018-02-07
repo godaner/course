@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/FrontIndexController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/config/application-bugfix.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/config/project.properties" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserDownloadCourseQueryBean.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/config/application-bugfix.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/config/project.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/course.jar.original" afterPath="$PROJECT_DIR$/target/course.jar.original" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-prod.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-prod.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/application-dev.properties" afterPath="$PROJECT_DIR$/target/classes/config/application-dev.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/application-prod.properties" afterPath="$PROJECT_DIR$/target/classes/config/application-prod.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/user_download_course.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/user_download_course.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info.html" afterPath="$PROJECT_DIR$/target/classes/templates/frontend/users/user_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.BaseControllerTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.BaseControllerTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.TempleControllerTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.TempleControllerTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.BaseControllerTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.BaseControllerTest.txt" />
@@ -31,34 +37,137 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application-prod.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-prod.properties">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
+            <state relative-caret-position="394">
+              <caret line="330" column="60" lean-forward="false" selection-start-line="330" selection-start-column="60" selection-end-line="330" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-dev.properties">
+      <file leaf-file-name="UserDownloadCourseMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="108">
+              <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java">
+      <file leaf-file-name="user_download_course.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="155">
+              <caret line="171" column="17" lean-forward="true" selection-start-line="171" selection-start-column="17" selection-end-line="171" selection-end-column="17" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1517987354461" expanded="true" signature="861:910" ph="SELECT count... user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="1030:1212" ph="INSERT INTO user_download_course... " />
+                <marker date="1517987354461" expanded="true" signature="1252:1311" ph="DELETE FROM " />
+                <marker date="1517987354461" expanded="true" signature="1399:1734" ph="UPDATE user_... " />
+                <marker date="1517987354461" expanded="true" signature="1809:1944" ph="SELECT FROM user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="2027:2257" ph="SELECT FROM user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="3236:3287" ph="SELECT * FRO... user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="3704:3760" ph="SELECT id FR... user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="3881:3920" ph="SELECT * FRO... user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="4034:4120" ph="SELECT * FRO... user_download_course" />
+                <marker date="1517987354461" expanded="true" signature="4273:4386" ph="select cours... user_download_course" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_info_collectCourse.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="37" column="11" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="37" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_info_downloadCourse.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tags.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1517303400167" expanded="true" signature="746:779" ph="SELECT count... tags" />
+                <marker date="1517303400167" expanded="true" signature="899:1050" ph="INSERT INTO tags... " />
+                <marker date="1517303400167" expanded="true" signature="1090:1133" ph="DELETE FROM " />
+                <marker date="1517303400167" expanded="true" signature="1207:1463" ph="UPDATE tags " />
+                <marker date="1517303400167" expanded="true" signature="1524:1643" ph="SELECT FROM tags" />
+                <marker date="1517303400167" expanded="true" signature="1712:1926" ph="SELECT FROM tags" />
+                <marker date="1517303400167" expanded="true" signature="2772:2807" ph="SELECT * FRO... tags" />
+                <marker date="1517303400167" expanded="true" signature="3194:3234" ph="SELECT id FR... tags" />
+                <marker date="1517303400167" expanded="true" signature="3341:3364" ph="SELECT * FRO... tags" />
+                <marker date="1517303400167" expanded="true" signature="3464:3534" ph="SELECT * FRO... tags" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_collect_course.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="189" selection-end-column="82" />
+              <folding>
+                <marker date="1517969846209" expanded="true" signature="858:906" ph="SELECT count... user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="1026:1207" ph="INSERT INTO user_collect_course... " />
+                <marker date="1517969846209" expanded="true" signature="1247:1305" ph="DELETE FROM " />
+                <marker date="1517969846209" expanded="true" signature="1392:1726" ph="UPDATE user_... " />
+                <marker date="1517969846209" expanded="true" signature="1800:1934" ph="SELECT FROM user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="2016:2245" ph="SELECT FROM user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="3222:3272" ph="SELECT * FRO... user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="3687:3742" ph="SELECT id FR... user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="3862:3900" ph="SELECT * FRO... user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="4013:4098" ph="SELECT * FRO... user_collect_course" />
+                <marker date="1517969846209" expanded="true" signature="4251:4363" ph="select cours... user_collect_course" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_info_content.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserCollectCourseQueryBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="209" column="36" lean-forward="false" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,7 +185,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>window.location.replace(reloa</find>
       <find>window.location.replace(relo</find>
       <find>window.location.replace(rel</find>
       <find>window.location.replace(re</find>
@@ -106,6 +214,7 @@
       <find>/frontendusers</find>
       <find>/frontend/users</find>
       <find>th:include=&quot;/</find>
+      <find>make</find>
     </findStrings>
     <replaceStrings>
       <replace>{/frontend</replace>
@@ -127,16 +236,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/PageHunterController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/user_info_content.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/listener/ApplicationStartedListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/listener/SessionListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/BootApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/listener/SessionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/listener/ApplicationStartedListener.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/aop/ControllerServiceAop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UsersDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/CourseRuntimeException.java" />
@@ -148,7 +253,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/util.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/message_model.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/common_do.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_changePwd.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_changeHead.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_basicInfo.html" />
@@ -166,10 +270,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/course/test/controller/TempleControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" />
@@ -178,6 +279,14 @@
         <option value="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/FrontIndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserDownloadCourseQueryBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html" />
       </list>
     </option>
   </component>
@@ -447,6 +556,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="sqlmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -597,6 +732,108 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="po" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="po" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="query" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -646,8 +883,8 @@
       <recent name="E:\zk\course\src\main\resources\templates\frontend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.course.frontend.controller" />
       <recent name="com.course.dao.po.query" />
+      <recent name="com.course.frontend.controller" />
       <recent name="com.course.aop" />
       <recent name="com.course.frontend.listener" />
       <recent name="com.course.listener" />
@@ -1195,7 +1432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157772000" />
+    <option name="totallyTimeSpent" value="159787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
@@ -1204,7 +1441,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.50213677" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19070514" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19070514" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1212,14 +1449,14 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37811485" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37811485" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1267,7 +1504,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.50213677" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19391026" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19391026" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1276,7 +1513,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6143012" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5070422" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1289,7 +1526,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23504274" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1327,35 +1564,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.2.RELEASE/spring-aop-4.3.2.RELEASE-sources.jar!/org/springframework/aop/aspectj/AbstractAspectJAdvice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="628" column="0" lean-forward="false" selection-start-line="628" selection-start-column="0" selection-end-line="628" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/project_util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/app/dest/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_model.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -1433,20 +1641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/course_sources.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -1490,32 +1684,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="197" column="44" lean-forward="true" selection-start-line="197" selection-start-column="44" selection-end-line="197" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="305" column="18" lean-forward="false" selection-start-line="305" selection-start-column="18" selection-end-line="305" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="27" column="64" lean-forward="false" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="185" column="26" lean-forward="true" selection-start-line="185" selection-start-column="26" selection-end-line="185" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1530,21 +1702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1568,6 +1725,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1603,22 +1761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="270" column="0" lean-forward="true" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1635,14 +1777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="95" column="21" lean-forward="true" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1301">
@@ -1651,22 +1785,6 @@
             <marker date="1517984815235" expanded="false" signature="7852:7918" ph="..." />
             <marker date="1517984815235" expanded="false" signature="8170:8236" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-prod.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1696,11 +1814,174 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-prod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="89" column="69" lean-forward="false" selection-start-line="89" selection-start-column="69" selection-end-line="89" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="48" column="50" lean-forward="false" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="209" column="36" lean-forward="false" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserDownloadCourseQueryBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/frontend/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="330" column="60" lean-forward="false" selection-start-line="330" selection-start-column="60" selection-end-line="330" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1517303400167" expanded="true" signature="746:779" ph="SELECT count... tags" />
+            <marker date="1517303400167" expanded="true" signature="899:1050" ph="INSERT INTO tags... " />
+            <marker date="1517303400167" expanded="true" signature="1090:1133" ph="DELETE FROM " />
+            <marker date="1517303400167" expanded="true" signature="1207:1463" ph="UPDATE tags " />
+            <marker date="1517303400167" expanded="true" signature="1524:1643" ph="SELECT FROM tags" />
+            <marker date="1517303400167" expanded="true" signature="1712:1926" ph="SELECT FROM tags" />
+            <marker date="1517303400167" expanded="true" signature="2772:2807" ph="SELECT * FRO... tags" />
+            <marker date="1517303400167" expanded="true" signature="3194:3234" ph="SELECT id FR... tags" />
+            <marker date="1517303400167" expanded="true" signature="3341:3364" ph="SELECT * FRO... tags" />
+            <marker date="1517303400167" expanded="true" signature="3464:3534" ph="SELECT * FRO... tags" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="189" selection-end-column="82" />
+          <folding>
+            <marker date="1517969846209" expanded="true" signature="858:906" ph="SELECT count... user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="1026:1207" ph="INSERT INTO user_collect_course... " />
+            <marker date="1517969846209" expanded="true" signature="1247:1305" ph="DELETE FROM " />
+            <marker date="1517969846209" expanded="true" signature="1392:1726" ph="UPDATE user_... " />
+            <marker date="1517969846209" expanded="true" signature="1800:1934" ph="SELECT FROM user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="2016:2245" ph="SELECT FROM user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="3222:3272" ph="SELECT * FRO... user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="3687:3742" ph="SELECT id FR... user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="3862:3900" ph="SELECT * FRO... user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="4013:4098" ph="SELECT * FRO... user_collect_course" />
+            <marker date="1517969846209" expanded="true" signature="4251:4363" ph="select cours... user_collect_course" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="171" column="17" lean-forward="true" selection-start-line="171" selection-start-column="17" selection-end-line="171" selection-end-column="17" />
+          <folding>
+            <marker date="1517987354461" expanded="true" signature="861:910" ph="SELECT count... user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="1030:1212" ph="INSERT INTO user_download_course... " />
+            <marker date="1517987354461" expanded="true" signature="1252:1311" ph="DELETE FROM " />
+            <marker date="1517987354461" expanded="true" signature="1399:1734" ph="UPDATE user_... " />
+            <marker date="1517987354461" expanded="true" signature="1809:1944" ph="SELECT FROM user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="2027:2257" ph="SELECT FROM user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="3236:3287" ph="SELECT * FRO... user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="3704:3760" ph="SELECT id FR... user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="3881:3920" ph="SELECT * FRO... user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="4034:4120" ph="SELECT * FRO... user_download_course" />
+            <marker date="1517987354461" expanded="true" signature="4273:4386" ph="select cours... user_download_course" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_collectCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="37" column="11" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="37" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_downloadCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -5,7 +5,6 @@ E:\zk\course\src\main\java\com\course\dao\mapper\TagsMapper.java
 E:\zk\course\src\main\java\com\course\frontend\service\dto\CoursesDto.java
 E:\zk\course\src\main\java\com\course\util\DateUtil.java
 E:\zk\course\src\main\java\com\course\dao\po\custom\TagGroupsWithTags.java
-E:\zk\course\src\main\java\com\course\frontend\controller\FrontIndexController.java
 E:\zk\course\src\main\java\com\course\dao\mapper\BaseCrudMapper.java
 E:\zk\course\src\main\java\com\course\dao\po\query\UserCollectCourseQueryBean.java
 E:\zk\course\src\main\java\com\course\frontend\controller\UserController.java

@@ -29,4 +29,6 @@ public interface UserService {
     void collectCourse(Long courseId, HttpServletRequest request);
 
     List<CoursesDto> getUserCollectCourse(HttpServletRequest request);
+
+    List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest);
 }
