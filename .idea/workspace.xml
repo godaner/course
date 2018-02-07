@@ -2,77 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/common.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/commonCopy.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/flat-ui.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/jquery.nouislider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/jquery.nouislider.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/css/slide.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-black.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-black.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-black.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-black.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bold.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bold.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bolditalic.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bolditalic.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bolditalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-bolditalic.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-italic.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-italic.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-italic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-italic.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-light.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-light.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-light.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/fonts/lato/lato-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/captchaCode.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/circle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_card_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_change.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_change_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_char.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_char_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_chara.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_chara_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_house.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_house_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_rule.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_rule_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_source.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_source_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/icon_user_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/images/progress02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/html5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/jquery-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/jquery.nouislider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/jquery.nouislider.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates.backend/js/respond.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates.backend/index.html" afterPath="$PROJECT_DIR$/target/classes/templates.backend/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap-theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/common.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/common.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/commonCopy.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/commonCopy.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/flat-ui.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/flat-ui.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery-ui.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery-ui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery.nouislider.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery.nouislider.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery.nouislider.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery.nouislider.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/slide.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/slide.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/Thumbs.db" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/Thumbs.db" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/captchaCode.jpg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/captchaCode.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/circle.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/circle.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_card.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_card.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_card_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_card_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_change.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_change.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_change_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_change_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_char.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_char.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_char_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_char_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_chara.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_chara.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_chara_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_chara_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_house.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_house.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_house_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_house_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_rule.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_rule.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_rule_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_rule_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_source.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_source.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_source_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_source_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_user.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_user.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_user_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_user_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/logo.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/progress02.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/progress02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/html5.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/html5.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery-ui.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery-ui.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.nouislider.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.nouislider.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.nouislider.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.nouislider.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/respond.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/respond.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,16 +93,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -148,14 +138,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-dev.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,18 +186,6 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="42" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TagGroupsService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/TagGroupsService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -195,8 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>window.location.replace(relo</find>
-      <find>window.location.replace(rel</find>
       <find>window.location.replace(re</find>
       <find>window.location.replace(r</find>
       <find>window.location.replace(</find>
@@ -225,6 +231,8 @@
       <find>/frontend/users</find>
       <find>th:include=&quot;/</find>
       <find>make</find>
+      <find>href</find>
+      <find>.js</find>
     </findStrings>
     <replaceStrings>
       <replace>{/frontend</replace>
@@ -246,7 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/service/dto/UserCollectCourseDto.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/course/frontend/service/impl/CourseServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java" />
@@ -266,7 +273,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/nav.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html" />
         <option value="$PROJECT_DIR$/src/main/resources/config/application-prod.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/FrontIndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/util/ProjectConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/frontend/users/user_info.html" />
@@ -297,6 +303,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates.backend/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
       </list>
     </option>
   </component>
@@ -455,6 +463,92 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1202,15 +1296,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162427000" />
+    <option name="totallyTimeSpent" value="163644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.50213677" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19070514" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19070514" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1228,7 +1323,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1333,30 +1428,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-prod.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="209" column="36" lean-forward="false" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserDownloadCourseQueryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1772,11 +1843,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="264">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

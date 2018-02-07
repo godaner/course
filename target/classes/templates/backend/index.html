@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="format-detection" content="telephone=no">
         <title>Course后台管理模板</title>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script th:src="@{/backend/js/jquery.min.js}"></script>
+        <script th:src="@{/backend/js/bootstrap.min.js}"></script>
         <script>
             $(function() {
                 $(".meun-item").click(function() {
@@ -47,15 +47,15 @@
             })
         </script>
         <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script th:src="@{/backend/js/html5shiv.min.js}"></script>
+  <script th:src="@{/backend/js/respond.min.js}"></script>
 <![endif]-->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/common.css" />
-        <link rel="stylesheet" type="text/css" href="css/slide.css" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
+        <link th:href="@{/backend/css/bootstrap.min.css}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/common.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/slide.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/bootstrap.min.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/flat-ui.min.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/jquery.nouislider.css}">
     </head>
 
     <body>
@@ -1920,7 +1920,7 @@
         new scale('btn3', 'bar3', 'title3', "次");
 </script>
 -->
-<script src="js/jquery.nouislider.js"></script>
+<script th:src="@{/backend/js/jquery.nouislider.js}"></script>
 
 <!-- this page specific inline scripts -->
 <script>
