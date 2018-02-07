@@ -81,7 +81,7 @@ public class UserController extends ServiceController<UserService> {
 
         httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
         httpServletRequest.setAttribute("courses", service.getUserCollectCourse(httpServletRequest));
-        return "/frontend/users/user_info";
+        return "frontend/users/user_info";
     }
 
 }

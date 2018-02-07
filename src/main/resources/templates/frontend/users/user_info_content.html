@@ -51,30 +51,30 @@
             </ul>
             <div style="margin: 40px 0px; " class="tab-content">
                 <div role="tabpanel" th:class="${currtTab=='basicinfo'?'active':''}+' tab-pane'" id="basicinfo">
-                    <div th:include="/frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
+                    <div th:include="frontend/users/user_info_basicInfo :: #user_info_basicInfo_body"></div>
                 </div>
 
                 <div role="tabpanel" th:class="${currtTab=='changePwd'?'active':''}+' tab-pane'" id="changePwd">
 
-                    <div th:include="/frontend/users/user_info_changePwd :: #user_info_changePwd_body"></div>
+                    <div th:include="frontend/users/user_info_changePwd :: #user_info_changePwd_body"></div>
 
                 </div>
 
                 <div role="tabpanel" th:class="${currtTab=='changeHead'?'active':''}+' tab-pane'" id="changeHead">
 
-                    <div th:include="/frontend/users/user_info_changeHead :: #user_info_changeHead_body"></div>
+                    <div th:include="frontend/users/user_info_changeHead :: #user_info_changeHead_body"></div>
 
                 </div>
 
                 <div role="tabpanel" th:class="${currtTab=='downloadCourse'?'active':''}+' tab-pane'" id="downloadCourse">
 
-                    <div th:include="/frontend/users/user_info_downloadCourse :: #user_info_downloadCourse_body"></div>
+                    <div th:include="frontend/users/user_info_downloadCourse :: #user_info_downloadCourse_body"></div>
 
                 </div>
 
                 <div role="tabpanel" th:class="${currtTab=='collectCourse'?'active':''}+' tab-pane'" id="collectCourse">
 
-                    <div th:include="/frontend/users/user_info_collectCourse :: #user_info_collectCourse_body"></div>
+                    <div th:include="frontend/users/user_info_collectCourse :: #user_info_collectCourse_body"></div>
 
                 </div>
 

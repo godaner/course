@@ -129,11 +129,11 @@
 <body th:with="indexUrl=@{${'/courses/list'}}">
 
 <!--nav-->
-<div th:include="/frontend/courses/nav :: #nav_body"></div>
+<div th:include="frontend/courses/nav :: #nav_body"></div>
 
 
 <!--课程列表-->
-<div th:include="/frontend/courses/course_list :: #course_list_body"></div>
+<div th:include="frontend/courses/course_list :: #course_list_body"></div>
 
 
 
@@ -169,12 +169,12 @@
 
 
 <!--tail-->
-<div th:include="/frontend/courses/footer :: #footer_body"></div>
+<div th:include="frontend/courses/footer :: #footer_body"></div>
 
 
 
 <!--message model-->
-<div th:include="/frontend/courses/message_model :: #message_model_body"></div>
+<div th:include="frontend/courses/message_model :: #message_model_body"></div>
 
 <script type="text/javascript">
 
@@ -224,7 +224,7 @@
 
 
 <!--common do-->
-<div th:include="/frontend/courses/common_do :: #common_do_body"></div>
+<div th:include="frontend/courses/common_do :: #common_do_body"></div>
 
 </body>
 

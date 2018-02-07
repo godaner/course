@@ -11,15 +11,15 @@ public class TempleControllerTest extends BaseControllerTest{
     @Test
     public void b(){
 
-        String url = getLocalHost()+"temple/a";
-//        String url = getLocalHost()+"/temple/b";
-        /*json请求*/
-        HttpEntity<String> entity = getJsonRequestEntity(ImmutableMap.of(
-                "username","key1value",
-                "password","key2value"
-        ));
-        String result = rt.postForObject(url, entity, String.class);
-        System.out.println(result);
+//        String url = getLocalHost()+"temple/a";
+////        String url = getLocalHost()+"/temple/b";
+//        /*json请求*/
+//        HttpEntity<String> entity = getJsonRequestEntity(ImmutableMap.of(
+//                "username","key1value",
+//                "password","key2value"
+//        ));
+//        String result = rt.postForObject(url, entity, String.class);
+//        System.out.println(result);
 
     }
 
