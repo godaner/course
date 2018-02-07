@@ -48,9 +48,9 @@ public class UserController extends ServiceController<UserService> {
         service.collectCourse(courseId, getRequest());
         return "forward:/courses/" + courseId;
     }
-    @RequestMapping(value = "/{userId}")
-    public Object getUserBasicInfo(HttpServletRequest request, @PathVariable("userId") Long userId) throws Exception {
-        UsersDto usersDto = service.getUserBasicInfo(userId);
+    @RequestMapping(value = "/onlineUser")
+    public Object getOnlineUser(HttpServletRequest request) throws Exception {
+        UsersDto usersDto = service.getOnlineUser(request);
         request.setAttribute("currtTab", request.getParameter("currtTab"));
         request.setAttribute("users", usersDto);
         return "frontend/users/user_info";

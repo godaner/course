@@ -18,7 +18,7 @@ public interface UserService {
 
     void getUserImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 
-    UsersDto getUserBasicInfo(Long userId);
+    UsersDto getOnlineUser(HttpServletRequest request);
 
     void updateOnlineUser(UsersDto usersDto, HttpServletRequest request);
 

@@ -120,13 +120,18 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public UsersDto getUserBasicInfo(Long userId) {
-        if (userId == null) {
-            throw new UsersException("getUserBasicInfo userId is null !! userId is : " + userId);
+    public UsersDto getOnlineUser(HttpServletRequest request) {
+        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+        if (null == sessionUser) {
+            request.setAttribute("msg", "您已离线");
+            request.setAttribute("forward", "forward:/courses/list");
+            throw new UsersException("getOnlineUser sessionUser is null !! sessionUser is :" + sessionUser);
         }
+        Long userId = sessionUser.getUserId();
+
         Users users = this.getUserByUserId(userId);
         if (isNullObject(users)) {
-            throw new UsersException("getUserBasicInfo users is null !! userId is : " + userId);
+            throw new UsersException("getOnlineUser users is null !! sessionUser is : " + sessionUser);
         }
         return makeUsersDto(users);
     }
