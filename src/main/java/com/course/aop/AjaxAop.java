@@ -1,14 +1,12 @@
 package com.course.aop;
 
-import com.course.service.exception.CourseRuntimeException;
+import com.course.service.exception.base.CourseRuntimeException;
 import com.course.util.CommonUtil;
 import com.course.util.Response;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -21,7 +19,7 @@ import java.util.Map;
 @Aspect
 public class AjaxAop extends CommonUtil {
 
-    @Pointcut("execution(* com.course.*.controller..*.*(..))&&@annotation(org.springframework.web.bind.annotation.ResponseBody)")
+    @Pointcut("execution(* com.course.controller..*.*(..))&&@annotation(org.springframework.web.bind.annotation.ResponseBody)")
     public void declareJoinPointExpression() {
     }
 

@@ -4,7 +4,7 @@ import com.course.dao.po.Courses;
 import com.course.dao.po.custom.CoursesWithSources;
 import com.course.dao.po.query.CourseSourcesQueryBean;
 import com.course.dao.po.query.CoursesQueryBean;
-import com.course.frontend.service.dto.CoursesDto;
+import com.course.service.dto.CoursesDto;
 import com.course.util.PageBean;
 import org.apache.ibatis.annotations.Param;
 
