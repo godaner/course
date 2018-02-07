@@ -21,6 +21,7 @@ import java.util.List;
 @RequestMapping("/courses")
 @Scope("prototype")
 public class CourseController extends ServiceController<CourseService> {
+    /*************************************** 用户端 *************************************/
 
     @RequestMapping("/index")
     public String index() {
@@ -65,6 +66,6 @@ public class CourseController extends ServiceController<CourseService> {
         service.downloadCourseSrc(name, courseId, httpServletRequest,httpServletResponse);
         return null;
     }
-
+    /*************************************** 管理端 *************************************/
 
 }

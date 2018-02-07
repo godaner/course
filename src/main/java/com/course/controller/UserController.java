@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/users")
 @Scope("prototype")
 public class UserController extends ServiceController<UserService> {
+    /*************************************** 用户端 *************************************/
     @RequestMapping(value = "/regist")
     @ResponseBody
     public Object regist(UsersDto usersDto) throws Exception {
@@ -90,4 +91,8 @@ public class UserController extends ServiceController<UserService> {
         httpServletRequest.setAttribute("courses", service.getUserDownloadCourse(httpServletRequest));
         return "frontend/users/user_info";
     }
+
+
+
+    /*************************************** 管理端 *************************************/
 }

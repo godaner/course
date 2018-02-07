@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping("/tagGroup")
 @Scope("prototype")
 public class TagGroupsController extends ServiceController<TagGroupsService>{
+    /*************************************** 用户端 *************************************/
     @RequestMapping(value = "/list")
     public String getTagGroupsWithTags(Model model, PageBean pageBean, TagGroupsQueryBean queryBean) throws Exception {
         List<TagGroupsDto> tagGroupsList = service.getTagGroupsWithTags(pageBean,queryBean);
@@ -25,4 +26,5 @@ public class TagGroupsController extends ServiceController<TagGroupsService>{
         model.addAttribute("tagGroupsCount", tagGroupsCount);
         return "frontend/courses/index";
     }
+    /*************************************** 管理端 *************************************/
 }

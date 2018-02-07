@@ -2,77 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/content.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/common.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/common.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/commonCopy.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/commonCopy.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/flat-ui.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/flat-ui.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery-ui.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery-ui.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery.nouislider.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery.nouislider.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/jquery.nouislider.min.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/jquery.nouislider.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/css/slide.css" afterPath="$PROJECT_DIR$/target/classes/templates/backend/css/slide.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-black.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-black.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bold.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bold.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-bolditalic.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-bolditalic.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-italic.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-italic.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-light.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-light.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.eot" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.svg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.ttf" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/fonts/lato/lato-regular.woff" afterPath="$PROJECT_DIR$/target/classes/templates/backend/fonts/lato/lato-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/Thumbs.db" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/Thumbs.db" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/captchaCode.jpg" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/captchaCode.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/circle.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/circle.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_card.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_card.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_card_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_card_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_change.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_change.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_change_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_change_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_char.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_char.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_char_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_char_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_chara.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_chara.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_chara_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_chara_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_house.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_house.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_house_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_house_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_rule.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_rule.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_rule_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_rule_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_source.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_source.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_source_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_source_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_user.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_user.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/icon_user_grey.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/icon_user_grey.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/logo.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/images/progress02.png" afterPath="$PROJECT_DIR$/target/classes/templates/backend/images/progress02.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/html5.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/html5.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery-ui.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery-ui.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.nouislider.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.nouislider.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/jquery.nouislider.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/jquery.nouislider.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/templates.backend/js/respond.min.js" afterPath="$PROJECT_DIR$/target/classes/templates/backend/js/respond.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,103 +24,42 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="247" column="16" lean-forward="false" selection-start-line="247" selection-start-column="16" selection-end-line="247" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpAop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AjaxAop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-dev.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#18532#18539#1" expanded="true" />
+                <element signature="e#23058#23065#1" expanded="true" />
+                <element signature="e#27571#27578#1" expanded="true" />
+                <element signature="e#32988#32995#1" expanded="true" />
+                <element signature="e#35771#35778#1" expanded="true" />
+                <element signature="e#38556#38563#1" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#44279#44286#1" expanded="true" />
+                <element signature="e#49807#49814#1" expanded="true" />
+                <element signature="e#54792#54799#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+      <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
+            <state relative-caret-position="243">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
+      <file leaf-file-name="nav.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common_do.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/common_do.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="42" />
+            <state relative-caret-position="21">
+              <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -254,10 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/course/frontend/service/impl/CourseServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/CoursesQueryBean.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/course_sources.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/frontend/controller/CourseController.java" />
@@ -294,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/service/impl/CourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/controller/BackendIndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/controller/CourseController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/base/ServiceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/base/CourseRuntimeException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/UsersException.java" />
@@ -303,8 +173,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates.backend/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/nav.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/content.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
       </list>
     </option>
   </component>
@@ -757,11 +632,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\course\src\main\resources\templates\backend" />
       <recent name="E:\zk\course\src\main\java\com\course\backend" />
       <recent name="E:\zk\course\src\main\java\com\course" />
       <recent name="E:\zk\course\src\main\resources\templates.backend" />
       <recent name="E:\zk\course\src\main\resources\templates\frontend\courses" />
-      <recent name="E:\zk\course\src\main\resources\templates\frontend\users" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1296,7 +1171,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163644000" />
+    <option name="totallyTimeSpent" value="165410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
@@ -1323,7 +1198,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1428,61 +1303,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UserCollectCourseQueryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UserDownloadCourseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1517303400167" expanded="true" signature="746:779" ph="SELECT count... tags" />
-            <marker date="1517303400167" expanded="true" signature="899:1050" ph="INSERT INTO tags... " />
-            <marker date="1517303400167" expanded="true" signature="1090:1133" ph="DELETE FROM " />
-            <marker date="1517303400167" expanded="true" signature="1207:1463" ph="UPDATE tags " />
-            <marker date="1517303400167" expanded="true" signature="1524:1643" ph="SELECT FROM tags" />
-            <marker date="1517303400167" expanded="true" signature="1712:1926" ph="SELECT FROM tags" />
-            <marker date="1517303400167" expanded="true" signature="2772:2807" ph="SELECT * FRO... tags" />
-            <marker date="1517303400167" expanded="true" signature="3194:3234" ph="SELECT id FR... tags" />
-            <marker date="1517303400167" expanded="true" signature="3341:3364" ph="SELECT * FRO... tags" />
-            <marker date="1517303400167" expanded="true" signature="3464:3534" ph="SELECT * FRO... tags" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="189" selection-end-column="82" />
-          <folding>
-            <marker date="1517969846209" expanded="true" signature="858:906" ph="SELECT count... user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="1026:1207" ph="INSERT INTO user_collect_course... " />
-            <marker date="1517969846209" expanded="true" signature="1247:1305" ph="DELETE FROM " />
-            <marker date="1517969846209" expanded="true" signature="1392:1726" ph="UPDATE user_... " />
-            <marker date="1517969846209" expanded="true" signature="1800:1934" ph="SELECT FROM user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="2016:2245" ph="SELECT FROM user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="3222:3272" ph="SELECT * FRO... user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="3687:3742" ph="SELECT id FR... user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="3862:3900" ph="SELECT * FRO... user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="4013:4098" ph="SELECT * FRO... user_collect_course" />
-            <marker date="1517969846209" expanded="true" signature="4251:4363" ph="select cours... user_collect_course" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1671,14 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/base/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1777,14 +1589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1805,22 +1609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155">
-          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1851,14 +1639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/application-dev.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1867,11 +1647,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="19" column="87" lean-forward="false" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        <state relative-caret-position="-1613">
+          <caret line="891" column="66" lean-forward="true" selection-start-line="891" selection-start-column="66" selection-end-line="891" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="165" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="87" />
+          <folding>
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="228" column="16" lean-forward="false" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+          <folding>
+            <element signature="e#18532#18539#1" expanded="true" />
+            <element signature="e#23058#23065#1" expanded="true" />
+            <element signature="e#27571#27578#1" expanded="true" />
+            <element signature="e#32988#32995#1" expanded="true" />
+            <element signature="e#35771#35778#1" expanded="true" />
+            <element signature="e#38556#38563#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#44279#44286#1" expanded="true" />
+            <element signature="e#49807#49814#1" expanded="true" />
+            <element signature="e#54792#54799#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
