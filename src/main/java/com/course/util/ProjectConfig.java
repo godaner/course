@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-@PropertySource(value = {"classpath:config/project.properties"}, encoding = "utf-8")
+//@PropertySource(value = {"classpath:config/project.properties"}, encoding = "utf-8")
 @Component
 public class ProjectConfig {
     public static String COURSE_IMG_PATH;
