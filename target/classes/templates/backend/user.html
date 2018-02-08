@@ -266,12 +266,12 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-
+    page = page.defaultValue();
+    query = query.defaultValue();
     var userLoader = {
         $userTable: $("#userTable"),
         loadUserData: function () {
-
-
+            tableBuilder.loading();
             ajax.post({
                 url: "/users/list",
                 data: [page, query],
@@ -283,20 +283,43 @@
                             list: result.data.users,
                             fields: [
                                 {
-                                    title:"userId",
-                                    name: "userId"
+                                    title: "头像",
+                                    name: "imgUrl",
+                                    filter:function (text) {
+                                        return "<img style='width:50px;' src='"+text+"'/>";
+                                    }
                                 },
                                 {
-                                    title:"username",
+                                    title: "userId",
+                                    name: "userId",
+                                    filter:function (text) {
+
+                                    }
+                                },
+                                {
+                                    title: "username",
                                     name: "username"
                                 },
                                 {
-                                    title:"status",
-                                    name: "status"
+                                    title: "status",
+                                    name: "status",
+                                    filter:function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                                        if(text == 1){
+                                            return "正常";
+                                        }
+                                        if(text == 2){
+                                            return "冻结";
+                                        }
+                                        return text;
+                                    }
                                 },
                                 {
-                                    title:"createTime",
-                                    name: "createTime"
+                                    title: "createTime",
+                                    name: "createTime",
+                                    filter:function (text) {
+                                        return new Date(text).toLocaleTimeString()
+                                    }
                                 }
                             ]
                         }

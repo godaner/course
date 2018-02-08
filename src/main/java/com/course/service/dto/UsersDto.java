@@ -13,6 +13,36 @@ public class UsersDto {
     private String rePassword;
     private MultipartFile headFile;
 
+    private Integer createTime;
+
+    private Integer updateTime;
+
+    private Byte status;
+
+    public Integer getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
     public MultipartFile getHeadFile() {
         return headFile;
     }

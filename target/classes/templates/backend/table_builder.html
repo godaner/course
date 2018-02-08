@@ -15,6 +15,9 @@
         DEFAULT_COL_WIDTH: 2,
         updateBtnTarget: undefined,
         deleteBtnTarget: undefined,
+        loading:function(){
+
+        },
         buildTable: function (args) {
             var table = args.table;
             var list = args.list;
@@ -50,11 +53,11 @@
                 var row = this.makeRow();
                 $.each(fields, function (index, field) {
                     var name = field.name;
-                    var converter = field.converter;
+                    var filter = field.filter;
 
                     var text = item[name];
-                    if (!isUndefined(converter)) {
-                        text = converter(text);
+                    if (!isUndefined(filter)) {
+                        text = filter(text);
                     }
                     var col = this.makeCol(text);
                     row.append(col);

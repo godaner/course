@@ -345,8 +345,23 @@ public class UserServiceImpl extends BaseService implements UserService {
     @Override
     public List<UsersDto> getUsers(PageBean page, UsersQueryBean query) {
         return usersMapper.getUsers(page,query).stream().parallel().map(users -> {
-            return makeUsersDto(users);
+            return makeBackendUsersDto(users);
         }).collect(toList());
+    }
+
+    private UsersDto makeBackendUsersDto(Users users) {
+        UsersDto usersDto = new UsersDto();
+        usersDto.setUserId(users.getId());
+        usersDto.setPassword(users.getPassword());
+        usersDto.setBirthday(users.getBirthday());
+        usersDto.setImgUrl(users.getImgUrl());
+        usersDto.setSex(users.getSex());
+        usersDto.setUsername(users.getUsername());
+        usersDto.setDescription(users.getDescription());
+        usersDto.setCreateTime(users.getCreateTime());
+        usersDto.setStatus(users.getStatus());
+        usersDto.setUpdateTime(users.getUpdateTime());
+        return usersDto;
     }
 
     private CoursesDto makeCourseDto(Courses courses) {
