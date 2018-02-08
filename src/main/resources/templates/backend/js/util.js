@@ -1,9 +1,10 @@
+
 //获取地址栏参数，key:参数名称
-function getUrlParams(key){
+function getUrlParams(key) {
     // 获取参数
     var url = window.location.search;
     // 正则筛选地址栏
-    var reg = new RegExp("(^|&)"+ key +"=([^&]*)(&|$)");
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
     // 匹配目标参数
     var result = url.substr(1).match(reg);
     //返回参数值
@@ -14,13 +15,13 @@ function getUrlParams(key){
  * @param url
  * @returns {*}
  */
-function timestamp(url){
+function timestamp(url) {
     //  var getTimestamp=Math.random();
-    var getTimestamp=new Date().getTime();
-    if(url.indexOf("?")>-1){
-        url=url+"&timestamp="+getTimestamp
-    }else{
-        url=url+"?timestamp="+getTimestamp
+    var getTimestamp = new Date().getTime();
+    if (url.indexOf("?") > -1) {
+        url = url + "&timestamp=" + getTimestamp
+    } else {
+        url = url + "?timestamp=" + getTimestamp
     }
     return url;
 }
@@ -28,7 +29,7 @@ function timestamp(url){
  * 文件后缀，如jpg
  * @param fileName
  */
-function getFileNameExt(fileName){
+function getFileNameExt(fileName) {
     if (fileName == undefined || fileName == "") {
         return "";
     }
@@ -41,20 +42,20 @@ function getFileNameExt(fileName){
 
 function getFileUrl(source) {
     var url;
-    if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
         url = source.val();
     }
-    else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+    else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
         url = window.URL.createObjectURL(source.val().get(0).files.item(0));
     }
-    else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+    else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
         url = window.URL.createObjectURL(source.val().get(0).files.item(0));
     }
     return url;
 }
 function preImg(source, target) {
     var url = getFileUrl(source);
-    target.attr("src",url);
+    target.attr("src", url);
 }
 
 /**

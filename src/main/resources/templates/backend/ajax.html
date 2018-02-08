@@ -33,11 +33,13 @@
      */
     var ajax = {
         ajax: function (args) {
+            c(args.data);
             $.ajax({
                 url: args.url,
                 //配合@requestBody
                 data: args.data,
                 type: args.type,
+                dataType:"json",
                 success: function (result) {
 
                     if (!isUndefined(args.onSuccess)) {

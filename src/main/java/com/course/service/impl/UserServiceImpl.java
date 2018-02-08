@@ -22,6 +22,7 @@ import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.IOUtils;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -302,6 +303,10 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         List<Long> courseIds = userCollectCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
 
+        if(isEmptyList(courseIds)){
+            return Lists.newArrayList();
+        }
+
         CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
         coursesQueryBean.setCourseIds(courseIds);
 
@@ -330,6 +335,10 @@ public class UserServiceImpl extends BaseService implements UserService {
         userCollectCourseQueryBean.setUserId(userId);
 
         List<Long> courseIds = userDownloadCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
+
+        if(isEmptyList(courseIds)){
+            return Lists.newArrayList();
+        }
 
         CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
         coursesQueryBean.setCourseIds(courseIds);

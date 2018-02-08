@@ -20,7 +20,7 @@ public class UsersException extends CourseRuntimeException {
 
         USERNAME_IS_EXITS(-101, "用户名已存在"),
         PASSWORD_IS_ERROR(-102, "密码错误"),
-        USERNAME_IS_NOT_EXITS(-103, "用户不已存在");
+        USERNAME_IS_NOT_EXITS(-103, "用户已存在");
 
         int code;
         String msg;

@@ -39,30 +39,30 @@
     <footer class="footer">
         <ul id="userPager" class="pagination">
             <!--<li>-->
-                <!--<select>-->
-                    <!--<option>1</option>-->
-                    <!--<option>2</option>-->
-                    <!--<option>3</option>-->
-                    <!--<option>4</option>-->
-                    <!--<option>5</option>-->
-                    <!--<option>6</option>-->
-                    <!--<option>7</option>-->
-                    <!--<option>8</option>-->
-                    <!--<option>9</option>-->
-                    <!--<option>10</option>-->
-                <!--</select>-->
-                <!--页-->
+            <!--<select>-->
+            <!--<option>1</option>-->
+            <!--<option>2</option>-->
+            <!--<option>3</option>-->
+            <!--<option>4</option>-->
+            <!--<option>5</option>-->
+            <!--<option>6</option>-->
+            <!--<option>7</option>-->
+            <!--<option>8</option>-->
+            <!--<option>9</option>-->
+            <!--<option>10</option>-->
+            <!--</select>-->
+            <!--页-->
             <!--</li>-->
             <!--<li class="gray">-->
-                <!--共20页-->
+            <!--共20页-->
             <!--</li>-->
             <!--<li>-->
-                <!--<i class="glyphicon glyphicon-menu-left">-->
-                <!--</i>-->
+            <!--<i class="glyphicon glyphicon-menu-left">-->
+            <!--</i>-->
             <!--</li>-->
             <!--<li>-->
-                <!--<i class="glyphicon glyphicon-menu-right">-->
-                <!--</i>-->
+            <!--<i class="glyphicon glyphicon-menu-right">-->
+            <!--</i>-->
             <!--</li>-->
         </ul>
     </footer>
@@ -225,116 +225,109 @@
     /*<![CDATA[*/
 
 
-    var userLoader = {
-        page: new Page(),
-        query: new Query(),
-        $userTable: $("#userTable"),
-        pagerBuilder:new PagerBuilder("#userPager"),
-        init:function () {
-            this.pagerBuilder.onSelect(function (newPage) {
-                this.page = newPage;
-                this.loadUserData();
-            }.bind(this));
-        },
-        loadPager: function (result) {
-            c(result.data);
-            this.page.total = result.data.total;
-            this.pagerBuilder.buildPager({
-                page:this.page
-            });
-        },
-        loadTable: function (result) {
+    var UserLoader = function () {
+            this.page = new Page();
+            this.query = new Query();
+            this.$userTable = $("#userTable");
+            this.pagerBuilder = new PagerBuilder("#userPager");
+            this.init = function () {
+                this.pagerBuilder.onSelect(function (newPage) {
+                    this.page = newPage;
+                    this.loadUserData();
+                }.bind(this));
+            }
+            this.loadPager = function (result) {
+                var data = result.data;
+                this.page.total = data.total;
+                this.pagerBuilder.buildPager({
+                    page: this.page
+                });
+            }
+            this.loadTable = function (result) {
 
-            tableBuilder.buildTable({
-                    updateBtnTarget: "#reviseUser",
-                    deleteBtnTarget: "#confirm_dialog",
-                    table: this.$userTable,
-                    list: result.data.users,
-                    fields: [
-                        {
-                            title: "头像",
-                            name: "imgUrl",
-                            filter: function (text) {
-                                return "<img style='width:50px;height:50px' src='" + text + "'/>";
-                            }
-                        },
-                        {
-                            title: "用户id",
-                            name: "userId"
-                        },
-                        {
-                            title: "用户昵称",
-                            name: "username"
-                        },
-                        {
-                            title: "密码",
-                            name: "password",
-                            filter: function (text) {
-                                return "<span title='" + text + "'>*****</span>";
-                            }
-                        },
-                        {
-                            title: "简介",
-                            name: "description",
-                            width: 2,
-                            filter: function (text) {
-                                return "<span title='" + text + "'>" + text + "</span>";
-                            }
-                        },
-                        {
-                            title: "状态",
-                            name: "status",
-                            filter: function (text) {
+                tableBuilder.buildTable({
+                        updateBtnTarget: "#reviseUser",
+                        deleteBtnTarget: "#confirm_dialog",
+                        table: this.$userTable,
+                        list: result.data.users,
+                        fields: [
+                            {
+                                title: "头像",
+                                name: "imgUrl",
+                                filter: function (text) {
+                                    return "<img style='width:50px;height:50px' src='" + text + "'/>";
+                                }
+                            },
+                            {
+                                title: "用户id",
+                                name: "userId"
+                            },
+                            {
+                                title: "用户昵称",
+                                name: "username"
+                            },
+                            {
+                                title: "密码",
+                                name: "password",
+                                filter: function (text) {
+                                    return "<span title='" + text + "'>*****</span>";
+                                }
+                            },
+                            {
+                                title: "简介",
+                                name: "description",
+                                width: 2,
+                                filter: function (text) {
+                                    return "<span title='" + text + "'>" + text + "</span>";
+                                }
+                            },
+                            {
+                                title: "状态",
+                                name: "status",
+                                filter: function (text) {
 //                                        状态,1为正常，2为冻结，3为删除
-                                if (text == 1) {
-                                    return "正常";
+                                    if (text == 1) {
+                                        return "正常";
+                                    }
+                                    if (text == 2) {
+                                        return "冻结";
+                                    }
+                                    return text;
                                 }
-                                if (text == 2) {
-                                    return "冻结";
+                            },
+                            {
+                                title: "创建时间",
+                                name: "createTime",
+                                width: 3,
+                                filter: function (text) {
+                                    return timeFormatter.formatTime(text);
                                 }
-                                return text;
                             }
-                        },
-                        {
-                            title: "创建时间",
-                            name: "createTime",
-                            width: 3,
-                            filter: function (text) {
-                                return timeFormatter.formatTime(text);
-                            }
-                        }
-                    ]
-                }
-            );
+                        ]
+                    }
+                );
 
 
+            }
+            this.loadUserData = function () {
+                tableBuilder.loading({
+                    table: this.$userTable
+                });
+                ajax.post({
+                    url: "/users/list",
+                    data: $.extend(this.page, this.query),
+                    onSuccess: function (result) {
+                        this.loadTable(result);
+                        this.loadPager(result);
+                    }.bind(this)
+                });
 
-
-
-
-
-
-
-
-        },
-        loadUserData: function () {
-            tableBuilder.loading({
-                table: this.$userTable
-            });
-            ajax.post({
-                url: "/users/list",
-                data: [this.page, this.query],
-                onSuccess: function (result) {
-                    this.loadTable(result);
-                    this.loadPager(result);
-                }.bind(this)
-            });
+            }
 
         }
+    ;
 
-    };
-
-
+    var userLoader = new UserLoader();
     userLoader.init();
     /*]]>*/
 

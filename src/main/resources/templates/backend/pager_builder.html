@@ -46,19 +46,39 @@
         this.callback = undefined;
         this.buildPager = function (args) {
             this.page = args.page;
-            this.empty();
             this.makePager();
         };
-        this.makePager = function () {
-            var currtPage = Math.ceil(this.page.start / 10);
-            var total = this.page.total;
-            this.$pager.append("<li class='gray'>" + currtPage + "  / " + total + "页</li><li><i onclick='" + this.changePage(-1) + "' class='glyphicon glyphicon-menu-left'></i></li><li><i onclick='" + this.changePage(1) + "' class='glyphicon glyphicon-menu-right'></i></li>");
-        };
+
         this.changePage = function (movePage) {
-            this.page.start = this.page.start + (this.page.size * movePage);
+            var newStart = this.page.start + (this.page.size * movePage);
+            if (this.page.total < newStart) {debugger
+                return false;
+            }
+            this.page.start = newStart;
             if (!isUndefined(this.callback)) {
                 this.callback(this.page);
             }
+        };
+        this.makePager = function () {
+            //remove click
+            var $prePage = this.$pager.find("#prePage");
+            var $nextPage = this.$pager.find("#nextPage");
+            $prePage.unbind('click');
+            $nextPage.unbind('click');
+            //add content
+            var currtPage = this.page.start / 10 + 1;
+            var total = this.page.total;
+            this.$pager.empty();
+            this.$pager.append("<li class='gray'>" + currtPage + "  / " + total + "页</li><li><i style='cursor: pointer;' id='prePage' class='glyphicon glyphicon-menu-left'></i></li><li><i  style='cursor: pointer;' id='nextPage' class='glyphicon glyphicon-menu-right'></i></li>");
+            //add click
+            $prePage = this.$pager.find("#prePage");
+            $nextPage = this.$pager.find("#nextPage");
+            $nextPage.click(function () {
+                this.changePage(1);
+            }.bind(this));
+            $prePage.click(function () {
+                this.changePage(-1);
+            }.bind(this));
         };
         this.onSelect = function (callback) {
             this.callback = callback;
