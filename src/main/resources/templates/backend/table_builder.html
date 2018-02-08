@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="table_builder_body">
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var tableBuilder = {
+        DEFAULT_COL_WIDTH: 2,
+        updateBtnTarget: undefined,
+        deleteBtnTarget: undefined,
+        loading:function(){
+
+        },
+        buildTable: function (args) {
+            var table = args.table;
+            var list = args.list;
+            var fields = args.fields;
+            this.updateBtnTarget = args.updateBtnTarget;
+            this.deleteBtnTarget = args.deleteBtnTarget;
+
+
+            //clear table
+            table.empty();
+            //add titles
+            var tableHeader = this.makeTableHeader();
+            this.addTableTitle(tableHeader, fields);
+            //add list
+            var tableBody = this.makeTableBody();
+            this.addTableBody(tableBody, fields, list);
+            //integrate
+            table.append(tableHeader);
+            table.append(tableBody);
+
+
+        },
+        addTableTitle: function (tableHeader, fields) {
+            $.each(fields, function (index, item) {
+                var title = item.title;
+                tableHeader.append(this.makeCol(title));
+            }.bind(this));
+            tableHeader.append(this.makeCol("操作"));
+        },
+        addTableBody: function (tableBody, fields, list) {
+            //add list
+            $.each(list, function (index, item) {
+                var row = this.makeRow();
+                $.each(fields, function (index, field) {
+                    var name = field.name;
+                    var converter = field.converter;
+
+                    var text = item[name];
+                    if (!isUndefined(converter)) {
+                        text = converter(text);
+                    }
+                    var col = this.makeCol(text);
+                    row.append(col);
+                }.bind(this));
+                //add model btn
+                var col = this.makeCol("");
+                var updateBtn = this.makeUpdateModelBtn()
+                col.append(updateBtn);
+                var deleteBtn = this.makeDeleteModelBtn()
+                col.append(deleteBtn);
+                row.append(col);
+
+                tableBody.append(row);
+            }.bind(this));
+        },
+        makeTableBody: function () {
+            return $("<div class='tablebody'></div>");
+        },
+        makeTableHeader: function () {
+            return $("<div class='row tableHeader'></div>");
+        },
+        makeCol: function (text, colWidth) {
+            var realColWidth = this.DEFAULT_COL_WIDTH;
+            if (!isUndefined(colWidth)) {
+                realColWidth = colWidth;
+            }
+            return $("<div class='col-xs-" + realColWidth + " '>" + text + "</div>");
+        },
+        makeRow: function () {
+            return $("<div class='row'></div>")
+        },
+        makeUpdateModelBtn: function () {
+            return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + this.updateBtnTarget + "'>修改</button>");
+        },
+        makeDeleteModelBtn: function () {
+            return $("<button class='btn btn-danger btn-xs' style='margin-left: 4px;' data-toggle='modal' data-target='" + this.deleteBtnTarget + "'>删除</button>");
+        }
+    }
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

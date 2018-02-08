@@ -262,13 +262,16 @@
 
 
 </div>
+
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-
+    page = page.defaultValue();
+    query = query.defaultValue();
     var userLoader = {
         $userTable: $("#userTable"),
         loadUserData: function () {
+            tableBuilder.loading();
             ajax.post({
                 url: "/users/list",
                 data: [page, query],
@@ -280,19 +283,19 @@
                             list: result.data.users,
                             fields: [
                                 {
-                                    title:"userId",
+                                    title: "userId",
                                     name: "userId"
                                 },
                                 {
-                                    title:"username",
+                                    title: "username",
                                     name: "username"
                                 },
                                 {
-                                    title:"status",
+                                    title: "status",
                                     name: "status"
                                 },
                                 {
-                                    title:"createTime",
+                                    title: "createTime",
                                     name: "createTime"
                                 }
                             ]

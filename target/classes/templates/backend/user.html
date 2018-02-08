@@ -262,6 +262,7 @@
 
 
 </div>
+
 <script th:inline="javascript">
     /*<![CDATA[*/
 
@@ -269,6 +270,8 @@
     var userLoader = {
         $userTable: $("#userTable"),
         loadUserData: function () {
+
+
             ajax.post({
                 url: "/users/list",
                 data: [page, query],
