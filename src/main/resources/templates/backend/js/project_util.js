@@ -1,3 +1,47 @@
+var page = {
+    start: 0,
+    size: 10,
+    orderBy: "create_time",
+    orderType: "desc"
+
+};
+var query = {};
+
+function buildTable(tableContainer, list, fields) {
+    $.each(list, function (index, item) {
+        var row = makeRow();
+        $.each(fields, function (index, field) {
+            var name = field.name;
+            var converter = field.converter;
+
+            var text = item[name];
+            if (!isUndefined(converter)) {
+                text = converter(text);
+            }
+            var col = makeCol(text);
+            row.append(col);
+        });
+        tableContainer.append(row);
+    });
+}
+function makeCol(text, colWidth) {
+    var realColWidth = 2;
+    if (!isUndefined(colWidth)) {
+        realColWidth = colWidth;
+    }
+    return $("<div class='col-xs-" + realColWidth + " '>" + text + "</div>");
+}
+function makeRow() {
+    return $("<div class='row'></div>")
+}
+function makeModelBtn(text, target) {
+    return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + target + "'>" + text + "</button>");
+}
+
+
+
+
+
 var CODE_OF_REQUEST_SUCCESS=1;
 
 

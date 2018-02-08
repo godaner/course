@@ -51,29 +51,29 @@
                 操作
             </div>
         </div>
-        <div class="tablebody">
+        <div class="tablebody" id="userList">
 
-            <div class="row">
-                <div class="col-xs-2 ">
-                    goodmoning
-                </div>
-                <div class="col-xs-2">
-                    国际关系地区
-                </div>
-                <div class="col-xs-2">
-                    李豆豆
-                </div>
-                <div class="col-xs-2">
-                    13688889999
-                </div>
-                <div class="col-xs-2">
-                    状态
-                </div>
-                <div class="col-xs-2">
-                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirm_dialog">删除</button>
-                </div>
-            </div>
+            <!--<div class="row">-->
+            <!--<div class="col-xs-2 ">-->
+            <!--goodmoning-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+            <!--国际关系地区-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+            <!--李豆豆-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+            <!--13688889999-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+            <!--状态-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+            <!--<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>-->
+            <!--<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirm_dialog">删除</button>-->
+            <!--</div>-->
+            <!--</div>-->
 
         </div>
 
@@ -264,25 +264,33 @@
 </div>
 <script th:inline="javascript">
     /*<![CDATA[*/
-    var userPage = {
-        start: 0,
-        size: 10,
-        orderBy: "create_time",
-        orderType: "desc"
 
-    };
-    var userQuery = {};
 
     var userLoader = {
-        loadUserData: function (userPage, userQuery) {
+        $userList: $("#userList"),
+        loadUserData: function () {
             ajax.post({
-                url:"/users/list",
-                data:[userPage,userQuery],
-                onSuccess:function(result){
-                    c(result);
+                url: "/users/list",
+                data: [page, query],
+                onSuccess: function (result) {
+                    buildTable(this.$userList, result.data.users, [
+                        {
+                            name: "id"
+                        },
+                        {
+                            name: "username"
+                        },
+                        {
+                            name: "status"
+                        },
+                        {
+                            name: "createTime"
+                        }
+                    ])
                 }
             });
         }
+
     };
 
 
