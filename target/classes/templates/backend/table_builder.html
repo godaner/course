@@ -15,8 +15,12 @@
         DEFAULT_COL_WIDTH: 2,
         updateBtnTarget: undefined,
         deleteBtnTarget: undefined,
-        loading:function(){
-
+        LOADING_IMG_PATH:"./images/loading.gif",
+        loading:function(args){
+            var table = args.table;
+            var loadingImg = this.LOADING_IMG_PATH;
+            table.css("text-align","center");
+            table.html("<img src='"+loadingImg+"'/>");
         },
         buildTable: function (args) {
             var table = args.table;
