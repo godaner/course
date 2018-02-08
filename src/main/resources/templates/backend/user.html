@@ -224,7 +224,6 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    userLoader.init();
 
     var userLoader = {
         page: new Page(),
@@ -238,7 +237,8 @@
             }.bind(this));
         },
         loadPager: function (result) {
-            page.total = result;
+            c(result.data);
+            this.page.total = result.data.total;
             this.pagerBuilder.buildPager({
                 page:this.page
             });
@@ -335,6 +335,7 @@
     };
 
 
+    userLoader.init();
     /*]]>*/
 
 </script>

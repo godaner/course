@@ -43,21 +43,26 @@
     var PagerBuilder = function (pagerId) {
         this.page = undefined;
         this.$pager = $(pagerId);
+        this.callback = undefined;
         this.buildPager = function (args) {
             this.page = args.page;
             this.empty();
             this.makePager();
         };
-        this.onSelect = function (callback) {
-            if (!isUndefined(callback)) {
-                callback();
-            }
-        };
         this.makePager = function () {
             var currtPage = Math.ceil(this.page.start / 10);
             var total = this.page.total;
-            $pager.append("<li class='gray'>" + currtPage + "  / " + total + "页</li><li><i class='glyphicon glyphicon-menu-left'></i></li><li><i class='glyphicon glyphicon-menu-right'></i></li>");
+            this.$pager.append("<li class='gray'>" + currtPage + "  / " + total + "页</li><li><i onclick='" + this.changePage(-1) + "' class='glyphicon glyphicon-menu-left'></i></li><li><i onclick='" + this.changePage(1) + "' class='glyphicon glyphicon-menu-right'></i></li>");
         };
+        this.changePage = function (movePage) {
+            this.page.start = this.page.start + (this.page.size * movePage);
+            if (!isUndefined(this.callback)) {
+                this.callback(this.page);
+            }
+        };
+        this.onSelect = function (callback) {
+            this.callback = callback;
+        }
     }
 
 

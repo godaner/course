@@ -224,7 +224,7 @@
             limit #{page.start},#{page.size}
         </if>
     </select>
-    <select id="getUsersCount" resultMap="UsersMap">
+    <select id="getUsersCount" resultType="long">
         select count(*)
         from
         users
