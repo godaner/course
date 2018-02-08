@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/templates/backend/confirm_dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/js/util.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/admin.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/content.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/content.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/nav.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/admin.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/changePwd.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/changePwd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/confirm_dialog.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/confirm_dialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/content.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/content.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/course.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/course.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/nav.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/user.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/user.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,7 +28,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/vm$BootApp.coverage" NAME="BootApp Coverage Results" MODIFIED="1517798218811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/vm$BootApp.coverage" NAME="BootApp Coverage Results" MODIFIED="1518052392942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.course.*</FILTER>
+    </SUITE>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -34,7 +38,7 @@
       <file leaf-file-name="changePwd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="-513">
               <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
@@ -47,15 +51,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="course.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="270">
+              <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#3685#3692#1" expanded="true" />
-                <element signature="e#8289#8296#1" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#3706#3713#1" expanded="true" />
+                <element signature="e#8338#8345#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#3683#3690#1" expanded="true" />
+                <element signature="e#8287#8294#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,10 +82,10 @@
       <file leaf-file-name="confirm_dialog.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="21" />
+            <state relative-caret-position="216">
+              <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
               <folding>
-                <element signature="e#498#505#1" expanded="true" />
+                <element signature="e#482#489#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,8 +94,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state relative-caret-position="-2214">
+              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -86,18 +104,18 @@
       <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="372">
+              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nav.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="314">
+              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -106,12 +124,12 @@
       <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+            <state relative-caret-position="270">
+              <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#3675#3682#1" expanded="true" />
-                <element signature="e#8279#8286#1" expanded="true" />
+                <element signature="e#3679#3686#1" expanded="true" />
+                <element signature="e#8283#8290#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -223,15 +241,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_model.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/content.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/admin.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/nav.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/admin.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
       </list>
     </option>
   </component>
@@ -424,6 +442,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -681,11 +733,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\course\src\main\resources\templates\backend\js" />
       <recent name="E:\zk\course\src\main\resources\templates\backend" />
       <recent name="E:\zk\course\src\main\resources\templates" />
       <recent name="E:\zk\course\src\main\java\com\course\backend" />
       <recent name="E:\zk\course\src\main\java\com\course" />
-      <recent name="E:\zk\course\src\main\resources\templates.backend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1220,7 +1272,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168628000" />
+    <option name="totallyTimeSpent" value="169357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
@@ -1237,7 +1289,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42795232" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3347779" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1245,6 +1297,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18215811" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1275,7 +1328,6 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1732" height="856" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1352,14 +1404,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/backend/controller/TagGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/backend/service/dto/CoursesDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1679,18 +1723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3672#3679#1" expanded="true" />
-            <element signature="e#8276#8283#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -1715,55 +1747,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="372">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
           <folding>
-            <element signature="e#498#505#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3683#3690#1" expanded="true" />
+            <element signature="e#8287#8294#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/content.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state relative-caret-position="270">
+          <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
           <folding>
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3675#3682#1" expanded="true" />
-            <element signature="e#8279#8286#1" expanded="true" />
+            <element signature="e#3706#3713#1" expanded="true" />
+            <element signature="e#8338#8345#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="-513">
           <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
@@ -1775,15 +1793,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        <state relative-caret-position="270">
+          <caret line="73" column="106" lean-forward="false" selection-start-line="73" selection-start-column="106" selection-end-line="73" selection-end-column="106" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3685#3692#1" expanded="true" />
-            <element signature="e#8289#8296#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3679#3686#1" expanded="true" />
+            <element signature="e#8283#8290#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/js/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2214">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+          <folding>
+            <element signature="e#482#489#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

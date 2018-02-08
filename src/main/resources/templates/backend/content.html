@@ -15,13 +15,13 @@
     <div class="tab-content">
 
         <!-- 用户管理 -->
-        <div th:include="backend/user :: #user_body"></div>
+        <div th:replace="backend/user :: #user_body"></div>
         <!-- 管理员管理 -->
-        <div th:include="backend/admin :: #admin_body"></div>
+        <div th:replace="backend/admin :: #admin_body"></div>
         <!-- 修改密码 -->
-        <div th:include="backend/changePwd :: #changePwd_body"></div>
+        <div th:replace="backend/changePwd :: #changePwd_body"></div>
         <!-- 课程管理 -->
-        <div th:include="backend/course :: #course_body"></div>
+        <div th:replace="backend/course :: #course_body"></div>
 
     </div>
 </div>

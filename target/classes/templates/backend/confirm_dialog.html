@@ -8,7 +8,7 @@
 
 <body id="confirm_dialog_body">
 <!--弹出删除警告窗口-->
-<div id="confirm_dialog" class="modal fade" id="deleteUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div id="confirm_dialog" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -73,10 +73,22 @@
                 callback();
             }.bind(this));
         }
-        
 
     };
+    confirmDialog.onCancel(function () {
+        c("confirmDialog#onCancel");
+    });
 
+    confirmDialog.onSure(function () {
+        c("confirmDialog#onSure");
+    });
+    confirmDialog.onCancel(function () {
+        a("onCancel");
+    });
+
+    confirmDialog.onSure(function () {
+        a("onSure");
+    });
     /*]]>*/
 
 </script>
