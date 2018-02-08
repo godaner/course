@@ -344,9 +344,14 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public List<UsersDto> getUsers(PageBean page, UsersQueryBean query) {
-        return usersMapper.getUsers(page,query).stream().parallel().map(users -> {
+        return usersMapper.getUsers(page, query).stream().parallel().map(users -> {
             return makeBackendUsersDto(users);
         }).collect(toList());
+    }
+
+    @Override
+    public Long getUsersCount(PageBean page, UsersQueryBean query) {
+        return usersMapper.getUsersCount(page, query);
     }
 
     private UsersDto makeBackendUsersDto(Users users) {

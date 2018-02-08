@@ -12,103 +12,61 @@
 <div role="tabpanel" class="tab-pane active" id="user">
     <div class="check-div form-inline">
         <div class="col-xs-3">
-            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加用户</button>
+            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加记录</button>
         </div>
         <div class="col-xs-4">
             <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-            <button class="btn btn-white btn-xs ">查 询</button>
+            <button onclick="search()" class="btn btn-white btn-xs ">查 询</button>
         </div>
-        <div class="col-lg-3 col-lg-offset-2 col-xs-4" style=" padding-right: 40px;text-align: right;">
-            <label for="paixu">排序:&nbsp;</label>
-            <select class=" form-control">
-                <option>地区</option>
-                <option>地区</option>
-                <option>班期</option>
-                <option>性别</option>
-                <option>年龄</option>
-                <option>份数</option>
+        <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
+            <label for="orderBy">排序:&nbsp;</label>
+            <select id="orderBy" name="orderBy" onchange="selectOrderBy();" class=" form-control">
+                <option value="create_time">创建时间</option>
+                <!--<option value="id">id</option>-->
+            </select>
+            <label for="orderType">规则:&nbsp;</label>
+            <select id="orderType" name="orderType" onchange="selectOrderType();" class=" form-control">
+                <option value="desc">降序</option>
+                <option value="asc">升序</option>
             </select>
         </div>
     </div>
     <div class="data-div" id="userTable">
-        <!--<div class="row tableHeader">-->
-        <!--<div class="col-xs-2 ">-->
-        <!--用户名-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--地区-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--真实姓名-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--电话-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--状态-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--操作-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="tablebody">-->
 
-        <!--<div class="row">-->
-        <!--<div class="col-xs-2 ">-->
-        <!--goodmoning-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--国际关系地区-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--李豆豆-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--13688889999-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--状态-->
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>-->
-        <!--<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirm_dialog">删除</button>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--</div>-->
 
     </div>
     <!--页码块-->
     <footer class="footer">
-        <ul class="pagination">
-            <li>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
-                页
-            </li>
-            <li class="gray">
-                共20页
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-left">
-                </i>
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-right">
-                </i>
-            </li>
+        <ul id="userPager" class="pagination">
+            <!--<li>-->
+                <!--<select>-->
+                    <!--<option>1</option>-->
+                    <!--<option>2</option>-->
+                    <!--<option>3</option>-->
+                    <!--<option>4</option>-->
+                    <!--<option>5</option>-->
+                    <!--<option>6</option>-->
+                    <!--<option>7</option>-->
+                    <!--<option>8</option>-->
+                    <!--<option>9</option>-->
+                    <!--<option>10</option>-->
+                <!--</select>-->
+                <!--页-->
+            <!--</li>-->
+            <!--<li class="gray">-->
+                <!--共20页-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<i class="glyphicon glyphicon-menu-left">-->
+                <!--</i>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<i class="glyphicon glyphicon-menu-right">-->
+                <!--</i>-->
+            <!--</li>-->
         </ul>
     </footer>
+
 
     <!--弹出添加用户窗口-->
     <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -266,81 +224,112 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    page = page.defaultValue();
-    query = query.defaultValue();
+    userLoader.init();
+
     var userLoader = {
+        page: new Page(),
+        query: new Query(),
         $userTable: $("#userTable"),
+        pagerBuilder:new PagerBuilder("#userPager"),
+        init:function () {
+            this.pagerBuilder.onSelect(function (newPage) {
+                this.page = newPage;
+                this.loadUserData();
+            }.bind(this));
+        },
+        loadPager: function (result) {
+            page.total = result;
+            this.pagerBuilder.buildPager({
+                page:this.page
+            });
+        },
+        loadTable: function (result) {
+
+            tableBuilder.buildTable({
+                    updateBtnTarget: "#reviseUser",
+                    deleteBtnTarget: "#confirm_dialog",
+                    table: this.$userTable,
+                    list: result.data.users,
+                    fields: [
+                        {
+                            title: "头像",
+                            name: "imgUrl",
+                            filter: function (text) {
+                                return "<img style='width:50px;height:50px' src='" + text + "'/>";
+                            }
+                        },
+                        {
+                            title: "用户id",
+                            name: "userId"
+                        },
+                        {
+                            title: "用户昵称",
+                            name: "username"
+                        },
+                        {
+                            title: "密码",
+                            name: "password",
+                            filter: function (text) {
+                                return "<span title='" + text + "'>*****</span>";
+                            }
+                        },
+                        {
+                            title: "简介",
+                            name: "description",
+                            width: 2,
+                            filter: function (text) {
+                                return "<span title='" + text + "'>" + text + "</span>";
+                            }
+                        },
+                        {
+                            title: "状态",
+                            name: "status",
+                            filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                                if (text == 1) {
+                                    return "正常";
+                                }
+                                if (text == 2) {
+                                    return "冻结";
+                                }
+                                return text;
+                            }
+                        },
+                        {
+                            title: "创建时间",
+                            name: "createTime",
+                            width: 3,
+                            filter: function (text) {
+                                return timeFormatter.formatTime(text);
+                            }
+                        }
+                    ]
+                }
+            );
+
+
+
+
+
+
+
+
+
+
+        },
         loadUserData: function () {
             tableBuilder.loading({
                 table: this.$userTable
             });
             ajax.post({
                 url: "/users/list",
-                data: [page, query],
+                data: [this.page, this.query],
                 onSuccess: function (result) {
-                    tableBuilder.buildTable({
-                            updateBtnTarget: "#reviseUser",
-                            deleteBtnTarget: "#confirm_dialog",
-                            table: this.$userTable,
-                            list: result.data.users,
-                            fields: [
-                                {
-                                    title: "头像",
-                                    name: "imgUrl",
-                                    filter: function (text) {
-                                        return "<img style='width:50px;height:50px' src='" + text + "'/>";
-                                    }
-                                },
-                                {
-                                    title: "用户id",
-                                    name: "userId"
-                                },
-                                {
-                                    title: "用户昵称",
-                                    name: "username"
-                                },
-                                {
-                                    title: "密码",
-                                    name: "password",
-                                    filter: function (text) {
-                                        return "<span title='"+text+"'>*****</span>";
-                                    }
-                                },
-                                {
-                                    title: "简介",
-                                    name: "description",
-                                    width:2,
-                                    filter: function (text) {
-                                        return "<span title='"+text+"'>"+text+"</span>";
-                                    }
-                                },
-                                {
-                                    title: "状态",
-                                    name: "status",
-                                    filter: function (text) {
-//                                        状态,1为正常，2为冻结，3为删除
-                                        if (text == 1) {
-                                            return "正常";
-                                        }
-                                        if (text == 2) {
-                                            return "冻结";
-                                        }
-                                        return text;
-                                    }
-                                },
-                                {
-                                    title: "创建时间",
-                                    name: "createTime",
-                                    width:3,
-                                    filter: function (text) {
-                                        return timeFormatter.formatTime(text);
-                                    }
-                                }
-                            ]
-                        }
-                    )
+                    this.loadTable(result);
+                    this.loadPager(result);
                 }.bind(this)
             });
+
         }
 
     };

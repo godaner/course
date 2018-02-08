@@ -37,4 +37,6 @@ public interface UserService {
     List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest);
 
     List<UsersDto> getUsers(PageBean page, UsersQueryBean query);
+
+    Long getUsersCount(PageBean page, UsersQueryBean query);
 }
