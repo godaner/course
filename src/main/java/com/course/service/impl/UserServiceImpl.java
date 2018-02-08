@@ -11,12 +11,14 @@ import com.course.dao.po.Users;
 import com.course.dao.po.query.CoursesQueryBean;
 import com.course.dao.po.query.UserCollectCourseQueryBean;
 import com.course.dao.po.query.UserDownloadCourseQueryBean;
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.exception.UsersException;
 import com.course.service.UserService;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
+import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.IOUtils;
@@ -338,6 +340,13 @@ public class UserServiceImpl extends BaseService implements UserService {
                     return makeCourseDto(courses);
                 }
         ).collect(toList());
+    }
+
+    @Override
+    public List<UsersDto> getUsers(PageBean page, UsersQueryBean query) {
+        return usersMapper.getUsers(page,query).stream().parallel().map(users -> {
+            return makeUsersDto(users);
+        }).collect(toList());
     }
 
     private CoursesDto makeCourseDto(Courses courses) {

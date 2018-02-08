@@ -1,8 +1,10 @@
 package com.course.controller;
 
 import com.course.controller.base.ServiceController;
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.UserService;
 import com.course.service.dto.UsersDto;
+import com.course.util.PageBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -95,4 +97,9 @@ public class UserController extends ServiceController<UserService> {
 
 
     /*************************************** 管理端 *************************************/
+    @RequestMapping(value = "/list")
+    @ResponseBody
+    public Object getUsers(PageBean page, UsersQueryBean query) throws Exception {
+        return response.putData("users",service.getUsers(page,query));
+    }
 }

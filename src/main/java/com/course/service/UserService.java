@@ -1,8 +1,10 @@
 package com.course.service;
 
 
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
+import com.course.util.PageBean;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,4 +35,6 @@ public interface UserService {
     List<CoursesDto> getUserCollectCourse(HttpServletRequest request);
 
     List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest);
+
+    List<UsersDto> getUsers(PageBean page, UsersQueryBean query);
 }

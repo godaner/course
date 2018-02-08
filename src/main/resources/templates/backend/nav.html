@@ -20,12 +20,12 @@
         </p>
     </div>
     <div class="meun-title">账号管理</div>
-    <div class="meun-item meun-item-active" onClick="userLoader();" href="#user" aria-controls="user" role="tab" data-toggle="tab">
+    <div class="meun-item meun-item-active" onClick="userLoader.loadUserData();" href="#user" aria-controls="user" role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_chara_grey.png">用户管理
         </a>
     </div>
-    <div class="meun-item" onClick="adminLoader();" href="#admin" aria-controls="admin" role="tab" data-toggle="tab">
+    <div class="meun-item" onClick="adminLoader.loadAdminData();" href="#admin" aria-controls="admin" role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_user_grey.png">管理员管理
         </a>
@@ -36,7 +36,7 @@
         </a>
     </div>
     <div class="meun-title">课程管理</div>
-    <div class="meun-item"courseLoader(); href="#course" aria-controls="course" role="tab" data-toggle="tab">
+    <div class="meun-item" onClick="courseLoader.loadCourseData();" href="#course" aria-controls="course" role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_house_grey.png">课程管理
         </a>
@@ -49,7 +49,6 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-       userLoader();
 
     /*]]>*/
 

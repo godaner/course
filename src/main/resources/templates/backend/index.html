@@ -1,76 +1,75 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Course后台管理模板">
-        <meta name="keywords" content="Course后台管理模板 ">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="format-detection" content="telephone=no">
-        <title>Course后台管理模板</title>
-        <script th:src="@{/backend/js/jquery.min.js}"></script>
-        <script th:src="@{/backend/js/util.js}"></script>
-        <script th:src="@{/backend/js/project_util.js}"></script>
-        <script th:src="@{/backend/js/bootstrap.min.js}"></script>
-        <script>
-            $(function() {
-                $(".meun-item").click(function() {
-                    $(".meun-item").removeClass("meun-item-active");
-                    $(this).addClass("meun-item-active");
-                    var itmeObj = $(".meun-item").find("img");
-                    itmeObj.each(function() {
-                        var items = $(this).attr("src");
-                        items = items.replace("_grey.png", ".png");
-                        items = items.replace(".png", "_grey.png")
-                        $(this).attr("src", items);
-                    });
-                    var attrObj = $(this).find("img").attr("src");
-                    ;
-                    attrObj = attrObj.replace("_grey.png", ".png");
-                    $(this).find("img").attr("src", attrObj);
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Course后台管理模板">
+    <meta name="keywords" content="Course后台管理模板 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Course后台管理模板</title>
+    <script th:src="@{/backend/js/jquery.min.js}"></script>
+    <script th:src="@{/backend/js/util.js}"></script>
+    <script th:src="@{/backend/js/project_util.js}"></script>
+    <script th:src="@{/backend/js/bootstrap.min.js}"></script>
+    <script>
+        $(function () {
+            $(".meun-item").click(function () {
+                $(".meun-item").removeClass("meun-item-active");
+                $(this).addClass("meun-item-active");
+                var itmeObj = $(".meun-item").find("img");
+                itmeObj.each(function () {
+                    var items = $(this).attr("src");
+                    items = items.replace("_grey.png", ".png");
+                    items = items.replace(".png", "_grey.png")
+                    $(this).attr("src", items);
                 });
-                $("#topAD").click(function() {
-                    $("#topA").toggleClass(" glyphicon-triangle-right");
-                    $("#topA").toggleClass(" glyphicon-triangle-bottom");
-                });
-                $("#topBD").click(function() {
-                    $("#topB").toggleClass(" glyphicon-triangle-right");
-                    $("#topB").toggleClass(" glyphicon-triangle-bottom");
-                });
-                $("#topCD").click(function() {
-                    $("#topC").toggleClass(" glyphicon-triangle-right");
-                    $("#topC").toggleClass(" glyphicon-triangle-bottom");
-                });
-                $(".toggle-btn").click(function() {
-                    $("#leftMeun").toggleClass("show");
-                    $("#rightContent").toggleClass("pd0px");
-                })
+                var attrObj = $(this).find("img").attr("src");
+                ;
+                attrObj = attrObj.replace("_grey.png", ".png");
+                $(this).find("img").attr("src", attrObj);
+            });
+            $("#topAD").click(function () {
+                $("#topA").toggleClass(" glyphicon-triangle-right");
+                $("#topA").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topBD").click(function () {
+                $("#topB").toggleClass(" glyphicon-triangle-right");
+                $("#topB").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topCD").click(function () {
+                $("#topC").toggleClass(" glyphicon-triangle-right");
+                $("#topC").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $(".toggle-btn").click(function () {
+                $("#leftMeun").toggleClass("show");
+                $("#rightContent").toggleClass("pd0px");
             })
-        </script>
-        <!--[if lt IE 9]>
-  <script th:src="@{/backend/js/html5shiv.min.js}"></script>
-  <script th:src="@{/backend/js/respond.min.js}"></script>
-<![endif]-->
-        <link th:href="@{/backend/css/bootstrap.min.css}" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/common.css}" />
-        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/slide.css}" />
-        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/bootstrap.min.css}" />
-        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/flat-ui.min.css}" />
-        <link rel="stylesheet" type="text/css" th:href="@{/backend/css/jquery.nouislider.css}">
-    </head>
+        })
+    </script>
+    <!--[if lt IE 9]>
+    <script th:src="@{/backend/js/html5shiv.min.js}"></script>
+    <script th:src="@{/backend/js/respond.min.js}"></script>
+    <![endif]-->
+    <link th:href="@{/backend/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/backend/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/backend/css/slide.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/backend/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/backend/css/flat-ui.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/backend/css/jquery.nouislider.css}">
+</head>
 
-    <body>
-        <div id="wrap">
+<body>
+<div id="wrap">
 
 
+    <!-- 左侧菜单栏目块 -->
 
-            <!-- 左侧菜单栏目块 -->
+    <div th:include="backend/nav :: #nav_body"></div>
 
-            <div th:include="backend/nav :: #nav_body"></div>
-
-            <!-- 右侧具体内容栏目 -->
-            <div th:include="backend/content :: #content_body"></div>
+    <!-- 右侧具体内容栏目 -->
+    <div th:include="backend/content :: #content_body"></div>
 
 </div>
 <!-- 滑块js -->
@@ -119,35 +118,44 @@
 
 <!-- this page specific inline scripts -->
 <script>
-                                                //min/max slider
-                                                function huadong(my, unit, def, max) {
-                                                    $(my).noUiSlider({
-                                                        range: [0, max],
-                                                        start: [def],
-                                                        handles: 1,
-                                                        connect: 'upper',
-                                                        slide: function() {
-                                                            var val = Math.floor($(this).val());
-                                                            $(this).find(".noUi-handle").text(
-                                                                    val + unit
-                                                                    );
-                                                            console.log($(this).find(".noUi-handle").parent().parent().html());
-                                                        },
-                                                        set: function() {
-                                                            var val = Math.floor($(this).val());
-                                                            $(this).find(".noUi-handle").text(
-                                                                    val + unit
-                                                                    );
-                                                        }
-                                                    });
-                                                    $(my).val(def, true);
-                                                }
-                                                huadong('.slider-minmax1', "分钟", "5", 30);
-                                                huadong('.slider-minmax2', "分钟", "6", 15);
-                                                huadong('.slider-minmax3', "分钟", "10", 60);
-                                                huadong('.slider-minmax4', "次", "2", 10);
-                                                huadong('.slider-minmax5', "天", "3", 7);
-                                                huadong('.slider-minmax6', "天", "8", 10);
+    //min/max slider
+    function huadong(my, unit, def, max) {
+        $(my).noUiSlider({
+            range: [0, max],
+            start: [def],
+            handles: 1,
+            connect: 'upper',
+            slide: function () {
+                var val = Math.floor($(this).val());
+                $(this).find(".noUi-handle").text(
+                    val + unit
+                );
+                console.log($(this).find(".noUi-handle").parent().parent().html());
+            },
+            set: function () {
+                var val = Math.floor($(this).val());
+                $(this).find(".noUi-handle").text(
+                    val + unit
+                );
+            }
+        });
+        $(my).val(def, true);
+    }
+    huadong('.slider-minmax1', "分钟", "5", 30);
+    huadong('.slider-minmax2', "分钟", "6", 15);
+    huadong('.slider-minmax3', "分钟", "10", 60);
+    huadong('.slider-minmax4', "次", "2", 10);
+    huadong('.slider-minmax5', "天", "3", 7);
+    huadong('.slider-minmax6', "天", "8", 10);
+</script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    userLoader.loadUserData();
+
+    /*]]>*/
+
 </script>
 </body>
 
