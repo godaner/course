@@ -7,42 +7,86 @@ var page = {
 };
 var query = {};
 
-function buildTable(tableContainer, list, fields) {
-    $.each(list, function (index, item) {
-        var row = makeRow();
-        $.each(fields, function (index, field) {
-            var name = field.name;
-            var converter = field.converter;
 
-            var text = item[name];
-            if (!isUndefined(converter)) {
-                text = converter(text);
-            }
-            var col = makeCol(text);
+var tableBuilder = {
+    DEFAULT_COL_WIDTH: 2,
+    buildTable: function (args) {
+        var table = args.table;
+        var list = args.list;
+        var fields = args.fields;
+        var updateBtnTarget = args.updateBtnTarget;
+        var deleteBtnTarget = args.deleteBtnTarget;
+
+        //clear table
+
+        table.empty();
+
+        //add titles
+        var tableHeader = this.makeTableHeader();
+        $.each(fields, function (index, item) {
+            var title = item.title;
+            tableHeader.append(this.makeCol(title));
+        }.bind(this));
+        tableHeader.append(this.makeCol("操作"));
+
+        //add list
+
+        var tableBody = this.makeTableBody();
+
+        $.each(list, function (index, item) {
+            var row = this.makeRow();
+            $.each(fields, function (index, field) {
+                var name = field.name;
+                var converter = field.converter;
+
+                var text = item[name];
+                if (!isUndefined(converter)) {
+                    text = converter(text);
+                }
+                var col = this.makeCol(text);
+                row.append(col);
+            }.bind(this));
+            //add model btn
+            var col = this.makeCol("");
+            var updateBtn = this.makeUpdateModelBtn(updateBtnTarget)
+            col.append(updateBtn);
+            var deleteBtn = this.makeDeleteModelBtn(deleteBtnTarget)
+            col.append(deleteBtn);
             row.append(col);
-        });
-        tableContainer.append(row);
-    });
-}
-function makeCol(text, colWidth) {
-    var realColWidth = 2;
-    if (!isUndefined(colWidth)) {
-        realColWidth = colWidth;
+
+            tableBody.append(row);
+        }.bind(this));
+
+        //integrate
+        table.append(tableHeader);
+        table.append(tableBody);
+    },
+    makeTableBody:function () {
+      return $("<div class='tablebody'></div>");
+    },
+    makeTableHeader:function () {
+        return $("<div class='row tableHeader'></div>");
+    },
+    makeCol: function (text, colWidth) {
+        var realColWidth = this.DEFAULT_COL_WIDTH;
+        if (!isUndefined(colWidth)) {
+            realColWidth = colWidth;
+        }
+        return $("<div class='col-xs-" + realColWidth + " '>" + text + "</div>");
+    },
+    makeRow: function () {
+        return $("<div class='row'></div>")
+    },
+    makeUpdateModelBtn: function (target) {
+        return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + target + "'>修改</button>");
+    },
+    makeDeleteModelBtn: function (target) {
+        return $("<button class='btn btn-danger btn-xs' style='margin-left: 4px;' data-toggle='modal' data-target='" + target + "'>删除</button>");
     }
-    return $("<div class='col-xs-" + realColWidth + " '>" + text + "</div>");
-}
-function makeRow() {
-    return $("<div class='row'></div>")
-}
-function makeModelBtn(text, target) {
-    return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + target + "'>" + text + "</button>");
 }
 
 
-
-
-
-var CODE_OF_REQUEST_SUCCESS=1;
+var CODE_OF_REQUEST_SUCCESS = 1;
 
 
 function fail(code) {
@@ -67,12 +111,12 @@ var ajax = {
             type: args.type,
             success: function (result) {
 
-                if(!isUndefined(args.onSuccess)){
+                if (!isUndefined(args.onSuccess)) {
                     args.onSuccess(result);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                if(!isUndefined(args.onError)){
+                if (!isUndefined(args.onError)) {
                     args.onError();
                 }
             }
