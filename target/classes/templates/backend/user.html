@@ -288,22 +288,34 @@
                                     title: "头像",
                                     name: "imgUrl",
                                     filter: function (text) {
-                                        return "<img style='width:50px;' src='" + text + "'/>";
+                                        return "<img style='width:50px;height:50px' src='" + text + "'/>";
                                     }
                                 },
                                 {
-                                    title: "userId",
-                                    name: "userId",
-                                    filter: function (text) {
-
-                                    }
+                                    title: "用户id",
+                                    name: "userId"
                                 },
                                 {
-                                    title: "username",
+                                    title: "用户昵称",
                                     name: "username"
                                 },
                                 {
-                                    title: "status",
+                                    title: "密码",
+                                    name: "password",
+                                    filter: function (text) {
+                                        return "<span title='"+text+"'>*****</span>";
+                                    }
+                                },
+                                {
+                                    title: "简介",
+                                    name: "description",
+                                    width:2,
+                                    filter: function (text) {
+                                        return "<span title='"+text+"'>"+text+"</span>";
+                                    }
+                                },
+                                {
+                                    title: "状态",
                                     name: "status",
                                     filter: function (text) {
 //                                        状态,1为正常，2为冻结，3为删除
@@ -317,10 +329,11 @@
                                     }
                                 },
                                 {
-                                    title: "createTime",
+                                    title: "创建时间",
                                     name: "createTime",
+                                    width:3,
                                     filter: function (text) {
-                                        return new Date(text).toLocaleTimeString()
+                                        return timeFormatter.formatTime(text);
                                     }
                                 }
                             ]

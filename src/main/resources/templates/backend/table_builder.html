@@ -12,15 +12,16 @@
     /*<![CDATA[*/
 
     var tableBuilder = {
-        DEFAULT_COL_WIDTH: 2,
         updateBtnTarget: undefined,
         deleteBtnTarget: undefined,
-        LOADING_IMG_PATH:"./images/loading.gif",
-        loading:function(args){
+        defaultWidth: 1,
+        LOADING_IMG_PATH: "./images/loading.gif",
+        OPERATE_BTN_WIDTH:2,
+        loading: function (args) {
             var table = args.table;
             var loadingImg = this.LOADING_IMG_PATH;
-            table.css("text-align","center");
-            table.html("<img src='"+loadingImg+"'/>");
+            table.css("text-align", "center");
+            table.html("<img src='" + loadingImg + "'/>");
         },
         buildTable: function (args) {
             var table = args.table;
@@ -28,7 +29,6 @@
             var fields = args.fields;
             this.updateBtnTarget = args.updateBtnTarget;
             this.deleteBtnTarget = args.deleteBtnTarget;
-
 
             //clear table
             table.empty();
@@ -47,7 +47,8 @@
         addTableTitle: function (tableHeader, fields) {
             $.each(fields, function (index, item) {
                 var title = item.title;
-                tableHeader.append(this.makeCol(title));
+                var width = item.width;
+                tableHeader.append(this.makeCol(title,width));
             }.bind(this));
             tableHeader.append(this.makeCol("操作"));
         },
@@ -58,16 +59,17 @@
                 $.each(fields, function (index, field) {
                     var name = field.name;
                     var filter = field.filter;
+                    var width = field.width;
 
                     var text = item[name];
                     if (!isUndefined(filter)) {
                         text = filter(text);
                     }
-                    var col = this.makeCol(text);
+                    var col = this.makeCol(text, width);
                     row.append(col);
                 }.bind(this));
                 //add model btn
-                var col = this.makeCol("");
+                var col = this.makeCol("",this.OPERATE_BTN_WIDTH);
                 var updateBtn = this.makeUpdateModelBtn()
                 col.append(updateBtn);
                 var deleteBtn = this.makeDeleteModelBtn()
@@ -83,12 +85,12 @@
         makeTableHeader: function () {
             return $("<div class='row tableHeader'></div>");
         },
-        makeCol: function (text, colWidth) {
-            var realColWidth = this.DEFAULT_COL_WIDTH;
-            if (!isUndefined(colWidth)) {
-                realColWidth = colWidth;
+        makeCol: function (text, width) {
+            var realWidth = this.defaultWidth;
+            if (!isUndefined(width)) {
+                realWidth = width;
             }
-            return $("<div class='col-xs-" + realColWidth + " '>" + text + "</div>");
+            return $("<div style='overflow: hidden;text-overflow:ellipsis;height:50px;' class='col-xs-"+realWidth+"'>" + text + "</div>");
         },
         makeRow: function () {
             return $("<div class='row'></div>")
