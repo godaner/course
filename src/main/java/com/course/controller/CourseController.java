@@ -1,9 +1,12 @@
 package com.course.controller;
 
+import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.CoursesQueryBean;
+import com.course.resolver.OnlineUser;
 import com.course.service.CourseService;
 import com.course.service.dto.CoursesDto;
+import com.course.service.dto.UsersDto;
 import com.course.util.PageBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -60,10 +63,11 @@ public class CourseController extends ServiceController<CourseService> {
 
     }
 
+    @RequiredUserLogin
     @RequestMapping(value = "/download/{name}")
-    public Object downloadCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+    public Object downloadCourseSrc(@OnlineUser UsersDto onlineUser,@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
-        service.downloadCourseSrc(name, courseId, httpServletRequest,httpServletResponse);
+        service.downloadCourseSrc(name, courseId, onlineUser,httpServletRequest,httpServletResponse);
         return null;
     }
     /*************************************** 管理端 *************************************/

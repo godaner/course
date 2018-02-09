@@ -97,9 +97,11 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         }
     }
 
+
+
     @Override
     @Transactional
-    public void downloadCourseSrc(String name, Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+    public void downloadCourseSrc(String name, Long courseId,UsersDto onlineUser, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
         Courses courses = coursesMapper.select(courseId);
         if (courses == null) {
@@ -115,11 +117,6 @@ public class CourseServiceImpl extends BaseService implements CourseService {
          */
         UsersDto sessionUser = (UsersDto) httpServletRequest.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
         Users users = null;
-        if (sessionUser == null) {
-            httpServletRequest.setAttribute("msg", "下载前请先登录");
-            httpServletRequest.setAttribute("forward", "forward:/courses/" + courseId);
-            throw new CoursesException("getCourseSrc sessionUser is null !! name is : " + name + " ,courseId is : " + courseId);
-        }
 
         /**
          * add record of user download

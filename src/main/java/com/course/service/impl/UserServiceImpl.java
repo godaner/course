@@ -72,7 +72,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(user));
     }
 
-    private UsersDto makeUsersDto(Users user) {
+    public UsersDto makeUsersDto(Users user) {
         UsersDto usersDto = new UsersDto();
         usersDto.setUserId(user.getId());
         usersDto.setPassword("");
@@ -118,32 +118,24 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
     }
 
-    @Override
-    public UsersDto getOnlineUser(HttpServletRequest request) {
-        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
-        if (null == sessionUser) {
-            request.setAttribute("msg", "您已离线");
-            request.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("getOnlineUser sessionUser is null !! sessionUser is :" + sessionUser);
-        }
-        Long userId = sessionUser.getUserId();
-
-        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
-        if (isNullObject(users)) {
-            throw new UsersException("getOnlineUser users is null !! sessionUser is : " + sessionUser);
-        }
-        return makeUsersDto(users);
-    }
+//    @Override
+//    public UsersDto getOnlineUser(HttpServletRequest request) {
+//        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+//
+//        Long userId = sessionUser.getUserId();
+//
+//        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+//        if (isNullObject(users)) {
+//            throw new UsersException("getOnlineUser users is null !! sessionUser is : " + sessionUser);
+//        }
+//        return makeUsersDto(users);
+//    }
 
     @Override
-    public void updateOnlineUser(UsersDto usersDto, HttpServletRequest request) {
-        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
-        if (null == sessionUser) {
-            request.setAttribute("msg", "您已离线");
-            request.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("updateOnlineUser sessionUser is null !! usersDto is :" + usersDto);
-        }
-        usersDto.setUserId(sessionUser.getUserId());
+    public void updateOnlineUser(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request) {
+
+
+        usersDto.setUserId(onlineUser.getUserId());
         Users user = makeUpdateOnlineUser(usersDto);
 
         usersMapper.update(user);
@@ -156,28 +148,24 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void updateOnlinePwd(UsersDto usersDto, HttpServletRequest request) {
-        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
-        if (null == sessionUser) {
-            request.setAttribute("msg", "您已离线");
-            request.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("updateOnlinePwd sessionUser is null !! usersDto is :" + usersDto);
-        }
-        usersDto.setUserId(sessionUser.getUserId());
+    public void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser,HttpServletRequest request) {
+
+
+        usersDto.setUserId(onlineUser.getUserId());
 
         if (isEmptyString(usersDto.getPassword()) || isEmptyString(usersDto.getRePassword())) {
             request.setAttribute("msg", "密码不能为空");
-            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
             throw new UsersException("updateOnlinePwd password or repassword is null !! usersDto is :" + usersDto);
         }
 
         if (!usersDto.getPassword().equals(usersDto.getRePassword())) {
             request.setAttribute("msg", "两次密码不一致");
-            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
             throw new UsersException("updateOnlinePwd password and repassword is not same !! usersDto is :" + usersDto);
         }
 
-        Users users = this.getUserByUserId(sessionUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        Users users = this.getUserByUserId(onlineUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
 
         if (users == null) {
             request.setAttribute("msg", "账户目前不可用");
@@ -190,7 +178,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (usersMapper.update(users) != 1) {
             request.setAttribute("msg", "修改密码失败");
-            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
             throw new UsersException("updateOnlinePwd update users is fail !! usersDto is :" + usersDto);
         }
 
@@ -199,13 +187,9 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void updateOnlineUserHead(UsersDto usersDto, HttpServletRequest request) {
+    public void updateOnlineUserHead(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request) {
         UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
-        if (null == sessionUser) {
-            request.setAttribute("msg", "您已离线");
-            request.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("updateOnlineUserHead sessionUser is null !! usersDto is :" + usersDto);
-        }
+
 
         usersDto.setUserId(sessionUser.getUserId());
 
@@ -241,7 +225,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void collectCourse(Long courseId, HttpServletRequest request) {
+    public void collectCourse(Long courseId, UsersDto onlineUser,HttpServletRequest request) {
 
         Courses courses = this.getCourseByCourseId(courseId);
 
@@ -253,11 +237,6 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
 
-        if (null == sessionUser) {
-            request.setAttribute("msg", "离线状态不能收藏，请先登录");
-            request.setAttribute("forward", "forward:/courses/" + courseId);
-            throw new UsersException("collectCourse sessionUser is null !! sessionUser is :" + sessionUser);
-        }
         Users users = this.getUserByUserId(sessionUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
 
         UserCollectCourse userCollectCourse = this.getUserCollectCourseByUserIdAndCourseId(users.getId(), courseId);
@@ -279,16 +258,9 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public List<CoursesDto> getUserCollectCourse(HttpServletRequest request) {
-        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+    public List<CoursesDto> getUserCollectCourse(UsersDto onlineUser) {
 
-        if (null == sessionUser) {
-            request.setAttribute("msg", "离线状态，请先登录");
-            request.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("getUserCollectCourse sessionUser is null !! sessionUser is :" + sessionUser);
-        }
-
-        Long userId = sessionUser.getUserId();
+        Long userId = onlineUser.getUserId();
 
         UserCollectCourseQueryBean userCollectCourseQueryBean = new UserCollectCourseQueryBean();
         userCollectCourseQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
@@ -312,16 +284,9 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest) {
-        UsersDto sessionUser = (UsersDto) httpServletRequest.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
+    public List<CoursesDto> getUserDownloadCourse(UsersDto onlineUser) {
 
-        if (null == sessionUser) {
-            httpServletRequest.setAttribute("msg", "离线状态，请您先登录");
-            httpServletRequest.setAttribute("forward", "forward:/courses/list");
-            throw new UsersException("getUserCollectCourse sessionUser is null !! sessionUser is :" + sessionUser);
-        }
-
-        Long userId = sessionUser.getUserId();
+        Long userId = onlineUser.getUserId();
 
         UserDownloadCourseQueryBean userCollectCourseQueryBean = new UserDownloadCourseQueryBean();
         userCollectCourseQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
@@ -372,6 +337,11 @@ public class UserServiceImpl extends BaseService implements UserService {
                     UsersException.ErrorCode.UPDATE_USER_FAIL.getCode(),
                     UsersException.ErrorCode.UPDATE_USER_FAIL.getMsg());
         }
+    }
+
+    @Override
+    public Users getUserById(Long userId) {
+        return this.getUserByUserId(userId,Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
     }
 
     private Users makeUpdateUser(UsersDto usersDto) {

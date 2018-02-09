@@ -2,29 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpOnlineUserAop.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/RequiredUserLogin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUserMethodArgumentResolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UsersMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UsersMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/BaseQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/BaseQueryBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UsersQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UsersQueryBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/exception/UsersException.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/exception/UsersException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/users.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/users.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/add_or_update_dialog_builder.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/add_or_update_dialog_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/ajax.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/pager_builder.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/pager_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/users.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/users.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/add_or_update_dialog_builder.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/add_or_update_dialog_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/ajax.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/pager_builder.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/pager_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/table_builder.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/table_builder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/user.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/user.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,113 +34,58 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="108" column="20" lean-forward="false" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+            <state relative-caret-position="304">
+              <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="108" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
+      <file leaf-file-name="CourseController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="93" column="9" lean-forward="true" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+            <state relative-caret-position="291">
+              <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TagGroupsServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/TagGroupsServiceImpl.java">
+      <file leaf-file-name="CourseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="46" column="56" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="56" />
+            <state relative-caret-position="135">
+              <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="127" column="30" lean-forward="false" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
+            <state relative-caret-position="254">
+              <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoursesMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java">
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="777">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courses.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="221" column="42" lean-forward="true" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
-              <folding>
-                <marker date="1518165793309" expanded="true" signature="1254:1306" ph="SELECT count... courses" />
-                <marker date="1518165793309" expanded="true" signature="1438:1745" ph="INSERT INTO courses... " />
-                <marker date="1518165793309" expanded="true" signature="1794:1862" ph="DELETE FROM " />
-                <marker date="1518165793309" expanded="true" signature="1953:2682" ph="UPDATE cours... " />
-                <marker date="1518165793309" expanded="true" signature="2759:2909" ph="SELECT FROM courses" />
-                <marker date="1518165793309" expanded="true" signature="2993:3260" ph="SELECT FROM courses" />
-                <marker date="1518165793309" expanded="true" signature="5288:5326" ph="SELECT * FRO... courses" />
-                <marker date="1518165793309" expanded="true" signature="5719:5765" ph="SELECT id FR... courses" />
-                <marker date="1518165793309" expanded="true" signature="5883:5920" ph="SELECT * FRO... courses" />
-                <marker date="1518165793309" expanded="true" signature="6040:6135" ph="SELECT * FRO... courses" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UsersMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/users.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="249" column="19" lean-forward="true" selection-start-line="249" selection-start-column="19" selection-end-line="249" selection-end-column="19" />
-              <folding>
-                <marker date="1518166164613" expanded="true" signature="1140:1190" ph="SELECT count... users" />
-                <marker date="1518166164613" expanded="true" signature="1322:1612" ph="INSERT INTO users... " />
-                <marker date="1518166164613" expanded="true" signature="1655:1699" ph="DELETE FROM " />
-                <marker date="1518166164613" expanded="true" signature="1785:2464" ph="UPDATE users... " />
-                <marker date="1518166164613" expanded="true" signature="2539:2687" ph="SELECT FROM users" />
-                <marker date="1518166164613" expanded="true" signature="2769:3034" ph="SELECT FROM users" />
-                <marker date="1518166164613" expanded="true" signature="4995:5031" ph="SELECT * FRO... users" />
-                <marker date="1518166164613" expanded="true" signature="5420:5464" ph="SELECT id FR... users" />
-                <marker date="1518166164613" expanded="true" signature="5580:5615" ph="SELECT * FRO... users" />
-                <marker date="1518166164613" expanded="true" signature="5733:5826" ph="SELECT * FRO... users" />
-                <marker date="1518166164613" expanded="true" signature="5983:6192" ph="select * fro... users" />
-                <marker date="1518166164613" expanded="true" signature="7052:7294" ph="select * fro... users" />
-                <marker date="1518166164613" expanded="true" signature="7374:7624" ph="select * fro... users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseQueryBean.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/BaseQueryBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="-2247">
+              <caret line="227" column="65" lean-forward="false" selection-start-line="227" selection-start-column="65" selection-end-line="227" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,6 +101,7 @@
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -225,10 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/course/backend/controller/TagGroupsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/backend/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/backend/exception/UsersException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/backend/service/CourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/service/TagGroupsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/service/impl/UserServiceImpl.java" />
@@ -238,12 +169,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/backend/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/base/ServiceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/base/CourseRuntimeException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates.backend/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/confirm_model.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html" />
@@ -262,20 +191,26 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/add_or_update_dialog_builder.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/UsersException.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/pager_builder.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/ajax.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/BaseQueryBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/courses.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UsersQueryBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UsersMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/users.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/aop/RequiredLogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/aop/HttpOnlineUserAop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUserMethodArgumentResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -589,11 +524,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
+              <option name="myItemId" value="resolver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -683,21 +614,21 @@
       <recent name="E:\zk\course\src\main\resources\templates\frontend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.course.aop" />
       <recent name="com.course.controller" />
       <recent name="com.course.dao.po.query" />
       <recent name="com.course.frontend.controller" />
-      <recent name="com.course.aop" />
       <recent name="com.course.frontend.listener" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\course\src\main\java\com\course" />
       <recent name="E:\zk\course\src\main\resources\templates\backend" />
       <recent name="E:\zk\course\src\main\resources\templates\backend\js" />
       <recent name="E:\zk\course\src\main\resources\templates\frontend\app\dest" />
       <recent name="E:\zk\course\src\main\resources\templates\backend\images" />
-      <recent name="E:\zk\course\src\main\resources\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1229,12 +1160,12 @@
       <workItem from="1517964536817" duration="5743000" />
       <workItem from="1517981317199" duration="83000" />
       <workItem from="1518138728869" duration="16860000" />
-      <workItem from="1518160116915" duration="5721000" />
+      <workItem from="1518160116915" duration="9211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221780000" />
+    <option name="totallyTimeSpent" value="225270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
@@ -1251,7 +1182,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46587217" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3618635" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1290,7 +1221,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46587217" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3618635" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1328,21 +1259,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java</url>
-          <line>363</line>
-          <properties />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="78" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1355,72 +1272,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="19" column="87" lean-forward="false" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="165" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/block.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="228" column="16" lean-forward="false" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/temp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="965" column="0" lean-forward="true" selection-start-line="965" selection-start-column="0" selection-end-line="965" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/message_model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="55" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/course_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3894">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/changePwd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1584,14 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
@@ -1727,14 +1570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="108" column="20" lean-forward="false" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/query/UsersQueryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -1749,14 +1584,6 @@
             <element signature="e#394#395#0" expanded="true" />
             <element signature="e#430#431#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="127" column="30" lean-forward="false" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1790,10 +1617,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.3.2.RELEASE/spring-web-4.3.2.RELEASE-sources.jar!/org/springframework/web/context/request/RequestAttributes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="47" column="52" lean-forward="true" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUserMethodArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/HttpOnlineUserAop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="49" column="78" lean-forward="false" selection-start-line="49" selection-start-column="78" selection-end-line="49" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/RequiredUserLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="108" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="93" column="9" lean-forward="true" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+        <state relative-caret-position="-2247">
+          <caret line="227" column="65" lean-forward="false" selection-start-line="227" selection-start-column="65" selection-end-line="227" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/CourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
           <folding />
         </state>
       </provider>

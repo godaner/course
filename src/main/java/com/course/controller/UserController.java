@@ -1,14 +1,15 @@
 package com.course.controller;
 
+import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.UsersQueryBean;
+import com.course.resolver.OnlineUser;
 import com.course.service.UserService;
 import com.course.service.dto.UsersDto;
 import com.course.util.PageBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -47,51 +48,59 @@ public class UserController extends ServiceController<UserService> {
         service.getUserImg(name, httpServletResponse);
     }
 
+    @RequiredUserLogin
     @RequestMapping(value = "/collect/course/{courseId}")
-    public Object collectCourse(HttpServletRequest request,@PathVariable("courseId") Long courseId) throws Exception {
-        service.collectCourse(courseId, getRequest());
+    public Object collectCourse(@OnlineUser UsersDto onlineUser,HttpServletRequest request,@PathVariable("courseId") Long courseId) throws Exception {
+        service.collectCourse(courseId,onlineUser, getRequest());
         return "forward:/courses/" + courseId;
     }
+    @RequiredUserLogin
     @RequestMapping(value = "/onlineUser")
-    public Object getOnlineUser(HttpServletRequest request) throws Exception {
-        UsersDto usersDto = service.getOnlineUser(request);
-        request.setAttribute("currtTab", request.getParameter("currtTab"));
-        request.setAttribute("users", usersDto);
+    public Object getOnlineUser(@OnlineUser UsersDto onlineUser,HttpServletRequest request) throws Exception {
+
+//        UsersDto usersDto = service.getOnlineUser(request);
+        request.setAttribute("users", onlineUser);
         return "frontend/users/user_info";
     }
 
+    @RequiredUserLogin
     @RequestMapping(value = "/updateOnlineUser")
-    public Object updateOnlineUser(HttpServletRequest request,UsersDto usersDto) throws Exception {
-        service.updateOnlineUser(usersDto, getRequest());
-        request.setAttribute("currtTab", request.getParameter("currtTab"));
+    public Object updateOnlineUser(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+
+        service.updateOnlineUser(usersDto,onlineUser, getRequest());
         return "frontend/users/user_info";
     }
 
+    @RequiredUserLogin
     @RequestMapping(value = "/updateOnlinePwd")
-    public Object updateOnlinePwd(HttpServletRequest request,UsersDto usersDto) throws Exception {
-        service.updateOnlinePwd(usersDto, getRequest());
-        request.setAttribute("currtTab", request.getParameter("currtTab"));
+    public Object updateOnlinePwd(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+
+        service.updateOnlinePwd(usersDto, onlineUser,getRequest());
         return "frontend/users/user_info";
     }
 
+    @RequiredUserLogin
     @RequestMapping(value = "/updateOnlineUserHead")
-    public Object updateOnlineUserHead(HttpServletRequest request,UsersDto usersDto) throws Exception {
-        service.updateOnlineUserHead(usersDto, getRequest());
-        request.setAttribute("currtTab", request.getParameter("currtTab"));
+    public Object updateOnlineUserHead(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+
+        service.updateOnlineUserHead(usersDto,onlineUser, getRequest());
         return "frontend/users/user_info";
     }
+
+
+    @RequiredUserLogin
     @RequestMapping(value = "/onlineUser/collect")
-    public Object getUserCollectCourse(HttpServletRequest httpServletRequest) throws Exception {
+    public Object getUserCollectCourse(@OnlineUser UsersDto onlineUser,HttpServletRequest httpServletRequest) throws Exception {
 
-        httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
-        httpServletRequest.setAttribute("courses", service.getUserCollectCourse(httpServletRequest));
+
+        httpServletRequest.setAttribute("courses", service.getUserCollectCourse(onlineUser));
         return "frontend/users/user_info";
     }
-    @RequestMapping(value = "/onlineUser/download")
-    public Object getUserDownloadCourse(HttpServletRequest httpServletRequest) throws Exception {
 
-        httpServletRequest.setAttribute("currtTab", httpServletRequest.getParameter("currtTab"));
-        httpServletRequest.setAttribute("courses", service.getUserDownloadCourse(httpServletRequest));
+    @RequiredUserLogin
+    @RequestMapping(value = "/onlineUser/download")
+    public Object getUserDownloadCourse(@OnlineUser UsersDto onlineUser, HttpServletRequest httpServletRequest) throws Exception {
+        httpServletRequest.setAttribute("courses", service.getUserDownloadCourse(onlineUser));
         return "frontend/users/user_info";
     }
 

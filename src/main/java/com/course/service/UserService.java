@@ -1,6 +1,7 @@
 package com.course.service;
 
 
+import com.course.dao.po.Users;
 import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
@@ -22,23 +23,29 @@ public interface UserService {
 
     void getUserImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 
-    UsersDto getOnlineUser(HttpServletRequest request);
+//    UsersDto getOnlineUser(HttpServletRequest request);
 
-    void updateOnlineUser(UsersDto usersDto, HttpServletRequest request);
+    void updateOnlineUser(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
 
-    void updateOnlinePwd(UsersDto usersDto, HttpServletRequest request);
+    void updateOnlinePwd(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
 
-    void updateOnlineUserHead(UsersDto usersDto, HttpServletRequest request);
+    void updateOnlineUserHead(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
 
-    void collectCourse(Long courseId, HttpServletRequest request);
+    void collectCourse(Long courseId,UsersDto onlineUser, HttpServletRequest request);
 
-    List<CoursesDto> getUserCollectCourse(HttpServletRequest request);
+    List<CoursesDto> getUserCollectCourse(UsersDto onlineUser);
 
-    List<CoursesDto> getUserDownloadCourse(HttpServletRequest httpServletRequest);
+    List<CoursesDto> getUserDownloadCourse(UsersDto onlineUser);
+
+    /*************************************** 管理端 *************************************/
 
     List<UsersDto> getUsers(PageBean page, UsersQueryBean query);
 
     Long getUsersCount(PageBean page, UsersQueryBean query);
 
     void updateUser(UsersDto usersDto);
+
+    Users getUserById(Long userId);
+
+    UsersDto makeUsersDto(Users user);
 }

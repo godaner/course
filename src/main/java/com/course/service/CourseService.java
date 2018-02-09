@@ -2,6 +2,7 @@ package com.course.service;
 
 import com.course.dao.po.query.CoursesQueryBean;
 import com.course.service.dto.CoursesDto;
+import com.course.service.dto.UsersDto;
 import com.course.util.PageBean;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ public interface CourseService {
 
     void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
 
-    void downloadCourseSrc(String name, Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception;
+    void downloadCourseSrc(String name, Long courseId, UsersDto onlineUser, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception;
 
     void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 
