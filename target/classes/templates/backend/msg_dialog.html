@@ -23,7 +23,7 @@
             </div>
             <div class="modal-footer">
                 <!--<button id="cancel" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>-->
-                <button id="save" type="button" class="btn  btn-xs btn-danger">确定</button>
+                <button id="sure_btn" type="button" class="btn btn-xs btn-danger">确定</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -36,9 +36,10 @@
 
     var MsgDialog = function () {
 
-        this.$msgDialog = $("#msg_dialog");
+        this.$msgDialog = undefined;
         this.onClose = undefined;
-        this.init = function () {
+        this.init = function (args) {
+            this.$msgDialog = $(args.dialogId);
             //关闭事件触发
             this.$msgDialog.on('hide.bs.modal', function () {
                 if (!isUndefined(this.onClose)) {
@@ -63,8 +64,6 @@
     };
 
 
-    var msgDialog = new MsgDialog();
-    msgDialog.init();
 
     /*]]>*/
 

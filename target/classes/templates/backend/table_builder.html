@@ -12,12 +12,16 @@
     /*<![CDATA[*/
 
     var TableBuilder = function (tableId) {
-        this.$table = $(tableId);
+        this.$table = undefined;
         this.onDelete = undefined;
         this.onUpdate = undefined;
         this.defaultWidth = 1;
         this.LOADING_IMG_PATH = "./images/loading.gif";
         this.OPERATE_BTN_WIDTH = 2;
+        this.list = undefined;
+        this.init = function (args) {
+            this.$table = $(args.tableId);
+        };
         this.loading = function () {
             var loadingImg = this.LOADING_IMG_PATH;
             this.$table.css("text-align", "center");
@@ -26,6 +30,7 @@
         this.buildTable = function (args) {
 
             var list = args.list;
+            this.list = list;
             var fields = args.fields;
             this.onUpdate = args.onUpdate;
             this.onDelete = args.onDelete;
@@ -51,16 +56,20 @@
         this.addTableEvents = function () {
             $.each(this.$table.find(".table_update"),function (index,item) {
                 $(item).click(function () {
+                    var index = $(item).attr("index");
+                    var data = this.list[index];
                     if(!isUndefined(this.onUpdate)){
-                        this.onUpdate();
+                        this.onUpdate(data);
                     }
                 }.bind(this));
             }.bind(this))
 
             $.each(this.$table.find(".table_delete"),function (index,item) {
                 $(item).click(function () {
+                    var index = $(item).attr("index");
+                    var data = this.list[index];
                     if(!isUndefined(this.onDelete)){
-                        this.onDelete();
+                        this.onDelete(data);
                     }
                 }.bind(this));
             }.bind(this));
@@ -90,10 +99,13 @@
                     row.append(col);
                 }.bind(this));
                 //add model btn
+                var args = {
+                    index:index
+                }
                 var col = this.makeCol("", this.OPERATE_BTN_WIDTH);
-                var updateBtn = this.makeUpdateModelBtn()
+                var updateBtn = this.makeUpdateModelBtn(args)
                 col.append(updateBtn);
-                var deleteBtn = this.makeDeleteModelBtn()
+                var deleteBtn = this.makeDeleteModelBtn(args)
                 col.append(deleteBtn);
                 row.append(col);
 
@@ -116,12 +128,13 @@
         this.makeRow = function () {
             return $("<div class='row'></div>")
         }
-        this.makeUpdateModelBtn = function () {
-            return $("<button class='table_update btn btn-success btn-xs' >修改</button>");
+        this.makeUpdateModelBtn = function (args) {
+            var index = args.index;
+            return $("<button index='"+index+"' class='table_update btn btn-success btn-xs' >修改</button>");
         }
-        this.makeDeleteModelBtn = function () {
-
-            return $("<button class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
+        this.makeDeleteModelBtn = function (args) {
+            var index = args.index;
+            return $("<button index='"+index+"' class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
         }
     }
 

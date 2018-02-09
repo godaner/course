@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="add_or_update_dialog_builder_body">
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const InputType = {TEXT: 1, SELECT: 2, CHECKBOX: 3};
+    var AddOrUpdateDialogBuilder = function () {
+        this.onSubmit = undefined;
+        this.onCancel = undefined;
+        this.$dialog = undefined;
+        this.$form = undefined;
+        this.$submitBtn = undefined;
+        this.$cancelBtn = undefined;
+
+        this.init = function (args) {
+
+            this.onSubmit = args.onSubmit;
+            this.onCancel = args.onCancel;
+            this.$dialog = $(args.dialogId);
+            this.$form = this.$dialog.find("form");
+            this.$submitBtn = this.$form.find(args.submitId);
+            this.$cancelBtn = this.$form.find(args.cancelId);
+
+            this.$submitBtn.click(function () {
+
+                if (!isUndefined(this.onSubmit())) {
+                    this.onSubmit(this.$form.serialize());
+                }
+            });
+
+            this.$cancelBtn.click(function () {
+                if (!isUndefined(this.onCancel())) {
+                    this.onCancel();
+                }
+
+            });
+        };
+        this.echoData = function (data) {
+//            {
+//                name:'username',
+//                filter:filter,
+//                value:'666'
+//                inputType:inputType
+//            }
+            for (var dd in data) {
+                for (var d in dd) {
+                    var name = d.name;
+                    var filter = d.filter;
+                    var value = d.value;
+                    var inputType = d.inputType;
+                    if (!isUndefined(filter)) {
+                        value = filter(value);
+                    }
+                    if (inputType == InputType.TEXT) {
+                        this.findInput(name).val(value);
+                    }
+
+                    if (inputType == InputType.SELECT) {
+                        selectOption(name, value);
+                    }
+                    if (inputType == InputType.CHECKBOX) {
+                        this.findInput(name).val(value);
+                    }
+                }
+
+            }
+        };
+        this.findInput = function (name) {
+            return this.$form.find("input[name='" + name + "']");
+        };
+
+        this.hide = function () {
+            this.$dialog.modal('hide');
+        };
+        this.show = function () {
+            this.$dialog.modal('show');
+        };
+
+    }
+
+
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

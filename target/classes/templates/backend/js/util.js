@@ -64,9 +64,14 @@ function preImg(source, target) {
  * @param value
  */
 function selectOption(selectId, value) {
+    selectOptionById(selectId, value)
+}
+function selectOptionById(selectId, value) {
     $("#" + selectId + " option[value='" + value + "']").attr("selected", "selected");
 }
-
+function selectOptionByName(selectName, value) {
+    $("select option[name='"+selectName+"',value='" + value + "']").attr("selected", "selected");
+}
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);

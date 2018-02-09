@@ -69,7 +69,7 @@
 
 
     <!--弹出添加用户窗口-->
-    <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div id="addUserDialog" class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,7 +148,7 @@
     <!-- /.modal -->
 
     <!--弹出修改用户窗口-->
-    <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div id="editUserDialog" class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -160,56 +160,28 @@
                     <div class="container-fluid">
                         <form class="form-horizontal">
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label for="username" class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="username" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="username" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+                            <div class="form-group ">
+                                <label for="username" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="description" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="description" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <button id="cancel" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                    <button type="submit" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -230,16 +202,41 @@
             this.query = new Query();
             this.confirmDialog = new ConfirmDialog();
             this.msgDialog = new MsgDialog();
-            this.pagerBuilder = new PagerBuilder("#userPager");
-            this.tableBuilder = new TableBuilder("#userTable");
+            this.pagerBuilder = new PagerBuilder();
+            this.tableBuilder = new TableBuilder();
+            this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
             this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
             this.init = function () {
-                this.pagerBuilder.onSelect(function (newPage) {
-                    this.page = newPage;
-                    this.loadUserData();
-                }.bind(this));
-                this.confirmDialog.init();
-                this.msgDialog.init();
+                this.pagerBuilder.init({
+                    pagerId: "#userPager",
+                    onPageChange: function (newPage) {
+                        this.page = newPage;
+                        this.loadUserData();
+                    }.bind(this)
+                });
+                this.tableBuilder.init({
+                   tableId:"#userTable"
+                });
+                this.confirmDialog.init({
+                    dialogId:"#confirm_dialog",
+                    sureBtnId:"#sure_btn",
+                    cancelBtnId:"#cancel_btn"
+
+                });
+                this.msgDialog.init({
+                    dialogId:"#msg_dialog"
+                });
+                this.addOrUpdateDialogBuilder.init({
+                    dialogId: "#editUserDialog",
+                    submitId: "#submit",
+                    cancelId: "#cancel",
+                    onSubmit: function (data) {
+                        a("onSubmit" + data);
+                    },
+                    onCancel: function () {
+                        a("onCancel");
+                    }
+                });
             }
             this.loadPager = function (result) {
                 var data = result.data;
@@ -251,7 +248,8 @@
             this.loadTable = function (result) {
 
                 this.tableBuilder.buildTable({
-                        onDelete: function () {
+                        onDelete: function (data) {
+                            a("onDelete" + data);
                             this.confirmDialog.showMsg({
                                 msg: this.DELETE_TIP,
                                 onSure: function () {
@@ -262,8 +260,31 @@
                                 }
                             });
                         }.bind(this),
-                        onUpdate: function () {
-                            a("onUpdate");
+                        onUpdate: function (data) {
+                            var newDatas = [];
+                            for (var d in data) {
+                                newDatas.push([
+                                    {
+                                        name: "username",
+                                        value: d.username,
+                                        inputType: InputType.TEXT,
+                                        filter: function (data) {
+                                            return data;
+                                        }
+                                    },
+                                    {
+                                        name: "description",
+                                        value: d.description,
+                                        inputType: InputType.TEXT,
+                                        filter: function (data) {
+                                            return data;
+                                        }
+                                    }
+                                ]);
+                            }
+                            a("onUpdate" + newDatas);
+                            this.addOrUpdateDialogBuilder.echoData(newDatas);
+                            this.addOrUpdateDialogBuilder.show();
                         },
                         list: result.data.users,
                         fields: [

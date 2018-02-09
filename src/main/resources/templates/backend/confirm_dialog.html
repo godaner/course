@@ -12,8 +12,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="cancel_btn close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
+                <!--<button type="button" class=" close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
                 <h4 class="modal-title" id="gridSystemModalLabel">确认</h4>
             </div>
             <div class="modal-body">
@@ -22,7 +22,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="cancel_btn btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                <!--data-dismiss="modal"-->
+                <button id="cancel_btn" type="button" class=" btn btn-xs btn-white">取 消</button>
                 <button id="sure_btn" type="button" class="btn  btn-xs btn-danger">确 认</button>
             </div>
         </div>
@@ -35,13 +36,16 @@
     /*<![CDATA[*/
 
     var ConfirmDialog = function () {
-        this.$confirmDialog = $("#confirm_dialog");
-        this.$cancelBtn = this.$confirmDialog.find(".cancel_btn");
-        this.$sureBtn = this.$confirmDialog.find("#sure_btn");
+        this.$confirmDialog = undefined;
+        this.$cancelBtn = undefined;
+        this.$sureBtn = undefined;
         this.onClose = undefined;
         this.onCancel = undefined;
         this.onSure = undefined;
-        this.init = function () {
+        this.init = function (args) {
+            this.$confirmDialog = $(args.dialogId);
+            this.$cancelBtn = this.$confirmDialog.find(args.cancelBtnId);
+            this.$sureBtn = this.$confirmDialog.find(args.sureBtnId);
             //关闭事件触发
             this.$confirmDialog.on('hide.bs.modal', function () {
                 if (!isUndefined(this.onClose)) {
@@ -66,10 +70,10 @@
         };
         this.showMsg = function (args) {
 
-            var msg = args.msg;
             this.onClose = args.onClose;
             this.onCancel = args.onCancel;
             this.onSure = args.onSure;
+            var msg = args.msg;
             if (msg != undefined && msg != "") {
                 this.$confirmDialog.find(".modal-body .container-fluid").html(msg);
                 this.$confirmDialog.modal('show');

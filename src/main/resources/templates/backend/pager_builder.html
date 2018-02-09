@@ -40,15 +40,20 @@
     //        </i>
     //        </li>
 
-    var PagerBuilder = function (pagerId) {
+    var PagerBuilder = function () {
+
         this.page = undefined;
-        this.$pager = $(pagerId);
-        this.callback = undefined;
+        this.$pager = undefined;
+        this.onPageChange = undefined;
         this.buildPager = function (args) {
             this.page = args.page;
             this.makePager();
         };
+        this.init =function (args) {
 
+            this.$pager = $(args.pagerId);
+            this.onPageChange = args.onPageChange;
+        };
         this.changePage = function (movePage) {
             var newStart = this.page.start + (this.page.size * movePage);
             if (this.page.total < newStart) {
@@ -58,8 +63,8 @@
                 return false;
             }
             this.page.start = newStart;
-            if (!isUndefined(this.callback)) {
-                this.callback(this.page);
+            if (!isUndefined(this.onPageChange)) {
+                this.onPageChange(this.page);
             }
         };
         this.makePager = function () {
@@ -83,9 +88,6 @@
                 this.changePage(-1);
             }.bind(this));
         };
-        this.onSelect = function (callback) {
-            this.callback = callback;
-        }
     }
 
 
