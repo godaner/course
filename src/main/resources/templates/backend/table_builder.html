@@ -19,8 +19,12 @@
         this.LOADING_IMG_PATH = "./images/loading.gif";
         this.OPERATE_BTN_WIDTH = 2;
         this.list = undefined;
+        this.fields = undefined;
         this.init = function (args) {
             this.$table = $(args.tableId);
+            this.fields = args.fields;
+            this.onUpdate = args.onUpdate;
+            this.onDelete = args.onDelete;
         };
         this.loading = function () {
             var loadingImg = this.LOADING_IMG_PATH;
@@ -30,19 +34,15 @@
         this.buildTable = function (args) {
 
             var list = args.list;
-            this.list = list;
-            var fields = args.fields;
-            this.onUpdate = args.onUpdate;
-            this.onDelete = args.onDelete;
 
             //clear table
             this.$table.empty();
             //add titles
             var tableHeader = this.makeTableHeader();
-            this.addTableTitle(tableHeader, fields);
+            this.addTableTitle(tableHeader, this.fields);
             //add list
             var tableBody = this.makeTableBody();
-            this.addTableBody(tableBody, fields, list);
+            this.addTableBody(tableBody, this.fields, this.list);
 
 
             //integrate
@@ -55,6 +55,7 @@
         };
         this.addTableEvents = function () {
             $.each(this.$table.find(".table_update"),function (index,item) {
+                $(item).unbind("click");
                 $(item).click(function () {
                     var index = $(item).attr("index");
                     var data = this.list[index];
@@ -65,6 +66,7 @@
             }.bind(this))
 
             $.each(this.$table.find(".table_delete"),function (index,item) {
+                $(item).unbind("click");
                 $(item).click(function () {
                     var index = $(item).attr("index");
                     var data = this.list[index];

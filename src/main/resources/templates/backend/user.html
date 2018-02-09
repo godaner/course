@@ -148,17 +148,19 @@
     <!-- /.modal -->
 
     <!--弹出修改用户窗口-->
-    <div id="editUserDialog" class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div id="editUserDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">修改用户</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="userId" type="hidden">
                             <div class="form-group ">
                                 <label for="username" class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
@@ -170,7 +172,7 @@
                             <div class="form-group ">
                                 <label for="username" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="description" disabled="disabled" type="text"
+                                    <input name="description" type="text"
                                            class="form-control input-sm duiqi"
                                            id="description" placeholder="">
                                 </div>
@@ -180,8 +182,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="cancel" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="submit" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -192,6 +195,11 @@
 
 
 </div>
+
+
+<!-- add_or_update_dialog_builder -->
+<div th:include="backend/add_or_update_dialog_builder :: #add_or_update_dialog_builder_body"></div>
+
 
 <script th:inline="javascript">
     /*<![CDATA[*/
@@ -214,29 +222,126 @@
                         this.loadUserData();
                     }.bind(this)
                 });
-                this.tableBuilder.init({
-                   tableId:"#userTable"
-                });
-                this.confirmDialog.init({
-                    dialogId:"#confirm_dialog",
-                    sureBtnId:"#sure_btn",
-                    cancelBtnId:"#cancel_btn"
-
-                });
-                this.msgDialog.init({
-                    dialogId:"#msg_dialog"
-                });
                 this.addOrUpdateDialogBuilder.init({
                     dialogId: "#editUserDialog",
-                    submitId: "#submit",
-                    cancelId: "#cancel",
+                    submitId: "#submit_btn",
+                    cancelId: "#cancel_btn",
                     onSubmit: function (data) {
-                        a("onSubmit" + data);
+                        c(data);
+                        a("onSubmit");
                     },
                     onCancel: function () {
                         a("onCancel");
-                    }
+                    },
+                    fields: [
+                        {
+                            name: "userId",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "username",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "description",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        }
+                    ]
                 });
+                this.tableBuilder.init({
+                    tableId: "#userTable",
+                    onDelete: function (data) {
+                        a("onDelete" + data);
+                        this.confirmDialog.showMsg({
+                            msg: this.DELETE_TIP,
+                            onSure: function () {
+                                a("onSure");
+                            },
+                            onCancel: function () {
+                                a("onCancel");
+                            }
+                        });
+                    }.bind(this),
+                    onUpdate: function (data) {
+                        this.addOrUpdateDialogBuilder.echoData({
+                            data: data
+                        });
+                        this.addOrUpdateDialogBuilder.show();
+                    }.bind(this),
+                    fields: [
+                        {
+                            title: "头像",
+                            name: "imgUrl",
+                            filter: function (text) {
+                                return "<img style='width:50px;height:50px' src='" + text + "'/>";
+                            }
+                        },
+                        {
+                            title: "用户id",
+                            name: "userId"
+                        },
+                        {
+                            title: "用户昵称",
+                            name: "username"
+                        },
+                        {
+                            title: "密码",
+                            name: "password",
+                            filter: function (text) {
+                                return "<span title='" + text + "'>*****</span>";
+                            }
+                        },
+                        {
+                            title: "简介",
+                            name: "description",
+                            width: 2,
+                            filter: function (text) {
+                                return "<span title='" + text + "'>" + text + "</span>";
+                            }
+                        },
+                        {
+                            title: "状态",
+                            name: "status",
+                            filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                                if (text == 1) {
+                                    return "正常";
+                                }
+                                if (text == 2) {
+                                    return "冻结";
+                                }
+                                return text;
+                            }
+                        },
+                        {
+                            title: "创建时间",
+                            name: "createTime",
+                            width: 3,
+                            filter: function (text) {
+                                return timeFormatter.formatTime(text);
+                            }
+                        }
+                    ]
+                });
+                this.confirmDialog.init({
+                    dialogId: "#confirm_dialog",
+                    sureBtnId: "#sure_btn",
+                    cancelBtnId: "#cancel_btn"
+
+                });
+                this.msgDialog.init({
+                    dialogId: "#msg_dialog"
+                });
+
             }
             this.loadPager = function (result) {
                 var data = result.data;
@@ -248,99 +353,7 @@
             this.loadTable = function (result) {
 
                 this.tableBuilder.buildTable({
-                        onDelete: function (data) {
-                            a("onDelete" + data);
-                            this.confirmDialog.showMsg({
-                                msg: this.DELETE_TIP,
-                                onSure: function () {
-                                    a("onSure");
-                                },
-                                onCancel: function () {
-                                    a("onCancel");
-                                }
-                            });
-                        }.bind(this),
-                        onUpdate: function (data) {
-                            var newDatas = [];
-                            for (var d in data) {
-                                newDatas.push([
-                                    {
-                                        name: "username",
-                                        value: d.username,
-                                        inputType: InputType.TEXT,
-                                        filter: function (data) {
-                                            return data;
-                                        }
-                                    },
-                                    {
-                                        name: "description",
-                                        value: d.description,
-                                        inputType: InputType.TEXT,
-                                        filter: function (data) {
-                                            return data;
-                                        }
-                                    }
-                                ]);
-                            }
-                            a("onUpdate" + newDatas);
-                            this.addOrUpdateDialogBuilder.echoData(newDatas);
-                            this.addOrUpdateDialogBuilder.show();
-                        },
                         list: result.data.users,
-                        fields: [
-                            {
-                                title: "头像",
-                                name: "imgUrl",
-                                filter: function (text) {
-                                    return "<img style='width:50px;height:50px' src='" + text + "'/>";
-                                }
-                            },
-                            {
-                                title: "用户id",
-                                name: "userId"
-                            },
-                            {
-                                title: "用户昵称",
-                                name: "username"
-                            },
-                            {
-                                title: "密码",
-                                name: "password",
-                                filter: function (text) {
-                                    return "<span title='" + text + "'>*****</span>";
-                                }
-                            },
-                            {
-                                title: "简介",
-                                name: "description",
-                                width: 2,
-                                filter: function (text) {
-                                    return "<span title='" + text + "'>" + text + "</span>";
-                                }
-                            },
-                            {
-                                title: "状态",
-                                name: "status",
-                                filter: function (text) {
-//                                        状态,1为正常，2为冻结，3为删除
-                                    if (text == 1) {
-                                        return "正常";
-                                    }
-                                    if (text == 2) {
-                                        return "冻结";
-                                    }
-                                    return text;
-                                }
-                            },
-                            {
-                                title: "创建时间",
-                                name: "createTime",
-                                width: 3,
-                                filter: function (text) {
-                                    return timeFormatter.formatTime(text);
-                                }
-                            }
-                        ]
                     }
                 );
 

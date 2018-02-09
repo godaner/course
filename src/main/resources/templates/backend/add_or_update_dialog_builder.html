@@ -19,59 +19,39 @@
         this.$form = undefined;
         this.$submitBtn = undefined;
         this.$cancelBtn = undefined;
+        this.fileds = undefined;
 
-        this.init = function (args) {
-
-            this.onSubmit = args.onSubmit;
-            this.onCancel = args.onCancel;
-            this.$dialog = $(args.dialogId);
-            this.$form = this.$dialog.find("form");
-            this.$submitBtn = this.$form.find(args.submitId);
-            this.$cancelBtn = this.$form.find(args.cancelId);
-
-            this.$submitBtn.click(function () {
-
-                if (!isUndefined(this.onSubmit())) {
-                    this.onSubmit(this.$form.serialize());
-                }
-            });
-
-            this.$cancelBtn.click(function () {
-                if (!isUndefined(this.onCancel())) {
-                    this.onCancel();
-                }
-
-            });
-        };
-        this.echoData = function (data) {
+        this.echoData = function (args) {
+            var data = args.data;
 //            {
 //                name:'username',
 //                filter:filter,
-//                value:'666'
+//                value:'666',
 //                inputType:inputType
 //            }
-            for (var dd in data) {
-                for (var d in dd) {
-                    var name = d.name;
-                    var filter = d.filter;
-                    var value = d.value;
-                    var inputType = d.inputType;
-                    if (!isUndefined(filter)) {
-                        value = filter(value);
-                    }
-                    if (inputType == InputType.TEXT) {
-                        this.findInput(name).val(value);
-                    }
+            for (var index = 0; index < this.fileds.length; index++) {
+                var filed = this.fileds[index];
+                var name = filed.name;
+                var filter = filed.filter;
+                var value = data[name];
+                var inputType = filed.inputType;
+                if (!isUndefined(filter)) {
+                    value = filter(value);
+                }
+                if (inputType == InputType.TEXT) {
 
-                    if (inputType == InputType.SELECT) {
-                        selectOption(name, value);
-                    }
-                    if (inputType == InputType.CHECKBOX) {
-                        this.findInput(name).val(value);
-                    }
+                    this.findInput(name).val(value);
                 }
 
+                if (inputType == InputType.SELECT) {
+                    selectOption(name, value);
+                }
+                if (inputType == InputType.CHECKBOX) {
+                    this.findInput(name).val(value);
+                }
             }
+
+
         };
         this.findInput = function (name) {
             return this.$form.find("input[name='" + name + "']");
@@ -84,6 +64,34 @@
             this.$dialog.modal('show');
         };
 
+        this.init = function (args) {
+
+            this.$dialog = $(args.dialogId);
+            this.$form = this.$dialog.find("form");
+            this.$submitBtn = this.$dialog.find(args.submitId);
+            this.$cancelBtn = this.$dialog.find(args.cancelId);
+            this.onSubmit = args.onSubmit;
+            this.onCancel = args.onCancel;
+            this.fileds = args.fileds;
+
+            this.$submitBtn.unbind("click");
+            this.$submitBtn.click(function () {
+
+                this.hide();
+                if (!isUndefined(this.onSubmit)) {
+                    var data = this.$form.serializeObject();
+                    this.onSubmit(data);
+                }
+            }.bind(this));
+            this.$cancelBtn.unbind("click");
+            this.$cancelBtn.click(function () {
+                this.hide();
+                if (!isUndefined(this.onCancel)) {
+                    this.onCancel();
+                }
+
+            }.bind(this));
+        };
     }
 
 
