@@ -7,13 +7,14 @@
 </head>
 
 <body id="confirm_dialog_body">
-<!--弹出删除警告窗口-->
-<div id="confirm_dialog" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+<!--弹出确认窗口-->
+<div id="confirm_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                <button type="button" class="cancel_btn close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">确认</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -21,8 +22,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="cancel" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                <button id="save" type="button" class="btn  btn-xs btn-danger">保 存</button>
+                <button type="button" class="cancel_btn btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                <button id="sure_btn" type="button" class="btn  btn-xs btn-danger">确 认</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -33,62 +34,51 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    var confirmDialog = {
-        $confirmDialog: $("#confirm_dialog"),
-        show: function (msg) {
-            this.$confirmDialog.find(".modal-body .container-fluid").html(msg);
-            this.$confirmDialog.modal('show')
-        },
-        hide: function () {
+    var ConfirmDialog = function () {
+        this.$confirmDialog = $("#confirm_dialog");
+        this.$cancelBtn = this.$confirmDialog.find(".cancel_btn");
+        this.$sureBtn = this.$confirmDialog.find("#sure_btn");
+        this.onClose = undefined;
+        this.onCancel = undefined;
+        this.onSure = undefined;
+        this.init = function () {
+            //关闭事件触发
+            this.$confirmDialog.on('hide.bs.modal', function () {
+                if (!isUndefined(this.onClose)) {
+                    this.onClose();
+                }
+            }.bind(this));
+            //确认事件
+            this.$sureBtn.click(function () {
+                if (!isUndefined(this.onSure)) {
+                    this.onSure();
+                }
+            }.bind(this));
+            //取消事件
+            this.$cancelBtn.click(function () {
+                if (!isUndefined(this.onCancel)) {
+                    this.onCancel();
+                }
+            }.bind(this));
+        };
+        this.hide = function () {
             this.$confirmDialog.modal('hide')
-        },
-        showMsg:function (msg){
+        };
+        this.showMsg = function (args) {
 
-            if(msg != undefined && msg != ""){
-                this.show(msg);
+            var msg = args.msg;
+            this.onClose = args.onClose;
+            this.onCancel = args.onCancel;
+            this.onSure = args.onSure;
+            if (msg != undefined && msg != "") {
+                this.$confirmDialog.find(".modal-body .container-fluid").html(msg);
+                this.$confirmDialog.modal('show');
             }
 
-        },
-        onHide:function(callback){
-            this.$confirmDialog.on('hide.bs.modal',callback);
-        },
-        onHidden:function(callback){
-            this.$confirmDialog.on('hidden.bs.modal',callback);
-        },
-        onShow:function(callback){
-            this.$confirmDialog.on('show.bs.modal',callback)
-        },
-        onShown:function (callback) {
-            this.$confirmDialog.on('shown.bs.modal',callback)
-        },
-        onSure:function (callback) {
-            this.$confirmDialog.find("#save").click(function () {
-                this.hide();
-                callback();
-            }.bind(this));
-        },
-        onCancel:function (callback) {
-            this.$confirmDialog.find("#cancel").click(function () {
-                this.hide();
-                callback();
-            }.bind(this));
-        }
+        };
+
 
     };
-    confirmDialog.onCancel(function () {
-        c("confirmDialog#onCancel");
-    });
-
-    confirmDialog.onSure(function () {
-        c("confirmDialog#onSure");
-    });
-    confirmDialog.onCancel(function () {
-        a("onCancel");
-    });
-
-    confirmDialog.onSure(function () {
-        a("onSure");
-    });
     /*]]>*/
 
 </script>

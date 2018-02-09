@@ -13,8 +13,8 @@
 
     var TableBuilder = function (tableId) {
         this.$table = $(tableId);
-        this.updateBtnTarget = undefined;
-        this.deleteBtnTarget = undefined;
+        this.onDelete = undefined;
+        this.onUpdate = undefined;
         this.defaultWidth = 1;
         this.LOADING_IMG_PATH = "./images/loading.gif";
         this.OPERATE_BTN_WIDTH = 2;
@@ -27,23 +27,44 @@
 
             var list = args.list;
             var fields = args.fields;
-            this.updateBtnTarget = args.updateBtnTarget;
-            this.deleteBtnTarget = args.deleteBtnTarget;
+            this.onUpdate = args.onUpdate;
+            this.onDelete = args.onDelete;
 
             //clear table
-            table.empty();
+            this.$table.empty();
             //add titles
             var tableHeader = this.makeTableHeader();
             this.addTableTitle(tableHeader, fields);
             //add list
             var tableBody = this.makeTableBody();
             this.addTableBody(tableBody, fields, list);
+
+
             //integrate
             this.$table.append(tableHeader);
             this.$table.append(tableBody);
 
+            //add events
+            this.addTableEvents();
 
-        }
+        };
+        this.addTableEvents = function () {
+            $.each(this.$table.find(".table_update"),function (index,item) {
+                $(item).click(function () {
+                    if(!isUndefined(this.onUpdate)){
+                        this.onUpdate();
+                    }
+                }.bind(this));
+            }.bind(this))
+
+            $.each(this.$table.find(".table_delete"),function (index,item) {
+                $(item).click(function () {
+                    if(!isUndefined(this.onDelete)){
+                        this.onDelete();
+                    }
+                }.bind(this));
+            }.bind(this));
+        };
         this.addTableTitle = function (tableHeader, fields) {
             $.each(fields, function (index, item) {
                 var title = item.title;
@@ -96,10 +117,11 @@
             return $("<div class='row'></div>")
         }
         this.makeUpdateModelBtn = function () {
-            return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + this.updateBtnTarget + "'>修改</button>");
+            return $("<button class='table_update btn btn-success btn-xs' >修改</button>");
         }
         this.makeDeleteModelBtn = function () {
-            return $("<button class='btn btn-danger btn-xs' style='margin-left: 4px;' data-toggle='modal' data-target='" + this.deleteBtnTarget + "'>删除</button>");
+
+            return $("<button class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
         }
     }
 

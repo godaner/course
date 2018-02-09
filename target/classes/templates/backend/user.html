@@ -228,13 +228,18 @@
     var UserLoader = function () {
             this.page = new Page();
             this.query = new Query();
+            this.confirmDialog = new ConfirmDialog();
+            this.msgDialog = new MsgDialog();
             this.pagerBuilder = new PagerBuilder("#userPager");
             this.tableBuilder = new TableBuilder("#userTable");
+            this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
             this.init = function () {
                 this.pagerBuilder.onSelect(function (newPage) {
                     this.page = newPage;
                     this.loadUserData();
                 }.bind(this));
+                this.confirmDialog.init();
+                this.msgDialog.init();
             }
             this.loadPager = function (result) {
                 var data = result.data;
@@ -246,8 +251,20 @@
             this.loadTable = function (result) {
 
                 this.tableBuilder.buildTable({
-                        updateBtnTarget: "#reviseUser",
-                        deleteBtnTarget: "#confirm_dialog",
+                        onDelete: function () {
+                            this.confirmDialog.showMsg({
+                                msg: this.DELETE_TIP,
+                                onSure: function () {
+                                    a("onSure");
+                                },
+                                onCancel: function () {
+                                    a("onCancel");
+                                }
+                            });
+                        }.bind(this),
+                        onUpdate: function () {
+                            a("onUpdate");
+                        },
                         list: result.data.users,
                         fields: [
                             {
