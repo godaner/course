@@ -1,14 +1,17 @@
 package com.course.dao.po.query;
 
 import com.course.dao.po.BasePo;
+import org.assertj.core.util.Lists;
+
+import java.util.List;
 
 
 public class BaseQueryBean {
     private String keyword;
-    private Byte status;
+    private List<Byte> status;
 
     public BaseQueryBean() {
-        this.status = BasePo.Status.NORMAL.getCode();
+        this.status = Lists.newArrayList(BasePo.Status.NORMAL.getCode());
         this.keyword = "";
     }
 
@@ -21,11 +24,11 @@ public class BaseQueryBean {
         return this;
     }
 
-    public Byte getStatus() {
+    public List<Byte> getStatus() {
         return status;
     }
 
-    public BaseQueryBean setStatus(Byte status) {
+    public BaseQueryBean setStatus(List<Byte> status) {
         this.status = status;
         return this;
     }

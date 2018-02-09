@@ -39,4 +39,6 @@ public interface UserService {
     List<UsersDto> getUsers(PageBean page, UsersQueryBean query);
 
     Long getUsersCount(PageBean page, UsersQueryBean query);
+
+    void updateUser(UsersDto usersDto);
 }

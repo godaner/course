@@ -170,11 +170,30 @@
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label for="username" class="col-xs-3 control-label">简介：</label>
+                                <label for="description" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
                                     <input name="description" type="text"
                                            class="form-control input-sm duiqi"
                                            id="description" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="sex" class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="sex" name="sex">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="status" name="status">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -227,13 +246,18 @@
                     submitId: "#submit_btn",
                     cancelId: "#cancel_btn",
                     onSubmit: function (data) {
-                        c(data);
-                        a("onSubmit");
-                    },
+                        ajax.post({
+                            url: "/users/update",
+                            data: data,
+                            onSuccess: function (result) {
+                                this.loadUserData();
+                            }.bind(this)
+                        });
+                    }.bind(this),
                     onCancel: function () {
-                        a("onCancel");
+
                     },
-                    fields: [
+                    fileds: [
                         {
                             name: "userId",
                             inputType: InputType.TEXT,
@@ -251,6 +275,20 @@
                         {
                             name: "description",
                             inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "status",
+                            inputType: InputType.SELECT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "sex",
+                            inputType: InputType.SELECT,
                             filter: function (data) {
                                 return data;
                             }
@@ -294,6 +332,23 @@
                             name: "username"
                         },
                         {
+                            title: "性别",
+                            name: "sex",
+                            filter:function (text) {
+
+                                if (text == 1) {
+                                    return "男";
+                                }
+                                if (text == 2) {
+                                    return "女";
+                                }
+                                if (text == 3) {
+                                    return "未知";
+                                }
+                                return text;
+                            }
+                        },
+                        {
                             title: "密码",
                             name: "password",
                             filter: function (text) {
@@ -314,7 +369,7 @@
                             filter: function (text) {
 //                                        状态,1为正常，2为冻结，3为删除
                                 if (text == 1) {
-                                    return "正常";
+                                    return "普通";
                                 }
                                 if (text == 2) {
                                     return "冻结";
@@ -325,7 +380,7 @@
                         {
                             title: "创建时间",
                             name: "createTime",
-                            width: 3,
+                            width: 2,
                             filter: function (text) {
                                 return timeFormatter.formatTime(text);
                             }

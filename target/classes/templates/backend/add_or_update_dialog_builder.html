@@ -33,13 +33,12 @@
                 var filed = this.fileds[index];
                 var name = filed.name;
                 var filter = filed.filter;
-                var value = data[name];
                 var inputType = filed.inputType;
+                var value = data[name];
                 if (!isUndefined(filter)) {
                     value = filter(value);
                 }
                 if (inputType == InputType.TEXT) {
-
                     this.findInput(name).val(value);
                 }
 

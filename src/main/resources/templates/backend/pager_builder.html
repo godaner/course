@@ -74,10 +74,11 @@
             $prePage.unbind('click');
             $nextPage.unbind('click');
             //add content
-            var currtPage = this.page.start / 10 + 1;
+            var currtPage = this.page.getCurrtPage();
+            var maxPage = this.page.getMaxPage();
             var total = this.page.total;
             this.$pager.empty();
-            this.$pager.append("<li class='gray'>" + currtPage + "  / " + total + "页</li><li><i style='cursor: pointer;' id='prePage' class='glyphicon glyphicon-menu-left'></i></li><li><i  style='cursor: pointer;' id='nextPage' class='glyphicon glyphicon-menu-right'></i></li>");
+            this.$pager.append("<li class='gray'>" + currtPage + "  / " + maxPage + "页 共"+total+"条记录 </li><li><i style='cursor: pointer;' id='prePage' class='glyphicon glyphicon-menu-left'></i></li><li><i  style='cursor: pointer;' id='nextPage' class='glyphicon glyphicon-menu-right'></i></li>");
             //add click
             $prePage = this.$pager.find("#prePage");
             $nextPage = this.$pager.find("#nextPage");

@@ -16,4 +16,8 @@ public interface UsersMapper extends BaseCrudMapper<Users> {
 
     Long getUsersCount(@Param("page") PageBean page, @Param("que" +
             "ry") UsersQueryBean query);
+
+    Users getUserByUserId(@Param("query") UsersQueryBean query);
+
+    Users getUserByUsername(@Param("query") UsersQueryBean query);
 }

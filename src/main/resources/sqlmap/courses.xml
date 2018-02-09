@@ -214,8 +214,14 @@
         FROM
         courses c left join course_tag_realations r
         on r.course_id = c.id
-        where c.status = #{query.status}
-        and (r.`status` is NULL or r.`status`=#{query.status})
+        where c.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and (r.`status` is NULL or r.`status` in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>)
         <if test="query.keyword!=null">
             and c.`name` LIKE concat('%',#{query.keyword},'%')
         </if>
@@ -237,8 +243,14 @@
         FROM
         courses c left join course_tag_realations r
         on r.course_id = c.id
-        where c.status = #{query.status}
-        and (r.`status` is NULL or r.`status`=#{query.status})
+        where c.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and (r.`status` is NULL or r.`status` in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>)
         <if test="query.keyword!=null">
             and c.`name` LIKE concat('%',#{query.keyword},'%')
         </if>
@@ -284,10 +296,16 @@
         ON s.course_id = c.id
         WHERE
         (
-        s. STATUS = #{query.status}
+        s.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         OR s.`status` IS NULL
         )
-        and c.status = #{query.status}
+        and c.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         and c.id = #{courseId}
         <if test="page.orderBy != null and page.orderType != null">
             order by ${page.orderBy} ${page.orderType}
@@ -299,7 +317,10 @@
         from
         courses
         where
-        status = #{query.status}
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         and id in
         <foreach item="item" index="index" collection="query.courseIds" open="(" separator="," close=")">
             #{item}

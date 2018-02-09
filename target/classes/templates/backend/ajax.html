@@ -39,7 +39,7 @@
                 //配合@requestBody
                 data: args.data,
                 type: args.type,
-                dataType:"json",
+                dataType: "json",
                 success: function (result) {
 
                     if (!isUndefined(args.onSuccess)) {
@@ -83,15 +83,22 @@
         this.orderBy = "create_time";
         this.orderType = "desc";
         this.total = 0;
+        this.getCurrtPage = function () {
+            return this.start / this.size + 1;
+        };
+        this.getMaxPage = function () {
 
+            var isZero = this.total % this.size == 0;
+            var cP = this.total / this.size;
+            return (isZero) ? cP : cP + 1;
+
+        }
     }
     // Query
     function Query() {
 
 
     }
-
-
 
 
 </script>

@@ -12,15 +12,14 @@ import com.course.dao.po.query.CoursesQueryBean;
 import com.course.dao.po.query.UserCollectCourseQueryBean;
 import com.course.dao.po.query.UserDownloadCourseQueryBean;
 import com.course.dao.po.query.UsersQueryBean;
-import com.course.service.exception.UsersException;
 import com.course.service.UserService;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
+import com.course.service.exception.UsersException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
-import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.IOUtils;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,22 +52,16 @@ public class UserServiceImpl extends BaseService implements UserService {
     @Autowired
     private UserDownloadCourseMapper userDownloadCourseMapper;
 
-    private Users getUserByUsername(String username) {
-        return usersMapper.selectOneBy(ImmutableMap.of(
-                "username", username,
-                "status", BasePo.Status.NORMAL.getCode()
-        ));
-    }
 
-    private boolean exitsUsername(String username) {
-        return this.getUserByUsername(username) != null;
+    private boolean exitsUsername(String username, List<Byte> status) {
+        return this.getUserByUsername(username, status) != null;
     }
 
     @Override
     public void regist(UsersDto usersDto, HttpSession session) throws Exception {
         Users user = makeUsers(usersDto);
 
-        if (this.exitsUsername(usersDto.getUsername())) {
+        if (this.exitsUsername(usersDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()))) {
             logger.error("regist username is exits !! userDto is : " + usersDto);
             throw new UsersException(UsersException.ErrorCode.USERNAME_IS_EXITS.getCode(),
                     UsersException.ErrorCode.USERNAME_IS_EXITS.getMsg());
@@ -93,7 +86,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public void login(UsersDto usersDto, HttpSession session) throws Exception {
-        Users users = this.getUserByUsername(usersDto.getUsername());
+        Users users = this.getUserByUsername(usersDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (users == null) {
             logger.error("login username is not exits !! userDto is : " + usersDto);
             throw new UsersException(UsersException.ErrorCode.USERNAME_IS_NOT_EXITS.getCode(),
@@ -135,7 +128,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
         Long userId = sessionUser.getUserId();
 
-        Users users = this.getUserByUserId(userId);
+        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (isNullObject(users)) {
             throw new UsersException("getOnlineUser users is null !! sessionUser is : " + sessionUser);
         }
@@ -155,7 +148,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         usersMapper.update(user);
         // update session user
-        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId())));
+        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(user.getId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()))));
 
         request.setAttribute("msg", "修改基本信息成功");
 
@@ -184,7 +177,7 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException("updateOnlinePwd password and repassword is not same !! usersDto is :" + usersDto);
         }
 
-        Users users = this.getUserByUserId(sessionUser.getUserId());
+        Users users = this.getUserByUserId(sessionUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
 
         if (users == null) {
             request.setAttribute("msg", "账户目前不可用");
@@ -234,14 +227,14 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw new UsersException("updateOnlineUserHead upload headImg is fail !! usersDto is :" + usersDto);
         }
 
-        Users users = this.getUserByUserId(usersDto.getUserId());
+        Users users = this.getUserByUserId(usersDto.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
 
         users.setImgUrl("/users/img/" + uuid);
 
 
         usersMapper.update(users);
 
-        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(sessionUser.getUserId())));
+        request.getSession().setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(this.getUserByUserId(sessionUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()))));
 
         request.setAttribute("msg", "更新头像成功");
     }
@@ -265,7 +258,7 @@ public class UserServiceImpl extends BaseService implements UserService {
             request.setAttribute("forward", "forward:/courses/" + courseId);
             throw new UsersException("collectCourse sessionUser is null !! sessionUser is :" + sessionUser);
         }
-        Users users = this.getUserByUserId(sessionUser.getUserId());
+        Users users = this.getUserByUserId(sessionUser.getUserId(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
 
         UserCollectCourse userCollectCourse = this.getUserCollectCourseByUserIdAndCourseId(users.getId(), courseId);
 
@@ -298,19 +291,19 @@ public class UserServiceImpl extends BaseService implements UserService {
         Long userId = sessionUser.getUserId();
 
         UserCollectCourseQueryBean userCollectCourseQueryBean = new UserCollectCourseQueryBean();
-        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourseQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         userCollectCourseQueryBean.setUserId(userId);
 
         List<Long> courseIds = userCollectCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
 
-        if(isEmptyList(courseIds)){
+        if (isEmptyList(courseIds)) {
             return Lists.newArrayList();
         }
 
         CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
         coursesQueryBean.setCourseIds(courseIds);
 
-        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        coursesQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return coursesMapper.getCoursesByIds(coursesQueryBean).stream().parallel().map(
                 courses -> {
                     return makeCourseDto(courses);
@@ -331,19 +324,19 @@ public class UserServiceImpl extends BaseService implements UserService {
         Long userId = sessionUser.getUserId();
 
         UserDownloadCourseQueryBean userCollectCourseQueryBean = new UserDownloadCourseQueryBean();
-        userCollectCourseQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        userCollectCourseQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         userCollectCourseQueryBean.setUserId(userId);
 
         List<Long> courseIds = userDownloadCourseMapper.getCourseIdsByUserId(userCollectCourseQueryBean);
 
-        if(isEmptyList(courseIds)){
+        if (isEmptyList(courseIds)) {
             return Lists.newArrayList();
         }
 
         CoursesQueryBean coursesQueryBean = new CoursesQueryBean();
         coursesQueryBean.setCourseIds(courseIds);
 
-        coursesQueryBean.setStatus(BasePo.Status.NORMAL.getCode());
+        coursesQueryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return coursesMapper.getCoursesByIds(coursesQueryBean).stream().parallel().map(
                 courses -> {
                     return makeCourseDto(courses);
@@ -353,6 +346,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public List<UsersDto> getUsers(PageBean page, UsersQueryBean query) {
+        query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
         return usersMapper.getUsers(page, query).stream().parallel().map(users -> {
             return makeBackendUsersDto(users);
         }).collect(toList());
@@ -360,7 +354,35 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public Long getUsersCount(PageBean page, UsersQueryBean query) {
+
+        query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
         return usersMapper.getUsersCount(page, query);
+    }
+
+    @Override
+    public void updateUser(UsersDto usersDto) {
+        if (null == this.getUserByUserId(usersDto.getUserId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()))) {
+            throw new UsersException("updateUser user is not exits !! usersDto is :" + usersDto,
+                    UsersException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
+                    UsersException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
+        }
+
+        if (usersMapper.update(makeUpdateUser(usersDto)) != 1) {
+            throw new UsersException("updateUser is fail !! usersDto is :" + usersDto,
+                    UsersException.ErrorCode.UPDATE_USER_FAIL.getCode(),
+                    UsersException.ErrorCode.UPDATE_USER_FAIL.getMsg());
+        }
+    }
+
+    private Users makeUpdateUser(UsersDto usersDto) {
+        Users users = new Users();
+        Integer now = DateUtil.unixTime().intValue();
+        users.setUpdateTime(now);
+        users.setDescription(usersDto.getDescription());
+        users.setSex(usersDto.getSex());
+        users.setStatus(usersDto.getStatus());
+        users.setId(usersDto.getUserId());
+        return users;
     }
 
     private UsersDto makeBackendUsersDto(Users users) {
@@ -427,12 +449,18 @@ public class UserServiceImpl extends BaseService implements UserService {
         return user;
     }
 
-    private Users getUserByUserId(Long userId) {
-        Users users = usersMapper.select(userId);
-        if (users == null || !users.getStatus().equals(BasePo.Status.NORMAL.getCode())) {
-            users = null;
-        }
-        return users;
+    private Users getUserByUserId(Long userId, List<Byte> status) {
+        UsersQueryBean query = new UsersQueryBean();
+        query.setStatus(status);
+        query.setUserId(userId);
+        return usersMapper.getUserByUserId(query);
+    }
+
+    private Users getUserByUsername(String username, List<Byte> status) {
+        UsersQueryBean query = new UsersQueryBean();
+        query.setStatus(status);
+        query.setUsername(username);
+        return usersMapper.getUserByUsername(query);
     }
 
     private Users makeUsers(UsersDto usersDto) {

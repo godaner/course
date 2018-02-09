@@ -213,7 +213,10 @@
         from
         users
         where
-        status = #{query.status}
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         <if test="query.keyword!=null">
             AND username LIKE CONCAT('%' ,#{query.keyword},'%')
         </if>
@@ -229,10 +232,35 @@
         from
         users
         where
-        status = #{query.status}
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         <if test="query.keyword!=null">
             AND username LIKE CONCAT('%' ,#{query.keyword},'%')
         </if>
+    </select>
+    <select id="getUserByUserId" resultMap="UsersMap">
+        select *
+        from
+        users
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and id = #{query.userId}
+    </select>
+    <select id="getUserByUsername" resultMap="UsersMap">
+        select *
+        from
+        users
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and username = #{query.username}
     </select>
 
     <!--**************************** 自定义mapper end ****************************-->
