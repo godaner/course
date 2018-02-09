@@ -11,20 +11,20 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    var tableBuilder = {
-        updateBtnTarget: undefined,
-        deleteBtnTarget: undefined,
-        defaultWidth: 1,
-        LOADING_IMG_PATH: "./images/loading.gif",
-        OPERATE_BTN_WIDTH:2,
-        loading: function (args) {
-            var table = args.table;
+    var TableBuilder = function (tableId) {
+        this.$table = $(tableId);
+        this.updateBtnTarget = undefined;
+        this.deleteBtnTarget = undefined;
+        this.defaultWidth = 1;
+        this.LOADING_IMG_PATH = "./images/loading.gif";
+        this.OPERATE_BTN_WIDTH = 2;
+        this.loading = function () {
             var loadingImg = this.LOADING_IMG_PATH;
-            table.css("text-align", "center");
-            table.html("<img src='" + loadingImg + "'/>");
-        },
-        buildTable: function (args) {
-            var table = args.table;
+            this.$table.css("text-align", "center");
+            this.$table.html("<img src='" + loadingImg + "'/>");
+        }
+        this.buildTable = function (args) {
+
             var list = args.list;
             var fields = args.fields;
             this.updateBtnTarget = args.updateBtnTarget;
@@ -39,20 +39,20 @@
             var tableBody = this.makeTableBody();
             this.addTableBody(tableBody, fields, list);
             //integrate
-            table.append(tableHeader);
-            table.append(tableBody);
+            this.$table.append(tableHeader);
+            this.$table.append(tableBody);
 
 
-        },
-        addTableTitle: function (tableHeader, fields) {
+        }
+        this.addTableTitle = function (tableHeader, fields) {
             $.each(fields, function (index, item) {
                 var title = item.title;
                 var width = item.width;
-                tableHeader.append(this.makeCol(title,width));
+                tableHeader.append(this.makeCol(title, width));
             }.bind(this));
             tableHeader.append(this.makeCol("操作"));
-        },
-        addTableBody: function (tableBody, fields, list) {
+        }
+        this.addTableBody = function (tableBody, fields, list) {
             //add list
             $.each(list, function (index, item) {
                 var row = this.makeRow();
@@ -69,7 +69,7 @@
                     row.append(col);
                 }.bind(this));
                 //add model btn
-                var col = this.makeCol("",this.OPERATE_BTN_WIDTH);
+                var col = this.makeCol("", this.OPERATE_BTN_WIDTH);
                 var updateBtn = this.makeUpdateModelBtn()
                 col.append(updateBtn);
                 var deleteBtn = this.makeDeleteModelBtn()
@@ -78,30 +78,32 @@
 
                 tableBody.append(row);
             }.bind(this));
-        },
-        makeTableBody: function () {
+        }
+        this.makeTableBody = function () {
             return $("<div class='tablebody'></div>");
-        },
-        makeTableHeader: function () {
+        }
+        this.makeTableHeader = function () {
             return $("<div class='row tableHeader'></div>");
-        },
-        makeCol: function (text, width) {
+        }
+        this.makeCol = function (text, width) {
             var realWidth = this.defaultWidth;
             if (!isUndefined(width)) {
                 realWidth = width;
             }
-            return $("<div style='overflow: hidden;text-overflow:ellipsis;height:50px;' class='col-xs-"+realWidth+"'>" + text + "</div>");
-        },
-        makeRow: function () {
+            return $("<div style='overflow: hidden;text-overflow:ellipsis;height:50px;' class='col-xs-" + realWidth + "'>" + text + "</div>");
+        }
+        this.makeRow = function () {
             return $("<div class='row'></div>")
-        },
-        makeUpdateModelBtn: function () {
+        }
+        this.makeUpdateModelBtn = function () {
             return $("<button class='btn btn-success btn-xs' data-toggle='modal' data-target='" + this.updateBtnTarget + "'>修改</button>");
-        },
-        makeDeleteModelBtn: function () {
+        }
+        this.makeDeleteModelBtn = function () {
             return $("<button class='btn btn-danger btn-xs' style='margin-left: 4px;' data-toggle='modal' data-target='" + this.deleteBtnTarget + "'>删除</button>");
         }
     }
+
+
     /*]]>*/
 
 </script>

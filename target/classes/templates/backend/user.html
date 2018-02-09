@@ -228,8 +228,8 @@
     var UserLoader = function () {
             this.page = new Page();
             this.query = new Query();
-            this.$userTable = $("#userTable");
             this.pagerBuilder = new PagerBuilder("#userPager");
+            this.tableBuilder = new TableBuilder("#userTable");
             this.init = function () {
                 this.pagerBuilder.onSelect(function (newPage) {
                     this.page = newPage;
@@ -245,10 +245,9 @@
             }
             this.loadTable = function (result) {
 
-                tableBuilder.buildTable({
+                this.tableBuilder.buildTable({
                         updateBtnTarget: "#reviseUser",
                         deleteBtnTarget: "#confirm_dialog",
-                        table: this.$userTable,
                         list: result.data.users,
                         fields: [
                             {
@@ -310,9 +309,7 @@
 
             }
             this.loadUserData = function () {
-                tableBuilder.loading({
-                    table: this.$userTable
-                });
+                this.tableBuilder.loading();
                 ajax.post({
                     url: "/users/list",
                     data: $.extend(this.page, this.query),

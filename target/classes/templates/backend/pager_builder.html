@@ -51,7 +51,10 @@
 
         this.changePage = function (movePage) {
             var newStart = this.page.start + (this.page.size * movePage);
-            if (this.page.total < newStart) {debugger
+            if (this.page.total < newStart) {
+                return false;
+            }
+            if (0 > newStart) {
                 return false;
             }
             this.page.start = newStart;
