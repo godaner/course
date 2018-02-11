@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="sort_builder_body">
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+    var SortBuilder = function () {
+        this.$orderBySelect = undefined;
+        this.$orderTypeSelect = undefined;
+        this.onSort = undefined;
+        this.page = undefined;
+        this.init = function (args) {
+            this.page = args.page;
+            this.$orderBySelect = $(args.orderBySelectId);
+            this.$orderTypeSelect = $(args.orderTypeSelectId);
+            this.onSort = args.onSort;
+
+            //根据page选中默认值
+            selectOption(this.$orderBySelect.attr("id"),this.page.orderBy);
+            selectOption(this.$orderTypeSelect.attr("id"),this.page.orderType);
+
+            this.registEvents();
+
+        };
+        this.registEvents = function () {
+            this.$orderTypeSelect.unbind("change");
+            this.$orderTypeSelect.change(function () {
+                this.page.orderType = this.$orderTypeSelect.val();
+                if (!isUndefined(this.onSort)) {
+                    this.onSort(this.page);
+                }
+            }.bind(this));
+            this.$orderBySelect.unbind("change");
+            this.$orderBySelect.change(function () {
+                this.page.orderBy = this.$orderBySelect.val();debugger
+                if (!isUndefined(this.onSort)) {
+                    this.onSort(this.page);
+                }
+            }.bind(this));
+        }
+
+    }
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

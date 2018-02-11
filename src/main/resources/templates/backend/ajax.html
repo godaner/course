@@ -89,7 +89,7 @@
         this.getMaxPage = function () {
 
             var isZero = this.total % this.size == 0;
-            var cP = this.total / this.size;
+            var cP = parseInt(this.total / this.size);
             return (isZero) ? cP : cP + 1;
 
         }

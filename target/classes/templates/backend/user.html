@@ -19,13 +19,13 @@
             <button onclick="search()" class="btn btn-white btn-xs ">查 询</button>
         </div>
         <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
-            <label for="orderBy">排序:&nbsp;</label>
-            <select id="orderBy" name="orderBy" onchange="selectOrderBy();" class=" form-control">
+            <label for="userOrderBy">排序:&nbsp;</label>
+            <select id="userOrderBy" name="orderBy" class=" form-control">
                 <option value="create_time">创建时间</option>
-                <!--<option value="id">id</option>-->
+                <option value="id">id</option>
             </select>
-            <label for="orderType">规则:&nbsp;</label>
-            <select id="orderType" name="orderType" onchange="selectOrderType();" class=" form-control">
+            <label for="userOrderType">规则:&nbsp;</label>
+            <select id="userOrderType" name="orderType" class=" form-control">
                 <option value="desc">降序</option>
                 <option value="asc">升序</option>
             </select>
@@ -216,10 +216,6 @@
 </div>
 
 
-<!-- add_or_update_dialog_builder -->
-<div th:include="backend/add_or_update_dialog_builder :: #add_or_update_dialog_builder_body"></div>
-
-
 <script th:inline="javascript">
     /*<![CDATA[*/
 
@@ -231,9 +227,22 @@
             this.msgDialog = new MsgDialog();
             this.pagerBuilder = new PagerBuilder();
             this.tableBuilder = new TableBuilder();
+            this.sortBuilder = new SortBuilder();
             this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
             this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
             this.init = function () {
+                this.sortBuilder.init({
+                    page: this.page,
+                    orderBySelectId: "#userOrderBy",
+                    orderTypeSelectId: "#userOrderType",
+                    onSort: function (page) {
+                        c("page is : " + page);
+                        this.page.orderBy = page.orderBy;
+                        this.page.orderType = page.orderType;
+                        this.loadUserData();
+                    }.bind(this)
+                });
+
                 this.pagerBuilder.init({
                     pagerId: "#userPager",
                     onPageChange: function (newPage) {
@@ -298,14 +307,19 @@
                 this.tableBuilder.init({
                     tableId: "#userTable",
                     onDelete: function (data) {
-                        a("onDelete" + data);
                         this.confirmDialog.showMsg({
                             msg: this.DELETE_TIP,
                             onSure: function () {
-                                a("onSure");
+                                ajax.post({
+                                    url: "/users/delete",
+                                    data: data,
+                                    onSuccess: function (result) {
+                                        this.loadUserData();
+                                    }.bind(this)
+                                });
                             },
                             onCancel: function () {
-                                a("onCancel");
+                                ajax.post({});
                             }
                         });
                     }.bind(this),
@@ -334,7 +348,7 @@
                         {
                             title: "性别",
                             name: "sex",
-                            filter:function (text) {
+                            filter: function (text) {
 
                                 if (text == 1) {
                                     return "男";

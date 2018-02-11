@@ -54,12 +54,14 @@
             }.bind(this));
             //确认事件
             this.$sureBtn.click(function () {
+                this.hide();
                 if (!isUndefined(this.onSure)) {
                     this.onSure();
                 }
             }.bind(this));
             //取消事件
             this.$cancelBtn.click(function () {
+                this.hide();
                 if (!isUndefined(this.onCancel)) {
                     this.onCancel();
                 }

@@ -48,4 +48,6 @@ public interface UserService {
     Users getUserById(Long userId);
 
     UsersDto makeUsersDto(Users user);
+
+    void deleteUser(UsersDto usersDto);
 }

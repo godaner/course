@@ -85,6 +85,15 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
+    public void deleteUser(UsersDto usersDto) {
+        Users users = this.getUserByUserId(usersDto.getUserId(),Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        if(null !=users){
+            users.setStatus(BasePo.Status.DELETED.getCode());
+            usersMapper.update(users);
+        }
+    }
+
+    @Override
     public void login(UsersDto usersDto, HttpSession session) throws Exception {
         Users users = this.getUserByUsername(usersDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (users == null) {

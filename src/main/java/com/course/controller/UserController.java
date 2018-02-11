@@ -118,4 +118,10 @@ public class UserController extends ServiceController<UserService> {
         service.updateUser(usersDto);
         return response;
     }
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public Object deleteUser(UsersDto usersDto) throws Exception {
+        service.deleteUser(usersDto);
+        return response;
+    }
 }
