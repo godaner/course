@@ -28,4 +28,6 @@ public interface CourseService {
     Long getCoursesCountV2(PageBean page, CoursesQueryBean query);
 
     void updateCourses(CoursesDto coursesDto);
+
+    void deleteCourse(Long courseId);
 }

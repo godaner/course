@@ -85,4 +85,10 @@ public class CourseController extends ServiceController<CourseService> {
         service.updateCourses(coursesDto);
         return response;
     }
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public Object deleteCourse(@RequestParam("courseId") Long courseId) throws Exception {
+        service.deleteCourse(courseId);
+        return response;
+    }
 }

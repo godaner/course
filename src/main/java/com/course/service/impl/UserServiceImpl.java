@@ -15,6 +15,7 @@ import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.UserService;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
+import com.course.service.exception.CoursesException;
 import com.course.service.exception.UsersException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
@@ -89,7 +90,9 @@ public class UserServiceImpl extends BaseService implements UserService {
         Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
         if (null != users) {
             users.setStatus(BasePo.Status.DELETED.getCode());
-            usersMapper.update(users);
+            if (usersMapper.update(users) != 1) {
+                throw new CoursesException("deleteUser update is fail !! userId is : " + userId);
+            }
         }
     }
 

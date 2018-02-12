@@ -360,5 +360,16 @@
             AND `name` LIKE CONCAT('%' ,#{query.name},'%')
         </if>
     </select>
+    <select id="getCourseByCourseId" resultMap="CoursesMap">
+        select *
+        from
+        courses
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and id = #{query.courseId}
+    </select>
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>

@@ -28,4 +28,6 @@ public interface CoursesMapper extends BaseCrudMapper<Courses> {
 
     Long getUsersCountV2(@Param("page") PageBean page, @Param("que" +
             "ry") CoursesQueryBean query);
+
+    Courses getCourseByCourseId(@Param("query") CoursesQueryBean coursesQueryBean);
 }

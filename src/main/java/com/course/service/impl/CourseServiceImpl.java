@@ -5,6 +5,7 @@ import com.course.dao.po.*;
 import com.course.dao.po.custom.CoursesWithSources;
 import com.course.dao.po.query.CourseSourcesQueryBean;
 import com.course.dao.po.query.CoursesQueryBean;
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.exception.CoursesException;
 import com.course.service.CourseService;
 import com.course.service.dto.CourseSourcesDto;
@@ -213,6 +214,17 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         }
     }
 
+    @Override
+    public void deleteCourse(Long courseId) {
+        Courses courses = this.getCourseByCourseId(courseId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
+        if (null != courses) {
+            courses.setStatus(BasePo.Status.DELETED.getCode());
+            if (coursesMapper.update(courses) != 1) {
+                throw new CoursesException("deleteCourse update is fail !! courseId is : " + courseId);
+            }
+        }
+    }
+
     private Courses makeUpdateCourses(CoursesDto coursesDto) {
         Courses courses = new Courses();
         courses.setStatus(coursesDto.getStatus());
@@ -260,10 +272,11 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         return coursesDto;
     }
 
-    private Courses getCourseByCourseId(Long courseId) {
-
-        Courses courses = coursesMapper.select(courseId);
-        return (courses == null || !courses.getStatus().equals(BasePo.Status.NORMAL.getCode())) ? null : courses;
+    private Courses getCourseByCourseId(Long courseId, List<Byte> status) {
+        CoursesQueryBean query = new CoursesQueryBean();
+        query.setStatus(status);
+        query.setCourseId(courseId);
+        return coursesMapper.getCourseByCourseId(query);
 
     }
 

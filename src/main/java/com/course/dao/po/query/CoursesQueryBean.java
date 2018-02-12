@@ -8,6 +8,15 @@ import java.util.List;
 public class CoursesQueryBean extends BaseQueryBean {
     private List<Long> tagIds;
     private List<Long> courseIds;
+    private Long courseId;
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
 
     private String name;
 
