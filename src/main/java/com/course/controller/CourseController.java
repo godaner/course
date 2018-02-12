@@ -91,4 +91,11 @@ public class CourseController extends ServiceController<CourseService> {
         service.deleteCourse(courseId);
         return response;
     }
+
+    @RequestMapping(value = "/update/img")
+    @ResponseBody
+    public Object updateHeadFile(CoursesDto coursesDto) throws Exception {
+        service.updateHeadFile(coursesDto);
+        return response;
+    }
 }

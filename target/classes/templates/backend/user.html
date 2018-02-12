@@ -138,13 +138,7 @@
                         <form class="form-horizontal">
 
                             <input name="userId" type="hidden">
-                            <div class="form-group ">
-                                <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
-                                <div class="col-xs-8">
-                                    <input name="headFile" type="file" class="duiqi"
-                                           id="headFile" placeholder="" onchange="userLoader.updateHeadFile(this);">
-                                </div>
-                            </div>
+
                             <div class="form-group ">
                                 <label for="username" class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
@@ -153,6 +147,16 @@
                                            id="username" placeholder="">
                                 </div>
                             </div>
+
+                            <div class="form-group ">
+                                <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
+                                <div class="col-xs-8">
+                                    <input name="headFile" type="file" class="duiqi"
+                                           id="headFile" placeholder="" onchange="userLoader.updateHeadFile(this);">
+                                </div>
+                            </div>
+
+
                             <div class="form-group ">
                                 <label for="description" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
@@ -456,12 +460,15 @@
          * 更新头像
          * */
         this.updateHeadFile = function (_this) {
+            if ($(_this).val() == "") {
+                return;
+            }
             //file
             var fileObj = document.getElementById("headFile").files[0]; // 获取文件对象
 
             //userId
             var $form = $(_this).parent().parent().parent();
-            debugger
+
 
             var userId = $form.find("input[name='userId']").val();
             // FormData 对象
@@ -481,6 +488,7 @@
                 // 告诉jQuery不要去设置Content-Type请求头
                 contentType: false,
                 success: function (result) {
+                    $(_this).val("");
                     this.addOrUpdateDialogBuilder.hide();
                     if (success(result.code)) {
 

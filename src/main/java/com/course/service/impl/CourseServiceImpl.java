@@ -11,6 +11,7 @@ import com.course.service.CourseService;
 import com.course.service.dto.CourseSourcesDto;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
+import com.course.service.exception.UsersException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
@@ -25,8 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -222,6 +222,44 @@ public class CourseServiceImpl extends BaseService implements CourseService {
             if (coursesMapper.update(courses) != 1) {
                 throw new CoursesException("deleteCourse update is fail !! courseId is : " + courseId);
             }
+        }
+    }
+
+    @Override
+    public void updateHeadFile(CoursesDto coursesDto) {
+        Courses courses = this.getCourseByCourseId(coursesDto.getCourseId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        if (null == courses) {
+            throw new CoursesException("updateHeadFile course is not exits !! coursesDto is :" + coursesDto,
+                    CoursesException.ErrorCode.COURSE_IS_NOT_EXITS.getCode(),
+                    CoursesException.ErrorCode.COURSE_IS_NOT_EXITS.getMsg());
+        }
+
+
+        // update file
+        if (coursesDto.getCourseImgFile() != null && coursesDto.getCourseImgFile().getSize() > 0) {
+            String uuid = uuid();
+            //write to db
+            courses.setImgUrl("/courses/img/" + uuid);
+
+
+            if (coursesMapper.update(courses) != 1) {
+                throw new CoursesException("updateHeadFile is fail !! coursesDto is :" + coursesDto,
+                        CoursesException.ErrorCode.UPDATE_COURSE_FAIL.getCode(),
+                        CoursesException.ErrorCode.UPDATE_COURSE_FAIL.getMsg());
+            }
+
+            //write to disk
+            File targetFile = new File(ProjectConfig.COURSE_IMG_PATH + uuid + ".png");
+            try {
+                OutputStream outputStream = new FileOutputStream(ProjectConfig.COURSE_IMG_PATH + uuid + ".png");
+                IOUtils.copy(coursesDto.getCourseImgFile().getInputStream(), outputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+                deleteFiles(targetFile);
+                throw new UsersException("updateHeadFile upload img is fail !! coursesDto is :" + coursesDto);
+            }
+
+
         }
     }
 

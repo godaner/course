@@ -1,5 +1,7 @@
 package com.course.service.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 
 
@@ -11,6 +13,8 @@ public class CoursesDto {
     private Long downloadNumber;
     private Long watchNumber;
     private Long collectNumber;
+
+    private MultipartFile courseImgFile;
     /**
      * 创建时间，unixtimestamp
      */
@@ -23,6 +27,15 @@ public class CoursesDto {
      * 是否被删除
      */
     protected Byte status;
+
+    public MultipartFile getCourseImgFile() {
+        return courseImgFile;
+    }
+
+    public void setCourseImgFile(MultipartFile courseImgFile) {
+        this.courseImgFile = courseImgFile;
+    }
+
     private List<CourseSourcesDto> courseSourcesDtoList;
 
 
