@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/course.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/course.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/msg_dialog.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/msg_dialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/backend/user.html" afterPath="$PROJECT_DIR$/target/classes/templates/backend/user.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,25 +44,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/dto/UsersDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="141" column="87" lean-forward="false" selection-start-line="141" selection-start-column="87" selection-end-line="141" selection-end-column="87" />
+            <state relative-caret-position="33">
+              <caret line="184" column="52" lean-forward="false" selection-start-line="184" selection-start-column="52" selection-end-line="184" selection-end-column="52" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#1929#1936#1" expanded="true" />
-                <marker date="1518419443479" expanded="true" signature="15832:15854" ph="..." />
+                <marker date="1518421405503" expanded="true" signature="15917:15939" ph="..." />
               </folding>
             </state>
           </provider>
@@ -86,13 +71,33 @@
       <file leaf-file-name="course.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="425" column="45" lean-forward="false" selection-start-line="425" selection-start-column="35" selection-end-line="425" selection-end-column="45" />
+            <state relative-caret-position="369">
+              <caret line="158" column="105" lean-forward="false" selection-start-line="158" selection-start-column="105" selection-end-line="158" selection-end-column="105" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#1944#1951#1" expanded="true" />
-                <marker date="1518418749634" expanded="true" signature="17170:17192" ph="..." />
+                <marker date="1518421459826" expanded="true" signature="17205:17227" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,16 +120,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
               <caret line="110" column="50" lean-forward="true" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirm_dialog.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/confirm_dialog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="79" column="83" lean-forward="false" selection-start-line="79" selection-start-column="83" selection-end-line="80" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -255,10 +250,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/img_uploader_dialog_builder.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/course.html" />
       </list>
     </option>
   </component>
@@ -1185,12 +1180,12 @@
       <workItem from="1518138728869" duration="16860000" />
       <workItem from="1518160116915" duration="9901000" />
       <workItem from="1518311517067" duration="3562000" />
-      <workItem from="1518400177668" duration="16953000" />
+      <workItem from="1518400177668" duration="18686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246475000" />
+    <option name="totallyTimeSpent" value="248208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1207,7 +1202,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38353196" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38353196" sideWeight="0.49786323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1218,7 +1213,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25053304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1259,7 +1254,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25106838" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1284,21 +1279,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java</url>
-          <line>218</line>
-          <properties />
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="93" />
+      <option name="time" value="94" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1576,22 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="278" column="48" lean-forward="false" selection-start-line="278" selection-start-column="29" selection-end-line="278" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CoursesMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -1719,26 +1684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="425" column="45" lean-forward="false" selection-start-line="425" selection-start-column="35" selection-end-line="425" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1944#1951#1" expanded="true" />
-            <marker date="1518418749634" expanded="true" signature="17170:17192" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1755,15 +1700,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="141" column="87" lean-forward="false" selection-start-line="141" selection-start-column="87" selection-end-line="141" selection-end-column="87" />
+        <state relative-caret-position="33">
+          <caret line="184" column="52" lean-forward="false" selection-start-line="184" selection-start-column="52" selection-end-line="184" selection-end-column="52" />
           <folding>
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#1929#1936#1" expanded="true" />
-            <marker date="1518419443479" expanded="true" signature="15832:15854" ph="..." />
+            <marker date="1518421405503" expanded="true" signature="15917:15939" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="158" column="105" lean-forward="false" selection-start-line="158" selection-start-column="105" selection-end-line="158" selection-end-column="105" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1944#1951#1" expanded="true" />
+            <marker date="1518421459826" expanded="true" signature="17205:17227" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -140,8 +140,8 @@
                             <input name="userId" type="hidden">
                             <div class="form-group ">
                                 <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
-                                <div class="col-xs-8 ">
-                                    <input name="headFile" type="file"
+                                <div class="col-xs-8">
+                                    <input name="headFile" type="file" class="duiqi"
                                            id="headFile" placeholder="" onchange="userLoader.updateHeadFile(this);">
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                             <div class="form-group ">
                                 <label for="sex" class="col-xs-3 control-label">性别：</label>
                                 <div class="col-xs-8 ">
-                                    <select id="sex" name="sex">
+                                    <select id="sex" name="sex" class="form-control input-sm duiqi">
                                         <option value="1">男</option>
                                         <option value="2">女</option>
                                         <option value="3">未设置</option>
@@ -174,7 +174,7 @@
                             <div class="form-group ">
                                 <label for="status" class="col-xs-3 control-label">状态：</label>
                                 <div class="col-xs-8 ">
-                                    <select id="status" name="status">
+                                    <select id="status" name="status" class="form-control input-sm duiqi">
                                         <option value="1">普通</option>
                                         <option value="2">冻结</option>
                                     </select>
