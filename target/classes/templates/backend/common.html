@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="common_body">
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const InputType = {TEXT: 1, SELECT: 2, CHECKBOX: 3};
+    function echoFrom(args) {
+        var data = args.data;
+        var fields = args.fields;
+        var $form = args.$form;
+
+//            {
+//                name:'username',
+//                filter:filter,
+//                inputType:inputType
+//            }
+        c(args);
+        for (var index = 0; index < fields.length; index++) {
+            var filed = fields[index];
+            var name = filed.name;
+            var filter = filed.filter;
+            var inputType = filed.inputType;
+            var value = data[name];
+            if (!isUndefined(filter)) {
+                value = filter(value);
+            }
+            if (inputType == InputType.TEXT) {
+                findInput($form, name).val(value);
+            }
+
+            if (inputType == InputType.SELECT) {
+                selectOptionByParentAndName($form, name, value);
+            }
+            if (inputType == InputType.CHECKBOX) {
+                findInput($form, name).val(value);
+            }
+        }
+
+    }
+
+    function findInput($parent, name) {
+        return $parent.find("input[name='" + name + "']");
+    };
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

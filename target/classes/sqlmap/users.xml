@@ -217,8 +217,8 @@
         <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
             #{item}
         </foreach>
-        <if test="query.keyword!=null">
-            AND username LIKE CONCAT('%' ,#{query.keyword},'%')
+        <if test="query.username!=null">
+            AND username LIKE CONCAT('%' ,#{query.username},'%')
         </if>
         <if test="page.orderBy != null and page.orderType != null">
             order by ${page.orderBy} ${page.orderType}
@@ -236,8 +236,8 @@
         <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
             #{item}
         </foreach>
-        <if test="query.keyword!=null">
-            AND username LIKE CONCAT('%' ,#{query.keyword},'%')
+        <if test="query.username!=null">
+            AND username LIKE CONCAT('%' ,#{query.username},'%')
         </if>
     </select>
     <select id="getUserByUserId" resultMap="UsersMap">

@@ -14,9 +14,11 @@
         <div class="col-xs-3">
             <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加记录</button>
         </div>
-        <div class="col-xs-4">
-            <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-            <button onclick="search()" class="btn btn-white btn-xs ">查 询</button>
+        <div id="userSearch" class="col-xs-4">
+            <form onsubmit="return false;">
+                <input name="username" type="text" class="form-control input-sm" placeholder="输入文字搜索">
+                <button id="userSearchBtn" class="btn btn-white btn-xs ">查 询</button>
+            </form>
         </div>
         <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
             <label for="userOrderBy">排序:&nbsp;</label>
@@ -229,8 +231,26 @@
             this.tableBuilder = new TableBuilder();
             this.sortBuilder = new SortBuilder();
             this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
+            this.seachBuilder = new SearchBuilder();
             this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
             this.init = function () {
+                this.seachBuilder.init({
+                    query: this.query,
+                    searchId: "#userSearch",
+                    searchBtnId: "#userSearchBtn",
+                    fields: [
+                        {
+                            filter: undefined,
+                            name: "username",
+                            inputType: InputType.TEXT
+                        }
+                    ],
+                    onSearch: function (query) {
+                        this.query = query;
+                        this.loadUserData();
+                    }.bind(this)
+                });
+
                 this.sortBuilder.init({
                     page: this.page,
                     orderBySelectId: "#userOrderBy",
@@ -266,7 +286,7 @@
                     onCancel: function () {
 
                     },
-                    fileds: [
+                    fields: [
                         {
                             name: "userId",
                             inputType: InputType.TEXT,

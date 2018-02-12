@@ -1,4 +1,3 @@
-
 //获取地址栏参数，key:参数名称
 function getUrlParams(key) {
     // 获取参数
@@ -70,7 +69,11 @@ function selectOptionById(selectId, value) {
     $("#" + selectId + " option[value='" + value + "']").attr("selected", "selected");
 }
 function selectOptionByName(selectName, value) {
-    $("select option[name='"+selectName+"',value='" + value + "']").attr("selected", "selected");
+    $("select option[name='" + selectName + "'][value='" + value + "']").attr("selected", "selected");
+}
+
+function selectOptionByParentAndName($selectParent, selectName, value) {
+    $selectParent.find("select option[name='" + selectName + "'][value='" + value + "']").attr("selected", "selected")
 }
 
 function getQueryString(name) {

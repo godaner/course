@@ -11,7 +11,6 @@
 
 <script th:inline="javascript">
     /*<![CDATA[*/
-    const InputType = {TEXT: 1, SELECT: 2, CHECKBOX: 3};
     var AddOrUpdateDialogBuilder = function () {
         this.onSubmit = undefined;
         this.onCancel = undefined;
@@ -19,41 +18,15 @@
         this.$form = undefined;
         this.$submitBtn = undefined;
         this.$cancelBtn = undefined;
-        this.fileds = undefined;
+        this.fields = undefined;
 
         this.echoData = function (args) {
             var data = args.data;
-//            {
-//                name:'username',
-//                filter:filter,
-//                value:'666',
-//                inputType:inputType
-//            }
-            for (var index = 0; index < this.fileds.length; index++) {
-                var filed = this.fileds[index];
-                var name = filed.name;
-                var filter = filed.filter;
-                var inputType = filed.inputType;
-                var value = data[name];
-                if (!isUndefined(filter)) {
-                    value = filter(value);
-                }
-                if (inputType == InputType.TEXT) {
-                    this.findInput(name).val(value);
-                }
-
-                if (inputType == InputType.SELECT) {
-                    selectOption(name, value);
-                }
-                if (inputType == InputType.CHECKBOX) {
-                    this.findInput(name).val(value);
-                }
-            }
-
-
-        };
-        this.findInput = function (name) {
-            return this.$form.find("input[name='" + name + "']");
+            echoFrom({
+                fields: this.fields,
+                data: data,
+                $form: this.$form
+            });
         };
 
         this.hide = function () {
@@ -71,7 +44,7 @@
             this.$cancelBtn = this.$dialog.find(args.cancelId);
             this.onSubmit = args.onSubmit;
             this.onCancel = args.onCancel;
-            this.fileds = args.fileds;
+            this.fields = args.fields;
 
             this.$submitBtn.unbind("click");
             this.$submitBtn.click(function () {

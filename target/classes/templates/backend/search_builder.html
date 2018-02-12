@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="search_builder_body">
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+    var SearchBuilder = function () {
+        this.$search = undefined;
+        this.$searchBtn = undefined;
+        this.$form = undefined;
+        this.onSearch = undefined;
+        this.query = undefined;
+        this.init = function (args) {
+            this.$search = $(args.searchId);
+            this.$searchBtn = this.$search.find(args.searchBtnId);
+            this.$form = this.$search.find("form")
+            this.fields = args.fields;
+            this.query = args.query;
+            this.onSearch = args.onSearch;
+
+            //echo
+            this.echo(this.query);
+
+            //events
+            this.registEvents();
+        };
+        this.echo = function (data) {
+            echoFrom({
+                fields: this.fields,
+                data: data,
+                $form: this.$form
+            })
+        };
+        this.registEvents = function () {
+            this.$searchBtn.unbind("click");
+            this.$searchBtn.click(function () {
+                var query = this.$form.serializeObject();
+                if (!isUndefined(this.onSearch)) {
+                    this.onSearch(query);
+                }
+            }.bind(this));
+        };
+
+    }
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

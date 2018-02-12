@@ -40,7 +40,7 @@
             }.bind(this));
             this.$orderBySelect.unbind("change");
             this.$orderBySelect.change(function () {
-                this.page.orderBy = this.$orderBySelect.val();debugger
+                this.page.orderBy = this.$orderBySelect.val();
                 if (!isUndefined(this.onSort)) {
                     this.onSort(this.page);
                 }
