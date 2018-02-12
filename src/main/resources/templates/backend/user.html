@@ -139,6 +139,13 @@
 
                             <input name="userId" type="hidden">
                             <div class="form-group ">
+                                <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="headFile" type="file"
+                                           id="headFile" placeholder="" onchange="userLoader.updateHeadFile(this);">
+                                </div>
+                            </div>
+                            <div class="form-group ">
                                 <label for="username" class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
                                     <input name="username" disabled="disabled" type="text"
@@ -204,255 +211,299 @@
 
 
     var UserLoader = function () {
-            this.page = new Page();
-            this.query = new Query();
-            this.confirmDialog = new ConfirmDialog();
-            this.msgDialog = new MsgDialog();
-            this.pagerBuilder = new PagerBuilder();
-            this.tableBuilder = new TableBuilder();
-            this.sortBuilder = new SortBuilder();
-            this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
-            this.seachBuilder = new SearchBuilder();
-            this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
-            this.init = function () {
-                this.seachBuilder.init({
-                    query: this.query,
-                    searchId: "#userSearch",
-                    searchBtnId: "#userSearchBtn",
-                    fields: [
-                        {
-                            filter: undefined,
-                            name: "username",
-                            inputType: InputType.TEXT
-                        }
-                    ],
-                    onSearch: function (query) {
-                        this.query = query;
-                        this.loadUserData();
-                    }.bind(this)
-                });
-
-                this.sortBuilder.init({
-                    page: this.page,
-                    orderBySelectId: "#userOrderBy",
-                    orderTypeSelectId: "#userOrderType",
-                    onSort: function (page) {
-                        c("page is : " + page);
-                        this.page.orderBy = page.orderBy;
-                        this.page.orderType = page.orderType;
-                        this.loadUserData();
-                    }.bind(this)
-                });
-
-                this.pagerBuilder.init({
-                    pagerId: "#userPager",
-                    onPageChange: function (newPage) {
-                        this.page = newPage;
-                        this.loadUserData();
-                    }.bind(this)
-                });
-                this.addOrUpdateDialogBuilder.init({
-                    dialogId: "#editUserDialog",
-                    submitId: "#submit_btn",
-                    cancelId: "#cancel_btn",
-                    onSubmit: function (data) {
-                        ajax.post({
-                            url: "/users/update",
-                            data: data,
-                            onSuccess: function (result) {
-                                this.loadUserData();
-                            }.bind(this)
-                        });
-                    }.bind(this),
-                    onCancel: function () {
-
-                    },
-                    fields: [
-                        {
-                            name: "userId",
-                            inputType: InputType.TEXT,
-                            filter: function (data) {
-                                return data;
-                            }
-                        },
-                        {
-                            name: "username",
-                            inputType: InputType.TEXT,
-                            filter: function (data) {
-                                return data;
-                            }
-                        },
-                        {
-                            name: "description",
-                            inputType: InputType.TEXT,
-                            filter: function (data) {
-                                return data;
-                            }
-                        },
-                        {
-                            name: "status",
-                            inputType: InputType.SELECT,
-                            filter: function (data) {
-                                return data;
-                            }
-                        },
-                        {
-                            name: "sex",
-                            inputType: InputType.SELECT,
-                            filter: function (data) {
-                                return data;
-                            }
-                        },
-                        {
-                            name: "createTime",
-                            inputType: InputType.TEXT,
-                            filter: function (data) {
-                                return timeFormatter.formatTime(data);
-                            }
-                        }
-                    ]
-                });
-                this.tableBuilder.init({
-                    tableId: "#userTable",
-                    onDelete: function (data) {
-                        this.confirmDialog.showMsg({
-                            msg: this.DELETE_TIP,
-                            onSure: function () {
-                                ajax.post({
-                                    url: "/users/delete",
-                                    data: data,
-                                    onSuccess: function (result) {
-                                        this.loadUserData();
-                                    }.bind(this)
-                                });
-                            }.bind(this),
-                            onCancel: function () {
-                            }.bind(this)
-                        });
-                    }.bind(this),
-                    onUpdate: function (data) {
-                        this.addOrUpdateDialogBuilder.echoData({
-                            data: data
-                        });
-                        this.addOrUpdateDialogBuilder.show();
-                    }.bind(this),
-                    fields: [
-                        {
-                            title: "头像",
-                            name: "imgUrl",
-                            filter: function (text) {
-                                return "<img style='width:50px;height:50px' src='" + text + "'/>";
-                            }
-                        },
-                        {
-                            title: "用户id",
-                            name: "userId"
-                        },
-                        {
-                            title: "用户昵称",
-                            name: "username"
-                        },
-                        {
-                            title: "性别",
-                            name: "sex",
-                            filter: function (text) {
-
-                                if (text == 1) {
-                                    return "男";
-                                }
-                                if (text == 2) {
-                                    return "女";
-                                }
-                                if (text == 3) {
-                                    return "未知";
-                                }
-                                return text;
-                            }
-                        },
-                        {
-                            title: "密码",
-                            name: "password",
-                            filter: function (text) {
-                                return "<span title='" + text + "'>*****</span>";
-                            }
-                        },
-                        {
-                            title: "简介",
-                            name: "description",
-                            width: 2,
-                            filter: function (text) {
-                                return "<span title='" + text + "'>" + text + "</span>";
-                            }
-                        },
-                        {
-                            title: "状态",
-                            name: "status",
-                            filter: function (text) {
-//                                        状态,1为正常，2为冻结，3为删除
-                                if (text == 1) {
-                                    return "普通";
-                                }
-                                if (text == 2) {
-                                    return "冻结";
-                                }
-                                return text;
-                            }
-                        },
-                        {
-                            title: "创建时间",
-                            name: "createTime",
-                            width: 2,
-                            filter: function (text) {
-                                return timeFormatter.formatTime(text);
-                            }
-                        }
-                    ]
-                });
-                this.confirmDialog.init({
-                    dialogId: "#confirm_dialog",
-                    sureBtnId: "#sure_btn",
-                    cancelBtnId: "#cancel_btn"
-
-                });
-                this.msgDialog.init({
-                    dialogId: "#msg_dialog"
-                });
-
-            }
-            this.loadPager = function (result) {
-                var data = result.data;
-                this.page.total = data.total;
-                this.pagerBuilder.buildPager({
-                    page: this.page
-                });
-            }
-            this.loadTable = function (result) {
-
-                this.tableBuilder.buildTable({
-                        list: result.data.users,
+        this.page = new Page();
+        this.query = new Query();
+        this.confirmDialog = new ConfirmDialog();
+        this.msgDialog = new MsgDialog();
+        this.pagerBuilder = new PagerBuilder();
+        this.tableBuilder = new TableBuilder();
+        this.sortBuilder = new SortBuilder();
+        this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.seachBuilder = new SearchBuilder();
+        this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+        this.init = function () {
+            this.seachBuilder.init({
+                query: this.query,
+                searchId: "#userSearch",
+                searchBtnId: "#userSearchBtn",
+                fields: [
+                    {
+                        filter: undefined,
+                        name: "username",
+                        inputType: InputType.TEXT
                     }
-                );
+                ],
+                onSearch: function (query) {
+                    this.query = query;
+                    this.loadUserData();
+                }.bind(this)
+            });
 
+            this.sortBuilder.init({
+                page: this.page,
+                orderBySelectId: "#userOrderBy",
+                orderTypeSelectId: "#userOrderType",
+                onSort: function (page) {
+                    c("page is : " + page);
+                    this.page.orderBy = page.orderBy;
+                    this.page.orderType = page.orderType;
+                    this.loadUserData();
+                }.bind(this)
+            });
 
-            }
-            this.loadUserData = function () {
-                this.tableBuilder.loading();
-                ajax.post({
-                    url: "/users/list",
-                    data: $.extend(this.page, this.query),
-                    onSuccess: function (result) {
-                        this.loadTable(result);
-                        this.loadPager(result);
-                    }.bind(this)
-                });
+            this.pagerBuilder.init({
+                pagerId: "#userPager",
+                onPageChange: function (newPage) {
+                    this.page = newPage;
+                    this.loadUserData();
+                }.bind(this)
+            });
+            this.addOrUpdateDialogBuilder.init({
+                dialogId: "#editUserDialog",
+                submitId: "#submit_btn",
+                cancelId: "#cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/users/update",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadUserData();
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
 
-            }
+                },
+                fields: [
+                    {
+                        name: "userId",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "username",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "description",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "status",
+                        inputType: InputType.SELECT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "sex",
+                        inputType: InputType.SELECT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "createTime",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return timeFormatter.formatTime(data);
+                        }
+                    }
+                ]
+            });
+            this.tableBuilder.init({
+                tableId: "#userTable",
+                onDelete: function (data) {
+                    this.confirmDialog.showMsg({
+                        msg: this.DELETE_TIP,
+                        onSure: function () {
+                            ajax.post({
+                                url: "/users/delete",
+                                data: data,
+                                onSuccess: function (result) {
+                                    this.loadUserData();
+                                }.bind(this)
+                            });
+                        }.bind(this),
+                        onCancel: function () {
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onUpdate: function (data) {
+                    this.addOrUpdateDialogBuilder.echoData({
+                        data: data
+                    });
+                    this.addOrUpdateDialogBuilder.show();
+                }.bind(this),
+                fields: [
+                    {
+                        title: "头像",
+                        name: "imgUrl",
+                        filter: function (text) {
+                            return "<img style='width:50px;height:50px' src='" + text + "'/>";
+                        }
+                    },
+                    {
+                        title: "用户id",
+                        name: "userId"
+                    },
+                    {
+                        title: "用户昵称",
+                        name: "username"
+                    },
+                    {
+                        title: "性别",
+                        name: "sex",
+                        filter: function (text) {
+
+                            if (text == 1) {
+                                return "男";
+                            }
+                            if (text == 2) {
+                                return "女";
+                            }
+                            if (text == 3) {
+                                return "未知";
+                            }
+                            return text;
+                        }
+                    },
+                    {
+                        title: "密码",
+                        name: "password",
+                        filter: function (text) {
+                            return "<span title='" + text + "'>*****</span>";
+                        }
+                    },
+                    {
+                        title: "简介",
+                        name: "description",
+                        width: 2,
+                        filter: function (text) {
+                            return "<span title='" + text + "'>" + text + "</span>";
+                        }
+                    },
+                    {
+                        title: "状态",
+                        name: "status",
+                        filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                            if (text == 1) {
+                                return "普通";
+                            }
+                            if (text == 2) {
+                                return "冻结";
+                            }
+                            return text;
+                        }
+                    },
+                    {
+                        title: "创建时间",
+                        name: "createTime",
+                        width: 2,
+                        filter: function (text) {
+                            return timeFormatter.formatTime(text);
+                        }
+                    }
+                ]
+            });
+            this.confirmDialog.init({
+                dialogId: "#confirm_dialog",
+                sureBtnId: "#sure_btn",
+                cancelBtnId: "#cancel_btn"
+
+            });
+            this.msgDialog.init();
 
         }
-    ;
+        this.loadPager = function (result) {
+            var data = result.data;
+            this.page.total = data.total;
+            this.pagerBuilder.buildPager({
+                page: this.page
+            });
+        }
+        this.loadTable = function (result) {
+
+            this.tableBuilder.buildTable({
+                    list: result.data.users,
+                }
+            );
+
+
+        }
+        this.loadUserData = function () {
+            this.tableBuilder.loading();
+            ajax.post({
+                url: "/users/list",
+                data: $.extend(this.page, this.query),
+                onSuccess: function (result) {
+                    this.loadTable(result);
+                    this.loadPager(result);
+                }.bind(this)
+            });
+
+        };
+        /**
+         * 更新头像
+         * */
+        this.updateHeadFile = function (_this) {
+            //file
+            var fileObj = document.getElementById("headFile").files[0]; // 获取文件对象
+
+            //userId
+            var $form = $(_this).parent().parent().parent();
+            debugger
+
+            var userId = $form.find("input[name='userId']").val();
+            // FormData 对象
+
+            var form = new FormData();
+
+            form.append("userId", userId);                        // 可以增加表单数据
+
+            form.append("headFile", fileObj);                           // 文件对象
+
+            $.ajax({
+                url: "/users/update/img",
+                type: 'POST',
+                data: form,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                success: function (result) {
+                    this.addOrUpdateDialogBuilder.hide();
+                    if (success(result.code)) {
+
+                        this.msgDialog.showMsg({
+                            msg: "头像更新成功"
+                        });
+                        this.loadUserData();
+                    } else {
+                        this.msgDialog.showMsg({
+                            msg: "头像更新失败"
+                        });
+                    }
+                }.bind(this)
+            });
+
+        }
+
+    }
 
     var userLoader = new UserLoader();
     userLoader.init();
+
+
     /*]]>*/
 
 </script>

@@ -120,6 +120,12 @@ public class UserController extends ServiceController<UserService> {
         service.updateUser(usersDto);
         return response;
     }
+    @RequestMapping(value = "/update/img")
+    @ResponseBody
+    public Object updateUserHeadImg(UsersDto usersDto) throws Exception {
+        service.updateUserHeadImg(usersDto);
+        return response;
+    }
 
     @RequestMapping(value = "/delete")
     @ResponseBody

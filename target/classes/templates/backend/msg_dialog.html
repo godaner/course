@@ -35,15 +35,28 @@
     /*<![CDATA[*/
 
     var MsgDialog = function () {
-
         this.$msgDialog = undefined;
         this.onClose = undefined;
-        this.init = function (args) {
-            this.$msgDialog = $(args.dialogId);
+        this.onSure = undefined;
+        this.$sureBtn = undefined;
+        this.init = function () {
+            this.$msgDialog = $("#msg_dialog");
+            this.$sureBtn = this.$msgDialog.find("#sure_btn");
+            this.registEvents();
+        };
+        this.registEvents = function () {
             //关闭事件触发
             this.$msgDialog.on('hide.bs.modal', function () {
                 if (!isUndefined(this.onClose)) {
                     this.onClose();
+                }
+            }.bind(this));
+            //确认事件触发
+            this.$sureBtn.unbind("click");
+            this.$sureBtn.click(function () {
+                this.hide();
+                if (!isUndefined(this.onSure)) {
+                    this.onSure();
                 }
             }.bind(this));
         };
@@ -62,7 +75,6 @@
 
 
     };
-
 
 
     /*]]>*/

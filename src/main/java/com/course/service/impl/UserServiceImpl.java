@@ -32,10 +32,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -93,6 +90,45 @@ public class UserServiceImpl extends BaseService implements UserService {
             if (usersMapper.update(users) != 1) {
                 throw new CoursesException("deleteUser update is fail !! userId is : " + userId);
             }
+        }
+    }
+
+    @Override
+    @Transactional
+    public void updateUserHeadImg(UsersDto usersDto) {
+        Users users = this.getUserByUserId(usersDto.getUserId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        if (null == users) {
+            throw new UsersException("updateUserHeadImg user is not exits !! usersDto is :" + usersDto,
+                    UsersException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
+                    UsersException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
+        }
+
+
+        // update file
+        if (usersDto.getHeadFile() != null && usersDto.getHeadFile().getSize() > 0) {
+            String uuid = uuid();
+            //write to db
+            users.setImgUrl("/users/img/" + uuid);
+
+
+            if (usersMapper.update(users) != 1) {
+                throw new UsersException("updateUserHeadImg is fail !! usersDto is :" + usersDto,
+                        UsersException.ErrorCode.UPDATE_USER_FAIL.getCode(),
+                        UsersException.ErrorCode.UPDATE_USER_FAIL.getMsg());
+            }
+
+            //write to disk
+            File targetFile = new File(ProjectConfig.USER_IMG_PATH + uuid + ".png");
+            try {
+                OutputStream outputStream = new FileOutputStream(ProjectConfig.USER_IMG_PATH + uuid + ".png");
+                IOUtils.copy(usersDto.getHeadFile().getInputStream(), outputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+                deleteFiles(targetFile);
+                throw new UsersException("updateUserHeadImg upload headImg is fail !! usersDto is :" + usersDto);
+            }
+
+
         }
     }
 
@@ -213,11 +249,13 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
 
         String uuid = uuid();
+        File targetFile = new File(ProjectConfig.USER_IMG_PATH + uuid + ".png");
         try {
-            OutputStream outputStream = new FileOutputStream(ProjectConfig.USER_IMG_PATH + uuid + ".png");
+            OutputStream outputStream = new FileOutputStream(targetFile);
             IOUtils.copy(usersDto.getHeadFile().getInputStream(), outputStream);
         } catch (IOException e) {
             e.printStackTrace();
+            deleteFiles(targetFile);
             request.setAttribute("msg", "上传文件错误");
             request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
             throw new UsersException("updateOnlineUserHead upload headImg is fail !! usersDto is :" + usersDto);
@@ -349,6 +387,7 @@ public class UserServiceImpl extends BaseService implements UserService {
                     UsersException.ErrorCode.UPDATE_USER_FAIL.getCode(),
                     UsersException.ErrorCode.UPDATE_USER_FAIL.getMsg());
         }
+
     }
 
     @Override

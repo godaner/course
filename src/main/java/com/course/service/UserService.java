@@ -50,4 +50,6 @@ public interface UserService {
     UsersDto makeUsersDto(Users user);
 
     void deleteUser(Long userId);
+
+    void updateUserHeadImg(UsersDto usersDto);
 }
