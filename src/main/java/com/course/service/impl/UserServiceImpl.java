@@ -426,6 +426,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         users.setStatus(usersDto.getStatus());
         users.setId(usersDto.getUserId());
         users.setUpdateTime(DateUtil.unixTime().intValue());
+        users.setPassword(usersDto.getPassword());
         return users;
     }
 
