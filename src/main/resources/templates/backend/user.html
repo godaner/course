@@ -12,7 +12,7 @@
 <div role="tabpanel" class="tab-pane active" id="user">
     <div class="check-div form-inline">
         <div class="col-xs-3">
-            <!--<button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加记录</button>-->
+            <button id="addUserBtn" class="btn btn-yellow btn-xs">添加记录</button>
         </div>
         <div id="userSearch" class="col-xs-4">
             <form onsubmit="return false;">
@@ -44,78 +44,71 @@
         </ul>
     </footer>
 
-
-    <!--弹出添加用户窗口-->
-    <div id="addUserDialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static">
+    <!--添加用户弹出框-->
+    <div id="addUserDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">添加用户</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">添加用户</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="userId" type="hidden">
+
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="username" type="text"
+                                           class="form-control input-sm duiqi" placeholder="请输入用户名">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">密码：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="password" type="password"
+                                           class="form-control input-sm duiqi" placeholder="请输入密码">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">简介：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">国际关系地区</option>
-                                        <option value="">北京大学</option>
-                                        <option value="">天津大学</option>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="sex" class="form-control input-sm duiqi">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">管理员</option>
-                                        <option value="">普通用户</option>
-                                        <option value="">游客</option>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="add_user_cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="add_user_submit_btn" type="button" class="btn btn-xs btn-green">添 加</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -223,13 +216,25 @@
         this.pagerBuilder = new PagerBuilder();
         this.tableBuilder = new TableBuilder();
         this.sortBuilder = new SortBuilder();
-        this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.updateUserDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.addUserDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+        this.$addUserBtn = undefined;
+        this.registEvents = function () {
+            this.$addUserBtn.unbind("click");
+            this.$addUserBtn.click(function () {
+                this.addUserDialogBuilder.show();
+            }.bind(this));
+        };
         this.init = function (args) {
 
+
+            this.$addUserBtn = $("#addUserBtn");
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
+
+            this.registEvents();
 
             this.seachBuilder.init({
                 query: this.query,
@@ -253,7 +258,6 @@
                 orderBySelectId: "#userOrderBy",
                 orderTypeSelectId: "#userOrderType",
                 onSort: function (page) {
-                    c("page is : " + page);
                     this.page.orderBy = page.orderBy;
                     this.page.orderType = page.orderType;
                     this.loadUserData();
@@ -267,7 +271,34 @@
                     this.loadUserData();
                 }.bind(this)
             });
-            this.addOrUpdateDialogBuilder.init({
+            this.addUserDialogBuilder.init({
+                dialogId: "#addUserDialog",
+                submitId: "#add_user_submit_btn",
+                cancelId: "#add_user_cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/users/add",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadUserData();
+
+                            this.msgDialog.showMsg({
+                                msg: result.msg,
+                                onSure:function () {
+                                    if (!success(result.code)) {
+                                        this.addUserDialogBuilder.show();
+                                    }
+                                }.bind(this)
+                            });
+
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                }
+            });
+            this.updateUserDialogBuilder.init({
                 dialogId: "#editUserDialog",
                 submitId: "#submit_btn",
                 cancelId: "#cancel_btn",
@@ -347,10 +378,10 @@
                     });
                 }.bind(this),
                 onUpdate: function (data) {
-                    this.addOrUpdateDialogBuilder.echoData({
+                    this.updateUserDialogBuilder.echoData({
                         data: data
                     });
-                    this.addOrUpdateDialogBuilder.show();
+                    this.updateUserDialogBuilder.show();
                 }.bind(this),
                 fields: [
                     {
@@ -488,7 +519,7 @@
                 contentType: false,
                 success: function (result) {
                     $(_this).val("");
-                    this.addOrUpdateDialogBuilder.hide();
+                    this.updateUserDialogBuilder.hide();
 
                     var msg = "图片更新失败";
                     if (success(result.code)) {
@@ -499,7 +530,7 @@
                     this.msgDialog.showMsg({
                         msg: msg,
                         onSure: function () {
-                            this.addOrUpdateDialogBuilder.show();
+                            this.updateUserDialogBuilder.show();
                         }.bind(this)
                     });
                 }.bind(this)

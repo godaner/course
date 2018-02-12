@@ -133,4 +133,10 @@ public class UserController extends ServiceController<UserService> {
         service.deleteUser(userId);
         return response;
     }
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Object addUser(UsersDto usersDto) throws Exception {
+        service.addUser(usersDto);
+        return response;
+    }
 }

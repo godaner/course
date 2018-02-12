@@ -233,7 +233,7 @@
         this.pagerBuilder = new PagerBuilder();
         this.tableBuilder = new TableBuilder();
         this.sortBuilder = new SortBuilder();
-        this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.updateUserDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
         this.init = function (args) {
@@ -277,7 +277,7 @@
                     this.loadCourseData();
                 }.bind(this)
             });
-            this.addOrUpdateDialogBuilder.init({
+            this.updateUserDialogBuilder.init({
                 dialogId: "#editCourseDialog",
                 submitId: "#submit_btn",
                 cancelId: "#cancel_btn",
@@ -371,10 +371,10 @@
                     });
                 }.bind(this),
                 onUpdate: function (data) {
-                    this.addOrUpdateDialogBuilder.echoData({
+                    this.updateUserDialogBuilder.echoData({
                         data: data
                     });
-                    this.addOrUpdateDialogBuilder.show();
+                    this.updateUserDialogBuilder.show();
                 }.bind(this),
                 fields: [
                     {
@@ -504,7 +504,7 @@
                 contentType: false,
                 success: function (result) {
                     $(_this).val("");
-                    this.addOrUpdateDialogBuilder.hide();
+                    this.updateUserDialogBuilder.hide();
 
                     var msg = "图片更新失败";
                     if (success(result.code)) {
@@ -515,7 +515,7 @@
                     this.msgDialog.showMsg({
                         msg: msg,
                         onSure:function () {
-                            this.addOrUpdateDialogBuilder.show();
+                            this.updateUserDialogBuilder.show();
                         }.bind(this)
                     });
                 }.bind(this)

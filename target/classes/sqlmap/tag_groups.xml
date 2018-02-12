@@ -186,16 +186,28 @@
     <select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">
 		select g.*,t.id as tag_id,t.`name` as tag_name
 		from tag_groups g,tag_group_realations r,tags t
-		where g.status =#{query.status}
-		and r.status =#{query.status}
-		and t.status =#{query.status}
+		where g.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+		and r.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+		and t.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
 		and t.id = r.tag_id
 		and r.group_id = g.id
 	</select>
     <select id="getTagGroupsWithTagsCount" resultType="long">
 		select count(g.id)
 		from tag_groups g
-		where g.status =#{query.status}
+		where g.status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
 	</select>
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>
