@@ -1,6 +1,7 @@
 package com.course.dao.mapper;
 
 import com.course.dao.po.Users;
+import com.course.dao.po.query.CoursesQueryBean;
 import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.dto.UsersDto;
 import com.course.util.PageBean;
@@ -20,4 +21,5 @@ public interface UsersMapper extends BaseCrudMapper<Users> {
     Users getUserByUserId(@Param("query") UsersQueryBean query);
 
     Users getUserByUsername(@Param("query") UsersQueryBean query);
+
 }

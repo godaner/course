@@ -9,6 +9,15 @@ public class CoursesQueryBean extends BaseQueryBean {
     private List<Long> tagIds;
     private List<Long> courseIds;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public CoursesQueryBean() {
         tagIds = Lists.newArrayList();

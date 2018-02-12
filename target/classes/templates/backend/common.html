@@ -50,6 +50,10 @@
     function findInput($parent, name) {
         return $parent.find("input[name='" + name + "']");
     };
+
+    function makeTipSpan(text) {
+        return "<span title='" + text + "'>" + text + "</span>";
+    }
     /*]]>*/
 
 </script>

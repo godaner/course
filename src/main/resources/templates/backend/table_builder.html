@@ -54,23 +54,23 @@
 
         };
         this.addTableEvents = function () {
-            $.each(this.$table.find(".table_update"),function (index,item) {
+            $.each(this.$table.find(".table_update"), function (index, item) {
                 $(item).unbind("click");
                 $(item).click(function () {
                     var index = $(item).attr("index");
                     var data = this.list[index];
-                    if(!isUndefined(this.onUpdate)){
+                    if (!isUndefined(this.onUpdate)) {
                         this.onUpdate(data);
                     }
                 }.bind(this));
             }.bind(this))
 
-            $.each(this.$table.find(".table_delete"),function (index,item) {
+            $.each(this.$table.find(".table_delete"), function (index, item) {
                 $(item).unbind("click");
                 $(item).click(function () {
                     var index = $(item).attr("index");
                     var data = this.list[index];
-                    if(!isUndefined(this.onDelete)){
+                    if (!isUndefined(this.onDelete)) {
                         this.onDelete(data);
                     }
                 }.bind(this));
@@ -95,14 +95,14 @@
 
                     var text = item[name];
                     if (!isUndefined(filter)) {
-                        text = filter(text);
+                        text = filter(text, item);
                     }
                     var col = this.makeCol(text, width);
                     row.append(col);
                 }.bind(this));
                 //add model btn
                 var args = {
-                    index:index
+                    index: index
                 }
                 var col = this.makeCol("", this.OPERATE_BTN_WIDTH);
                 var updateBtn = this.makeUpdateModelBtn(args)
@@ -132,11 +132,11 @@
         }
         this.makeUpdateModelBtn = function (args) {
             var index = args.index;
-            return $("<button index='"+index+"' class='table_update btn btn-success btn-xs' >修改</button>");
+            return $("<button index='" + index + "' class='table_update btn btn-success btn-xs' >修改</button>");
         }
         this.makeDeleteModelBtn = function (args) {
             var index = args.index;
-            return $("<button index='"+index+"' class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
+            return $("<button index='" + index + "' class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
         }
     }
 

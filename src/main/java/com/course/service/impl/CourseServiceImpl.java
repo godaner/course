@@ -98,10 +98,9 @@ public class CourseServiceImpl extends BaseService implements CourseService {
     }
 
 
-
     @Override
     @Transactional
-    public void downloadCourseSrc(String name, Long courseId,UsersDto onlineUser, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+    public void downloadCourseSrc(String name, Long courseId, UsersDto onlineUser, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
         Courses courses = coursesMapper.select(courseId);
         if (courses == null) {
@@ -176,6 +175,35 @@ public class CourseServiceImpl extends BaseService implements CourseService {
             e.printStackTrace();
             IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_IMG_PATH + "default.png"), outputStream);
         }
+    }
+
+    @Override
+    public List<CoursesDto> getCoursesV2(PageBean page, CoursesQueryBean query) {
+        query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        return coursesMapper.getCoursesV2(page, query).stream().parallel().map(courses -> {
+            return makeCoursesDtoV2(courses);
+        }).collect(toList());
+    }
+
+    private CoursesDto makeCoursesDtoV2(Courses courses) {
+        CoursesDto coursesDto = new CoursesDto();
+        coursesDto.setCourseId(courses.getId());
+        coursesDto.setDescription(courses.getDescription());
+        coursesDto.setDownloadNumber(courses.getDownloadNumber());
+        coursesDto.setWatchNumber(courses.getWatchNumber());
+        coursesDto.setCollectNumber(courses.getCollectNumber());
+        coursesDto.setName(courses.getName());
+        coursesDto.setImgUrl(courses.getImgUrl());
+        coursesDto.setUpdateTime(courses.getUpdateTime());
+        coursesDto.setCreateTime(courses.getCreateTime());
+        coursesDto.setStatus(courses.getStatus());
+        return coursesDto;
+    }
+
+    @Override
+    public Long getCoursesCountV2(PageBean page, CoursesQueryBean query) {
+        query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        return coursesMapper.getUsersCountV2(page, query);
     }
 
     private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {

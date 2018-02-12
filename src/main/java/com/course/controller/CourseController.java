@@ -3,6 +3,7 @@ package com.course.controller;
 import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.CoursesQueryBean;
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.resolver.OnlineUser;
 import com.course.service.CourseService;
 import com.course.service.dto.CoursesDto;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,11 +67,16 @@ public class CourseController extends ServiceController<CourseService> {
 
     @RequiredUserLogin
     @RequestMapping(value = "/download/{name}")
-    public Object downloadCourseSrc(@OnlineUser UsersDto onlineUser,@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+    public Object downloadCourseSrc(@OnlineUser UsersDto onlineUser, @PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
-        service.downloadCourseSrc(name, courseId, onlineUser,httpServletRequest,httpServletResponse);
+        service.downloadCourseSrc(name, courseId, onlineUser, httpServletRequest, httpServletResponse);
         return null;
     }
-    /*************************************** 管理端 *************************************/
 
+    /*************************************** 管理端 *************************************/
+    @RequestMapping(value = "/list/v2")
+    @ResponseBody
+    public Object getCoursesV2(PageBean page, CoursesQueryBean query) throws Exception {
+        return response.putData("courses", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
+    }
 }

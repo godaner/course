@@ -23,4 +23,7 @@ public interface CourseService {
 
     void getCourseImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 
+    List<CoursesDto> getCoursesV2(PageBean page, CoursesQueryBean query);
+
+    Long getCoursesCountV2(PageBean page, CoursesQueryBean query);
 }

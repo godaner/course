@@ -9,121 +9,56 @@
 <body id="course_body">
 
 <!--课程管理模块-->
-<div role="tabpanel" class="tab-pane" id="course">
+<div role="tabpanel" class="tab-pane " id="course">
     <div class="check-div form-inline">
         <div class="col-xs-3">
-            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加用户</button>
+            <!--<button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addCourse">添加记录</button>-->
         </div>
-        <div class="col-xs-4">
-            <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-            <button class="btn btn-white btn-xs ">查 询</button>
+        <div id="courseSearch" class="col-xs-4">
+            <form onsubmit="return false;">
+                <input name="name" type="text" class="form-control input-sm" placeholder="输入文字搜索">
+                <button id="courseSearchBtn" class="btn btn-white btn-xs ">查 询</button>
+            </form>
         </div>
-        <div class="col-lg-3 col-lg-offset-2 col-xs-4" style=" padding-right: 40px;text-align: right;">
-            <label for="paixu">排序:&nbsp;</label>
-            <select class=" form-control">
-                <option>地区</option>
-                <option>地区</option>
-                <option>班期</option>
-                <option>性别</option>
-                <option>年龄</option>
-                <option>份数</option>
+        <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
+            <label for="courseOrderBy">排序:&nbsp;</label>
+            <select id="courseOrderBy" name="orderBy" class=" form-control">
+                <option value="id">id</option>
+                <option value="create_time">创建时间</option>
+            </select>
+            <label for="courseOrderType">规则:&nbsp;</label>
+            <select id="courseOrderType" name="orderType" class=" form-control">
+                <option value="asc">升序</option>
+                <option value="desc">降序</option>
             </select>
         </div>
     </div>
-    <div class="data-div">
-        <div class="row tableHeader">
-            <div class="col-xs-2 ">
-                用户名
-            </div>
-            <div class="col-xs-2">
-                地区
-            </div>
-            <div class="col-xs-2">
-                真实姓名
-            </div>
-            <div class="col-xs-2">
-                电话
-            </div>
-            <div class="col-xs-2">
-                状态
-            </div>
-            <div class="col-xs-2">
-                操作
-            </div>
-        </div>
-        <div class="tablebody">
+    <div class="data-div" id="courseTable">
 
-            <div class="row">
-                <div class="col-xs-2 ">
-                    goodmoning
-                </div>
-                <div class="col-xs-2">
-                    国际关系地区
-                </div>
-                <div class="col-xs-2">
-                    李豆豆
-                </div>
-                <div class="col-xs-2">
-                    13688889999
-                </div>
-                <div class="col-xs-2">
-                    状态
-                </div>
-                <div class="col-xs-2">
-                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirm_dialog">删除</button>
-                </div>
-            </div>
-
-        </div>
 
     </div>
     <!--页码块-->
     <footer class="footer">
-        <ul class="pagination">
-            <li>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
-                页
-            </li>
-            <li class="gray">
-                共20页
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-left">
-                </i>
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-right">
-                </i>
-            </li>
+        <ul id="coursePager" class="pagination">
+
         </ul>
     </footer>
 
-    <!--弹出添加用户窗口-->
-    <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+
+    <!--弹出添加课程窗口-->
+    <div id="addCourseDialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">添加用户</h4>
+                    <h4 class="modal-title" id="gridSystemModalLabel">添加课程</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label for="sName" class="col-xs-3 control-label">课程名：</label>
                                 <div class="col-xs-8 ">
                                     <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
                                 </div>
@@ -161,7 +96,7 @@
                                 <div class="col-xs-8">
                                     <select class=" form-control select-duiqi">
                                         <option value="">管理员</option>
-                                        <option value="">普通用户</option>
+                                        <option value="">普通课程</option>
                                         <option value="">游客</option>
                                     </select>
                                 </div>
@@ -189,69 +124,63 @@
     </div>
     <!-- /.modal -->
 
-    <!--弹出修改用户窗口-->
-    <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <!--弹出修改课程窗口-->
+    <div id="editCourseDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">修改课程</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="courseId" type="hidden">
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label for="coursename" class="col-xs-3 control-label">课程名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="coursename" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="coursename" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+                            <div class="form-group ">
+                                <label for="description" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="description" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                            <div class="form-group ">
+                                <label for="sex" class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="sex" name="sex">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="status" name="status">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -262,5 +191,244 @@
 
 
 </div>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+    var CourseLoader = function () {
+            this.page = new Page();
+            this.query = new Query();
+            this.confirmDialog = new ConfirmDialog();
+            this.msgDialog = new MsgDialog();
+            this.pagerBuilder = new PagerBuilder();
+            this.tableBuilder = new TableBuilder();
+            this.sortBuilder = new SortBuilder();
+            this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
+            this.seachBuilder = new SearchBuilder();
+            this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+            this.init = function () {
+                this.seachBuilder.init({
+                    query: this.query,
+                    searchId: "#courseSearch",
+                    searchBtnId: "#courseSearchBtn",
+                    fields: [
+                        {
+                            filter: undefined,
+                            name: "coursename",
+                            inputType: InputType.TEXT
+                        }
+                    ],
+                    onSearch: function (query) {
+                        this.query = query;
+                        this.loadCourseData();
+                    }.bind(this)
+                });
+
+                this.sortBuilder.init({
+                    page: this.page,
+                    orderBySelectId: "#courseOrderBy",
+                    orderTypeSelectId: "#courseOrderType",
+                    onSort: function (page) {
+                        c("page is : " + page);
+                        this.page.orderBy = page.orderBy;
+                        this.page.orderType = page.orderType;
+                        this.loadCourseData();
+                    }.bind(this)
+                });
+
+                this.pagerBuilder.init({
+                    pagerId: "#coursePager",
+                    onPageChange: function (newPage) {
+                        this.page = newPage;
+                        this.loadCourseData();
+                    }.bind(this)
+                });
+                this.addOrUpdateDialogBuilder.init({
+                    dialogId: "#editCourseDialog",
+                    submitId: "#submit_btn",
+                    cancelId: "#cancel_btn",
+                    onSubmit: function (data) {
+                        ajax.post({
+                            url: "/courses/update",
+                            data: data,
+                            onSuccess: function (result) {
+                                this.loadCourseData();
+                            }.bind(this)
+                        });
+                    }.bind(this),
+                    onCancel: function () {
+
+                    },
+                    fields: [
+                        {
+                            name: "courseId",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "name",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "description",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "status",
+                            inputType: InputType.SELECT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "downloadNumber",
+                            inputType: InputType.SELECT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        }
+                    ]
+                });
+                this.tableBuilder.init({
+                    tableId: "#courseTable",
+                    onDelete: function (data) {
+                        this.confirmDialog.showMsg({
+                            msg: this.DELETE_TIP,
+                            onSure: function () {
+                                ajax.post({
+                                    url: "/courses/delete",
+                                    data: data,
+                                    onSuccess: function (result) {
+                                        this.loadCourseData();
+                                    }.bind(this)
+                                });
+                            }.bind(this),
+                            onCancel: function () {
+                            }.bind(this)
+                        });
+                    }.bind(this),
+                    onUpdate: function (data) {
+                        this.addOrUpdateDialogBuilder.echoData({
+                            data: data
+                        });
+                        this.addOrUpdateDialogBuilder.show();
+                    }.bind(this),
+                    fields: [
+                        {
+                            title: "头像",
+                            name: "imgUrl",
+                            filter: function (text) {
+                                return "<img style='width:50px;height:50px' src='" + text + "'/>";
+                            }
+                        },
+                        {
+                            title: "课程id",
+                            name: "courseId"
+                        },
+                        {
+                            title: "课程名",
+                            name: "name"
+                        },
+                        {
+                            title: "简介",
+                            name: "description",
+                            width: 2,
+                            filter: function (text) {
+                                return makeTipSpan(text);
+                            }
+                        },
+                        {
+                            title: "状态",
+                            name: "status",
+                            filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                                if (text == 1) {
+                                    return "普通";
+                                }
+                                if (text == 2) {
+                                    return "冻结";
+                                }
+                                return text;
+                            }
+                        },
+                        {
+                            title: "创建时间",
+                            name: "createTime",
+                            width: 1,
+                            filter: function (text) {
+                                text = timeFormatter.formatTime(text);
+                                return makeTipSpan(text);
+                            }
+                        },
+                        {
+                            title: "流量",
+                            name: "downloadNumber",
+                            width: 3,
+                            filter: function (text, item) {
+                                text = "下载数 : " + item.downloadNumber + " , 收藏数 : " + item.collectNumber + " , 观看数 : " + item.watchNumber;
+                                return makeTipSpan(text);
+                            }
+                        }
+                    ]
+                });
+                this.confirmDialog.init({
+                    dialogId: "#confirm_dialog",
+                    sureBtnId: "#sure_btn",
+                    cancelBtnId: "#cancel_btn"
+
+                });
+                this.msgDialog.init({
+                    dialogId: "#msg_dialog"
+                });
+
+            }
+            this.loadPager = function (result) {
+                var data = result.data;
+                this.page.total = data.total;
+                this.pagerBuilder.buildPager({
+                    page: this.page
+                });
+            }
+            this.loadTable = function (result) {
+
+                this.tableBuilder.buildTable({
+                        list: result.data.courses,
+                    }
+                );
+
+
+            }
+            this.loadCourseData = function () {
+                this.tableBuilder.loading();
+                ajax.post({
+                    url: "/courses/list/v2",
+                    data: $.extend(this.page, this.query),
+                    onSuccess: function (result) {
+                        this.loadTable(result);
+                        this.loadPager(result);
+                    }.bind(this)
+                });
+
+            }
+
+        }
+    ;
+
+    var courseLoader = new CourseLoader();
+    courseLoader.init();
+    /*]]>*/
+
+</script>
 </body>
+
 </html>

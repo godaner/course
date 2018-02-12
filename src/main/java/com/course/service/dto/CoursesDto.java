@@ -11,7 +11,44 @@ public class CoursesDto {
     private Long downloadNumber;
     private Long watchNumber;
     private Long collectNumber;
+    /**
+     * 创建时间，unixtimestamp
+     */
+    protected Integer createTime;
+    /**
+     * 更新时间,unixtimestamp
+     */
+    protected Integer updateTime;
+    /**
+     * 是否被删除
+     */
+    protected Byte status;
     private List<CourseSourcesDto> courseSourcesDtoList;
+
+
+    public Integer getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
 
     public Long getCourseId() {
         return courseId;

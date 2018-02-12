@@ -228,7 +228,7 @@
         </if>
     </select>
     <select id="getUsersCount" resultType="long">
-        select count(*)
+        select count(id)
         from
         users
         where
