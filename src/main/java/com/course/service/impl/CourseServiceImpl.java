@@ -52,6 +52,7 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         if (isEmptyList(queryBean.getTagIds())) {
             queryBean.setTagIds(null);
         }
+        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return coursesMapper.getCoursesList(pageBean, queryBean).stream().parallel().map(
                 courses -> {
                     return makeCourseDto(courses);
@@ -64,6 +65,7 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         if (isEmptyList(queryBean.getTagIds())) {
             queryBean.setTagIds(null);
         }
+        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return coursesMapper.getCoursesCount(pageBean, queryBean);
     }
 
