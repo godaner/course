@@ -85,9 +85,9 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
-    public void deleteUser(UsersDto usersDto) {
-        Users users = this.getUserByUserId(usersDto.getUserId(),Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
-        if(null !=users){
+    public void deleteUser(Long userId) {
+        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(),BasePo.Status.FORAZEN.getCode()));
+        if (null != users) {
             users.setStatus(BasePo.Status.DELETED.getCode());
             usersMapper.update(users);
         }
@@ -141,7 +141,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 //    }
 
     @Override
-    public void updateOnlineUser(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request) {
+    public void updateOnlineUser(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request) {
 
 
         usersDto.setUserId(onlineUser.getUserId());
@@ -157,7 +157,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser,HttpServletRequest request) {
+    public void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request) {
 
 
         usersDto.setUserId(onlineUser.getUserId());
@@ -196,7 +196,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void updateOnlineUserHead(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request) {
+    public void updateOnlineUserHead(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request) {
         UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
 
 
@@ -234,7 +234,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     @Transactional
-    public void collectCourse(Long courseId, UsersDto onlineUser,HttpServletRequest request) {
+    public void collectCourse(Long courseId, UsersDto onlineUser, HttpServletRequest request) {
 
         Courses courses = this.getCourseByCourseId(courseId);
 
@@ -350,7 +350,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public Users getUserById(Long userId) {
-        return this.getUserByUserId(userId,Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        return this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
     }
 
     private Users makeUpdateUser(UsersDto usersDto) {

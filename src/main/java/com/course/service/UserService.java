@@ -25,13 +25,13 @@ public interface UserService {
 
 //    UsersDto getOnlineUser(HttpServletRequest request);
 
-    void updateOnlineUser(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
+    void updateOnlineUser(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request);
 
-    void updateOnlinePwd(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
+    void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request);
 
-    void updateOnlineUserHead(UsersDto usersDto,UsersDto onlineUser, HttpServletRequest request);
+    void updateOnlineUserHead(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request);
 
-    void collectCourse(Long courseId,UsersDto onlineUser, HttpServletRequest request);
+    void collectCourse(Long courseId, UsersDto onlineUser, HttpServletRequest request);
 
     List<CoursesDto> getUserCollectCourse(UsersDto onlineUser);
 
@@ -49,5 +49,5 @@ public interface UserService {
 
     UsersDto makeUsersDto(Users user);
 
-    void deleteUser(UsersDto usersDto);
+    void deleteUser(Long userId);
 }

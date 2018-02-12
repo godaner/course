@@ -21,13 +21,14 @@
 //                filter:filter,
 //                inputType:inputType
 //            }
-        c(args);
         for (var index = 0; index < fields.length; index++) {
             var filed = fields[index];
             var name = filed.name;
             var filter = filed.filter;
             var inputType = filed.inputType;
             var value = data[name];
+            c(filed);
+            c(value);
             if (!isUndefined(filter)) {
                 value = filter(value);
             }
@@ -36,6 +37,7 @@
             }
 
             if (inputType == InputType.SELECT) {
+
                 selectOptionByParentAndName($form, name, value);
             }
             if (inputType == InputType.CHECKBOX) {

@@ -66,14 +66,11 @@ function selectOption(selectId, value) {
     selectOptionById(selectId, value)
 }
 function selectOptionById(selectId, value) {
-    $("#" + selectId + " option[value='" + value + "']").attr("selected", "selected");
-}
-function selectOptionByName(selectName, value) {
-    $("select option[name='" + selectName + "'][value='" + value + "']").attr("selected", "selected");
+    $("#" + selectId).val(value);
 }
 
 function selectOptionByParentAndName($selectParent, selectName, value) {
-    $selectParent.find("select option[name='" + selectName + "'][value='" + value + "']").attr("selected", "selected")
+    $selectParent.find("select[name='" + selectName + "']").val(value);
 }
 
 function getQueryString(name) {

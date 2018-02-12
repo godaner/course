@@ -23,13 +23,13 @@
         <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
             <label for="userOrderBy">排序:&nbsp;</label>
             <select id="userOrderBy" name="orderBy" class=" form-control">
-                <option value="create_time">创建时间</option>
                 <option value="id">id</option>
+                <option value="create_time">创建时间</option>
             </select>
             <label for="userOrderType">规则:&nbsp;</label>
             <select id="userOrderType" name="orderType" class=" form-control">
-                <option value="desc">降序</option>
                 <option value="asc">升序</option>
+                <option value="desc">降序</option>
             </select>
         </div>
     </div>
@@ -337,10 +337,9 @@
                                         this.loadUserData();
                                     }.bind(this)
                                 });
-                            },
+                            }.bind(this),
                             onCancel: function () {
-                                ajax.post({});
-                            }
+                            }.bind(this)
                         });
                     }.bind(this),
                     onUpdate: function (data) {

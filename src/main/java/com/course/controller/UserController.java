@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,13 +51,14 @@ public class UserController extends ServiceController<UserService> {
 
     @RequiredUserLogin
     @RequestMapping(value = "/collect/course/{courseId}")
-    public Object collectCourse(@OnlineUser UsersDto onlineUser,HttpServletRequest request,@PathVariable("courseId") Long courseId) throws Exception {
-        service.collectCourse(courseId,onlineUser, getRequest());
+    public Object collectCourse(@OnlineUser UsersDto onlineUser, HttpServletRequest request, @PathVariable("courseId") Long courseId) throws Exception {
+        service.collectCourse(courseId, onlineUser, getRequest());
         return "forward:/courses/" + courseId;
     }
+
     @RequiredUserLogin
     @RequestMapping(value = "/onlineUser")
-    public Object getOnlineUser(@OnlineUser UsersDto onlineUser,HttpServletRequest request) throws Exception {
+    public Object getOnlineUser(@OnlineUser UsersDto onlineUser, HttpServletRequest request) throws Exception {
 
 //        UsersDto usersDto = service.getOnlineUser(request);
         request.setAttribute("users", onlineUser);
@@ -65,32 +67,32 @@ public class UserController extends ServiceController<UserService> {
 
     @RequiredUserLogin
     @RequestMapping(value = "/updateOnlineUser")
-    public Object updateOnlineUser(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+    public Object updateOnlineUser(@OnlineUser UsersDto onlineUser, HttpServletRequest request, UsersDto usersDto) throws Exception {
 
-        service.updateOnlineUser(usersDto,onlineUser, getRequest());
+        service.updateOnlineUser(usersDto, onlineUser, getRequest());
         return "frontend/users/user_info";
     }
 
     @RequiredUserLogin
     @RequestMapping(value = "/updateOnlinePwd")
-    public Object updateOnlinePwd(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+    public Object updateOnlinePwd(@OnlineUser UsersDto onlineUser, HttpServletRequest request, UsersDto usersDto) throws Exception {
 
-        service.updateOnlinePwd(usersDto, onlineUser,getRequest());
+        service.updateOnlinePwd(usersDto, onlineUser, getRequest());
         return "frontend/users/user_info";
     }
 
     @RequiredUserLogin
     @RequestMapping(value = "/updateOnlineUserHead")
-    public Object updateOnlineUserHead(@OnlineUser UsersDto onlineUser,HttpServletRequest request,UsersDto usersDto) throws Exception {
+    public Object updateOnlineUserHead(@OnlineUser UsersDto onlineUser, HttpServletRequest request, UsersDto usersDto) throws Exception {
 
-        service.updateOnlineUserHead(usersDto,onlineUser, getRequest());
+        service.updateOnlineUserHead(usersDto, onlineUser, getRequest());
         return "frontend/users/user_info";
     }
 
 
     @RequiredUserLogin
     @RequestMapping(value = "/onlineUser/collect")
-    public Object getUserCollectCourse(@OnlineUser UsersDto onlineUser,HttpServletRequest httpServletRequest) throws Exception {
+    public Object getUserCollectCourse(@OnlineUser UsersDto onlineUser, HttpServletRequest httpServletRequest) throws Exception {
 
 
         httpServletRequest.setAttribute("courses", service.getUserCollectCourse(onlineUser));
@@ -105,23 +107,24 @@ public class UserController extends ServiceController<UserService> {
     }
 
 
-
     /*************************************** 管理端 *************************************/
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object getUsers(PageBean page, UsersQueryBean query) throws Exception {
-        return response.putData("users",service.getUsers(page,query)).putData("total",service.getUsersCount(page,query));
+        return response.putData("users", service.getUsers(page, query)).putData("total", service.getUsersCount(page, query));
     }
+
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object updateUser(UsersDto usersDto) throws Exception {
         service.updateUser(usersDto);
         return response;
     }
+
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public Object deleteUser(UsersDto usersDto) throws Exception {
-        service.deleteUser(usersDto);
+    public Object deleteUser(@RequestParam("userId") Long userId) throws Exception {
+        service.deleteUser(userId);
         return response;
     }
 }
