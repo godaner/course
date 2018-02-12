@@ -206,6 +206,23 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         return coursesMapper.getUsersCountV2(page, query);
     }
 
+    @Override
+    public void updateCourses(CoursesDto coursesDto) {
+        if (coursesMapper.update(makeUpdateCourses(coursesDto)) != 1) {
+            throw new CoursesException("updateCourses update is fail !! coursesDto is : " + coursesDto);
+        }
+    }
+
+    private Courses makeUpdateCourses(CoursesDto coursesDto) {
+        Courses courses = new Courses();
+        courses.setStatus(coursesDto.getStatus());
+        courses.setDescription(coursesDto.getDescription());
+        courses.setName(coursesDto.getName());
+        courses.setId(coursesDto.getCourseId());
+        courses.setUpdateTime(DateUtil.unixTime().intValue());
+        return courses;
+    }
+
     private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {
         CoursesDto coursesDto = new CoursesDto();
         coursesDto.setCourseId(coursesWithSources.getId());

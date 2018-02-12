@@ -26,4 +26,6 @@ public interface CourseService {
     List<CoursesDto> getCoursesV2(PageBean page, CoursesQueryBean query);
 
     Long getCoursesCountV2(PageBean page, CoursesQueryBean query);
+
+    void updateCourses(CoursesDto coursesDto);
 }

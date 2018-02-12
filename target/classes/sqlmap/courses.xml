@@ -348,7 +348,7 @@
         </if>
     </select>
     <select id="getUsersCountV2" resultType="long">
-        select count(*)
+        select count(id)
         from
         courses
         where

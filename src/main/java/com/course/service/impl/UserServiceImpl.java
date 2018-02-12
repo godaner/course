@@ -86,7 +86,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public void deleteUser(Long userId) {
-        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(),BasePo.Status.FORAZEN.getCode()));
+        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
         if (null != users) {
             users.setStatus(BasePo.Status.DELETED.getCode());
             usersMapper.update(users);
@@ -361,6 +361,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         users.setSex(usersDto.getSex());
         users.setStatus(usersDto.getStatus());
         users.setId(usersDto.getUserId());
+        users.setUpdateTime(DateUtil.unixTime().intValue());
         return users;
     }
 

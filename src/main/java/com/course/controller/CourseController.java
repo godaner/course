@@ -79,4 +79,10 @@ public class CourseController extends ServiceController<CourseService> {
     public Object getCoursesV2(PageBean page, CoursesQueryBean query) throws Exception {
         return response.putData("courses", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
     }
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public Object updateCourses(CoursesDto coursesDto) throws Exception {
+        service.updateCourses(coursesDto);
+        return response;
+    }
 }

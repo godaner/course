@@ -173,7 +173,13 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">创建时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="createTime" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -295,6 +301,13 @@
                             inputType: InputType.SELECT,
                             filter: function (data) {
                                 return data;
+                            }
+                        },
+                        {
+                            name: "createTime",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return timeFormatter.formatTime(data);
                             }
                         }
                     ]

@@ -139,11 +139,10 @@
 
                             <input name="courseId" type="hidden">
                             <div class="form-group ">
-                                <label for="coursename" class="col-xs-3 control-label">课程名：</label>
+                                <label class="col-xs-3 control-label">课程名：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="coursename" disabled="disabled" type="text"
-                                           class="form-control input-sm duiqi"
-                                           id="coursename" placeholder="">
+                                    <input name="name" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
                                 </div>
                             </div>
                             <div class="form-group ">
@@ -155,16 +154,6 @@
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label for="sex" class="col-xs-3 control-label">性别：</label>
-                                <div class="col-xs-8 ">
-                                    <select id="sex" name="sex">
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
-                                        <option value="3">未设置</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group ">
                                 <label for="status" class="col-xs-3 control-label">状态：</label>
                                 <div class="col-xs-8 ">
                                     <select id="status" name="status">
@@ -173,7 +162,34 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">创建时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="createTime" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">下载总数：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="downloadNumber" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">收藏总数：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="collectNumber" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">观看总数：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="watchNumber" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"  placeholder="">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -291,8 +307,29 @@
                             }
                         },
                         {
+                            name: "createTime",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return timeFormatter.formatTime(data);
+                            }
+                        },
+                        {
                             name: "downloadNumber",
-                            inputType: InputType.SELECT,
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "collectNumber",
+                            inputType: InputType.TEXT,
+                            filter: function (data) {
+                                return data;
+                            }
+                        },
+                        {
+                            name: "watchNumber",
+                            inputType: InputType.TEXT,
                             filter: function (data) {
                                 return data;
                             }
@@ -337,7 +374,10 @@
                         },
                         {
                             title: "课程名",
-                            name: "name"
+                            name: "name",
+                            filter:function (text) {
+                                return makeTipSpan(text);
+                            }
                         },
                         {
                             title: "简介",
