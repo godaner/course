@@ -8,11 +8,11 @@
 
 <body id="msg_dialog_body">
 <!--信息提示框窗口-->
-<div id="msg_dialog" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div id="msg_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"  aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
                 </button>
                 <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
             </div>
@@ -36,7 +36,6 @@
 
     var MsgDialog = function () {
         this.$msgDialog = undefined;
-        this.onClose = undefined;
         this.onSure = undefined;
         this.$sureBtn = undefined;
         this.init = function () {
@@ -45,14 +44,8 @@
             this.registEvents();
         };
         this.registEvents = function () {
-            //关闭事件触发
-            this.$msgDialog.on('hide.bs.modal', function () {
-                if (!isUndefined(this.onClose)) {
-                    this.onClose();
-                }
-            }.bind(this));
             //确认事件触发
-            this.$sureBtn.unbind("click");
+//            this.$sureBtn.unbind("click");
             this.$sureBtn.click(function () {
                 this.hide();
                 if (!isUndefined(this.onSure)) {
@@ -65,7 +58,7 @@
         };
         this.showMsg = function (args) {
             var msg = args.msg;
-            this.onClose = args.onClose;
+            this.onSure = args.onSure;
             if (msg != undefined && msg != "") {
                 this.$msgDialog.find(".modal-body .container-fluid").html(msg);
                 this.$msgDialog.modal('show')
@@ -75,6 +68,8 @@
 
 
     };
+    var msgDialog = new MsgDialog();
+    msgDialog.init();
 
 
     /*]]>*/

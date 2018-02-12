@@ -8,7 +8,8 @@
 
 <body id="confirm_dialog_body">
 <!--弹出确认窗口-->
-<div id="confirm_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static" aria-labelledby="gridSystemModalLabel">
+<div id="confirm_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+     aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -39,20 +40,19 @@
         this.$confirmDialog = undefined;
         this.$cancelBtn = undefined;
         this.$sureBtn = undefined;
-        this.onClose = undefined;
         this.onCancel = undefined;
         this.onSure = undefined;
         this.init = function (args) {
             this.$confirmDialog = $(args.dialogId);
             this.$cancelBtn = this.$confirmDialog.find(args.cancelBtnId);
             this.$sureBtn = this.$confirmDialog.find(args.sureBtnId);
-            //关闭事件触发
-            this.$confirmDialog.on('hide.bs.modal', function () {
-                if (!isUndefined(this.onClose)) {
-                    this.onClose();
-                }
-            }.bind(this));
+
+            this.registEvents();
+        };
+        this.registEvents = function () {
+
             //确认事件
+            this.$sureBtn.unbind("click");
             this.$sureBtn.click(function () {
                 this.hide();
                 if (!isUndefined(this.onSure)) {
@@ -60,6 +60,7 @@
                 }
             }.bind(this));
             //取消事件
+            this.$cancelBtn.unbind("click");
             this.$cancelBtn.click(function () {
                 this.hide();
                 if (!isUndefined(this.onCancel)) {
@@ -72,7 +73,6 @@
         };
         this.showMsg = function (args) {
 
-            this.onClose = args.onClose;
             this.onCancel = args.onCancel;
             this.onSure = args.onSure;
             var msg = args.msg;
@@ -85,6 +85,12 @@
 
 
     };
+    var confirmDialog = new ConfirmDialog();
+    confirmDialog.init({
+        dialogId: "#confirm_dialog",
+        sureBtnId: "#sure_btn",
+        cancelBtnId: "#cancel_btn"
+    });
     /*]]>*/
 
 </script>

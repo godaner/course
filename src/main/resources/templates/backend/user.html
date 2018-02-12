@@ -215,17 +215,22 @@
 
 
     var UserLoader = function () {
+
+        this.confirmDialog = undefined;
+        this.msgDialog = undefined;
         this.page = new Page();
         this.query = new Query();
-        this.confirmDialog = new ConfirmDialog();
-        this.msgDialog = new MsgDialog();
         this.pagerBuilder = new PagerBuilder();
         this.tableBuilder = new TableBuilder();
         this.sortBuilder = new SortBuilder();
         this.addOrUpdateDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
-        this.init = function () {
+        this.init = function (args) {
+
+            this.confirmDialog = args.confirmDialog;
+            this.msgDialog = args.msgDialog;
+
             this.seachBuilder.init({
                 query: this.query,
                 searchId: "#userSearch",
@@ -419,13 +424,7 @@
                     }
                 ]
             });
-            this.confirmDialog.init({
-                dialogId: "#confirm_dialog",
-                sureBtnId: "#sure_btn",
-                cancelBtnId: "#cancel_btn"
 
-            });
-            this.msgDialog.init();
 
         }
         this.loadPager = function (result) {
@@ -490,17 +489,19 @@
                 success: function (result) {
                     $(_this).val("");
                     this.addOrUpdateDialogBuilder.hide();
-                    if (success(result.code)) {
 
-                        this.msgDialog.showMsg({
-                            msg: "头像更新成功"
-                        });
+                    var msg = "图片更新失败";
+                    if (success(result.code)) {
+                        msg = "图片更新成功";
                         this.loadUserData();
-                    } else {
-                        this.msgDialog.showMsg({
-                            msg: "头像更新失败"
-                        });
                     }
+
+                    this.msgDialog.showMsg({
+                        msg: msg,
+                        onSure: function () {
+                            this.addOrUpdateDialogBuilder.show();
+                        }.bind(this)
+                    });
                 }.bind(this)
             });
 
@@ -509,7 +510,10 @@
     }
 
     var userLoader = new UserLoader();
-    userLoader.init();
+    userLoader.init({
+        msgDialog: msgDialog,
+        confirmDialog: confirmDialog
+    });
 
 
     /*]]>*/
