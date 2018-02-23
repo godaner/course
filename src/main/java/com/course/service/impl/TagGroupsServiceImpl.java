@@ -29,6 +29,8 @@ public class TagGroupsServiceImpl implements TagGroupsService {
             TagGroupsDto tagGroupsDto = new TagGroupsDto();
             tagGroupsDto.setTagGroupId(tagGroupsWithTags.getId());
             tagGroupsDto.setTagGroupName(tagGroupsWithTags.getName());
+            tagGroupsDto.setCreateTime(tagGroupsWithTags.getCreateTime());
+            tagGroupsDto.setStatus(tagGroupsWithTags.getStatus());
 
             List<TagsDto> tagsDtos = tagGroupsWithTags.getTags().stream().parallel().map(tags -> {
                 TagsDto tagsDto = new TagsDto();

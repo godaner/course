@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="tagGroup_body">
+
+<!--标签分组管理模块-->
+<div role="tabpanel" class="tab-pane " id="tagGroup">
+    <div class="check-div form-inline">
+        <div class="col-xs-3">
+            <button id="addTagGroupBtn" class="btn btn-yellow btn-xs">添加记录</button>
+        </div>
+        <div id="tagGroupSearch" class="col-xs-4">
+            <form onsubmit="return false;">
+                <input name="tagGroupName" type="text" class="form-control input-sm" placeholder="输入文字搜索">
+                <button id="tagGroupSearchBtn" class="btn btn-white btn-xs ">查 询</button>
+            </form>
+        </div>
+        <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
+            <label for="tagGroupOrderBy">排序:&nbsp;</label>
+            <select id="tagGroupOrderBy" name="orderBy" class="form-control">
+                <option value="id">id</option>
+                <option value="create_time">创建时间</option>
+            </select>
+            <label for="tagGroupOrderType">规则:&nbsp;</label>
+            <select id="tagGroupOrderType" name="orderType" class=" form-control">
+                <option value="asc">升序</option>
+                <option value="desc">降序</option>
+            </select>
+        </div>
+    </div>
+    <div class="data-div" id="tagGroupTable">
+
+
+    </div>
+    <!--页码块-->
+    <footer class="footer">
+        <ul id="tagGroupPager" class="pagination">
+
+        </ul>
+    </footer>
+
+    <!--添加标签分组弹出框-->
+    <div id="addTagGroupDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">添加标签分组</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-horizontal">
+
+                            <input name="tagGroupId" type="hidden">
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">标签分组名：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="tagGroupName" type="text"
+                                           class="form-control input-sm duiqi" placeholder="请输入标签分组名">
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--data-dismiss="modal"-->
+                    <button id="add_tagGroup_cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="add_tagGroup_submit_btn" type="button" class="btn btn-xs btn-green">添 加</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!--弹出修改标签分组窗口-->
+    <div id="editTagGroupDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">修改标签分组</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-horizontal">
+
+                            <input name="tagGroupId" type="hidden">
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">标签分组名：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="tagGroupName" type="text"
+                                           class="form-control input-sm duiqi"
+                                            placeholder="">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="status" name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">创建时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="createTime" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--data-dismiss="modal"-->
+                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+</div>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+    var TagGroupLoader = function () {
+
+        this.confirmDialog = undefined;
+        this.msgDialog = undefined;
+        this.page = new Page();
+        this.query = new Query();
+        this.pagerBuilder = new PagerBuilder();
+        this.tableBuilder = new TableBuilder();
+        this.sortBuilder = new SortBuilder();
+        this.updateTagGroupDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.addTagGroupDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.seachBuilder = new SearchBuilder();
+        this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+        this.$addTagGroupBtn = undefined;
+        this.registEvents = function () {
+            this.$addTagGroupBtn.unbind("click");
+            this.$addTagGroupBtn.click(function () {
+                this.addTagGroupDialogBuilder.show();
+            }.bind(this));
+        };
+        this.init = function (args) {
+
+
+            this.$addTagGroupBtn = $(args.addBtnId);
+            this.confirmDialog = args.confirmDialog;
+            this.msgDialog = args.msgDialog;
+
+            this.registEvents();
+
+            this.seachBuilder.init({
+                query: this.query,
+                searchId: "#tagGroupSearch",
+                searchBtnId: "#tagGroupSearchBtn",
+                fields: [
+                    {
+                        filter: undefined,
+                        name: "username",
+                        inputType: InputType.TEXT
+                    }
+                ],
+                onSearch: function (query) {
+                    this.query = query;
+                    this.loadTagGroupData();
+                }.bind(this)
+            });
+
+            this.sortBuilder.init({
+                page: this.page,
+                orderBySelectId: "#tagGroupOrderBy",
+                orderTypeSelectId: "#tagGroupOrderType",
+                onSort: function (page) {
+                    this.page.orderBy = page.orderBy;
+                    this.page.orderType = page.orderType;
+                    this.loadTagGroupData();
+                }.bind(this)
+            });
+
+            this.pagerBuilder.init({
+                pagerId: "#tagGroupPager",
+                onPageChange: function (newPage) {
+                    this.page = newPage;
+                    this.loadTagGroupData();
+                }.bind(this)
+            });
+            this.addTagGroupDialogBuilder.init({
+                dialogId: "#addTagGroupDialog",
+                submitId: "#add_tagGroup_submit_btn",
+                cancelId: "#add_tagGroup_cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/tagGroup/add",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadTagGroupData();
+
+                            this.msgDialog.showMsg({
+                                msg: result.msg,
+                                onSure: function () {
+                                    if (!success(result.code)) {
+                                        this.addTagGroupDialogBuilder.show();
+                                    }
+                                }.bind(this)
+                            });
+
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                }
+            });
+            this.updateTagGroupDialogBuilder.init({
+                dialogId: "#editTagGroupDialog",
+                submitId: "#submit_btn",
+                cancelId: "#cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/tagGroup/update",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.msgDialog.showMsg({
+                                msg: result.msg
+                            });
+                            this.loadTagGroupData();
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                },
+                fields: [
+                    {
+                        name: "tagGroupId",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "tagGroupName",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "status",
+                        inputType: InputType.SELECT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "createTime",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return timeFormatter.formatTime(data);
+                        }
+                    }
+                ]
+            });
+            this.tableBuilder.init({
+                tableId: "#tagGroupTable",
+                fields: [
+                    {
+                        title: "标签分组id",
+                        name: "tagGroupId"
+                    },
+                    {
+                        title: "标签分组名",
+                        name: "tagGroupName"
+                    },
+
+                    {
+                        title: "状态",
+                        name: "status",
+                        filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                            if (text == 1) {
+                                return "普通";
+                            }
+                            if (text == 2) {
+                                return "冻结";
+                            }
+                            return makeTipSpan(text);
+                        }
+                    },
+                    {
+                        title: "创建时间",
+                        name: "createTime",
+                        width: 2,
+                        filter: function (text) {
+                            return makeTipSpan(timeFormatter.formatTime(text));
+                        }
+                    },
+                    {
+                        title: "操作",
+                        name: "createTime",
+                        width: 2,
+                        filter: function (text, list, index) {
+                            //行删除更新事件回调
+                            tagGroupDelete = function (index) {
+                                var data = list[index];
+                                this.confirmDialog.showMsg({
+                                    msg: this.DELETE_TIP,
+                                    onSure: function () {
+                                        ajax.post({
+                                            url: "/tagGroup/delete",
+                                            data: data,
+                                            onSuccess: function (result) {
+                                                this.loadTagGroupData();
+                                            }.bind(this)
+                                        });
+                                    }.bind(this),
+                                    onCancel: function () {
+                                    }.bind(this)
+                                });
+                            }.bind(this);
+                            tagGroupUpdate = function (index) {
+                                var data = list[index];
+                                this.updateTagGroupDialogBuilder.echoData({
+                                    data: data
+                                });
+                                this.updateTagGroupDialogBuilder.show();
+                            }.bind(this);
+
+                            return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate("+index+")'>修改</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete("+index+")'>删除</button>";
+                        }.bind(this)
+                    }
+                ]
+            });
+
+
+        }
+        this.loadPager = function (result) {
+            var data = result.data;
+            this.page.total = data.total;
+            this.pagerBuilder.buildPager({
+                page: this.page
+            });
+        }
+        this.loadTable = function (result) {
+
+            this.tableBuilder.buildTable({
+                    list: result.data.list,
+                }
+            );
+
+
+        }
+        this.loadTagGroupData = function () {
+            this.tableBuilder.loading();
+            ajax.post({
+                url: "/tagGroup/list/v2",
+                data: $.extend(this.page, this.query),
+                onSuccess: function (result) {
+                    this.loadTable(result);
+                    this.loadPager(result);
+                }.bind(this)
+            });
+
+        };
+
+
+    }
+
+    var tagGroupLoader = new TagGroupLoader();
+    tagGroupLoader.init({
+        addBtnId: "#addTagGroupBtn",
+        msgDialog: msgDialog,
+        confirmDialog: confirmDialog
+    });
+
+
+    /*]]>*/
+
+</script>
+</body>
+
+</html>
