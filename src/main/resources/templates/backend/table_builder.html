@@ -17,7 +17,6 @@
         this.onUpdate = undefined;
         this.defaultWidth = 1;
         this.LOADING_IMG_PATH = "./images/loading.gif";
-        this.OPERATE_BTN_WIDTH = 2;
         this.list = undefined;
         this.fields = undefined;
         this.init = function (args) {
@@ -54,27 +53,27 @@
 
         };
         this.addTableEvents = function () {
-            $.each(this.$table.find(".table_update"), function (index, item) {
-                $(item).unbind("click");
-                $(item).click(function () {
-                    var index = $(item).attr("index");
-                    var data = this.list[index];
-                    if (!isUndefined(this.onUpdate)) {
-                        this.onUpdate(data);
-                    }
-                }.bind(this));
-            }.bind(this))
-
-            $.each(this.$table.find(".table_delete"), function (index, item) {
-                $(item).unbind("click");
-                $(item).click(function () {
-                    var index = $(item).attr("index");
-                    var data = this.list[index];
-                    if (!isUndefined(this.onDelete)) {
-                        this.onDelete(data);
-                    }
-                }.bind(this));
-            }.bind(this));
+//            $.each(this.$table.find(".table_update"), function (index, item) {
+//                $(item).unbind("click");
+//                $(item).click(function () {
+//                    var index = $(item).attr("index");
+//                    var data = this.list[index];
+//                    if (!isUndefined(this.onUpdate)) {
+//                        this.onUpdate(data);
+//                    }
+//                }.bind(this));
+//            }.bind(this))
+//
+//            $.each(this.$table.find(".table_delete"), function (index, item) {
+//                $(item).unbind("click");
+//                $(item).click(function () {
+//                    var index = $(item).attr("index");
+//                    var data = this.list[index];
+//                    if (!isUndefined(this.onDelete)) {
+//                        this.onDelete(data);
+//                    }
+//                }.bind(this));
+//            }.bind(this));
         };
         this.addTableTitle = function (tableHeader, fields) {
             $.each(fields, function (index, item) {
@@ -82,38 +81,26 @@
                 var width = item.width;
                 tableHeader.append(this.makeCol(title, width));
             }.bind(this));
-            tableHeader.append(this.makeCol("操作"));
         }
         this.addTableBody = function (tableBody, fields, list) {
             //add list
-            if(isEmptyList(list)){
-                return ;
+            if (isEmptyList(list)) {
+                return;
             }
-            $.each(list, function (index, item) {
+            $.each(list, function (i, item) {
                 var row = this.makeRow();
-                $.each(fields, function (index, field) {
+                $.each(fields, function (j, field) {
                     var name = field.name;
                     var filter = field.filter;
                     var width = field.width;
-
                     var text = item[name];
                     if (!isUndefined(filter)) {
-                        text = filter(text, item);
+                        text = filter(text, list, i);
                     }
                     var col = this.makeCol(text, width);
                     row.append(col);
                 }.bind(this));
-                //add model btn
-                var args = {
-                    index: index
-                }
-                var col = this.makeCol("", this.OPERATE_BTN_WIDTH);
-                var updateBtn = this.makeUpdateModelBtn(args)
-                col.append(updateBtn);
-                var deleteBtn = this.makeDeleteModelBtn(args)
-                col.append(deleteBtn);
-                row.append(col);
-
+                //add row
                 tableBody.append(row);
             }.bind(this));
         }
@@ -132,14 +119,6 @@
         }
         this.makeRow = function () {
             return $("<div class='row'></div>")
-        }
-        this.makeUpdateModelBtn = function (args) {
-            var index = args.index;
-            return $("<button index='" + index + "' class='table_update btn btn-success btn-xs' >修改</button>");
-        }
-        this.makeDeleteModelBtn = function (args) {
-            var index = args.index;
-            return $("<button index='" + index + "' class='table_delete btn btn-danger btn-xs' style='margin-left: 4px;' >删除</button>");
         }
     }
 

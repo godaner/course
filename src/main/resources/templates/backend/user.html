@@ -135,7 +135,7 @@
                             <div class="form-group ">
                                 <label for="username" class="col-xs-3 control-label">用户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="username" disabled="disabled" type="text"
+                                    <input name="username" readonly="readonly" type="text"
                                            class="form-control input-sm duiqi"
                                            id="username" placeholder="">
                                 </div>
@@ -290,7 +290,7 @@
 
                             this.msgDialog.showMsg({
                                 msg: result.msg,
-                                onSure:function () {
+                                onSure: function () {
                                     if (!success(result.code)) {
                                         this.addUserDialogBuilder.show();
                                     }
@@ -375,30 +375,9 @@
                     }
                 ]
             });
+
             this.tableBuilder.init({
                 tableId: "#userTable",
-                onDelete: function (data) {
-                    this.confirmDialog.showMsg({
-                        msg: this.DELETE_TIP,
-                        onSure: function () {
-                            ajax.post({
-                                url: "/users/delete",
-                                data: data,
-                                onSuccess: function (result) {
-                                    this.loadUserData();
-                                }.bind(this)
-                            });
-                        }.bind(this),
-                        onCancel: function () {
-                        }.bind(this)
-                    });
-                }.bind(this),
-                onUpdate: function (data) {
-                    this.updateUserDialogBuilder.echoData({
-                        data: data
-                    });
-                    this.updateUserDialogBuilder.show();
-                }.bind(this),
                 fields: [
                     {
                         title: "头像",
@@ -468,6 +447,41 @@
                         filter: function (text) {
                             return makeTipSpan(timeFormatter.formatTime(text));
                         }
+                    },
+                    {
+                        title: "操作",
+                        name: "createTime",
+                        width:2,
+                        filter: function (text, list, index) {
+                            //行删除更新事件回调
+                            userDelete = function (index) {
+                                var data = list[index];
+                                this.confirmDialog.showMsg({
+                                    msg: this.DELETE_TIP,
+                                    onSure: function () {
+                                        ajax.post({
+                                            url: "/users/delete",
+                                            data: data,
+                                            onSuccess: function (result) {
+                                                this.loadUserData();
+                                            }.bind(this)
+                                        });
+                                    }.bind(this),
+                                    onCancel: function () {
+                                    }.bind(this)
+                                });
+                            }.bind(this);
+                            userUpdate = function (index) {
+                                var data = list[index];
+                                this.updateUserDialogBuilder.echoData({
+                                    data: data
+                                });
+                                this.updateUserDialogBuilder.show();
+                            }.bind(this);
+
+                            return "<button class='btn btn-success btn-xs' onclick='userUpdate("+index+")'>修改</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='userDelete("+index+")'>删除</button>";
+                        }.bind(this)
                     }
                 ]
             });
