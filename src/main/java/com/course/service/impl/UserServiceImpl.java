@@ -148,10 +148,26 @@ public class UserServiceImpl extends BaseService implements UserService {
                     UsersException.ErrorCode.USERNAME_IS_EXITS.getMsg());
         }
 
-        if (1 != usersMapper.insert(makeUsers(usersDto))) {
+        users = makeAddUsers(usersDto);
+        if (1 != usersMapper.insert(users)) {
             throw new UsersException("addUser#insert is fail !! usersDto is :" + usersDto);
         }
 
+    }
+
+    private Users makeAddUsers(UsersDto usersDto) {
+        Integer now = DateUtil.unixTime().intValue();
+        Users users = new Users();
+        users.setBirthday(now);
+        users.setUpdateTime(now);
+        users.setCreateTime(now);
+        users.setImgUrl("/users/img/" + uuid());
+        users.setUsername(usersDto.getUsername());
+        users.setPassword(usersDto.getPassword());
+        users.setSex(usersDto.getSex());
+        users.setDescription(usersDto.getDescription());
+        users.setStatus(usersDto.getStatus());
+        return users;
     }
 
     @Override

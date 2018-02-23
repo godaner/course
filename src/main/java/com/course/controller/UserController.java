@@ -120,6 +120,7 @@ public class UserController extends ServiceController<UserService> {
         service.updateUser(usersDto);
         return response;
     }
+
     @RequestMapping(value = "/update/img")
     @ResponseBody
     public Object updateUserHeadImg(UsersDto usersDto) throws Exception {
@@ -133,10 +134,11 @@ public class UserController extends ServiceController<UserService> {
         service.deleteUser(userId);
         return response;
     }
+
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object addUser(UsersDto usersDto) throws Exception {
         service.addUser(usersDto);
-        return response;
+        return response.setMsg("添加用户 '" + usersDto.getUsername() + "' 成功");
     }
 }

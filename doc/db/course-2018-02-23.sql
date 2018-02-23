@@ -11,7 +11,7 @@
  Target Server Version : 50633
  File Encoding         : 65001
 
- Date: 23/02/2018 08:50:10
+ Date: 23/02/2018 09:10:57
 */
 
 SET NAMES utf8mb4;
@@ -287,9 +287,8 @@ CREATE TABLE `users`  (
   `birthday` int(10) UNSIGNED DEFAULT NULL COMMENT '用户生日',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT '' COMMENT '用户描述',
   `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '用户头像url',
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `uk_username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '前端用户表' ROW_FORMAT = Compact;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '前端用户表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
@@ -307,6 +306,8 @@ INSERT INTO `users` VALUES (50, 1518094446, 1518311630, 1, 'r4', '123', 1, 15180
 INSERT INTO `users` VALUES (51, 1518094590, 1518170074, 1, 'r6', '123', 3, 1518094590, '', '/users/img/65307c85-bad3-4308-99bd-b1bc61ccf020');
 INSERT INTO `users` VALUES (52, 1518094614, 1518427312, 1, 'r99', '123', 2, 1518094614, '666', '/users/img/a8978e74-7356-491a-8774-b2f3bb7867a2');
 INSERT INTO `users` VALUES (53, 1518426501, 1518426501, 1, 'r999999', '123', 3, 1518426501, '', '/users/img/6d00ccdf-6f28-4b10-a53c-314f4f4e4d98');
-INSERT INTO `users` VALUES (54, 1518427070, 1518427425, 1, 'zhangke', '123123321', 3, 1518427070, '', '/users/img/4edd9614-ff9e-45e9-b321-ea950418a6e3');
+INSERT INTO `users` VALUES (54, 1518427070, 1519347442, 2, 'zhangke', '159357', 3, 1518427070, '', '/users/img/4edd9614-ff9e-45e9-b321-ea950418a6e3');
+INSERT INTO `users` VALUES (55, 1519347581, 1519347581, 3, 'godaner', '159357', 3, 1519347581, '', '/users/img/d85e00c6-2af4-42a4-bb99-81ad9d32d3ac');
+INSERT INTO `users` VALUES (56, 1519347686, 1519347686, 3, 'godaner02', '123', 3, 1519347686, '', '/users/img/332a70b1-6aed-464d-88b6-30d5a41f7ca8');
 
 SET FOREIGN_KEY_CHECKS = 1;
