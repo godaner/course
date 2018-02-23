@@ -77,7 +77,7 @@ public class CourseController extends ServiceController<CourseService> {
     @RequestMapping(value = "/list/v2")
     @ResponseBody
     public Object getCoursesV2(PageBean page, CoursesQueryBean query) throws Exception {
-        return response.putData("courses", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
+        return response.putData("list", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
     }
     @RequestMapping(value = "/update")
     @ResponseBody

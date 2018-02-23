@@ -111,7 +111,7 @@ public class UserController extends ServiceController<UserService> {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object getUsers(PageBean page, UsersQueryBean query) throws Exception {
-        return response.putData("users", service.getUsers(page, query)).putData("total", service.getUsersCount(page, query));
+        return response.putData("list", service.getUsers(page, query)).putData("total", service.getUsersCount(page, query));
     }
 
     @RequestMapping(value = "/update")

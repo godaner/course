@@ -366,27 +366,10 @@
                         name: "username"
                     },
                     {
-                        title: "性别",
-                        name: "sex",
-                        filter: function (text) {
-
-                            if (text == 1) {
-                                return "男";
-                            }
-                            if (text == 2) {
-                                return "女";
-                            }
-                            if (text == 3) {
-                                return "未知";
-                            }
-                            return text;
-                        }
-                    },
-                    {
                         title: "密码",
                         name: "password",
                         filter: function (text) {
-                            return makeTipSpan("*****");
+                            return makeTipSpan(text);
                         }
                     },
                     {
@@ -434,7 +417,7 @@
         this.loadTable = function (result) {
 
             this.tableBuilder.buildTable({
-                    list: result.data.admins,
+                    list: result.data.list,
                 }
             );
 
@@ -452,57 +435,7 @@
             });
 
         };
-        /**
-         * 更新头像
-         * */
-        this.updateHeadFile = function (_this) {
-            if ($(_this).val() == "") {
-                return;
-            }
-            //file
-            var fileObj = document.getElementById("headFile").files[0]; // 获取文件对象
 
-            //adminId
-            var $form = $(_this).parent().parent().parent();
-
-
-            var adminId = $form.find("input[name='adminId']").val();
-            // FormData 对象
-
-            var form = new FormData();
-
-            form.append("adminId", adminId);                        // 可以增加表单数据
-
-            form.append("headFile", fileObj);                           // 文件对象
-
-            $.ajax({
-                url: "/admins/update/img",
-                type: 'POST',
-                data: form,
-                // 告诉jQuery不要去处理发送的数据
-                processData: false,
-                // 告诉jQuery不要去设置Content-Type请求头
-                contentType: false,
-                success: function (result) {
-                    $(_this).val("");
-                    this.updateAdminDialogBuilder.hide();
-
-                    var msg = "图片更新失败";
-                    if (success(result.code)) {
-                        msg = "图片更新成功";
-                        this.loadAdminData();
-                    }
-
-                    this.msgDialog.showMsg({
-                        msg: msg,
-                        onSure: function () {
-                            this.updateAdminDialogBuilder.show();
-                        }.bind(this)
-                    });
-                }.bind(this)
-            });
-
-        }
 
     }
 

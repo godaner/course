@@ -426,7 +426,7 @@
                         title: "密码",
                         name: "password",
                         filter: function (text) {
-                            return "<span title='" + text + "'>*****</span>";
+                            return makeTipSpan(text);
                         }
                     },
                     {
@@ -434,7 +434,7 @@
                         name: "description",
                         width: 2,
                         filter: function (text) {
-                            return "<span title='" + text + "'>" + text + "</span>";
+                            return makeTipSpan(text);
                         }
                     },
                     {
@@ -448,7 +448,7 @@
                             if (text == 2) {
                                 return "冻结";
                             }
-                            return text;
+                            return makeTipSpan(text);
                         }
                     },
                     {
@@ -456,7 +456,7 @@
                         name: "createTime",
                         width: 2,
                         filter: function (text) {
-                            return timeFormatter.formatTime(text);
+                            return makeTipSpan(timeFormatter.formatTime(text));
                         }
                     }
                 ]
@@ -474,7 +474,7 @@
         this.loadTable = function (result) {
 
             this.tableBuilder.buildTable({
-                    list: result.data.users,
+                    list: result.data.list,
                 }
             );
 

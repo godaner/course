@@ -20,7 +20,7 @@ public class AdminController extends ServiceController<AdminService> {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object getAdmins(PageBean page, AdminsQueryBean query) throws Exception {
-        return response.putData("users", service.getAdmins(page, query)).putData("total", service.getAdminsCount(page, query));
+        return response.putData("list", service.getAdmins(page, query)).putData("total", service.getAdminsCount(page, query));
     }
     @RequestMapping(value = "/add")
     @ResponseBody
