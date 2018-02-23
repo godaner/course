@@ -73,7 +73,7 @@ public class UserServiceImpl extends BaseService implements UserService {
     public UsersDto makeUsersDto(Users user) {
         UsersDto usersDto = new UsersDto();
         usersDto.setUserId(user.getId());
-        usersDto.setPassword("");
+        usersDto.setPassword(Users.EMPTY_PWD);
         usersDto.setBirthday(user.getBirthday());
         usersDto.setImgUrl(user.getImgUrl());
         usersDto.setSex(user.getSex());
@@ -530,11 +530,11 @@ public class UserServiceImpl extends BaseService implements UserService {
         users.setBirthday(now);
         users.setUpdateTime(now);
         users.setCreateTime(now);
-        users.setImgUrl("/users/img/" + uuid());
+        users.setImgUrl(Users.IMG_URL_PREFIX + uuid());
         users.setUsername(usersDto.getUsername());
         users.setPassword(usersDto.getPassword());
         users.setSex(Users.Sex.U.getCode());
-        users.setDescription("");
+        users.setDescription(Users.EMPTY_DESCRIPTION);
         users.setStatus(BasePo.Status.NORMAL.getCode());
         return users;
     }

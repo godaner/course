@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 
 @Service
 @Scope("prototype")
@@ -26,19 +28,47 @@ public class AdminServiceImpl extends BaseService implements AdminService {
 
     @Override
     public void addAdmin(AdminsDto adminsDto) {
+        if (isEmptyString(adminsDto.getPassword())) {
+            throw new AdminsException("addAdmin password is null !! adminsDto is :" + adminsDto,
+                    AdminsException.ErrorCode.PASSWORD_IS_NULL.getCode(),
+                    AdminsException.ErrorCode.PASSWORD_IS_NULL.getMsg());
+        }
 
-        Admins admins = makeAdmins(adminsDto);
+
+        Admins admins = this.getAdminByUsername(adminsDto.getUsername(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        if (null != admins) {
+            throw new AdminsException("addAdmin username is not exits !! adminsDto is :" + adminsDto,
+                    AdminsException.ErrorCode.USERNAME_IS_EXITS.getCode(),
+                    AdminsException.ErrorCode.USERNAME_IS_EXITS.getMsg());
+        }
+        admins = makeAdmins(adminsDto);
 
         if (1 != adminsMapper.insert(admins)) {
             throw new AdminsException("addAdmin#insert is fail !! adminsDto is :" + adminsDto);
         }
     }
 
+    private Admins getAdminByUsername(String username, List<Byte> status) {
+        AdminsQueryBean query = new AdminsQueryBean();
+        query.setStatus(status);
+        query.setUsername(username);
+        return adminsMapper.getAdminByUsername(query);
+    }
+
     @Override
     public List<AdminsDto> getAdmins(PageBean page, AdminsQueryBean query) {
 
         query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
-        return adminsMapper.getAdmins(page, query);
+        return adminsMapper.getAdmins(page, query).stream().parallel().map(admins -> {
+            AdminsDto adminsDto = new AdminsDto();
+            adminsDto.setAdminId(admins.getId());
+            adminsDto.setCreateTime(admins.getCreateTime());
+            adminsDto.setDescription(admins.getDescription());
+            adminsDto.setPassword(Admins.EMPTY_PWD);
+            adminsDto.setStatus(admins.getStatus());
+            adminsDto.setUsername(admins.getUsername());
+            return adminsDto;
+        }).collect(toList());
     }
 
     @Override
@@ -53,8 +83,9 @@ public class AdminServiceImpl extends BaseService implements AdminService {
         admins.setCreateTime(now);
         admins.setUpdateTime(now);
         admins.setStatus(adminsDto.getStatus());
-        admins.setDescription(admins.getDescription());
-        admins.setPassword(admins.getPassword());
+        admins.setDescription(adminsDto.getDescription());
+        admins.setPassword(adminsDto.getPassword());
+        admins.setUsername(adminsDto.getUsername());
         return admins;
     }
 }

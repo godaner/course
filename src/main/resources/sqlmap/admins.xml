@@ -185,7 +185,7 @@ id=#{id}
 	</select>
 	<!--**************************** 自定义mapper start ****************************-->
 
-	<select id="getUsers" resultMap="AdminsMap">
+	<select id="getAdmins" resultMap="AdminsMap">
 		select *
 		from
 		admins
@@ -204,7 +204,7 @@ id=#{id}
 			limit #{page.start},#{page.size}
 		</if>
 	</select>
-	<select id="getUsersCount" resultType="long">
+	<select id="getAdminsCount" resultType="long">
 		select count(id)
 		from
 		admins

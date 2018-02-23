@@ -5,6 +5,10 @@ import com.course.util.ByteConstantVar;
 
 public class Users extends BasePo {
     public final static String KEY_OF_ONLINE_USER_IN_HTTP_SESSION = "onlineUser";
+    public final static String EMPTY_PWD = "******";
+    public final static String EMPTY_DESCRIPTION = "";
+    public final static String IMG_URL_PREFIX = "/users/img/";
+
     private String username;
     private String password;
     private Byte sex;

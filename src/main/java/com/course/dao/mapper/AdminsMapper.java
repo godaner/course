@@ -12,11 +12,11 @@ import java.util.List;
 public interface AdminsMapper extends BaseCrudMapper<Admins> {
 
 
-    List<AdminsDto> getAdmins(@Param("page") PageBean page, @Param("query") AdminsQueryBean query);
+    List<Admins> getAdmins(@Param("page") PageBean page, @Param("query") AdminsQueryBean query);
 
     Long getAdminsCount(@Param("page") PageBean page, @Param("query") AdminsQueryBean query);
 
-    Users getAdminByUserId(@Param("query") AdminsQueryBean query);
+    Admins getAdminByUserId(@Param("query") AdminsQueryBean query);
 
-    Users getAdminByUsername(@Param("query") AdminsQueryBean query);
+    Admins getAdminByUsername(@Param("query") AdminsQueryBean query);
 }

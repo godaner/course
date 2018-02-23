@@ -5,6 +5,7 @@ import com.course.util.ByteConstantVar;
 
 public class Admins extends BasePo {
     public final static String KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION = "onlineAdmin";
+    public final static String EMPTY_PWD = "******";
     private String username;
     private String password;
     private String description;
@@ -62,3 +63,4 @@ public class Admins extends BasePo {
         this.description = description;
     }
 }
+

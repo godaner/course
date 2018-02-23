@@ -86,6 +86,9 @@
         }
         this.addTableBody = function (tableBody, fields, list) {
             //add list
+            if(isEmptyList(list)){
+                return ;
+            }
             $.each(list, function (index, item) {
                 var row = this.makeRow();
                 $.each(fields, function (index, field) {

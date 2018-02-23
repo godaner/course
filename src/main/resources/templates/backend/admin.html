@@ -9,7 +9,7 @@
 <body id="admin_body">
 
 <!--管理员管理模块-->
-<div role="tabpanel" class="tab-pane active" id="admin">
+<div role="tabpanel" class="tab-pane " id="admin">
     <div class="check-div form-inline">
         <div class="col-xs-3">
             <button id="addAdminBtn" class="btn btn-yellow btn-xs">添加记录</button>
@@ -62,7 +62,7 @@
                             <div class="form-group ">
                                 <label class="col-xs-3 control-label">管理员名：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="adminname" type="text"
+                                    <input name="username" type="text"
                                            class="form-control input-sm duiqi" placeholder="请输入管理员名">
                                 </div>
                             </div>
@@ -82,16 +82,7 @@
                                            class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group ">
-                                <label class="col-xs-3 control-label">性别：</label>
-                                <div class="col-xs-8 ">
-                                    <select name="sex" class="form-control input-sm duiqi">
-                                        <option value="1" selected="selected">男</option>
-                                        <option value="2">女</option>
-                                        <option value="3">未设置</option>
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="form-group ">
                                 <label class="col-xs-3 control-label">状态：</label>
                                 <div class="col-xs-8 ">
@@ -133,19 +124,11 @@
                             <input name="adminId" type="hidden">
 
                             <div class="form-group ">
-                                <label for="adminname" class="col-xs-3 control-label">管理员名：</label>
+                                <label for="username" class="col-xs-3 control-label">管理员名：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="adminname" disabled="disabled" type="text"
+                                    <input name="username" disabled="disabled" type="text"
                                            class="form-control input-sm duiqi"
-                                           id="adminname" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="form-group ">
-                                <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
-                                <div class="col-xs-8">
-                                    <input name="headFile" type="file" class="duiqi"
-                                           id="headFile" placeholder="" onchange="adminLoader.updateHeadFile(this);">
+                                           id="username" placeholder="">
                                 </div>
                             </div>
 
@@ -164,16 +147,7 @@
                                            id="description" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group ">
-                                <label for="sex" class="col-xs-3 control-label">性别：</label>
-                                <div class="col-xs-8 ">
-                                    <select id="sex" name="sex" class="form-control input-sm duiqi">
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
-                                        <option value="3">未设置</option>
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="form-group ">
                                 <label for="status" class="col-xs-3 control-label">状态：</label>
                                 <div class="col-xs-8 ">
@@ -249,7 +223,7 @@
                 fields: [
                     {
                         filter: undefined,
-                        name: "adminname",
+                        name: "username",
                         inputType: InputType.TEXT
                     }
                 ],
@@ -344,13 +318,6 @@
                     },
                     {
                         name: "status",
-                        inputType: InputType.SELECT,
-                        filter: function (data) {
-                            return data;
-                        }
-                    },
-                    {
-                        name: "sex",
                         inputType: InputType.SELECT,
                         filter: function (data) {
                             return data;
