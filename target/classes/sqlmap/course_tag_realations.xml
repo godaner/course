@@ -179,7 +179,7 @@
     <!--**************************** 自定义mapper start ****************************-->
 
     <select id="getCourseTagIds" resultType="long">
-        select *
+        select tag_id
         from
         course_tag_realations
         where

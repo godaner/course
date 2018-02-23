@@ -2,9 +2,11 @@ package com.course.controller;
 
 import com.course.controller.base.ServiceController;
 import com.course.service.TagService;
+import com.course.service.dto.CourseTagRealationsDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,8 +29,8 @@ public class TagsController extends ServiceController<TagService> {
 
     @RequestMapping(value = "/course/realation")
     @ResponseBody
-    public Object updateCourseTagRealations(Long courseId, List<Long> selectedTagIds) throws Exception {
-        service.updateCourseTagRealations(courseId, selectedTagIds);
+    public Object updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) throws Exception {
+        service.updateCourseTagRealations(courseTagRealationsDto);
         return response;
     }
 }

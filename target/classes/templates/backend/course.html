@@ -481,20 +481,23 @@
                                                     tagGroupList: result01.data.list,
                                                     echoTagIds: result02.data.list,
                                                     onSure: function (selectedTagIds) {
+
                                                         ajax.post({
                                                             url: "/tags/course/realation",
                                                             data: {
-                                                                selectedTagIds:selectedTagIds,
-                                                                courseId:courseId
+                                                                selectedTagIds: selectedTagIds.join(","),
+                                                                courseId: courseId
                                                             },
                                                             onSuccess: function (result) {
-
+                                                                this.msgDialog.showMsg({
+                                                                    msg: result.msg
+                                                                });
                                                             }.bind(this)
                                                         });
-                                                    },
+                                                    }.bind(this),
                                                     onCancel: function () {
 
-                                                    }
+                                                    }.bind(this)
                                                 });
                                             }.bind(this)
                                         });

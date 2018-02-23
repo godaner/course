@@ -5,6 +5,7 @@ import com.course.dao.po.BasePo;
 import com.course.dao.po.CourseTagRealations;
 import com.course.dao.po.query.TagCourseRealationsQueryBean;
 import com.course.service.TagService;
+import com.course.service.dto.CourseTagRealationsDto;
 import com.course.service.exception.TagsException;
 import com.course.util.DateUtil;
 import org.assertj.core.util.Lists;
@@ -36,7 +37,11 @@ public class TagServiceImpl implements TagService {
 
     @Override
     @Transactional
-    public void updateCourseTagRealations(Long courseId, List<Long> selectedTagIds) {
+    public void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) {
+        Long courseId = courseTagRealationsDto.getCourseId();
+        List<Long> selectedTagIds = Lists.newArrayList(courseTagRealationsDto.getSelectedTagIds().split(",")).stream().parallel().map(s -> {
+            return Long.valueOf(s);
+        }).collect(toList());
         if (courseTagRealationsMapper.updateCourseTagRealationsStatusByCourseId(courseId, BasePo.Status.DELETED.getCode()) < 0) {
             throw new TagsException("updateCourseTagRealations#updateCourseTagRealationsStatusByCourseId is fail !! courseId is :" + courseId + " , selectedTagIds is " + selectedTagIds,
                     TagsException.ErrorCode.UPDATE_TAG_STATUS_FAIL.getCode(),
