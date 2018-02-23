@@ -12,11 +12,9 @@ import java.util.List;
 public interface UsersMapper extends BaseCrudMapper<Users> {
 
 
-    List<Users> getUsers(@Param("page") PageBean page, @Param("que" +
-            "ry") UsersQueryBean query);
+    List<Users> getUsers(@Param("page") PageBean page, @Param("query") UsersQueryBean query);
 
-    Long getUsersCount(@Param("page") PageBean page, @Param("que" +
-            "ry") UsersQueryBean query);
+    Long getUsersCount(@Param("page") PageBean page, @Param("query") UsersQueryBean query);
 
     Users getUserByUserId(@Param("query") UsersQueryBean query);
 

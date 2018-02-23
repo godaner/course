@@ -9,177 +9,106 @@
 <body id="admin_body">
 
 <!--管理员管理模块-->
-<div role="tabpanel" class="tab-pane" id="admin">
+<div role="tabpanel" class="tab-pane active" id="admin">
     <div class="check-div form-inline">
         <div class="col-xs-3">
-            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加用户 </button>
+            <button id="addAdminBtn" class="btn btn-yellow btn-xs">添加记录</button>
         </div>
-        <div class="col-xs-4">
-            <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-            <button class="btn btn-white btn-xs ">查 询 </button>
+        <div id="adminSearch" class="col-xs-4">
+            <form onsubmit="return false;">
+                <input name="username" type="text" class="form-control input-sm" placeholder="输入文字搜索">
+                <button id="adminSearchBtn" class="btn btn-white btn-xs ">查 询</button>
+            </form>
         </div>
-        <div class="col-lg-3 col-lg-offset-2 col-xs-4" style=" padding-right: 40px;text-align: right;">
-            <label for="paixu">排序:&nbsp;</label>
-            <select class=" form-control">
-                <option>地区</option>
-                <option>地区</option>
-                <option>班期</option>
-                <option>性别</option>
-                <option>年龄</option>
-                <option>份数</option>
+        <div class="col-lg-5 col-lg-offset-0 col-xs-6" style=" padding-right: 40px;text-align: right;">
+            <label for="adminOrderBy">排序:&nbsp;</label>
+            <select id="adminOrderBy" name="orderBy" class="form-control">
+                <option value="id">id</option>
+                <option value="create_time">创建时间</option>
+            </select>
+            <label for="adminOrderType">规则:&nbsp;</label>
+            <select id="adminOrderType" name="orderType" class=" form-control">
+                <option value="asc">升序</option>
+                <option value="desc">降序</option>
             </select>
         </div>
     </div>
-    <div class="data-div">
-        <div class="row tableHeader">
-            <div class="col-xs-2 ">
-                用户名
-            </div>
-            <div class="col-xs-2">
-                地区
-            </div>
-            <div class="col-xs-2">
-                真实姓名
-            </div>
-            <div class="col-xs-2">
-                电话
-            </div>
-            <div class="col-xs-2">
-                状态
-            </div>
-            <div class="col-xs-2">
-                操作
-            </div>
-        </div>
-        <div class="tablebody">
+    <div class="data-div" id="adminTable">
 
-            <div class="row">
-                <div class="col-xs-2 ">
-                    goodmoning
-                </div>
-                <div class="col-xs-2">
-                    国际关系地区
-                </div>
-                <div class="col-xs-2">
-                    李豆豆
-                </div>
-                <div class="col-xs-2">
-                    13688889999
-                </div>
-                <div class="col-xs-2">
-                    状态
-                </div>
-                <div class="col-xs-2">
-                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirm_dialog">删除</button>
-                </div>
-            </div>
-
-        </div>
 
     </div>
     <!--页码块-->
     <footer class="footer">
-        <ul class="pagination">
-            <li>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
-                页
-            </li>
-            <li class="gray">
-                共20页
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-left">
-                </i>
-            </li>
-            <li>
-                <i class="glyphicon glyphicon-menu-right">
-                </i>
-            </li>
+        <ul id="adminPager" class="pagination">
+
         </ul>
     </footer>
 
-    <!--弹出添加用户窗口-->
-    <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <!--添加管理员弹出框-->
+    <div id="addAdminDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">添加用户</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">添加管理员</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="adminId" type="hidden">
+
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label class="col-xs-3 control-label">管理员名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="adminname" type="text"
+                                           class="form-control input-sm duiqi" placeholder="请输入管理员名">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">密码：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="password" type="password"
+                                           class="form-control input-sm duiqi" placeholder="请输入密码">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">简介：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">国际关系地区</option>
-                                        <option value="">北京大学</option>
-                                        <option value="">天津大学</option>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="sex" class="form-control input-sm duiqi">
+                                        <option value="1" selected="selected">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">管理员</option>
-                                        <option value="">普通用户</option>
-                                        <option value="">游客</option>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="add_admin_cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="add_admin_submit_btn" type="button" class="btn btn-xs btn-green">添 加</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -188,68 +117,86 @@
     </div>
     <!-- /.modal -->
 
-    <!--弹出修改用户窗口-->
-    <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <!--弹出修改管理员窗口-->
+    <div id="editAdminDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">修改管理员</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="adminId" type="hidden">
+
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                <label for="adminname" class="col-xs-3 control-label">管理员名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="adminname" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="adminname" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+
+                            <div class="form-group ">
+                                <label for="headFile" class="col-xs-3 control-label">选择头像：</label>
+                                <div class="col-xs-8">
+                                    <input name="headFile" type="file" class="duiqi"
+                                           id="headFile" placeholder="" onchange="adminLoader.updateHeadFile(this);">
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">密码：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="password" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                            <div class="form-group ">
+                                <label for="description" class="col-xs-3 control-label">简介：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="description" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
+                            <div class="form-group ">
+                                <label for="sex" class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="sex" name="sex" class="form-control input-sm duiqi">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="status" name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">创建时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="createTime" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -257,10 +204,351 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-
 
 
 </div>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+    var AdminLoader = function () {
+
+        this.confirmDialog = undefined;
+        this.msgDialog = undefined;
+        this.page = new Page();
+        this.query = new Query();
+        this.pagerBuilder = new PagerBuilder();
+        this.tableBuilder = new TableBuilder();
+        this.sortBuilder = new SortBuilder();
+        this.updateAdminDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.addAdminDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.seachBuilder = new SearchBuilder();
+        this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+        this.$addAdminBtn = undefined;
+        this.registEvents = function () {
+            this.$addAdminBtn.unbind("click");
+            this.$addAdminBtn.click(function () {
+                this.addAdminDialogBuilder.show();
+            }.bind(this));
+        };
+        this.init = function (args) {
+
+
+            this.$addAdminBtn = $("#addAdminBtn");
+            this.confirmDialog = args.confirmDialog;
+            this.msgDialog = args.msgDialog;
+
+            this.registEvents();
+
+            this.seachBuilder.init({
+                query: this.query,
+                searchId: "#adminSearch",
+                searchBtnId: "#adminSearchBtn",
+                fields: [
+                    {
+                        filter: undefined,
+                        name: "adminname",
+                        inputType: InputType.TEXT
+                    }
+                ],
+                onSearch: function (query) {
+                    this.query = query;
+                    this.loadAdminData();
+                }.bind(this)
+            });
+
+            this.sortBuilder.init({
+                page: this.page,
+                orderBySelectId: "#adminOrderBy",
+                orderTypeSelectId: "#adminOrderType",
+                onSort: function (page) {
+                    this.page.orderBy = page.orderBy;
+                    this.page.orderType = page.orderType;
+                    this.loadAdminData();
+                }.bind(this)
+            });
+
+            this.pagerBuilder.init({
+                pagerId: "#adminPager",
+                onPageChange: function (newPage) {
+                    this.page = newPage;
+                    this.loadAdminData();
+                }.bind(this)
+            });
+            this.addAdminDialogBuilder.init({
+                dialogId: "#addAdminDialog",
+                submitId: "#add_admin_submit_btn",
+                cancelId: "#add_admin_cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/admins/add",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadAdminData();
+
+                            this.msgDialog.showMsg({
+                                msg: result.msg,
+                                onSure:function () {
+                                    if (!success(result.code)) {
+                                        this.addAdminDialogBuilder.show();
+                                    }
+                                }.bind(this)
+                            });
+
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                }
+            });
+            this.updateAdminDialogBuilder.init({
+                dialogId: "#editAdminDialog",
+                submitId: "#submit_btn",
+                cancelId: "#cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/admins/update",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadAdminData();
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                },
+                fields: [
+                    {
+                        name: "adminId",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "username",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "description",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "status",
+                        inputType: InputType.SELECT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "sex",
+                        inputType: InputType.SELECT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "createTime",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return timeFormatter.formatTime(data);
+                        }
+                    }
+                ]
+            });
+            this.tableBuilder.init({
+                tableId: "#adminTable",
+                onDelete: function (data) {
+                    this.confirmDialog.showMsg({
+                        msg: this.DELETE_TIP,
+                        onSure: function () {
+                            ajax.post({
+                                url: "/admins/delete",
+                                data: data,
+                                onSuccess: function (result) {
+                                    this.loadAdminData();
+                                }.bind(this)
+                            });
+                        }.bind(this),
+                        onCancel: function () {
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onUpdate: function (data) {
+                    this.updateAdminDialogBuilder.echoData({
+                        data: data
+                    });
+                    this.updateAdminDialogBuilder.show();
+                }.bind(this),
+                fields: [
+                    {
+                        title: "管理员id",
+                        name: "adminId"
+                    },
+                    {
+                        title: "管理员昵称",
+                        name: "username"
+                    },
+                    {
+                        title: "性别",
+                        name: "sex",
+                        filter: function (text) {
+
+                            if (text == 1) {
+                                return "男";
+                            }
+                            if (text == 2) {
+                                return "女";
+                            }
+                            if (text == 3) {
+                                return "未知";
+                            }
+                            return text;
+                        }
+                    },
+                    {
+                        title: "密码",
+                        name: "password",
+                        filter: function (text) {
+                            return makeTipSpan("*****");
+                        }
+                    },
+                    {
+                        title: "简介",
+                        name: "description",
+                        width: 2,
+                        filter: function (text) {
+                            return makeTipSpan(text);
+                        }
+                    },
+                    {
+                        title: "状态",
+                        name: "status",
+                        filter: function (text) {
+//                                        状态,1为正常，2为冻结，3为删除
+                            if (text == 1) {
+                                return "普通";
+                            }
+                            if (text == 2) {
+                                return "冻结";
+                            }
+                            return makeTipSpan(text);
+                        }
+                    },
+                    {
+                        title: "创建时间",
+                        name: "createTime",
+                        width: 2,
+                        filter: function (text) {
+                            return makeTipSpan(timeFormatter.formatTime(text));
+                        }
+                    }
+                ]
+            });
+
+
+        }
+        this.loadPager = function (result) {
+            var data = result.data;
+            this.page.total = data.total;
+            this.pagerBuilder.buildPager({
+                page: this.page
+            });
+        }
+        this.loadTable = function (result) {
+
+            this.tableBuilder.buildTable({
+                    list: result.data.admins,
+                }
+            );
+
+
+        }
+        this.loadAdminData = function () {
+            this.tableBuilder.loading();
+            ajax.post({
+                url: "/admins/list",
+                data: $.extend(this.page, this.query),
+                onSuccess: function (result) {
+                    this.loadTable(result);
+                    this.loadPager(result);
+                }.bind(this)
+            });
+
+        };
+        /**
+         * 更新头像
+         * */
+        this.updateHeadFile = function (_this) {
+            if ($(_this).val() == "") {
+                return;
+            }
+            //file
+            var fileObj = document.getElementById("headFile").files[0]; // 获取文件对象
+
+            //adminId
+            var $form = $(_this).parent().parent().parent();
+
+
+            var adminId = $form.find("input[name='adminId']").val();
+            // FormData 对象
+
+            var form = new FormData();
+
+            form.append("adminId", adminId);                        // 可以增加表单数据
+
+            form.append("headFile", fileObj);                           // 文件对象
+
+            $.ajax({
+                url: "/admins/update/img",
+                type: 'POST',
+                data: form,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                success: function (result) {
+                    $(_this).val("");
+                    this.updateAdminDialogBuilder.hide();
+
+                    var msg = "图片更新失败";
+                    if (success(result.code)) {
+                        msg = "图片更新成功";
+                        this.loadAdminData();
+                    }
+
+                    this.msgDialog.showMsg({
+                        msg: msg,
+                        onSure: function () {
+                            this.updateAdminDialogBuilder.show();
+                        }.bind(this)
+                    });
+                }.bind(this)
+            });
+
+        }
+
+    }
+
+    var adminLoader = new AdminLoader();
+    adminLoader.init({
+        msgDialog: msgDialog,
+        confirmDialog: confirmDialog
+    });
+
+
+    /*]]>*/
+
+</script>
 </body>
 
 </html>
