@@ -1,4 +1,4 @@
-package com.course.service;
+package com.course.service.dto;
 
 public class AdminsDto {
     private Long adminId;

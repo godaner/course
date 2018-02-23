@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="tags_dialog_body">
+<!--标签选择弹框-->
+<div id="tags_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+     aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class=" close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+                <h4 class="modal-title" id="gridSystemModalLabel">选择标签</h4>
+            </div>
+            <div class="modal-body">
+                <div id="tags_content" style="width:90%;margin-left: 5%;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--data-dismiss="modal"-->
+                <button id="cancel_btn" type="button" class=" btn btn-xs btn-white">取 消</button>
+                <button id="sure_btn" type="button" class="btn  btn-xs btn-danger">确 认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var TagsDialog = function () {
+        this.$tagsDialog = undefined;
+        this.$cancelBtn = undefined;
+        this.$sureBtn = undefined;
+        this.onCancel = undefined;
+        this.onSure = undefined;
+        this.selectedTagIds = [];
+        this.$contentDom = undefined;
+        this.init = function (args) {
+            this.$tagsDialog = $(args.dialogId);
+            this.$cancelBtn = this.$tagsDialog.find(args.cancelBtnId);
+            this.$sureBtn = this.$tagsDialog.find(args.sureBtnId);
+            this.$contentDom = this.$tagsDialog.find(args.contentDomId);
+            this.registEvents();
+        };
+        this.registEvents = function () {
+
+            //确认事件
+            this.$sureBtn.unbind("click");
+            this.$sureBtn.click(function () {
+                this.hide();
+                if (!isUndefined(this.onSure)) {
+
+                    $.each($(this.$contentDom.find("input.tags:checked")), function (i, tagInput) {
+                        var tagId = $(tagInput).val();
+                        this.selectedTagIds.push(tagId);
+                    }.bind(this));
+                    this.onSure(this.selectedTagIds);
+                }
+            }.bind(this));
+            //取消事件
+            this.$cancelBtn.unbind("click");
+            this.$cancelBtn.click(function () {
+                this.hide();
+                if (!isUndefined(this.onCancel)) {
+                    this.onCancel();
+                }
+            }.bind(this));
+        };
+        this.hide = function () {
+            this.$tagsDialog.modal('hide')
+        };
+        this.show = function (args) {
+
+            this.onCancel = args.onCancel;
+            this.onSure = args.onSure;
+            this.tagGroupList = args.tagGroupList;
+            this.echoTagIds = args.echoTagIds;
+
+            this.selectedTagIds = [];
+
+            this.makeTagsList(this.tagGroupList);
+
+            this.selectTagsList(this.echoTagIds);
+
+            this.$tagsDialog.modal('show');
+        };
+        this.makeTagsList = function (tagGroupList) {
+            this.$contentDom.html("");
+            $.each(tagGroupList, function (i, tagGroup) {
+                this.$contentDom.append(this.makeTagGroupTitle(tagGroup.tagGroupName))
+                $.each(tagGroup.tags, function (j, tag) {
+                    this.$contentDom.append(this.makeCheckBox(tag.tagName, tag.tagId));
+                }.bind(this));
+            }.bind(this));
+        };
+        this.selectTagsList = function (echoTagIds) {
+            $.each(echoTagIds, function (i, echoTagId) {
+                $(this.$contentDom.find("input.tags[value='" + echoTagId + "']")).attr("checked", true);
+            }.bind(this));
+        };
+        this.makeCheckBox = function (text, value) {
+            return $("<label style='margin-left: 5px'><input class='tags' name='tags' type='checkbox' value='" + value + "'> " + text + "</label>");
+        };
+        this.makeTagGroupTitle = function (text) {
+            return $("<div class='row'>" + text + "</div>");
+        }
+
+    };
+    var tagsDialog = new TagsDialog();
+    tagsDialog.init({
+        dialogId: "#tags_dialog",
+        sureBtnId: "#sure_btn",
+        cancelBtnId: "#cancel_btn",
+        contentDomId: "#tags_content"
+    });
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 package com.course.service;
 
 import com.course.dao.po.query.AdminsQueryBean;
+import com.course.service.dto.AdminsDto;
 import com.course.util.PageBean;
 
 import java.util.List;

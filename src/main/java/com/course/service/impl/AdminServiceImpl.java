@@ -5,7 +5,7 @@ import com.course.dao.po.Admins;
 import com.course.dao.po.BasePo;
 import com.course.dao.po.query.AdminsQueryBean;
 import com.course.service.AdminService;
-import com.course.service.AdminsDto;
+import com.course.service.dto.AdminsDto;
 import com.course.service.exception.AdminsException;
 import com.course.service.exception.CoursesException;
 import com.course.util.BaseService;

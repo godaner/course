@@ -215,6 +215,7 @@
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
         this.$addCourseBtn = undefined;
+        this.tagsDialog = undefined;
         this.registEvents = function () {
             this.$addCourseBtn.unbind("click");
             this.$addCourseBtn.click(function () {
@@ -223,6 +224,7 @@
         };
         this.init = function (args) {
 
+            this.tagsDialog = args.tagsDialog;
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
             this.$addCourseBtn = $(args.addBtnId);
@@ -424,8 +426,8 @@
                     {
                         title: "流量",
                         name: "downloadNumber",
-                        width: 3,
-                        filter: function (text, list,index) {
+                        width: 2,
+                        filter: function (text, list, index) {
                             var item = list[index];
                             text = "下载数 : " + item.downloadNumber + " , 收藏数 : " + item.collectNumber + " , 观看数 : " + item.watchNumber;
                             return makeTipSpan(text);
@@ -434,7 +436,7 @@
                     {
                         title: "操作",
                         name: "createTime",
-                        width: 2,
+                        width: 3,
                         filter: function (text, list, index) {
                             //行删除更新事件回调
                             courseDelete = function (index) {
@@ -462,8 +464,51 @@
                                 this.updateCourseDialogBuilder.show();
                             }.bind(this);
 
-                            return "<button class='btn btn-success btn-xs' onclick='courseUpdate("+index+")'>修改</button>" +
-                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='courseDelete("+index+")'>删除</button>";
+                            courseTags = function (index) {
+                                var courseId = list[index].courseId;
+                                ajax.post({
+                                    url: "/tagGroup/list/v2",
+                                    data: $.extend(this.page, this.query),
+                                    onSuccess: function (result01) {
+
+                                        ajax.post({
+                                            url: "/tags/ids/course/" + courseId,
+                                            data: $.extend(this.page, this.query),
+                                            onSuccess: function (result02) {
+
+
+                                                this.tagsDialog.show({
+                                                    tagGroupList: result01.data.list,
+                                                    echoTagIds: result02.data.list,
+                                                    onSure: function (selectedTagIds) {
+                                                        ajax.post({
+                                                            url: "/tags/course/realation",
+                                                            data: {
+                                                                selectedTagIds:selectedTagIds,
+                                                                courseId:courseId
+                                                            },
+                                                            onSuccess: function (result) {
+
+                                                            }.bind(this)
+                                                        });
+                                                    },
+                                                    onCancel: function () {
+
+                                                    }
+                                                });
+                                            }.bind(this)
+                                        });
+
+
+                                    }.bind(this)
+                                });
+
+
+                            }.bind(this);
+
+                            return "<button class='btn btn-success btn-xs' onclick='courseUpdate(" + index + ")'>修改</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='courseDelete(" + index + ")'>删除</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='courseTags(" + index + ")'>标签</button>";
                         }.bind(this)
                     }
                 ]
@@ -545,7 +590,7 @@
 
                     this.msgDialog.showMsg({
                         msg: msg,
-                        onSure:function () {
+                        onSure: function () {
                             this.updateCourseDialogBuilder.show();
                         }.bind(this)
                     });
@@ -560,7 +605,8 @@
     courseLoader.init({
         addBtnId: "#addCourseBtn",
         msgDialog: msgDialog,
-        confirmDialog: confirmDialog
+        confirmDialog: confirmDialog,
+        tagsDialog: tagsDialog
     });
     /*]]>*/
 

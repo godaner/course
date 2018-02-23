@@ -3,21 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.course.dao.mapper.CourseTagRealationsMapper">
-<resultMap type="com.course.dao.po.CourseTagRealations" id="CourseTagRealationsMap">
-  <id column="id" property="id"/>
-  <result column="status" property="status"/>
-  <result column="create_time" property="createTime"/>
-  <result column="update_time" property="updateTime"/>
-  <result column="tag_id" property="tagId"/>
-  <result column="course_id" property="courseId"/>
-</resultMap>
+    <resultMap type="com.course.dao.po.CourseTagRealations" id="CourseTagRealationsMap">
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="tag_id" property="tagId"/>
+        <result column="course_id" property="courseId"/>
+    </resultMap>
 
     <sql id="BASE_ALL_CLOUM">
         id,
         <include refid="BASE_COLUM_WITHOUT_ID"/>
     </sql>
 
-	<sql id="BASE_COLUM_WITHOUT_ID">
+    <sql id="BASE_COLUM_WITHOUT_ID">
 		status,
 		create_time,
 		update_time,
@@ -26,29 +26,28 @@
 	</sql>
 
 
+    <select id="count" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        course_tag_realations
+        <include refid="queryCondition"/>
+    </select>
 
-	<select id="count" resultType="int">
-		SELECT 
-			count(1)
-		FROM
-		course_tag_realations
-		<include refid="queryCondition" />
-	</select>
-
-<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO course_tag_realations(
         <include refid="BASE_COLUM_WITHOUT_ID"/>
         )
         VALUES (
-#{status},
-#{createTime},
-#{updateTime},
-#{tagId},
-#{courseId}
-       )
-				 </insert>
+        #{status},
+        #{createTime},
+        #{updateTime},
+        #{tagId},
+        #{courseId}
+        )
+    </insert>
 
-<delete id="delete">
+    <delete id="delete">
 		DELETE
 		FROM
 			course_tag_realations
@@ -56,81 +55,81 @@
 			id = #{id}
 	</delete>
 
-<update id="update" parameterType="com.course.dao.po.CourseTagRealations" >
-UPDATE
-		course_tag_realations
-<set>
-<if test="status != null">status=#{status},</if>
-<if test="createTime != null">create_time=#{createTime},</if>
-<if test="updateTime != null">update_time=#{updateTime},</if>
-<if test="tagId != null">tag_id=#{tagId},</if>
-<if test="courseId != null">course_id=#{courseId}</if>
-</set>
-WHERE
-id=#{id}
-</update>
+    <update id="update" parameterType="com.course.dao.po.CourseTagRealations">
+        UPDATE
+        course_tag_realations
+        <set>
+            <if test="status != null">status=#{status},</if>
+            <if test="createTime != null">create_time=#{createTime},</if>
+            <if test="updateTime != null">update_time=#{updateTime},</if>
+            <if test="tagId != null">tag_id=#{tagId},</if>
+            <if test="courseId != null">course_id=#{courseId}</if>
+        </set>
+        WHERE
+        id=#{id}
+    </update>
 
 
-	<select id="selectList" resultMap="CourseTagRealationsMap">
-		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
-		FROM
-		course_tag_realations
-		<include refid="queryCondition" />
-		LIMIT #{start},#{size}
+    <select id="selectList" resultMap="CourseTagRealationsMap">
+        SELECT
+        <include refid="BASE_ALL_CLOUM"/>
+        FROM
+        course_tag_realations
+        <include refid="queryCondition"/>
+        LIMIT #{start},#{size}
 
-	</select>
+    </select>
 
-	<select id="selectListOrderBy" resultMap="CourseTagRealationsMap">
-		SELECT
-			<include refid="BASE_ALL_CLOUM"/>
-		FROM
-		course_tag_realations
-		<include refid="queryCondition" />
-	<if test="orderBy != null and orderType != null">
-			order by ${orderBy} ${orderType}
-		</if>
-		limit #{start},#{size}
+    <select id="selectListOrderBy" resultMap="CourseTagRealationsMap">
+        SELECT
+        <include refid="BASE_ALL_CLOUM"/>
+        FROM
+        course_tag_realations
+        <include refid="queryCondition"/>
+        <if test="orderBy != null and orderType != null">
+            order by ${orderBy} ${orderType}
+        </if>
+        limit #{start},#{size}
 
-	</select>
+    </select>
 
-<sql id="queryCondition">
-<trim prefix="where" prefixOverrides="and">
-<if test="query != null">
-<if test="query.status != null ">
-		and status=#{query.status}
-</if>
-<if test="query.createTime != null ">
-		and create_time=#{query.createTime}
-</if>
-<if test="query.updateTime != null ">
-		and update_time=#{query.updateTime}
-</if>
-<if test="query.tagId != null ">
-		and tag_id=#{query.tagId}
-</if>
-<if test="query.courseId != null ">
-		and course_id=#{query.courseId}
-</if>
-</if>
-</trim>
-</sql>
+    <sql id="queryCondition">
+        <trim prefix="where" prefixOverrides="and">
+            <if test="query != null">
+                <if test="query.status != null ">
+                    and status=#{query.status}
+                </if>
+                <if test="query.createTime != null ">
+                    and create_time=#{query.createTime}
+                </if>
+                <if test="query.updateTime != null ">
+                    and update_time=#{query.updateTime}
+                </if>
+                <if test="query.tagId != null ">
+                    and tag_id=#{query.tagId}
+                </if>
+                <if test="query.courseId != null ">
+                    and course_id=#{query.courseId}
+                </if>
+            </if>
+        </trim>
+    </sql>
 
 
-<insert id="batchInsert"  useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
+    <insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
         INSERT INTO course_tag_realations(
         <include refid="BASE_COLUM_WITHOUT_ID"/>
-)        VALUES 
-   <foreach collection ="list" item ="item" index ="index" separator =","> 
-(
-#{item.status},
-#{item.createTime},
-#{item.updateTime},
-#{item.tagId},
-#{item.courseId}
-)
-</foreach> 
-</insert>
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.status},
+            #{item.createTime},
+            #{item.updateTime},
+            #{item.tagId},
+            #{item.courseId}
+            )
+        </foreach>
+    </insert>
 
 
     <select id="select" resultMap="CourseTagRealationsMap">
@@ -152,28 +151,49 @@ id=#{id}
 
     <select id="selectIdList" resultType="java.lang.Long">
         SELECT
- 		 id 
+        id
         FROM
         course_tag_realations
-        <include refid="queryCondition" />
+        <include refid="queryCondition"/>
 
     </select>
 
 
-	<select id="selectBy" resultMap="CourseTagRealationsMap">
-		SELECT * 
-		FROM
-		course_tag_realations
-		<include refid="queryCondition" />
-	</select>
+    <select id="selectBy" resultMap="CourseTagRealationsMap">
+        SELECT *
+        FROM
+        course_tag_realations
+        <include refid="queryCondition"/>
+    </select>
 
 
-	<select id="selectOneBy" resultMap="CourseTagRealationsMap">
-		SELECT * 
-		FROM
-		course_tag_realations
-		<include refid="queryCondition" />
-		LIMIT 1 
-	</select>
+    <select id="selectOneBy" resultMap="CourseTagRealationsMap">
+        SELECT *
+        FROM
+        course_tag_realations
+        <include refid="queryCondition"/>
+        LIMIT 1
+    </select>
 
+
+    <!--**************************** 自定义mapper start ****************************-->
+
+    <select id="getCourseTagIds" resultType="long">
+        select *
+        from
+        course_tag_realations
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and course_id = #{query.courseId}
+    </select>
+    <update id="updateCourseTagRealationsStatusByCourseId">
+        update
+        course_tag_realations
+        set status = #{status}
+        where course_id = #{courseId}
+    </update>
+    <!--**************************** 自定义mapper end ****************************-->
 </mapper>

@@ -2,10 +2,8 @@ package com.course.controller;
 
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.AdminsQueryBean;
-import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.AdminService;
-import com.course.service.AdminsDto;
-import com.course.service.dto.UsersDto;
+import com.course.service.dto.AdminsDto;
 import com.course.util.PageBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

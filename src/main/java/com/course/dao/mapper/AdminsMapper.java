@@ -1,9 +1,7 @@
 package com.course.dao.mapper;
 
 import com.course.dao.po.Admins;
-import com.course.dao.po.Users;
 import com.course.dao.po.query.AdminsQueryBean;
-import com.course.service.AdminsDto;
 import com.course.util.PageBean;
 import org.apache.ibatis.annotations.Param;
 
