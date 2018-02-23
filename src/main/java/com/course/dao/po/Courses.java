@@ -2,6 +2,10 @@ package com.course.dao.po;
 
 
 public class Courses extends BasePo{
+    public static final String IMG_URL_PREFIX = "/courses/img/";
+    public static final Long EMPTY_DOWNLOAD_NUMBER = 0L;
+    public static final Long EMPTY_COLLECT_NUMBER = 0L;
+    public static final Long EMPTY_WATCH_NUMBER = 0L;
     private String imgUrl;
     private String name;
     private String description;

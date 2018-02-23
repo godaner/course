@@ -12,7 +12,7 @@
 <div role="tabpanel" class="tab-pane " id="course">
     <div class="check-div form-inline">
         <div class="col-xs-3">
-            <!--<button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addCourse">添加记录</button>-->
+            <button id="addCourseBtn" class="btn btn-yellow btn-xs">添加记录</button>
         </div>
         <div id="courseSearch" class="col-xs-4">
             <form onsubmit="return false;">
@@ -46,76 +46,53 @@
 
 
     <!--弹出添加课程窗口-->
-    <div id="addCourseDialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div id="addCourseDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">添加课程</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">添加课程</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form class="form-horizontal">
+
+                            <input name="courseId" type="hidden">
                             <div class="form-group ">
-                                <label for="sName" class="col-xs-3 control-label">课程名：</label>
+                                <label class="col-xs-3 control-label">课程名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                    <input name="name" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+
+
+                            <div class="form-group ">
+                                <label for="description" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                <div class="col-xs-8">
-                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">国际关系地区</option>
-                                        <option value="">北京大学</option>
-                                        <option value="">天津大学</option>
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                <div class="col-xs-8">
-                                    <select class=" form-control select-duiqi">
-                                        <option value="">管理员</option>
-                                        <option value="">普通课程</option>
-                                        <option value="">游客</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8">
-                                    <label class="control-label" for="anniu">
-                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label class="control-label" for="meun">
-                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                </div>
-                            </div>
+
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                    <button type="button" class="btn btn-xs btn-green">保 存</button>
+                    <!--data-dismiss="modal"-->
+                    <button id="add_course_cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="add_course_submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -233,14 +210,24 @@
         this.pagerBuilder = new PagerBuilder();
         this.tableBuilder = new TableBuilder();
         this.sortBuilder = new SortBuilder();
-        this.updateUserDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.updateCourseDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.addCourseDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
+        this.$addCourseBtn = undefined;
+        this.registEvents = function () {
+            this.$addCourseBtn.unbind("click");
+            this.$addCourseBtn.click(function () {
+                this.addCourseDialogBuilder.show();
+            }.bind(this));
+        };
         this.init = function (args) {
 
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
+            this.$addCourseBtn = $(args.addBtnId);
 
+            this.registEvents();
 
             this.seachBuilder.init({
                 query: this.query,
@@ -277,7 +264,34 @@
                     this.loadCourseData();
                 }.bind(this)
             });
-            this.updateUserDialogBuilder.init({
+            this.addCourseDialogBuilder.init({
+                dialogId: "#addCourseDialog",
+                submitId: "#add_course_submit_btn",
+                cancelId: "#add_course_cancel_btn",
+                onSubmit: function (data) {
+                    ajax.post({
+                        url: "/courses/add",
+                        data: data,
+                        onSuccess: function (result) {
+                            this.loadCourseData();
+
+                            this.msgDialog.showMsg({
+                                msg: result.msg,
+                                onSure: function () {
+                                    if (!success(result.code)) {
+                                        this.addCourseDialogBuilder.show();
+                                    }
+                                }.bind(this)
+                            });
+
+                        }.bind(this)
+                    });
+                }.bind(this),
+                onCancel: function () {
+
+                }
+            });
+            this.updateCourseDialogBuilder.init({
                 dialogId: "#editCourseDialog",
                 submitId: "#submit_btn",
                 cancelId: "#cancel_btn",
@@ -442,10 +456,10 @@
                             }.bind(this);
                             courseUpdate = function (index) {
                                 var data = list[index];
-                                this.updateUserDialogBuilder.echoData({
+                                this.updateCourseDialogBuilder.echoData({
                                     data: data
                                 });
-                                this.updateUserDialogBuilder.show();
+                                this.updateCourseDialogBuilder.show();
                             }.bind(this);
 
                             return "<button class='btn btn-success btn-xs' onclick='courseUpdate("+index+")'>修改</button>" +
@@ -521,7 +535,7 @@
                 contentType: false,
                 success: function (result) {
                     $(_this).val("");
-                    this.updateUserDialogBuilder.hide();
+                    this.updateCourseDialogBuilder.hide();
 
                     var msg = "图片更新失败";
                     if (success(result.code)) {
@@ -532,7 +546,7 @@
                     this.msgDialog.showMsg({
                         msg: msg,
                         onSure:function () {
-                            this.updateUserDialogBuilder.show();
+                            this.updateCourseDialogBuilder.show();
                         }.bind(this)
                     });
                 }.bind(this)
@@ -544,6 +558,7 @@
 
     var courseLoader = new CourseLoader();
     courseLoader.init({
+        addBtnId: "#addCourseBtn",
         msgDialog: msgDialog,
         confirmDialog: confirmDialog
     });

@@ -222,7 +222,7 @@
         this.pagerBuilder = new PagerBuilder();
         this.tableBuilder = new TableBuilder();
         this.sortBuilder = new SortBuilder();
-        this.updateUserDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.updateCourseDialogBuilder = new AddOrUpdateDialogBuilder();
         this.addUserDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
@@ -236,7 +236,7 @@
         this.init = function (args) {
 
 
-            this.$addUserBtn = $("#addUserBtn");
+            this.$addUserBtn = $(args.addBtnId);
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
 
@@ -304,7 +304,7 @@
 
                 }
             });
-            this.updateUserDialogBuilder.init({
+            this.updateCourseDialogBuilder.init({
                 dialogId: "#editUserDialog",
                 submitId: "#submit_btn",
                 cancelId: "#cancel_btn",
@@ -451,7 +451,7 @@
                     {
                         title: "操作",
                         name: "createTime",
-                        width:2,
+                        width: 2,
                         filter: function (text, list, index) {
                             //行删除更新事件回调
                             userDelete = function (index) {
@@ -473,14 +473,14 @@
                             }.bind(this);
                             userUpdate = function (index) {
                                 var data = list[index];
-                                this.updateUserDialogBuilder.echoData({
+                                this.updateCourseDialogBuilder.echoData({
                                     data: data
                                 });
-                                this.updateUserDialogBuilder.show();
+                                this.updateCourseDialogBuilder.show();
                             }.bind(this);
 
-                            return "<button class='btn btn-success btn-xs' onclick='userUpdate("+index+")'>修改</button>" +
-                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='userDelete("+index+")'>删除</button>";
+                            return "<button class='btn btn-success btn-xs' onclick='userUpdate(" + index + ")'>修改</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='userDelete(" + index + ")'>删除</button>";
                         }.bind(this)
                     }
                 ]
@@ -549,7 +549,7 @@
                 contentType: false,
                 success: function (result) {
                     $(_this).val("");
-                    this.updateUserDialogBuilder.hide();
+                    this.updateCourseDialogBuilder.hide();
 
                     var msg = "图片更新失败";
                     if (success(result.code)) {
@@ -560,7 +560,7 @@
                     this.msgDialog.showMsg({
                         msg: msg,
                         onSure: function () {
-                            this.updateUserDialogBuilder.show();
+                            this.updateCourseDialogBuilder.show();
                         }.bind(this)
                     });
                 }.bind(this)
@@ -572,6 +572,7 @@
 
     var userLoader = new UserLoader();
     userLoader.init({
+        addBtnId: "#addUserBtn",
         msgDialog: msgDialog,
         confirmDialog: confirmDialog
     });

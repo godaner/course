@@ -161,7 +161,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         users.setBirthday(now);
         users.setUpdateTime(now);
         users.setCreateTime(now);
-        users.setImgUrl("/users/img/" + uuid());
+        users.setImgUrl(Users.IMG_URL_PREFIX + uuid());
         users.setUsername(usersDto.getUsername());
         users.setPassword(usersDto.getPassword());
         users.setSex(usersDto.getSex());
@@ -414,7 +414,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public void updateUser(UsersDto usersDto) {
-        if(isEmptyString(usersDto.getPassword())){
+        if (isEmptyString(usersDto.getPassword())) {
             throw new UsersException("updateUser password is null !! usersDto is :" + usersDto,
                     UsersException.ErrorCode.PASSWORD_IS_NULL.getCode(),
                     UsersException.ErrorCode.PASSWORD_IS_NULL.getMsg());
@@ -425,7 +425,6 @@ public class UserServiceImpl extends BaseService implements UserService {
                     UsersException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
                     UsersException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
         }
-
 
 
         if (usersMapper.update(makeUpdateUser(usersDto)) != 1) {

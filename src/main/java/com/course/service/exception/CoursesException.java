@@ -18,8 +18,9 @@ public class CoursesException extends CourseRuntimeException {
 
     public enum ErrorCode {
 
-        COURSE_IS_NOT_EXITS(-201, "用户不存在"),
-        UPDATE_COURSE_FAIL(-202, "用户不存在");
+        COURSE_IS_NOT_EXITS(-201, "课程不存在"),
+        UPDATE_COURSE_FAIL(-202, "课程更新失败"),
+        COURSE_NAME_IS_NULL(-203, "课程名为空");
         int code;
         String msg;
 

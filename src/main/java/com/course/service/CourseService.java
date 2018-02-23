@@ -32,4 +32,6 @@ public interface CourseService {
     void deleteCourse(Long courseId);
 
     void updateHeadFile(CoursesDto coursesDto);
+
+    void addCourse(CoursesDto coursesDto);
 }

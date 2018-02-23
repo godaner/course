@@ -210,7 +210,7 @@
         this.init = function (args) {
 
 
-            this.$addAdminBtn = $("#addAdminBtn");
+            this.$addAdminBtn = $(args.addBtnId);
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
 
@@ -464,6 +464,7 @@
 
     var adminLoader = new AdminLoader();
     adminLoader.init({
+        addBtnId: "#addAdminBtn",
         msgDialog: msgDialog,
         confirmDialog: confirmDialog
     });

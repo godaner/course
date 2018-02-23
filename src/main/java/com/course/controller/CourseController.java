@@ -3,7 +3,6 @@ package com.course.controller;
 import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.CoursesQueryBean;
-import com.course.dao.po.query.UsersQueryBean;
 import com.course.resolver.OnlineUser;
 import com.course.service.CourseService;
 import com.course.service.dto.CoursesDto;
@@ -79,12 +78,21 @@ public class CourseController extends ServiceController<CourseService> {
     public Object getCoursesV2(PageBean page, CoursesQueryBean query) throws Exception {
         return response.putData("list", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
     }
+
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Object addCourse(CoursesDto coursesDto) throws Exception {
+        service.addCourse(coursesDto);
+        return response.setMsg("添加课程 '" + coursesDto.getName() + "' 成功");
+    }
+
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object updateCourses(CoursesDto coursesDto) throws Exception {
         service.updateCourses(coursesDto);
         return response;
     }
+
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object deleteCourse(@RequestParam("courseId") Long courseId) throws Exception {

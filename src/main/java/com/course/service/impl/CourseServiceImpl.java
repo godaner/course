@@ -5,12 +5,11 @@ import com.course.dao.po.*;
 import com.course.dao.po.custom.CoursesWithSources;
 import com.course.dao.po.query.CourseSourcesQueryBean;
 import com.course.dao.po.query.CoursesQueryBean;
-import com.course.dao.po.query.UsersQueryBean;
-import com.course.service.exception.CoursesException;
 import com.course.service.CourseService;
 import com.course.service.dto.CourseSourcesDto;
 import com.course.service.dto.CoursesDto;
 import com.course.service.dto.UsersDto;
+import com.course.service.exception.CoursesException;
 import com.course.service.exception.UsersException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
@@ -241,7 +240,7 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         if (coursesDto.getCourseImgFile() != null && coursesDto.getCourseImgFile().getSize() > 0) {
             String uuid = uuid();
             //write to db
-            courses.setImgUrl("/courses/img/" + uuid);
+            courses.setImgUrl(Courses.IMG_URL_PREFIX + uuid);
 
 
             if (coursesMapper.update(courses) != 1) {
@@ -263,6 +262,36 @@ public class CourseServiceImpl extends BaseService implements CourseService {
 
 
         }
+    }
+
+    @Override
+    public void addCourse(CoursesDto coursesDto) {
+
+        if (isEmptyString(coursesDto.getName())) {
+            throw new CoursesException("addCourse name is null !! coursesDto is :" + coursesDto,
+                    CoursesException.ErrorCode.COURSE_NAME_IS_NULL.getCode(),
+                    CoursesException.ErrorCode.COURSE_NAME_IS_NULL.getMsg());
+        }
+
+        Courses courses = makeAddCourse(coursesDto);
+        if (1 != coursesMapper.insert(courses)) {
+            throw new UsersException("addCourse#insert is fail !! coursesDto is :" + coursesDto);
+        }
+    }
+
+    private Courses makeAddCourse(CoursesDto coursesDto) {
+        Courses courses = new Courses();
+        Integer now = DateUtil.unixTime().intValue();
+        courses.setStatus(coursesDto.getStatus());
+        courses.setDescription(coursesDto.getDescription());
+        courses.setName(coursesDto.getName());
+        courses.setUpdateTime(now);
+        courses.setCreateTime(now);
+        courses.setDownloadNumber(Courses.EMPTY_DOWNLOAD_NUMBER);
+        courses.setCollectNumber(Courses.EMPTY_COLLECT_NUMBER);
+        courses.setWatchNumber(Courses.EMPTY_WATCH_NUMBER);
+        courses.setImgUrl(Courses.IMG_URL_PREFIX + uuid());
+        return courses;
     }
 
     private Courses makeUpdateCourses(CoursesDto coursesDto) {
