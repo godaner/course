@@ -1,13 +1,11 @@
 package com.course.service.impl;
 
 import com.course.dao.mapper.TagGroupsMapper;
-import com.course.dao.po.BasePo;
 import com.course.dao.po.query.TagGroupsQueryBean;
 import com.course.service.TagGroupsService;
 import com.course.service.dto.TagGroupsDto;
 import com.course.service.dto.TagsDto;
 import com.course.util.PageBean;
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,7 @@ public class TagGroupsServiceImpl implements TagGroupsService {
 
     @Override
     public List<TagGroupsDto> getTagGroupsWithTags(PageBean pageBean, TagGroupsQueryBean queryBean) {
-        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+//        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return tagGroupsMapper.getTagGroupsWithTags(pageBean, queryBean).stream().parallel().map(tagGroupsWithTags -> {
             TagGroupsDto tagGroupsDto = new TagGroupsDto();
             tagGroupsDto.setTagGroupId(tagGroupsWithTags.getId());
@@ -47,7 +45,7 @@ public class TagGroupsServiceImpl implements TagGroupsService {
 
     @Override
     public Long getTagGroupsWithTagsCount(PageBean pageBean, TagGroupsQueryBean queryBean) {
-        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+//        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return tagGroupsMapper.getTagGroupsWithTagsCount(pageBean, queryBean);
     }
 }
