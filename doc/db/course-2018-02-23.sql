@@ -11,7 +11,7 @@
  Target Server Version : 50633
  File Encoding         : 65001
 
- Date: 23/02/2018 09:10:57
+ Date: 23/02/2018 17:10:11
 */
 
 SET NAMES utf8mb4;
@@ -25,12 +25,24 @@ CREATE TABLE `admins`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '唯一用户名',
   `password` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '用户密码，md5加密',
-  `sex` tinyint(2) UNSIGNED NOT NULL DEFAULT 3 COMMENT '性别，1为男，2为女，3未设置',
   `status` tinyint(5) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态,1为正常，2为冻结，3为删除',
   `create_time` int(10) UNSIGNED NOT NULL COMMENT '创建时间',
   `update_time` int(10) UNSIGNED NOT NULL COMMENT '更新时间',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '简介',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of admins
+-- ----------------------------
+INSERT INTO `admins` VALUES (1, 'r99', '456', 3, 1519352848, 1519353697, '敖德萨多撒');
+INSERT INTO `admins` VALUES (2, 'r99', '123', 3, 1519353887, 1519353913, '奥术大师多');
+INSERT INTO `admins` VALUES (3, 'r999', '465', 3, 1519353923, 1519354954, '456');
+INSERT INTO `admins` VALUES (4, '12313', '123', 3, 1519355035, 1519355035, '');
+INSERT INTO `admins` VALUES (5, 'zhangke', '123', 1, 1519355056, 1519355063, '我是张大可');
+INSERT INTO `admins` VALUES (6, 'r99', '123', 3, 1519361180, 1519361180, '');
+INSERT INTO `admins` VALUES (7, 'godaner', 'godaner', 1, 1519364370, 1519364370, 'godaner');
+INSERT INTO `admins` VALUES (8, 'ergouz', 'ergouz', 2, 1519364384, 1519364384, 'ergouz');
 
 -- ----------------------------
 -- Table structure for course_sources
@@ -68,7 +80,7 @@ CREATE TABLE `course_tag_realations`  (
   `tag_id` int(11) DEFAULT NULL,
   `course_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of course_tag_realations
@@ -76,10 +88,40 @@ CREATE TABLE `course_tag_realations`  (
 INSERT INTO `course_tag_realations` VALUES (1, 1, 1, 1, 1, 1);
 INSERT INTO `course_tag_realations` VALUES (2, 1, 1, 1, 2, 1);
 INSERT INTO `course_tag_realations` VALUES (3, 1, 1, 1, 3, 1);
-INSERT INTO `course_tag_realations` VALUES (4, 1, 1, 1, 1, 2);
-INSERT INTO `course_tag_realations` VALUES (5, 1, 1, 1, 2, 2);
-INSERT INTO `course_tag_realations` VALUES (6, 1, 1, 1, 3, 2);
-INSERT INTO `course_tag_realations` VALUES (7, 1, 1, 1, 4, 2);
+INSERT INTO `course_tag_realations` VALUES (4, 3, 1, 1, 1, 2);
+INSERT INTO `course_tag_realations` VALUES (5, 3, 1, 1, 2, 2);
+INSERT INTO `course_tag_realations` VALUES (6, 3, 1, 1, 3, 2);
+INSERT INTO `course_tag_realations` VALUES (7, 3, 1, 1, 4, 2);
+INSERT INTO `course_tag_realations` VALUES (8, 1, 1519373993, 1519373993, 4, 2);
+INSERT INTO `course_tag_realations` VALUES (9, 1, 1519373993, 1519373993, 5, 2);
+INSERT INTO `course_tag_realations` VALUES (10, 1, 1519373993, 1519373993, 6, 2);
+INSERT INTO `course_tag_realations` VALUES (11, 3, 1519374004, 1519374004, 1, 11251);
+INSERT INTO `course_tag_realations` VALUES (12, 3, 1519374004, 1519374004, 2, 11251);
+INSERT INTO `course_tag_realations` VALUES (13, 3, 1519374004, 1519374004, 3, 11251);
+INSERT INTO `course_tag_realations` VALUES (14, 3, 1519374004, 1519374004, 4, 11251);
+INSERT INTO `course_tag_realations` VALUES (15, 3, 1519374004, 1519374004, 5, 11251);
+INSERT INTO `course_tag_realations` VALUES (16, 3, 1519374004, 1519374004, 6, 11251);
+INSERT INTO `course_tag_realations` VALUES (17, 3, 1519374224, 1519374224, 1, 11251);
+INSERT INTO `course_tag_realations` VALUES (18, 3, 1519374224, 1519374224, 2, 11251);
+INSERT INTO `course_tag_realations` VALUES (19, 3, 1519374224, 1519374224, 3, 11251);
+INSERT INTO `course_tag_realations` VALUES (20, 3, 1519374224, 1519374224, 4, 11251);
+INSERT INTO `course_tag_realations` VALUES (21, 3, 1519374224, 1519374224, 5, 11251);
+INSERT INTO `course_tag_realations` VALUES (22, 1, 1519374321, 1519374321, 6, 4);
+INSERT INTO `course_tag_realations` VALUES (23, 3, 1519374408, 1519374408, 6, 3);
+INSERT INTO `course_tag_realations` VALUES (24, 1, 1519374414, 1519374414, 3, 3);
+INSERT INTO `course_tag_realations` VALUES (25, 1, 1519374414, 1519374414, 4, 3);
+INSERT INTO `course_tag_realations` VALUES (26, 1, 1519374414, 1519374414, 6, 3);
+INSERT INTO `course_tag_realations` VALUES (27, 3, 1519374459, 1519374459, 1, 11251);
+INSERT INTO `course_tag_realations` VALUES (28, 3, 1519374459, 1519374459, 2, 11251);
+INSERT INTO `course_tag_realations` VALUES (29, 3, 1519374459, 1519374459, 3, 11251);
+INSERT INTO `course_tag_realations` VALUES (30, 3, 1519374459, 1519374459, 4, 11251);
+INSERT INTO `course_tag_realations` VALUES (31, 3, 1519374459, 1519374459, 5, 11251);
+INSERT INTO `course_tag_realations` VALUES (32, 3, 1519374459, 1519374459, 6, 11251);
+INSERT INTO `course_tag_realations` VALUES (33, 1, 1519375574, 1519375574, 1, 11251);
+INSERT INTO `course_tag_realations` VALUES (34, 1, 1519375574, 1519375574, 2, 11251);
+INSERT INTO `course_tag_realations` VALUES (35, 1, 1519375574, 1519375574, 3, 11251);
+INSERT INTO `course_tag_realations` VALUES (36, 1, 1519375574, 1519375574, 4, 11251);
+INSERT INTO `course_tag_realations` VALUES (37, 1, 1519375574, 1519375574, 5, 11251);
 
 -- ----------------------------
 -- Table structure for courses
@@ -97,16 +139,16 @@ CREATE TABLE `courses`  (
   `collect_number` int(11) DEFAULT NULL,
   `watch_number` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11250 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11252 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of courses
 -- ----------------------------
-INSERT INTO `courses` VALUES (1, 1, 1, 1518421497, '/courses/img/1', 'asd', '666', 28, 23, 111);
-INSERT INTO `courses` VALUES (2, 1, 1, 1, '/courses/img/1471513730333', 'cc学习', '学习不好', 1, 888, 0);
+INSERT INTO `courses` VALUES (1, 3, 1, 1518421497, '/courses/img/c5950c05-8bff-47c1-8e31-43d0d00fb7f8', 'asd', '666', 28, 23, 111);
+INSERT INTO `courses` VALUES (2, 1, 1, 1519361202, '/courses/img/02c4a229-639f-4083-a678-a3fbe6f8c079', 'cc学习', '学习不好', 1, 888, 0);
 INSERT INTO `courses` VALUES (3, 1, 1, 1, '/courses/img/1471513730333', 'unity3d入门到放弃', '学习不好', 888, 222, 0);
 INSERT INTO `courses` VALUES (4, 1, 1, 1518422998, '/courses/img/1639dbaf-d871-45b7-a977-2820ca077524', 'unity3d入门到放弃', '学习不好aa ', 888, 222, 0);
-INSERT INTO `courses` VALUES (11, 1, 1, 1518421592, '/courses/img/b3489bb2-11f0-432f-9cdf-da2a51df123e', 'java学习', 'java学习java学习ja真的学习', 4564, 1, 0);
+INSERT INTO `courses` VALUES (11, 1, 1, 1518421592, '/courses/img/2ecbd709-514a-4aa4-84e9-b68b53b8ca26', 'java学习', 'java学习java学习ja真的学习', 4564, 1, 0);
 INSERT INTO `courses` VALUES (12, 1, 1, 1, '/courses/img/30f76dc8-61d0-494d-9590-a5cd02cbbae7', 'cc学习', '学习不好', 1, 888, 0);
 INSERT INTO `courses` VALUES (13, 1, 1, 1, '/courses/img/965c632f-244c-4373-8281-afefac0c0295', 'unity3d入门到放弃', '学习不好', 888, 222, 0);
 INSERT INTO `courses` VALUES (14, 1, 1, 1, '/courses/img/b354b834-004e-466d-8804-7ce32f6f508f', 'unity3d入门到放弃', '学习不好', 888, 222, 0);
@@ -132,6 +174,8 @@ INSERT INTO `courses` VALUES (1239, 1, 1, 1, '/courses/img/1471513730333', 'unit
 INSERT INTO `courses` VALUES (1249, 1, 1, 1, '/courses/img/1471513730333', 'unity3d入门到放弃', '学习不好', 888, 222, 0);
 INSERT INTO `courses` VALUES (11239, 1, 1, 1, '/courses/img/1471513730333', 'unity3d入门到放弃', '学习不好', 888, 223, 0);
 INSERT INTO `courses` VALUES (11249, 1, 1, 1, '/courses/img/1471513730333', 'unity3d入门到放弃', '学习不好', 888, 222, 0);
+INSERT INTO `courses` VALUES (11250, 2, 1519363953, 1519363953, '/courses/img/66cc2ad7-01e3-4f09-babd-b2153c672cb7', '123', '阿萨德', 0, 0, 0);
+INSERT INTO `courses` VALUES (11251, 1, 1519364186, 1519364207, '/courses/img/eef1ed2d-7ab8-4a89-b2b3-bc1c0597a8f0', 'java', 'java厉害了', 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for tag_group_realations
@@ -288,7 +332,7 @@ CREATE TABLE `users`  (
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT '' COMMENT '用户描述',
   `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '用户头像url',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '前端用户表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '前端用户表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
@@ -302,12 +346,17 @@ INSERT INTO `users` VALUES (46, 1517483434, 1517483434, 1, 'leg', '123', 3, 1517
 INSERT INTO `users` VALUES (47, 1518094407, 1518094407, 1, 'r1', '123', 3, 1518094407, '', '/users/img/20bff3d4-41a4-477d-a48f-fbc064cdcdb0');
 INSERT INTO `users` VALUES (48, 1518094421, 1518094421, 1, 'r2', '123', 3, 1518094421, '', '/users/img/fb5a8dc3-ecbb-4bf7-af84-9224eedecbcd');
 INSERT INTO `users` VALUES (49, 1518094433, 1518094433, 1, 'r3', '123', 3, 1518094433, '', '/users/img/d8c231ef-a800-4f12-afed-e5e5274e8fe5');
-INSERT INTO `users` VALUES (50, 1518094446, 1518311630, 1, 'r4', '123', 1, 1518094446, '', '/users/img/212113ea-5a90-4cf0-932f-01852922b11f');
-INSERT INTO `users` VALUES (51, 1518094590, 1518170074, 1, 'r6', '123', 3, 1518094590, '', '/users/img/65307c85-bad3-4308-99bd-b1bc61ccf020');
+INSERT INTO `users` VALUES (50, 1518094446, 1519361167, 1, 'r4', '1234', 1, 1518094446, '', '/users/img/212113ea-5a90-4cf0-932f-01852922b11f');
+INSERT INTO `users` VALUES (51, 1518094590, 1519361160, 1, 'r6', '123', 3, 1518094590, '', '/users/img/65307c85-bad3-4308-99bd-b1bc61ccf020');
 INSERT INTO `users` VALUES (52, 1518094614, 1518427312, 1, 'r99', '123', 2, 1518094614, '666', '/users/img/a8978e74-7356-491a-8774-b2f3bb7867a2');
-INSERT INTO `users` VALUES (53, 1518426501, 1518426501, 1, 'r999999', '123', 3, 1518426501, '', '/users/img/6d00ccdf-6f28-4b10-a53c-314f4f4e4d98');
-INSERT INTO `users` VALUES (54, 1518427070, 1519347442, 2, 'zhangke', '159357', 3, 1518427070, '', '/users/img/4edd9614-ff9e-45e9-b321-ea950418a6e3');
+INSERT INTO `users` VALUES (53, 1518426501, 1519353966, 3, 'r999999', '789', 3, 1518426501, '', '/users/img/6d00ccdf-6f28-4b10-a53c-314f4f4e4d98');
+INSERT INTO `users` VALUES (54, 1518427070, 1519360743, 2, 'zhangke', '123', 2, 1518427070, '123', '/users/img/2565c6e5-3d61-4d75-94d3-b66671d6e4a8');
 INSERT INTO `users` VALUES (55, 1519347581, 1519347581, 3, 'godaner', '159357', 3, 1519347581, '', '/users/img/d85e00c6-2af4-42a4-bb99-81ad9d32d3ac');
 INSERT INTO `users` VALUES (56, 1519347686, 1519347686, 3, 'godaner02', '123', 3, 1519347686, '', '/users/img/332a70b1-6aed-464d-88b6-30d5a41f7ca8');
+INSERT INTO `users` VALUES (61, 1519348451, 1519348451, 3, 'godaner02', '123', 3, 1519348451, '', '/users/img/cd426a72-1162-401e-8b7b-8b4bb5e945d2');
+INSERT INTO `users` VALUES (62, 1519348776, 1519348776, 3, 'r99123', '123', 3, 1519348776, '', '/users/img/72b2ea76-5208-4110-b107-b2fe07e7004c');
+INSERT INTO `users` VALUES (63, 1519348831, 1519348831, 3, 'r99asd', '123', 1, 1519348831, '', '/users/img/2eb2a371-bab8-4c85-af81-bc5f9d7e92e3');
+INSERT INTO `users` VALUES (64, 1519348839, 1519348839, 3, 'r99asdasdads', '123', 1, 1519348839, 'asdada', '/users/img/e38b5e49-c4e1-452c-831d-eddb0c3f6823');
+INSERT INTO `users` VALUES (65, 1519360479, 1519360492, 3, 'r99123', '123', 1, 1519360479, '1232131', '/users/img/aef29ae4-0a56-43d0-86d8-d3830e065574');
 
 SET FOREIGN_KEY_CHECKS = 1;

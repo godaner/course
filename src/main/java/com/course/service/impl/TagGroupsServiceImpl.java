@@ -50,4 +50,19 @@ public class TagGroupsServiceImpl implements TagGroupsService {
 //        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return tagGroupsMapper.getTagGroupsWithTagsCount(pageBean, queryBean);
     }
+
+    @Override
+    public void updateTagGroup(TagGroupsDto tagGroupsDto) {
+
+    }
+
+    @Override
+    public void deleteTagGroup(Long tagGroupId) {
+
+    }
+
+    @Override
+    public void addTagGroup(TagGroupsDto tagGroupsDto) {
+
+    }
 }

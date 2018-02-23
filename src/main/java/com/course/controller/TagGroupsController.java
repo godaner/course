@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -39,5 +40,27 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
         List<TagGroupsDto> list = service.getTagGroupsWithTags(pageBean, queryBean);
         Long total = service.getTagGroupsWithTagsCount(pageBean, queryBean);
         return response.putData("list", list).putData("total", total);
+    }
+
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public Object updateTagGroup(TagGroupsDto tagGroupsDto) throws Exception {
+        service.updateTagGroup(tagGroupsDto);
+        return response.setMsg("更新标签分组成功");
+    }
+
+
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public Object deleteTagGroup(@RequestParam("tagGroupId") Long tagGroupId) throws Exception {
+        service.deleteTagGroup(tagGroupId);
+        return response;
+    }
+
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Object addTagGroup(TagGroupsDto tagGroupsDto) throws Exception {
+        service.addTagGroup(tagGroupsDto);
+        return response.setMsg("添加标签分组 '" + tagGroupsDto.getTagGroupName() + "' 成功");
     }
 }

@@ -12,4 +12,10 @@ public interface TagGroupsService {
     List<TagGroupsDto> getTagGroupsWithTags(PageBean pageBean, TagGroupsQueryBean queryBean);
 
     Long getTagGroupsWithTagsCount(PageBean pageBean, TagGroupsQueryBean queryBean);
+
+    void updateTagGroup(TagGroupsDto tagGroupsDto);
+
+    void deleteTagGroup(Long tagGroupId);
+
+    void addTagGroup(TagGroupsDto tagGroupsDto);
 }
