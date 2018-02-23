@@ -118,7 +118,7 @@ public class UserController extends ServiceController<UserService> {
     @ResponseBody
     public Object updateUser(UsersDto usersDto) throws Exception {
         service.updateUser(usersDto);
-        return response;
+        return response.setMsg("更新用户成功");
     }
 
     @RequestMapping(value = "/update/img")

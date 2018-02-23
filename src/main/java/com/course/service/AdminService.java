@@ -11,4 +11,8 @@ public interface AdminService {
     List<AdminsDto> getAdmins(PageBean page, AdminsQueryBean query);
 
     Long getAdminsCount(PageBean page, AdminsQueryBean query);
+
+    void updateAdmin(AdminsDto adminsDto);
+
+    void deleteAdmin(Long adminId);
 }

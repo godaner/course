@@ -7,6 +7,7 @@ import com.course.dao.po.query.AdminsQueryBean;
 import com.course.service.AdminService;
 import com.course.service.AdminsDto;
 import com.course.service.exception.AdminsException;
+import com.course.service.exception.CoursesException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -41,7 +43,7 @@ public class AdminServiceImpl extends BaseService implements AdminService {
                     AdminsException.ErrorCode.USERNAME_IS_EXITS.getCode(),
                     AdminsException.ErrorCode.USERNAME_IS_EXITS.getMsg());
         }
-        admins = makeAdmins(adminsDto);
+        admins = makeAddAdmins(adminsDto);
 
         if (1 != adminsMapper.insert(admins)) {
             throw new AdminsException("addAdmin#insert is fail !! adminsDto is :" + adminsDto);
@@ -60,15 +62,19 @@ public class AdminServiceImpl extends BaseService implements AdminService {
 
         query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
         return adminsMapper.getAdmins(page, query).stream().parallel().map(admins -> {
-            AdminsDto adminsDto = new AdminsDto();
-            adminsDto.setAdminId(admins.getId());
-            adminsDto.setCreateTime(admins.getCreateTime());
-            adminsDto.setDescription(admins.getDescription());
-            adminsDto.setPassword(Admins.EMPTY_PWD);
-            adminsDto.setStatus(admins.getStatus());
-            adminsDto.setUsername(admins.getUsername());
-            return adminsDto;
+            return makeListAdminsDto(admins);
         }).collect(toList());
+    }
+
+    private AdminsDto makeListAdminsDto(Admins admins) {
+        AdminsDto adminsDto = new AdminsDto();
+        adminsDto.setAdminId(admins.getId());
+        adminsDto.setCreateTime(admins.getCreateTime());
+        adminsDto.setDescription(admins.getDescription());
+        adminsDto.setPassword(admins.getPassword());
+        adminsDto.setStatus(admins.getStatus());
+        adminsDto.setUsername(admins.getUsername());
+        return adminsDto;
     }
 
     @Override
@@ -77,7 +83,57 @@ public class AdminServiceImpl extends BaseService implements AdminService {
         return adminsMapper.getAdminsCount(page, query);
     }
 
-    private Admins makeAdmins(AdminsDto adminsDto) {
+    @Override
+    public void updateAdmin(AdminsDto adminsDto) {
+        if (isEmptyString(adminsDto.getPassword())) {
+            throw new AdminsException("updateAdmin password is null !! adminsDto is :" + adminsDto,
+                    AdminsException.ErrorCode.PASSWORD_IS_NULL.getCode(),
+                    AdminsException.ErrorCode.PASSWORD_IS_NULL.getMsg());
+        }
+        if (null == this.getAdminByUserId(adminsDto.getAdminId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()))) {
+            throw new AdminsException("updateAdmin admin is not exits !! adminsDto is :" + adminsDto,
+                    AdminsException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
+                    AdminsException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
+        }
+
+        if (adminsMapper.update(makeUpdateAdmin(adminsDto)) != 1) {
+            throw new AdminsException("updateAdmin is fail !! adminsDto is :" + adminsDto,
+                    AdminsException.ErrorCode.UPDATE_USER_FAIL.getCode(),
+                    AdminsException.ErrorCode.UPDATE_USER_FAIL.getMsg());
+        }
+    }
+
+    @Override
+    public void deleteAdmin(Long adminId) {
+        Admins admins = this.getAdminByUserId(adminId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
+        if (null != admins) {
+            admins.setStatus(BasePo.Status.DELETED.getCode());
+            if (adminsMapper.update(admins) != 1) {
+                throw new CoursesException("deleteAdmin update is fail !! adminId is : " + adminId);
+            }
+        }
+    }
+
+    private Admins makeUpdateAdmin(AdminsDto adminsDto) {
+        Admins admins = new Admins();
+        Integer now = DateUtil.unixTime().intValue();
+        admins.setUpdateTime(now);
+        admins.setDescription(adminsDto.getDescription());
+        admins.setStatus(adminsDto.getStatus());
+        admins.setId(adminsDto.getAdminId());
+        admins.setUpdateTime(DateUtil.unixTime().intValue());
+        admins.setPassword(adminsDto.getPassword());
+        return admins;
+    }
+
+    private Admins getAdminByUserId(Long adminId, ArrayList<Byte> status) {
+        AdminsQueryBean query = new AdminsQueryBean();
+        query.setStatus(status);
+        query.setAdminId(adminId);
+        return adminsMapper.getAdminByUserId(query);
+    }
+
+    private Admins makeAddAdmins(AdminsDto adminsDto) {
         Admins admins = new Admins();
         Integer now = DateUtil.unixTime().intValue();
         admins.setCreateTime(now);

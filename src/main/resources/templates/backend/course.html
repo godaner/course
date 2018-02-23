@@ -286,6 +286,9 @@
                         url: "/courses/update",
                         data: data,
                         onSuccess: function (result) {
+                            this.msgDialog.showMsg({
+                                msg: result.msg
+                            });
                             this.loadCourseData();
                         }.bind(this)
                     });

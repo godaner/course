@@ -313,6 +313,9 @@
                         url: "/users/update",
                         data: data,
                         onSuccess: function (result) {
+                            this.msgDialog.showMsg({
+                                msg: result.msg
+                            });
                             this.loadUserData();
                         }.bind(this)
                     });
@@ -323,6 +326,13 @@
                 fields: [
                     {
                         name: "userId",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    },
+                    {
+                        name: "password",
                         inputType: InputType.TEXT,
                         filter: function (data) {
                             return data;

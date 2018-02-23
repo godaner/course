@@ -414,11 +414,19 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public void updateUser(UsersDto usersDto) {
+        if(isEmptyString(usersDto.getPassword())){
+            throw new UsersException("updateUser password is null !! usersDto is :" + usersDto,
+                    UsersException.ErrorCode.PASSWORD_IS_NULL.getCode(),
+                    UsersException.ErrorCode.PASSWORD_IS_NULL.getMsg());
+        }
+
         if (null == this.getUserByUserId(usersDto.getUserId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()))) {
             throw new UsersException("updateUser user is not exits !! usersDto is :" + usersDto,
                     UsersException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
                     UsersException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
         }
+
+
 
         if (usersMapper.update(makeUpdateUser(usersDto)) != 1) {
             throw new UsersException("updateUser is fail !! usersDto is :" + usersDto,
