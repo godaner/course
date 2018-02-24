@@ -7,7 +7,6 @@ import com.course.service.dto.TagsDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,8 +22,14 @@ public class TagsController extends ServiceController<TagService> {
     /*************************************** 管理端 *************************************/
     @RequestMapping(value = "/ids/course/{courseId}")
     @ResponseBody
-    public Object getCourseTagIds(@PathVariable Long courseId) throws Exception {
-        List<Long> list = service.getCourseTagIds(courseId);
+    public Object getTagIdsOfCourse(@PathVariable Long courseId) throws Exception {
+        List<Long> list = service.getTagIdsOfCourse(courseId);
+        return response.putData("list", list);
+    }
+    @RequestMapping(value = "/ids/tagGroup/{tagGroupId}")
+    @ResponseBody
+    public Object getTagIdsOfTagGroup(@PathVariable Long tagGroupId) throws Exception {
+        List<Long> list = service.getTagIdsOfTagGroup(tagGroupId);
         return response.putData("list", list);
     }
 

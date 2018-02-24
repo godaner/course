@@ -8,6 +8,7 @@ import com.course.dao.po.BasePo;
 import com.course.dao.po.CourseTagRealations;
 import com.course.dao.po.Tags;
 import com.course.dao.po.query.TagCourseRealationsQueryBean;
+import com.course.dao.po.query.TagGroupRealationsQueryBean;
 import com.course.dao.po.query.TagQueryBean;
 import com.course.service.TagService;
 import com.course.service.dto.CourseTagRealationsDto;
@@ -42,13 +43,20 @@ public class TagServiceImpl extends BaseService implements TagService {
 
 
     @Override
-    public List<Long> getCourseTagIds(Long courseId) {
+    public List<Long> getTagIdsOfCourse(Long courseId) {
         TagCourseRealationsQueryBean query = new TagCourseRealationsQueryBean();
         query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         query.setCourseId(courseId);
-        return courseTagRealationsMapper.getCourseTagIds(query);
+        return courseTagRealationsMapper.getTagIdsOfCourse(query);
     }
 
+    @Override
+    public List<Long> getTagIdsOfTagGroup(Long tagGroupId) {
+        TagGroupRealationsQueryBean query = new TagGroupRealationsQueryBean();
+        query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        query.setTagGroupId(tagGroupId);
+        return tagGroupRealationsMapper.getTagIdsOfTagGroup(query);
+    }
     @Override
     @Transactional
     public void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) {
@@ -96,6 +104,7 @@ public class TagServiceImpl extends BaseService implements TagService {
         }
 
     }
+
 
     private Tags makeAddTags(TagsDto tagsDto) {
         Tags tags = new Tags();

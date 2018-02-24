@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CourseTagRealationsMapper extends BaseCrudMapper<CourseTagRealations> {
 
-    List<Long> getCourseTagIds(@Param("query") TagCourseRealationsQueryBean query);
+    List<Long> getTagIdsOfCourse(@Param("query") TagCourseRealationsQueryBean query);
 
     int updateRealationsStatusByCourseId(@Param("courseId") Long courseId, @Param("status") Byte status);
 

@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface TagService {
 
-    List<Long> getCourseTagIds(Long courseId);
+    List<Long> getTagIdsOfCourse(Long courseId);
 
     void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto);
 
     void addTag(TagsDto tagsDto);
+
+    List<Long> getTagIdsOfTagGroup(Long tagGroupId);
 }

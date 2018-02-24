@@ -194,5 +194,16 @@ id=#{id}
 		</foreach>
 	</select>
 
+	<select id="getTagIdsOfTagGroup" resultType="long">
+		select tag_id
+		from
+		tag_group_realations
+		where
+		status in
+		<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		and group_id = #{query.tagGroupId}
+	</select>
 	<!--**************************** 自定义mapper end ****************************-->
 </mapper>
