@@ -3,7 +3,9 @@ package com.course.service.impl;
 import com.course.dao.mapper.TagGroupsMapper;
 import com.course.dao.po.BasePo;
 import com.course.dao.po.TagGroups;
+import com.course.dao.po.Users;
 import com.course.dao.po.query.TagGroupsQueryBean;
+import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.TagGroupsService;
 import com.course.service.dto.TagGroupsDto;
 import com.course.service.dto.TagsDto;
@@ -59,7 +61,40 @@ public class TagGroupsServiceImpl extends BaseService implements TagGroupsServic
 
     @Override
     public void updateTagGroup(TagGroupsDto tagGroupsDto) {
+        if (isEmptyString(tagGroupsDto.getTagGroupName())) {
+            throw new TagGroupsException("updateTagGroup group name is null !! tagGroupsDto is :" + tagGroupsDto,
+                    TagGroupsException.ErrorCode.TAG_GROUP_NAME_IS_NULL.getCode(),
+                    TagGroupsException.ErrorCode.TAG_GROUP_NAME_IS_NULL.getMsg());
+        }
 
+        if (null == this.getTagGroupByTagGroupId(tagGroupsDto.getTagGroupId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()))) {
+            throw new TagGroupsException("updateTagGroup tag group not exits !! tagGroupsDto is :" + tagGroupsDto,
+                    TagGroupsException.ErrorCode.TAG_GROUP_NAME_IS_NOT_EXITS.getCode(),
+                    TagGroupsException.ErrorCode.TAG_GROUP_NAME_IS_NOT_EXITS.getMsg());
+        }
+
+
+        if (tagGroupsMapper.update(makeUpdateTagGroup(tagGroupsDto)) != 1) {
+            throw new TagGroupsException("updateTagGroup is fail !! tagGroupsDto is :" + tagGroupsDto,
+                    TagGroupsException.ErrorCode.UPDATE_TAG_GROUP_FAIL.getCode(),
+                    TagGroupsException.ErrorCode.UPDATE_TAG_GROUP_FAIL.getMsg());
+        }
+    }
+
+    private TagGroups makeUpdateTagGroup(TagGroupsDto tagGroupsDto) {
+        TagGroups tagGroups = new TagGroups();
+        tagGroups.setStatus(tagGroupsDto.getStatus());
+        tagGroups.setUpdateTime(DateUtil.unixTime().intValue());
+        tagGroups.setName(tagGroupsDto.getTagGroupName());
+        tagGroups.setId(tagGroupsDto.getTagGroupId());
+        return tagGroups;
+    }
+
+    private TagGroups getTagGroupByTagGroupId(Long tagGroupId, List<Byte> status) {
+        TagGroupsQueryBean query = new TagGroupsQueryBean();
+        query.setStatus(status);
+        query.setTagGroupId(tagGroupId);
+        return tagGroupsMapper.getTagGroupByTagGroupId(query);
     }
 
     @Override

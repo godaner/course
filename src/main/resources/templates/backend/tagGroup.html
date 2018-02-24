@@ -314,6 +314,9 @@
                         name: "tags",
                         width:4,
                         filter:function (text,list,index) {
+                            if(isEmptyList(text)){
+                                return makeTipSpan("无标签");
+                            }
                             var tagNames = [];
                             $.each(text,function (i,item) {
                                 tagNames.push(item.tagName);

@@ -93,9 +93,13 @@
                     var name = field.name;
                     var filter = field.filter;
                     var width = field.width;
+                    var toTip = field.toTip;
                     var text = item[name];
                     if (!isUndefined(filter)) {
                         text = filter(text, list, i);
+                    }
+                    if (!checkHtml(text)) {
+                        text = addSpanTitle(text);
                     }
                     var col = this.makeCol(text, width);
                     row.append(col);

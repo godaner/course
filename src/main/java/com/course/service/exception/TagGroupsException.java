@@ -17,7 +17,10 @@ public class TagGroupsException extends CourseRuntimeException {
     }
 
     public enum ErrorCode {
-        TAG_GROUP_NAME_IS_NULL(-301, "标签分组名为空"), TAG_GROUP_NAME_IS_EXITS(-302, "标签分组名已存在");
+        TAG_GROUP_NAME_IS_NULL(-301, "标签分组名为空"),
+        TAG_GROUP_NAME_IS_EXITS(-302, "标签分组名已存在"),
+        TAG_GROUP_NAME_IS_NOT_EXITS(-303, "标签分组名不存在"),
+        UPDATE_TAG_GROUP_FAIL(-304, "更新标签分组失败");
         int code;
         String msg;
 
