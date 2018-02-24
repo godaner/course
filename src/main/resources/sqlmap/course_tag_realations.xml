@@ -189,7 +189,7 @@
         </foreach>
         and course_id = #{query.courseId}
     </select>
-    <update id="updateCourseTagRealationsStatusByCourseId">
+    <update id="updateRealationsStatusByCourseId">
         update
         course_tag_realations
         set status = #{status}

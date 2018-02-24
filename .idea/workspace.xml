@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/TagsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/TagsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagsMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/TagQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/TagQueryBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/TagService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/TagService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/dto/TagsDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/dto/TagsDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/exception/TagsException.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/exception/TagsException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/TagServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/TagServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/course_tag_realations.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/course_tag_realations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/tags.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/tags.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,29 +25,50 @@
       <file leaf-file-name="TagGroupsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+            <state relative-caret-position="-10">
+              <caret line="39" column="67" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TagService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/TagService.java">
+      <file leaf-file-name="tags_dialog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tags_dialog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="361">
+              <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="49" />
+              <folding>
+                <marker date="1519458874969" expanded="true" signature="4303:4319" ph="..." />
+                <marker date="1519458874969" expanded="true" signature="4634:4691" ph="..." />
+                <marker date="1519458874969" expanded="true" signature="4790:4801" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TagGroupsServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/TagGroupsServiceImpl.java">
+      <file leaf-file-name="course.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="105" column="5" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="105" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="655">
+              <caret line="513" column="20" lean-forward="false" selection-start-line="513" selection-start-column="20" selection-end-line="513" selection-end-column="20" />
+              <folding>
+                <marker date="1519374898756" expanded="true" signature="16036:16058" ph="..." />
+                <marker date="1519374898756" expanded="true" signature="22393:22410" ph="..." />
+                <marker date="1519374898756" expanded="true" signature="22543:22560" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tagGroup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tagGroup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-419">
+              <caret line="322" column="42" lean-forward="true" selection-start-line="322" selection-start-column="42" selection-end-line="322" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1519458322535" expanded="true" signature="15614:15631" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,9 +76,43 @@
       <file leaf-file-name="TagServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/TagServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="58">
+              <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseTagRealationsMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CourseTagRealationsMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="course_tag_realations.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="194" column="30" lean-forward="true" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+              <folding>
+                <marker date="1519461368896" expanded="true" signature="915:981" ph="SELECT count... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="1113:1336" ph="INSERT INTO course_tag_realations... " />
+                <marker date="1519461368896" expanded="true" signature="1379:1439" ph="DELETE FROM " />
+                <marker date="1519461368896" expanded="true" signature="1539:1970" ph="UPDATE cours... " />
+                <marker date="1519461368896" expanded="true" signature="2059:2223" ph="SELECT FROM course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="2319:2600" ph="SELECT FROM course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="3976:4028" ph="SELECT * FRO... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="4447:4507" ph="SELECT id FR... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="4637:4688" ph="SELECT * FRO... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="4820:4929" ph="SELECT * FRO... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="5092:5364" ph="select * fro... course_tag_realations" />
+                <marker date="1519461368896" expanded="true" signature="5438:5543" ph="update cours... " />
+                <marker date="1519461368896" expanded="true" signature="5615:5697" ph="update tag_g... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,54 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/users.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="262" column="40" lean-forward="true" selection-start-line="258" selection-start-column="8" selection-end-line="262" selection-end-column="40" />
-              <folding>
-                <marker date="1518406987604" expanded="true" signature="1140:1190" ph="SELECT count... users" />
-                <marker date="1518406987604" expanded="true" signature="1322:1612" ph="INSERT INTO users... " />
-                <marker date="1518406987604" expanded="true" signature="1655:1699" ph="DELETE FROM " />
-                <marker date="1518406987604" expanded="true" signature="1785:2464" ph="UPDATE users... " />
-                <marker date="1518406987604" expanded="true" signature="2539:2687" ph="SELECT FROM users" />
-                <marker date="1518406987604" expanded="true" signature="2769:3034" ph="SELECT FROM users" />
-                <marker date="1518406987604" expanded="true" signature="4995:5031" ph="SELECT * FRO... users" />
-                <marker date="1518406987604" expanded="true" signature="5420:5464" ph="SELECT id FR... users" />
-                <marker date="1518406987604" expanded="true" signature="5580:5615" ph="SELECT * FRO... users" />
-                <marker date="1518406987604" expanded="true" signature="5733:5826" ph="SELECT * FRO... users" />
-                <marker date="1518406987604" expanded="true" signature="7057:7299" ph="select * fro... users" />
-                <marker date="1518406987604" expanded="true" signature="7379:7629" ph="select * fro... users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TagsException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/exception/TagsException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
               <caret line="23" column="45" lean-forward="false" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="140" column="20" lean-forward="true" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="530" column="52" lean-forward="false" selection-start-line="527" selection-start-column="8" selection-end-line="530" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -160,7 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>adminrDelete</find>
       <find>makeUpdateModelBtn</find>
       <find>addUserBtn</find>
       <find>addUserDialogBuilder</find>
@@ -190,6 +197,7 @@
       <find>getTagGroupsWithTags</find>
       <find>get</find>
       <find>getTagGroupByTag</find>
+      <find>updateRealationsStatusByCourseId</find>
     </findStrings>
     <replaceStrings>
       <replace>{/frontend</replace>
@@ -252,7 +260,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/user.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/common.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CourseTagRealationsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagGroupRealationsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/tag_group_realations.xml" />
@@ -268,6 +275,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/tags.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/dto/TagsDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/TagsException.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/TagServiceImpl.java" />
       </list>
     </option>
@@ -1447,12 +1455,12 @@
       <workItem from="1518427665823" duration="608000" />
       <workItem from="1519346781949" duration="25813000" />
       <workItem from="1519374782179" duration="2609000" />
-      <workItem from="1519433447695" duration="14104000" />
+      <workItem from="1519433447695" duration="14675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296876000" />
+    <option name="totallyTimeSpent" value="297447000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1465,6 +1473,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1477,7 +1486,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36944744" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5449621" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4968017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1488,7 +1497,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1500,6 +1509,41 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33044422" sideWeight="0.5063966" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19349681" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36944744" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4968017" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1732" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2383532" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1597,13 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="24" column="59" lean-forward="false" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="577" column="29" lean-forward="true" selection-start-line="577" selection-start-column="29" selection-end-line="577" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1787,14 +1824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CourseTagRealationsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/tag_group_realations.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -1813,28 +1842,6 @@
             <marker date="1519457729831" expanded="true" signature="4247:4332" ph="update tag_g... " />
             <marker date="1519457729831" expanded="true" signature="4401:4447" ph="SELECT * FRO... tag_group_realations" />
             <marker date="1519457729831" expanded="true" signature="4401:4462" ph="SELECT tag_i... tag_group_realations" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="197" column="4" lean-forward="true" selection-start-line="197" selection-start-column="4" selection-end-line="205" selection-end-column="82" />
-          <folding>
-            <marker date="1519457220354" expanded="true" signature="915:981" ph="SELECT count... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="1113:1336" ph="INSERT INTO course_tag_realations... " />
-            <marker date="1519457220354" expanded="true" signature="1379:1439" ph="DELETE FROM " />
-            <marker date="1519457220354" expanded="true" signature="1539:1970" ph="UPDATE cours... " />
-            <marker date="1519457220354" expanded="true" signature="2059:2223" ph="SELECT FROM course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="2319:2600" ph="SELECT FROM course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="3976:4028" ph="SELECT * FRO... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="4447:4507" ph="SELECT id FR... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="4637:4688" ph="SELECT * FRO... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="4820:4929" ph="SELECT * FRO... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="5092:5364" ph="select * fro... course_tag_realations" />
-            <marker date="1519457220354" expanded="true" signature="5447:5552" ph="update cours... " />
-            <marker date="1519457220354" expanded="true" signature="5624:5706" ph="update tag_g... " />
           </folding>
         </state>
       </provider>
@@ -1884,29 +1891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tagGroup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="322" column="42" lean-forward="true" selection-start-line="322" selection-start-column="42" selection-end-line="322" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1519458322535" expanded="true" signature="15614:15631" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tags_dialog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
-          <folding>
-            <marker date="1519458874969" expanded="true" signature="4303:4319" ph="..." />
-            <marker date="1519458874969" expanded="true" signature="4634:4691" ph="..." />
-            <marker date="1519458874969" expanded="true" signature="4790:4801" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -1919,14 +1903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -2039,10 +2015,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/controller/TagGroupsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="39" column="67" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tagGroup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419">
+          <caret line="322" column="42" lean-forward="true" selection-start-line="322" selection-start-column="42" selection-end-line="322" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519458322535" expanded="true" signature="15614:15631" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/tags_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="49" />
+          <folding>
+            <marker date="1519458874969" expanded="true" signature="4303:4319" ph="..." />
+            <marker date="1519458874969" expanded="true" signature="4634:4691" ph="..." />
+            <marker date="1519458874969" expanded="true" signature="4790:4801" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="513" column="20" lean-forward="false" selection-start-line="513" selection-start-column="20" selection-end-line="513" selection-end-column="20" />
+          <folding>
+            <marker date="1519374898756" expanded="true" signature="16036:16058" ph="..." />
+            <marker date="1519374898756" expanded="true" signature="22393:22410" ph="..." />
+            <marker date="1519374898756" expanded="true" signature="22543:22560" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CourseTagRealationsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/course_tag_realations.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="194" column="30" lean-forward="true" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+          <folding>
+            <marker date="1519461368896" expanded="true" signature="915:981" ph="SELECT count... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="1113:1336" ph="INSERT INTO course_tag_realations... " />
+            <marker date="1519461368896" expanded="true" signature="1379:1439" ph="DELETE FROM " />
+            <marker date="1519461368896" expanded="true" signature="1539:1970" ph="UPDATE cours... " />
+            <marker date="1519461368896" expanded="true" signature="2059:2223" ph="SELECT FROM course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="2319:2600" ph="SELECT FROM course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="3976:4028" ph="SELECT * FRO... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="4447:4507" ph="SELECT id FR... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="4637:4688" ph="SELECT * FRO... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="4820:4929" ph="SELECT * FRO... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="5092:5364" ph="select * fro... course_tag_realations" />
+            <marker date="1519461368896" expanded="true" signature="5438:5543" ph="update cours... " />
+            <marker date="1519461368896" expanded="true" signature="5615:5697" ph="update tag_g... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/impl/TagServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="58">
+          <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
           <folding />
         </state>
       </provider>

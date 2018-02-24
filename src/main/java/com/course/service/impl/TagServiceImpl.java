@@ -4,9 +4,10 @@ import com.course.dao.mapper.CourseTagRealationsMapper;
 import com.course.dao.mapper.TagGroupRealationsMapper;
 import com.course.dao.mapper.TagGroupsMapper;
 import com.course.dao.mapper.TagsMapper;
-import com.course.dao.po.*;
+import com.course.dao.po.BasePo;
+import com.course.dao.po.CourseTagRealations;
+import com.course.dao.po.Tags;
 import com.course.dao.po.query.TagCourseRealationsQueryBean;
-import com.course.dao.po.query.TagGroupsQueryBean;
 import com.course.dao.po.query.TagQueryBean;
 import com.course.service.TagService;
 import com.course.service.dto.CourseTagRealationsDto;
@@ -51,17 +52,21 @@ public class TagServiceImpl extends BaseService implements TagService {
     @Override
     @Transactional
     public void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) {
+        //delete old realations
         Long courseId = courseTagRealationsDto.getCourseId();
-        List<Long> selectedTagIds = Lists.newArrayList(courseTagRealationsDto.getSelectedTagIds().split(",")).stream().parallel().map(s -> {
-            return Long.valueOf(s);
-        }).collect(toList());
         if (courseTagRealationsMapper.updateRealationsStatusByCourseId(courseId, BasePo.Status.DELETED.getCode()) < 0) {
-            throw new TagsException("updateCourseTagRealations#updateRealationsStatusByCourseId is fail !! courseId is :" + courseId + " , selectedTagIds is " + selectedTagIds,
+            throw new TagsException("updateCourseTagRealations#updateRealationsStatusByCourseId is fail !! courseTagRealationsDto is :" + courseTagRealationsDto,
                     TagsException.ErrorCode.UPDATE_TAG_FAIL.getCode(),
                     TagsException.ErrorCode.UPDATE_TAG_FAIL.getMsg());
         }
+        //insert new realations
+        if (isEmptyString(courseTagRealationsDto.getSelectedTagIds())) {
+            return;
+        }
+        List<Long> selectedTagIds = Lists.newArrayList(courseTagRealationsDto.getSelectedTagIds().split(",")).stream().parallel().map(s -> {
+            return Long.valueOf(s);
+        }).collect(toList());
         List<CourseTagRealations> courseTagRealations = makeCourseTagRealations(courseId, selectedTagIds);
-
         if (selectedTagIds.size() != courseTagRealationsMapper.batchInsert(courseTagRealations)) {
             throw new TagsException("updateCourseTagRealations#batchInsert is fail !! courseId is :" + courseId + " , selectedTagIds is " + selectedTagIds,
                     TagsException.ErrorCode.INSERT_TAG_FAIL.getCode(),

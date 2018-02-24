@@ -178,5 +178,16 @@ id=#{id}
 			#{item}
 		</foreach>
 	</update>
+	<select id="getTagByTagName" resultMap="TagsMap">
+		SELECT *
+		FROM
+		tags
+		where
+		status in
+		<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		and `name` = #{query.tagName}
+	</select>
 	<!--**************************** 自定义mapper end ****************************-->
 </mapper>
