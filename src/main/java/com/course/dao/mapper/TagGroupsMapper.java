@@ -14,7 +14,6 @@ public interface TagGroupsMapper extends BaseCrudMapper<TagGroups> {
 
     Long getTagGroupsWithTagsCount(@Param("page") PageBean pageBean, @Param("query") TagGroupsQueryBean queryBean);
 
-    TagGroups getTagGroupByTagGroupId(@Param("query") TagGroupsQueryBean query);
-
     TagGroups getTagGroupByTagGroupName(@Param("query") TagGroupsQueryBean query);
+
 }

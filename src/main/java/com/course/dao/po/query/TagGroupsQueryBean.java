@@ -1,6 +1,8 @@
 package com.course.dao.po.query;
 
 
+import java.util.List;
+
 public class TagGroupsQueryBean extends BaseQueryBean {
     private String tagGroupName;
     private Long tagGroupId;

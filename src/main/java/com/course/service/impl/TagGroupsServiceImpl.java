@@ -31,7 +31,7 @@ public class TagGroupsServiceImpl extends BaseService implements TagGroupsServic
 
     @Override
     public List<TagGroupsDto> getTagGroupsWithTags(PageBean pageBean, TagGroupsQueryBean queryBean) {
-//        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+
         return tagGroupsMapper.getTagGroupsWithTags(pageBean, queryBean).stream().parallel().map(tagGroupsWithTags -> {
             TagGroupsDto tagGroupsDto = new TagGroupsDto();
             tagGroupsDto.setTagGroupId(tagGroupsWithTags.getId());
@@ -54,7 +54,6 @@ public class TagGroupsServiceImpl extends BaseService implements TagGroupsServic
 
     @Override
     public Long getTagGroupsWithTagsCount(PageBean pageBean, TagGroupsQueryBean queryBean) {
-//        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         return tagGroupsMapper.getTagGroupsWithTagsCount(pageBean, queryBean);
     }
 

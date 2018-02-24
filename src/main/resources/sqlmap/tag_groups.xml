@@ -183,41 +183,91 @@
             <result column="tag_name" property="name"/>
         </collection>
     </resultMap>
+
     <select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">
-		select g.*,t.id as tag_id,t.`name` as tag_name,g.create_time,g.status
-		from tag_groups g,tag_group_realations r,tags t
-		where g.status in
-        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-		and r.status in
-        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-		and t.status in
-        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-		and t.id = r.tag_id
-		and r.group_id = g.id
-        <if test="query.tagGroupName!=null">
-            AND g.`name` LIKE CONCAT('%' ,#{query.tagGroupName},'%')
-        </if>
-        <if test="page.orderBy != null and page.orderType != null">
-            order by g.${page.orderBy} ${page.orderType}
-        </if>
-        <if test="page.start != null and page.size != null">
-            limit #{page.start},#{page.size}
-        </if>
-	</select>
+        SELECT
+        a.*,
+        t.NAME as tag_name
+        FROM
+        (
+            SELECT
+            g.*,r. tag_id
+            FROM
+            (
+              SELECT *
+              FROM tag_groups
+              WHERE status in
+                <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+                  #{item}
+                </foreach>
+                <if test="query.tagGroupName!=null">
+                    AND g.`name` LIKE CONCAT('%' ,#{query.tagGroupName},'%')
+                </if>
+                <if test="page.orderBy != null and page.orderType != null">
+                    order by ${page.orderBy} ${page.orderType}
+                </if>
+                <if test="page.start != null and page.size != null">
+                    limit #{page.start},#{page.size}
+                </if>
+            ) g
+            LEFT JOIN
+            (
+              SELECT *
+              FROM tag_group_realations
+              WHERE status in
+                <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            ) r
+            ON r.group_id = g.id
+        ) a
+        LEFT JOIN
+        (
+          SELECT *
+          FROM tags
+          WHERE status in
+            <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        ) t
+        ON t.id = a.tag_id
+
+    </select>
+    <!--<select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">-->
+    <!--select g.*,t.id as tag_id,t.`name` as tag_name,g.create_time,g.status-->
+    <!--from tag_groups g,tag_group_realations r,tags t-->
+    <!--where g.status in-->
+    <!--<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">-->
+    <!--#{item}-->
+    <!--</foreach>-->
+    <!--and r.status in-->
+    <!--<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">-->
+    <!--#{item}-->
+    <!--</foreach>-->
+    <!--and t.status in-->
+    <!--<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">-->
+    <!--#{item}-->
+    <!--</foreach>-->
+    <!--and t.id = r.tag_id-->
+    <!--and r.group_id = g.id-->
+    <!--<if test="query.tagGroupName!=null">-->
+    <!--AND g.`name` LIKE CONCAT('%' ,#{query.tagGroupName},'%')-->
+    <!--</if>-->
+    <!--<if test="page.orderBy != null and page.orderType != null">-->
+    <!--order by g.${page.orderBy} ${page.orderType}-->
+    <!--</if>-->
+    <!--<if test="page.start != null and page.size != null">-->
+    <!--limit #{page.start},#{page.size}-->
+    <!--</if>-->
+    <!--</select>-->
     <select id="getTagGroupsWithTagsCount" resultType="long">
-		select count(g.id)
-		from tag_groups g
-		where g.status in
+        select count(g.id)
+        from tag_groups g
+        where g.status in
         <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
             #{item}
         </foreach>
-	</select>
+    </select>
 
 
     <select id="getTagGroupByTagGroupId" resultMap="TagGroupsMap">
@@ -242,5 +292,7 @@
         </foreach>
         and `name` = #{query.tagGroupName}
     </select>
+
+
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>
