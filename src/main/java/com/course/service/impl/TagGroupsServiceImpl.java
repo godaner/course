@@ -1,19 +1,23 @@
 package com.course.service.impl;
 
+import com.course.dao.mapper.CourseTagRealationsMapper;
+import com.course.dao.mapper.TagGroupRealationsMapper;
 import com.course.dao.mapper.TagGroupsMapper;
 import com.course.dao.po.BasePo;
+import com.course.dao.po.TagGroupRealations;
 import com.course.dao.po.TagGroups;
-import com.course.dao.po.Users;
+import com.course.dao.po.query.TagCourseRealationsQueryBean;
 import com.course.dao.po.query.TagGroupsQueryBean;
-import com.course.dao.po.query.UsersQueryBean;
 import com.course.service.TagGroupsService;
 import com.course.service.dto.TagGroupsDto;
 import com.course.service.dto.TagsDto;
+import com.course.service.exception.CoursesException;
 import com.course.service.exception.TagGroupsException;
 import com.course.service.exception.UsersException;
 import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
+import com.google.common.collect.ImmutableMap;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -30,6 +34,10 @@ public class TagGroupsServiceImpl extends BaseService implements TagGroupsServic
 
     @Autowired
     private TagGroupsMapper tagGroupsMapper;
+    @Autowired
+    private TagGroupRealationsMapper tagGroupRealationsMapper;
+    @Autowired
+    private CourseTagRealationsMapper courseTagRealationsMapper;
 
     @Override
     public List<TagGroupsDto> getTagGroupsWithTags(PageBean pageBean, TagGroupsQueryBean queryBean) {
@@ -99,7 +107,22 @@ public class TagGroupsServiceImpl extends BaseService implements TagGroupsServic
 
     @Override
     public void deleteTagGroup(Long tagGroupId) {
-
+        //delete tag group
+        TagGroups tagGroups = this.getTagGroupByTagGroupId(tagGroupId, Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
+        if (null != tagGroups) {
+            tagGroups.setStatus(BasePo.Status.DELETED.getCode());
+            if (tagGroupsMapper.update(tagGroups) != 1) {
+                throw new CoursesException("tagGroupId update is fail !! tagGroupId is : " + tagGroupId);
+            }
+        }
+        //delete tag and tag group realation
+        if (0 > tagGroupRealationsMapper.updateRealationsStatusByTagGroupId(tagGroupId, BasePo.Status.DELETED.getCode())) {
+            throw new CoursesException("deleteTagGroup#updateRealationsStatusByTagGroupId is fail !! tagGroupId is : " + tagGroupId);
+        }
+        //delete tag and course realation
+        if (0 > courseTagRealationsMapper.updateRealationsStatusByTagGroupId(tagGroupId, BasePo.Status.DELETED.getCode())) {
+            throw new CoursesException("deleteTagGroup#updateRealationsStatusByTagGroupId is fail !! tagGroupId is : " + tagGroupId);
+        }
     }
 
     @Override
