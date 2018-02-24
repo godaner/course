@@ -11,5 +11,10 @@ import java.util.List;
 
 public interface TagGroupsMapper extends BaseCrudMapper<TagGroups> {
     List<TagGroupsWithTags> getTagGroupsWithTags(@Param("page") PageBean pageBean, @Param("query") TagGroupsQueryBean queryBean);
+
     Long getTagGroupsWithTagsCount(@Param("page") PageBean pageBean, @Param("query") TagGroupsQueryBean queryBean);
+
+    TagGroups getTagGroupByTagGroupId(@Param("query") TagGroupsQueryBean query);
+
+    TagGroups getTagGroupByTagGroupName(@Param("query") TagGroupsQueryBean query);
 }

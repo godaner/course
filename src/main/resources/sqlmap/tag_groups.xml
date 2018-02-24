@@ -218,5 +218,29 @@
             #{item}
         </foreach>
 	</select>
+
+
+    <select id="getTagGroupByTagGroupId" resultMap="TagGroupsMap">
+        select *
+        from
+        tag_groups
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and id = #{query.tagGroupId}
+    </select>
+    <select id="getTagGroupByTagGroupName" resultMap="TagGroupsMap">
+        select *
+        from
+        tag_groups
+        where
+        status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and `name` = #{query.tagGroupName}
+    </select>
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>
