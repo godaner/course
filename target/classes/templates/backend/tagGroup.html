@@ -309,7 +309,19 @@
                         title: "标签分组名",
                         name: "tagGroupName"
                     },
-
+                    {
+                        title: "拥有的分组",
+                        name: "tags",
+                        width:4,
+                        filter:function (text,list,index) {
+                            var tagNames = [];
+                            $.each(text,function (i,item) {
+                                tagNames.push(item.tagName);
+                            }.bind(this));
+                            text = tagNames.join(",");
+                            return makeTipSpan(text);
+                        }.bind(this)
+                    },
                     {
                         title: "状态",
                         name: "status",
