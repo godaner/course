@@ -3,6 +3,7 @@ package com.course.controller;
 import com.course.controller.base.ServiceController;
 import com.course.service.TagService;
 import com.course.service.dto.CourseTagRealationsDto;
+import com.course.service.dto.TagsDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,5 +33,11 @@ public class TagsController extends ServiceController<TagService> {
     public Object updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) throws Exception {
         service.updateCourseTagRealations(courseTagRealationsDto);
         return response;
+    }
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Object addTag(TagsDto tagsDto) throws Exception {
+        service.addTag(tagsDto);
+        return response.setMsg("添加标签 '" + tagsDto.getTagName() + "' 成功");
     }
 }

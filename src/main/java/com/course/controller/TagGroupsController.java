@@ -5,6 +5,7 @@ import com.course.dao.po.BasePo;
 import com.course.dao.po.query.TagGroupsQueryBean;
 import com.course.service.TagGroupsService;
 import com.course.service.dto.TagGroupsDto;
+import com.course.service.dto.TagsDto;
 import com.course.util.PageBean;
 import org.assertj.core.util.Lists;
 import org.springframework.context.annotation.Scope;
@@ -63,4 +64,5 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
         service.addTagGroup(tagGroupsDto);
         return response.setMsg("添加标签分组 '" + tagGroupsDto.getTagGroupName() + "' 成功");
     }
+
 }

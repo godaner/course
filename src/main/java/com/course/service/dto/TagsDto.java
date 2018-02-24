@@ -4,13 +4,14 @@ package com.course.service.dto;
 public class TagsDto {
     private Long tagId;
     private String tagName;
+    private Byte status;
 
-    @Override
-    public String toString() {
-        return "TagsDto{" +
-                "tagId=" + tagId +
-                ", tagName='" + tagName + '\'' +
-                '}';
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     public String getTagName() {
