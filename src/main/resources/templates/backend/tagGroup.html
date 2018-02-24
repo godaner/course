@@ -313,7 +313,7 @@
                     {
                         title: "拥有的标签",
                         name: "tags",
-                        width:4,
+                        width:3,
                         filter:function (text,list,index) {
                             if(isEmptyList(text)){
                                 return makeTipSpan("无标签");
@@ -351,7 +351,7 @@
                     {
                         title: "操作",
                         name: "createTime",
-                        width: 2,
+                        width: 4,
                         filter: function (text, list, index) {
                             //行删除更新事件回调
                             tagGroupDelete = function (index) {
@@ -379,54 +379,16 @@
                                 this.updateTagGroupDialogBuilder.show();
                             }.bind(this);
 
-                            showTags = function (index) {
-                                var tagGroupId = list[index].tagGroupId;
-                                ajax.post({
-                                    url: "/tagGroup/list/v2",
-                                    data: $.extend(this.page, this.query),
-                                    onSuccess: function (result01) {
-
-                                        ajax.post({
-                                            url: "/tags/ids/tagGroup/" + tagGroupId,
-                                            data: $.extend(this.page, this.query),
-                                            onSuccess: function (result02) {
-
-
-                                                this.tagsDialog.show({
-                                                    tagGroupList: result01.data.list,
-                                                    echoTagIds: result02.data.list,
-                                                    onSure: function (selectedTagIds) {
-a(selectedTagIds);
-//                                                        ajax.post({
-//                                                            url: "/tags/tagGroup/realation",
-//                                                            data: {
-//                                                                selectedTagIds: selectedTagIds.join(","),
-//                                                                courseId: courseId
-//                                                            },
-//                                                            onSuccess: function (result) {
-//                                                                this.msgDialog.showMsg({
-//                                                                    msg: result.msg
-//                                                                });
-//                                                            }.bind(this)
-//                                                        });
-                                                    }.bind(this),
-                                                    onCancel: function () {
-
-                                                    }.bind(this)
-                                                });
-                                            }.bind(this)
-                                        });
-
-
-                                    }.bind(this)
-                                });
-
-
+                            addTag = function (index) {
+                                a("addTag");
                             }.bind(this);
-
+                            deleteTag = function (index) {
+                                a("deleteTag");
+                            }.bind(this);
                             return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate("+index+")'>修改</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete("+index+")'>删除</button>"+
-                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='showTags(" + index + ")'>标签</button>";
+                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='addTag(" + index + ")'>添加标签</button>"+
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='deleteTag(" + index + ")'>删除标签</button>";
                         }.bind(this)
                     }
                 ]

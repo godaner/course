@@ -14,5 +14,5 @@ public interface TagService {
 
     void addTag(TagsDto tagsDto);
 
-    List<Long> getTagIdsOfTagGroup(Long tagGroupId);
+    List<TagsDto> getTagsOfTagGroup(Long tagGroupId);
 }

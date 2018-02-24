@@ -5,6 +5,15 @@ public class TagsDto {
     private Long tagId;
     private String tagName;
     private Byte status;
+    private Long TagGroupId;
+
+    public Long getTagGroupId() {
+        return TagGroupId;
+    }
+
+    public void setTagGroupId(Long tagGroupId) {
+        TagGroupId = tagGroupId;
+    }
 
     public Byte getStatus() {
         return status;

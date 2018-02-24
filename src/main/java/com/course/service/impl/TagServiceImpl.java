@@ -4,11 +4,10 @@ import com.course.dao.mapper.CourseTagRealationsMapper;
 import com.course.dao.mapper.TagGroupRealationsMapper;
 import com.course.dao.mapper.TagGroupsMapper;
 import com.course.dao.mapper.TagsMapper;
-import com.course.dao.po.BasePo;
-import com.course.dao.po.CourseTagRealations;
-import com.course.dao.po.Tags;
+import com.course.dao.po.*;
 import com.course.dao.po.query.TagCourseRealationsQueryBean;
 import com.course.dao.po.query.TagGroupRealationsQueryBean;
+import com.course.dao.po.query.TagGroupsQueryBean;
 import com.course.dao.po.query.TagQueryBean;
 import com.course.service.TagService;
 import com.course.service.dto.CourseTagRealationsDto;
@@ -51,12 +50,29 @@ public class TagServiceImpl extends BaseService implements TagService {
     }
 
     @Override
-    public List<Long> getTagIdsOfTagGroup(Long tagGroupId) {
+    public List<TagsDto> getTagsOfTagGroup(Long tagGroupId) {
+        //get tag ids
         TagGroupRealationsQueryBean query = new TagGroupRealationsQueryBean();
-        query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
         query.setTagGroupId(tagGroupId);
-        return tagGroupRealationsMapper.getTagIdsOfTagGroup(query);
+        List<Long> tagIds = tagGroupRealationsMapper.getTagIdsOfTagGroup(query);
+        //get tags
+        TagQueryBean queryBean = new TagQueryBean();
+        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
+        queryBean.setTagIds(tagIds);
+
+        return tagsMapper.getTagsByTagsIds(queryBean).stream().parallel().map(tags -> {
+            return makeTagDto(tags);
+        }).collect(toList());
     }
+
+    private TagsDto makeTagDto(Tags tags) {
+        TagsDto tagsDto = new TagsDto();
+        tagsDto.setTagName(tags.getName());
+        tagsDto.setTagId(tags.getId());
+        return tagsDto;
+    }
+
     @Override
     @Transactional
     public void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) {
@@ -96,15 +112,46 @@ public class TagServiceImpl extends BaseService implements TagService {
                     TagsException.ErrorCode.TAG_NAME_IS_NOT_EXITS.getCode(),
                     TagsException.ErrorCode.TAG_NAME_IS_NOT_EXITS.getMsg());
         }
+        if (tagsDto.getTagGroupId() == null) {
+            throw new TagsException("addTag tag group id is null !! tagsDto is :" + tagsDto);
+        }
 
+        TagGroups tagGroups = this.getTagGroupByTagGroupId(tagsDto.getTagGroupId(), Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
+        if (null == tagGroups) {
+            throw new TagsException("addTag tag group is not exits !! tagsDto is :" + tagsDto,
+                    TagsException.ErrorCode.TAG_GROUP_IS_NOT_EXITS.getCode(),
+                    TagsException.ErrorCode.TAG_GROUP_IS_NOT_EXITS.getMsg());
+        }
         //insert tag
         tags = makeAddTags(tagsDto);
         if (1 != tagsMapper.insert(tags)) {
             throw new UsersException("addTag tagsMapper#insert is fail !! tagsDto is :" + tagsDto);
         }
+        //insert tag group realation
+        TagGroupRealations tagGroupRealations = makeTagGroupRealation(tags, tagGroups);
+        if (1 != tagGroupRealationsMapper.insert(tagGroupRealations)) {
+            throw new UsersException("addTag tagGroupRealationsMapper#insert is fail !! tagsDto is :" + tagsDto);
+        }
 
     }
 
+    private TagGroupRealations makeTagGroupRealation(Tags tags, TagGroups tagGroups) {
+        TagGroupRealations tagGroupRealations = new TagGroupRealations();
+        Integer now = DateUtil.unixTime().intValue();
+        tagGroupRealations.setGroupId(tagGroups.getId());
+        tagGroupRealations.setTagId(tags.getId());
+        tagGroupRealations.setCreateTime(now);
+        tagGroupRealations.setUpdateTime(now);
+        tagGroupRealations.setStatus(BasePo.Status.NORMAL.getCode());
+        return tagGroupRealations;
+    }
+
+    private TagGroups getTagGroupByTagGroupId(Long tagGroupId, List<Byte> status) {
+        TagGroupsQueryBean query = new TagGroupsQueryBean();
+        query.setStatus(status);
+        query.setTagGroupId(tagGroupId);
+        return tagGroupsMapper.getTagGroupByTagGroupId(query);
+    }
 
     private Tags makeAddTags(TagsDto tagsDto) {
         Tags tags = new Tags();

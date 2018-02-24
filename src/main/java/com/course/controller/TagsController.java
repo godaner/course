@@ -26,10 +26,10 @@ public class TagsController extends ServiceController<TagService> {
         List<Long> list = service.getTagIdsOfCourse(courseId);
         return response.putData("list", list);
     }
-    @RequestMapping(value = "/ids/tagGroup/{tagGroupId}")
+    @RequestMapping(value = "/tagGroup/{tagGroupId}")
     @ResponseBody
     public Object getTagIdsOfTagGroup(@PathVariable Long tagGroupId) throws Exception {
-        List<Long> list = service.getTagIdsOfTagGroup(tagGroupId);
+        List<TagsDto> list = service.getTagsOfTagGroup(tagGroupId);
         return response.putData("list", list);
     }
 
