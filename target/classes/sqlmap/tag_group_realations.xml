@@ -176,4 +176,23 @@ id=#{id}
 		LIMIT 1 
 	</select>
 
+
+
+	<!--**************************** 自定义mapper start ****************************-->
+	<update id="updateRealationsStatusByTagGroupId">
+		update tag_group_realations
+		set status = #{status}
+		where group_id = #{tagGroupId}
+	</update>
+	<select id="getTagIdsByTagGroupId" resultType="long">
+		SELECT tag_id
+		FROM
+		tag_group_realations
+		where status IN
+		<foreach item="item" index="index" collection="status" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<!--**************************** 自定义mapper end ****************************-->
 </mapper>

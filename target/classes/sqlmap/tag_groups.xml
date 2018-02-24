@@ -177,9 +177,6 @@
         <collection property="tags" ofType="com.course.dao.po.Tags">
 
             <id column="tag_id" property="id"/>
-            <result column="status" property="status"/>
-            <result column="create_time" property="createTime"/>
-            <result column="update_time" property="updateTime"/>
             <result column="tag_name" property="name"/>
         </collection>
     </resultMap>

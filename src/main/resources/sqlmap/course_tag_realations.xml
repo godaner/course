@@ -195,5 +195,13 @@
         set status = #{status}
         where course_id = #{courseId}
     </update>
+    <update id="updateRealationsStatusByTagIds">
+        update tag_group_realations
+        set status = #{status}
+        where tag_id in
+        <foreach item="item" index="index" collection="tagGroupIds" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>

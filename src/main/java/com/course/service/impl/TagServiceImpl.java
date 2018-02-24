@@ -42,8 +42,8 @@ public class TagServiceImpl implements TagService {
         List<Long> selectedTagIds = Lists.newArrayList(courseTagRealationsDto.getSelectedTagIds().split(",")).stream().parallel().map(s -> {
             return Long.valueOf(s);
         }).collect(toList());
-        if (courseTagRealationsMapper.updateCourseTagRealationsStatusByCourseId(courseId, BasePo.Status.DELETED.getCode()) < 0) {
-            throw new TagsException("updateCourseTagRealations#updateCourseTagRealationsStatusByCourseId is fail !! courseId is :" + courseId + " , selectedTagIds is " + selectedTagIds,
+        if (courseTagRealationsMapper.updateRealationsStatusByCourseId(courseId, BasePo.Status.DELETED.getCode()) < 0) {
+            throw new TagsException("updateCourseTagRealations#updateRealationsStatusByCourseId is fail !! courseId is :" + courseId + " , selectedTagIds is " + selectedTagIds,
                     TagsException.ErrorCode.UPDATE_TAG_STATUS_FAIL.getCode(),
                     TagsException.ErrorCode.UPDATE_TAG_STATUS_FAIL.getMsg());
         }

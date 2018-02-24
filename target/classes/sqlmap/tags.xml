@@ -168,4 +168,15 @@ id=#{id}
 		LIMIT 1 
 	</select>
 
+
+
+	<update id="updateTagsStatusByTagIds">
+		update tags
+		set status = #{status}
+		where id in
+		<foreach item="item" index="index" collection="tagIds" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!--**************************** 自定义mapper end ****************************-->
 </mapper>

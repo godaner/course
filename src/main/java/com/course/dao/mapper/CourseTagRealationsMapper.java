@@ -12,5 +12,7 @@ public interface CourseTagRealationsMapper extends BaseCrudMapper<CourseTagReala
 
     List<Long> getCourseTagIds(@Param("query") TagCourseRealationsQueryBean query);
 
-    int updateCourseTagRealationsStatusByCourseId(@Param("courseId") Long courseId,@Param("status") Byte status);
+    int updateRealationsStatusByCourseId(@Param("courseId") Long courseId, @Param("status") Byte status);
+
+    int updateRealationsStatusByTagIds(@Param("tagGroupIds") List<Long> tagGroupIds, @Param("status") Byte status);
 }

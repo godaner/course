@@ -96,10 +96,17 @@
         this.makeTagsList = function (tagGroupList) {
             this.$contentDom.html("");
             $.each(tagGroupList, function (i, tagGroup) {
-                this.$contentDom.append(this.makeTagGroupTitle(tagGroup.tagGroupName))
-                $.each(tagGroup.tags, function (j, tag) {
-                    this.$contentDom.append(this.makeCheckBox(tag.tagName, tag.tagId));
-                }.bind(this));
+                this.$contentDom.append(this.makeTagGroupTitle(tagGroup.tagGroupName));
+
+                if (isEmptyList(tagGroup.tags)) {
+                    this.$contentDom.append(this.makeEmptyTip());
+                }else{
+                    $.each(tagGroup.tags, function (j, tag) {
+                        this.$contentDom.append(this.makeCheckBox(tag.tagName, tag.tagId));
+                    }.bind(this));
+                }
+
+                this.$contentDom.append(this.makeSplit());
             }.bind(this));
         };
         this.selectTagsList = function (echoTagIds) {
@@ -112,6 +119,12 @@
         };
         this.makeTagGroupTitle = function (text) {
             return $("<div class='row'>" + text + "</div>");
+        }
+        this.makeSplit = function () {
+            return $("<div class='row' style='height: 1px;background-color: gainsboro;margin-top: 10px;'></div>");
+        }
+        this.makeEmptyTip = function () {
+            return $("<span style='color: red;'>无标签</span>");
         }
 
     };
