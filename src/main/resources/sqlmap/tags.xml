@@ -169,6 +169,7 @@ id=#{id}
 	</select>
 
 
+	<!--**************************** 自定义mapper start ****************************-->
 
 	<update id="updateTagsStatusByTagIds">
 		update tags
@@ -188,6 +189,20 @@ id=#{id}
 			#{item}
 		</foreach>
 		and `name` = #{query.tagName}
+	</select>
+	<select id="getTagsByTagsIds" resultMap="TagsMap">
+		SELECT *
+		FROM
+		tags
+		where
+		status in
+		<foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		and id in
+		<foreach item="item" index="index" collection="query.tagIds" open="(" separator="," close=")">
+			#{item}
+		</foreach>
 	</select>
 	<!--**************************** 自定义mapper end ****************************-->
 </mapper>

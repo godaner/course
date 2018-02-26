@@ -56,6 +56,10 @@ public class TagServiceImpl extends BaseService implements TagService {
         query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
         query.setTagGroupId(tagGroupId);
         List<Long> tagIds = tagGroupRealationsMapper.getTagIdsOfTagGroup(query);
+
+        if(isEmptyList(tagIds)){
+            return Lists.newArrayList();
+        }
         //get tags
         TagQueryBean queryBean = new TagQueryBean();
         queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
@@ -65,6 +69,24 @@ public class TagServiceImpl extends BaseService implements TagService {
             return makeTagDto(tags);
         }).collect(toList());
     }
+
+    @Override
+    public void deleteTag(String tagIds) {
+        if (isEmptyString(tagIds)) {
+            throw new TagsException("deleteTag tagIds is null !! tagIds is :" + tagIds,
+                    TagsException.ErrorCode.TAG_IDS_IS_NULL.getCode(),
+                    TagsException.ErrorCode.TAG_IDS_IS_NULL.getMsg());
+        }
+        List<Long> tagIdsList = Lists.newArrayList(tagIds.split(",")).stream().parallel().map(tagId -> {
+            return Long.valueOf(tagId);
+        }).collect(toList());
+        if (0 > tagsMapper.updateTagsStatusByTagIds(tagIdsList, BasePo.Status.DELETED.getCode())) {
+            throw new TagsException("deleteTag#updateTagsStatusByTagIds is fail !! tagIds is :" + tagIds,
+                    TagsException.ErrorCode.UPDATE_TAG_FAIL.getCode(),
+                    TagsException.ErrorCode.UPDATE_TAG_FAIL.getMsg());
+        }
+    }
+
 
     private TagsDto makeTagDto(Tags tags) {
         TagsDto tagsDto = new TagsDto();

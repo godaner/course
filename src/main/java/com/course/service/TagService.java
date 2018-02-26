@@ -8,11 +8,13 @@ import java.util.List;
 
 public interface TagService {
 
-    List<Long> getTagIdsOfCourse(Long courseId);
+    List<Long> getTagIdsOfCourse(Long courseId) throws Exception;
 
-    void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto);
+    void updateCourseTagRealations(CourseTagRealationsDto courseTagRealationsDto) throws Exception;
 
-    void addTag(TagsDto tagsDto);
+    void addTag(TagsDto tagsDto) throws Exception;
 
-    List<TagsDto> getTagsOfTagGroup(Long tagGroupId);
+    List<TagsDto> getTagsOfTagGroup(Long tagGroupId) throws Exception;
+
+    void deleteTag(String tagIds) throws Exception;
 }

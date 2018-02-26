@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -44,5 +45,11 @@ public class TagsController extends ServiceController<TagService> {
     public Object addTag(TagsDto tagsDto) throws Exception {
         service.addTag(tagsDto);
         return response.setMsg("添加标签 '" + tagsDto.getTagName() + "' 成功");
+    }
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public Object deleteTags(@RequestParam("tagIds") String tagIds) throws Exception {
+        service.deleteTag(tagIds);
+        return response.setMsg("删除标签成功");
     }
 }

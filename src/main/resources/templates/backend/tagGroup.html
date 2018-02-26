@@ -409,6 +409,50 @@
                             }.bind(this);
                             deleteTag = function (index) {
                                 a("deleteTag");
+                                var data = list[index];
+                                var tagGroupId = data.tagGroupId;
+
+                                ajax.post({
+                                    url: "/tags/tagGroup/"+tagGroupId,
+                                    data: {},
+                                    onSuccess: function (result) {
+
+
+                                        var ids = [];
+                                        $.each(result.data.list,function (i,item) {
+                                            ids.push(item.tagId);
+                                        }.bind(this));
+                                        var tags = result.data.list;
+                                        var tagGroupList = [{
+                                            tagGroupName:"",
+                                            tags:tags
+                                        }];
+                                        this.tagsDialog.show({
+                                            tagGroupList: tagGroupList,
+                                            echoTagIds: ids,
+                                            onSure: function (selectedTagIds) {
+
+                                                ajax.post({
+                                                    url: "/tags/delete",
+                                                    data: {
+                                                        tagIds: selectedTagIds.join(",")
+                                                    },
+                                                    onSuccess: function (result) {
+                                                        this.loadTagGroupData();
+                                                        this.msgDialog.showMsg({
+                                                            msg: result.msg
+                                                        });
+                                                    }.bind(this)
+                                                });
+                                            }.bind(this),
+                                            onCancel: function () {
+
+                                            }.bind(this)
+                                        });
+
+                                    }.bind(this)
+                                });
+
                             }.bind(this);
                             return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate(" + index + ")'>修改</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete(" + index + ")'>删除</button>" +
