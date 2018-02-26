@@ -60,90 +60,112 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    needToLogin();
 
+    var Nav = function () {
 
-    var onlineAdmin = undefined;
+        this.onlineAdmin = undefined;
+        this.loginDialog = undefined;
+        this.loadingDialog = undefined;
+        this.msgDialog = undefined;
+        this.init = function (args) {
+            this.loadingDialog = args.loadingDialog;
+            this.loginDialog = args.loginDialog;
+            this.msgDialog = args.msgDialog;
+        };
 
-    function needToLogin() {
-        ajax.post({
-            url: "/admins/onlineAdmin",
-            onSuccess: function (result) {
-                if (fail(result.code) || isUndefined(result.data.admin)) {
-                    login();
-                } else {
-                    displayOnlineAdminInfo(result.data.admin);
-                }
+        this.checkOnlineAdminStatus = function () {
+            ajax.post({
+                url: "/admins/onlineAdmin",
+                onSuccess: function (result) {
+                    if (fail(result.code) || isUndefined(result.data.admin)) {
+                        this.login();
+                    } else {
+                        this.displayOnlineAdminInfo(result.data.admin);
+                    }
 
-            }.bind(this)
-        });
-    }
-    function login() {
-        loginDialog.show({
-            onSure: function (data) {
-                loadingDialog.show({
-                    msg:"正在登陆..."
-                });
-                ajax.post({
-                    url: "/admins/login",
-                    data: data,
-                    onSuccess: function (result) {
-
-                        loadingDialog.hide();
-                        this.msgDialog.showMsg({
-                            msg: result.msg,
-                            onSure: function () {
-                                if (!success(result.code)) {
-                                    loginDialog.show();
-                                } else {
-                                    displayOnlineAdminInfo(result.data.admin);
-                                }
-                            }.bind(this)
-                        });
-
-                    }.bind(this)
-                });
-            }.bind(this)
-        });
-    }
-
-    function displayOnlineAdminInfo(onlineAdmin) {
-        if (isUndefined(onlineAdmin)) {
-            onlineAdmin = {};
+                }.bind(this)
+            });
         }
+        this.login = function () {
+            this.loginDialog.show({
+                onSure: function (data) {
+                    this.loadingDialog.show({
+                        msg: "正在登陆..."
+                    });
+                    ajax.post({
+                        url: "/admins/login",
+                        data: data,
+                        onSuccess: function (result) {
 
-        var $infoDiv = $("#personInfor");
+                            this.loadingDialog.hide();
+                            this.msgDialog.showMsg({
+                                msg: result.msg,
+                                onSure: function () {
+                                    if (!success(result.code)) {
+                                        this.loginDialog.show();
+                                    } else {
+                                        this.onlineAdmin = result.data.admin;
+                                        this.displayOnlineAdminInfo();
+                                    }
+                                }.bind(this)
+                            });
 
-        $infoDiv.find("#username").html(makeDisplayContent("名称 ：", onlineAdmin.username));
-
-        $infoDiv.find("#description").html(makeDisplayContent("简介 ：", onlineAdmin.description));
-    }
-    function makeDisplayContent(prefix, content) {
-        if (isUndefined(content)) {
-            content = "无";
+                        }.bind(this)
+                    });
+                }.bind(this)
+            });
         }
-        return prefix + content;
-    }
-    function logout() {
-        loadingDialog.show({
-            msg:"正在登出..."
-        });
-        ajax.post({
-            url: "/admins/logout",
-            data: onlineAdmin,
-            onSuccess: function (result) {
-                loadingDialog.hide();
-                this.msgDialog.showMsg({
-                    msg: result.msg,
-                    onSure: function () {
-                        loginDialog.show();
-                        displayOnlineAdminInfo();
-                    }.bind(this)
-                });
+        this.displayOnlineAdminInfo = function () {
+            var onlineAdmin = {};
+            if (!isUndefined(this.onlineAdmin)) {debugger
+                onlineAdmin = this.onlineAdmin;
+            }
 
-            }.bind(this)
-        });
+            var $infoDiv = $("#personInfor");
+
+            $infoDiv.find("#username").html(this.makeDisplayContent("名称 ：", onlineAdmin.username));
+
+            $infoDiv.find("#description").html(this.makeDisplayContent("简介 ：", onlineAdmin.description));
+        }
+        this.makeDisplayContent = function (prefix, content) {
+            if (isUndefined(content)) {
+                content = "无";
+            }
+            return prefix + content;
+        }
+        this.logout = function () {
+            this.loadingDialog.show({
+                msg: "正在登出..."
+            });
+            ajax.post({
+                url: "/admins/logout",
+                data: this.onlineAdmin,
+                onSuccess: function (result) {
+                    this.loadingDialog.hide();
+                    this.msgDialog.showMsg({
+                        msg: result.msg,
+                        onSure: function () {
+                            this.loginDialog.show();
+                            this.onlineAdmin = {};
+                            this.displayOnlineAdminInfo();
+                        }.bind(this)
+                    });
+
+                }.bind(this)
+            });
+        }
     }
+    var nav = new Nav();
+
+    nav.init({
+        loginDialog: loginDialog,
+        loadingDialog: loadingDialog,
+        msgDialog: msgDialog
+    });
+
+    nav.checkOnlineAdminStatus();
+
+
     /*]]>*/
 
 </script>
