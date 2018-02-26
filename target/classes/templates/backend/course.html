@@ -345,7 +345,7 @@
                         name: "createTime",
                         inputType: InputType.TEXT,
                         filter: function (data) {
-                            return timeFormatter.formatTime(data);
+                            return timeFormatter.formatTime(data*1000);
                         }
                     },
                     {
@@ -419,8 +419,7 @@
                         name: "createTime",
                         width: 1,
                         filter: function (text) {
-                            text = timeFormatter.formatTime(text);
-                            return makeTipSpan(text);
+                            return timeFormatter.formatTime(text*1000);
                         }
                     },
                     {

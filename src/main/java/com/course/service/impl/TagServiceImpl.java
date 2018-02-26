@@ -57,7 +57,7 @@ public class TagServiceImpl extends BaseService implements TagService {
         query.setTagGroupId(tagGroupId);
         List<Long> tagIds = tagGroupRealationsMapper.getTagIdsOfTagGroup(query);
 
-        if (isEmptyList(tagIds)) {
+        if(isEmptyList(tagIds)){
             return Lists.newArrayList();
         }
         //get tags
@@ -73,7 +73,9 @@ public class TagServiceImpl extends BaseService implements TagService {
     @Override
     public void deleteTag(String tagIds) {
         if (isEmptyString(tagIds)) {
-            return;
+            throw new TagsException("deleteTag tagIds is null !! tagIds is :" + tagIds,
+                    TagsException.ErrorCode.TAG_IS_UNSELECTED.getCode(),
+                    TagsException.ErrorCode.TAG_IS_UNSELECTED.getMsg());
         }
         List<Long> tagIdsList = Lists.newArrayList(tagIds.split(",")).stream().parallel().map(tagId -> {
             return Long.valueOf(tagId);

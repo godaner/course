@@ -295,7 +295,7 @@
                         name: "createTime",
                         inputType: InputType.TEXT,
                         filter: function (data) {
-                            return timeFormatter.formatTime(data);
+                            return timeFormatter.formatTime(data*1000);
                         }
                     }
                 ]
@@ -324,7 +324,7 @@
                                 tagNames.push(item.tagName);
                             }.bind(this));
                             text = tagNames.join(",");
-                            return makeTipSpan(text);
+                            return text;
                         }.bind(this)
                     },
                     {
@@ -338,7 +338,7 @@
                             if (text == 2) {
                                 return "冻结";
                             }
-                            return makeTipSpan(text);
+                            return text;
                         }
                     },
                     {
@@ -346,7 +346,7 @@
                         name: "createTime",
                         width: 2,
                         filter: function (text) {
-                            return makeTipSpan(timeFormatter.formatTime(text));
+                            return timeFormatter.formatTime(text*1000);
                         }
                     },
                     {

@@ -22,7 +22,8 @@ public class TagsException extends CourseRuntimeException {
         INSERT_TAG_FAIL(-902, "新增标签失败"),
         TAG_NAME_IS_NULL(-903, "标签名为空"),
         TAG_NAME_IS_NOT_EXITS(-904, "标签名已存在"),
-        TAG_GROUP_IS_NOT_EXITS(-905, "标签分组不存在");
+        TAG_GROUP_IS_NOT_EXITS(-905, "标签分组不存在"),
+        TAG_IS_UNSELECTED(-906, "未选定标签");
         int code;
         String msg;
 
