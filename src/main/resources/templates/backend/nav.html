@@ -10,22 +10,26 @@
 
 <div class="leftMeun" id="leftMeun">
     <div id="logoDiv">
-        <p id="logoP"><img id="logo" alt="左右结构项目" src="images/logo.png"><span>Course后台管理</span></p>
+        <p id="logoP"><img id="logo" alt="Course后台管理" src="images/logo.png"><span>Course后台管理</span></p>
     </div>
     <div id="personInfor">
-        <p id="userName">杨鹏</p>
-        <p><span>yangxp@qq.com</span> <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+        <p id="username">用户名 ：请先登录</p>
+        <p id="description" style='overflow: hidden;text-overflow:ellipsis;height:50px;'>简介 ：无</p>
+
+        <!--<p><span>yangxp@qq.com</span> <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>-->
         <p>
-            <a>退出登录</a>
+            <a href="javascript:logout();">退出登录</a>
         </p>
     </div>
     <div class="meun-title">账号管理</div>
-    <div class="meun-item meun-item-active" onClick="userLoader.loadUserData();" href="#user" aria-controls="user" role="tab" data-toggle="tab">
+    <div class="meun-item meun-item-active" onClick="userLoader.loadUserData();" href="#user" aria-controls="user"
+         role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_card_grey.png">用户管理
         </a>
     </div>
-    <div class="meun-item" onClick="adminLoader.loadAdminData();" href="#admin" aria-controls="admin" role="tab" data-toggle="tab">
+    <div class="meun-item" onClick="adminLoader.loadAdminData();" href="#admin" aria-controls="admin" role="tab"
+         data-toggle="tab">
         <a href="#">
             <img src="images/icon_chara_grey.png">管理员管理
         </a>
@@ -36,12 +40,14 @@
         </a>
     </div>
     <div class="meun-title">课程管理</div>
-    <div class="meun-item" onClick="courseLoader.loadCourseData();" href="#course" aria-controls="course" role="tab" data-toggle="tab">
+    <div class="meun-item" onClick="courseLoader.loadCourseData();" href="#course" aria-controls="course" role="tab"
+         data-toggle="tab">
         <a href="#">
             <img src="images/icon_source_grey.png">课程管理
         </a>
     </div>
-    <div class="meun-item" onClick="tagGroupLoader.loadTagGroupData();" href="#tagGroup" aria-controls="course" role="tab" data-toggle="tab">
+    <div class="meun-item" onClick="tagGroupLoader.loadTagGroupData();" href="#tagGroup" aria-controls="course"
+         role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_user_grey.png">标签分组管理
         </a>
@@ -54,7 +60,71 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
+    var onlineAdmin = undefined;
 
+    needToLogin();
+
+    function needToLogin() {
+        ajax.post({
+            url: "/admins/onlineAdmin",
+            onSuccess: function (result) {
+                if (fail(result.code) || isUndefined(result.data.admin)) {
+                    login();
+                } else {
+                    displayOnlineAdminInfo(result.data.admin);
+                }
+
+            }.bind(this)
+        });
+    }
+    function login() {
+        loginDialog.show({
+            onSure: function (data) {
+                ajax.post({
+                    url: "/admins/login",
+                    data: data,
+                    onSuccess: function (result) {
+                        loginDialog.hide();
+
+                        this.msgDialog.showMsg({
+                            msg: result.msg,
+                            onSure: function () {
+                                if (!success(result.code)) {
+                                    loginDialog.show();
+                                } else {
+                                    displayOnlineAdminInfo(result.data.admin);
+                                }
+                            }.bind(this)
+                        });
+
+                    }.bind(this)
+                });
+            }.bind(this)
+        });
+    }
+
+    function displayOnlineAdminInfo(onlineAdmin) {
+        var $infoDiv = $("#personInfor");
+        $infoDiv.find("#username").html("用户名 ：" + onlineAdmin.username);
+        $infoDiv.find("#description").html("简介 ：" + onlineAdmin.description);
+    }
+
+    function logout() {
+        ajax.post({
+            url: "/admins/logout",
+            data: onlineAdmin,
+            onSuccess: function (result) {
+
+                this.msgDialog.showMsg({
+                    msg: result.msg,
+                    onSure: function () {
+                        loginDialog.show();
+                    }.bind(this)
+                });
+
+            }.bind(this)
+        });
+    }
     /*]]>*/
 
 </script>

@@ -19,5 +19,5 @@ public interface AdminService {
 
     AdminsDto getAdminByAdminId(Long adminId);
 
-    void login(AdminsDto adminsDto);
+    AdminsDto login(AdminsDto adminsDto);
 }

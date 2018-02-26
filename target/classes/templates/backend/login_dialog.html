@@ -81,11 +81,9 @@
             this.$loginDialog.modal('hide')
         };
         this.show = function (args) {
-
             if(!isUndefined(args)){
                 this.onSure = args.onSure;
             }
-
             this.$loginDialog.modal('show');
             clearFormInput(this.$form);
         };

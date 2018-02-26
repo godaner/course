@@ -48,14 +48,21 @@ public class AdminController extends ServiceController<AdminService> {
     @RequestMapping(value = "/login")
     @ResponseBody
     public Object login(AdminsDto adminsDto) throws Exception {
-        service.login(adminsDto);
+        adminsDto = service.login(adminsDto);
         setSessionAttr(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION, adminsDto);
-        return response.setMsg("管理员 '" + adminsDto.getUsername() + "' 登录成功！");
+        return response.putData("admin", adminsDto).setMsg("管理员 '" + adminsDto.getUsername() + "' 登录成功！");
     }
+
+    @RequestMapping(value = "/onlineAdmin")
+    @ResponseBody
+    public Object onlineAdmin() throws Exception {
+        return response.putData("admin", getSessionAttr(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION));
+    }
+
     @RequestMapping(value = "/logout")
     @ResponseBody
     public Object logout(AdminsDto adminsDto) throws Exception {
         removeSessionAttr(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION);
-        return response.setMsg("管理员 '" + adminsDto.getUsername() + "' 注销成功！");
+        return response.setMsg("管理员注销成功！");
     }
 }

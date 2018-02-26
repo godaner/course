@@ -62,11 +62,11 @@ public class AdminServiceImpl extends BaseService implements AdminService {
 
         query.setStatus(Lists.newArrayList(BasePo.Status.FORAZEN.getCode(), BasePo.Status.NORMAL.getCode()));
         return adminsMapper.getAdmins(page, query).stream().parallel().map(admins -> {
-            return makeListAdminsDto(admins);
+            return makeAdminsDto(admins);
         }).collect(toList());
     }
 
-    private AdminsDto makeListAdminsDto(Admins admins) {
+    private AdminsDto makeAdminsDto(Admins admins) {
         AdminsDto adminsDto = new AdminsDto();
         adminsDto.setAdminId(admins.getId());
         adminsDto.setCreateTime(admins.getCreateTime());
@@ -117,11 +117,11 @@ public class AdminServiceImpl extends BaseService implements AdminService {
     @Override
     public AdminsDto getAdminByAdminId(Long adminId) {
 
-        return makeListAdminsDto(this.getAdminByUserId(adminId, Lists.newArrayList(BasePo.Status.NORMAL.getCode())));
+        return makeAdminsDto(this.getAdminByUserId(adminId, Lists.newArrayList(BasePo.Status.NORMAL.getCode())));
     }
 
     @Override
-    public void login(AdminsDto adminsDto) {
+    public AdminsDto login(AdminsDto adminsDto) {
         Admins admins = this.getAdminByUsername(adminsDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (null == admins) {
             throw new CoursesException("login admin is not exits !! adminsDto is : " + adminsDto,
@@ -133,6 +133,7 @@ public class AdminServiceImpl extends BaseService implements AdminService {
                     AdminsException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
                     AdminsException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
         }
+        return makeAdminsDto(admins);
     }
 
     private Admins makeUpdateAdmin(AdminsDto adminsDto) {

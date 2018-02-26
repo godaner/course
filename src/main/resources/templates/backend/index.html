@@ -148,29 +148,6 @@
     userLoader.loadUserData();
 
 
-    loginDialog.show({
-        onSure: function (data) {
-            ajax.post({
-                url: "/admins/login",
-                data: data,
-                onSuccess: function (result) {
-                    loginDialog.hide();
-
-                    this.msgDialog.showMsg({
-                        msg: result.msg,
-                        onSure:function () {
-                            if(!success(result.code)){
-                                loginDialog.show();
-                            }
-                        }.bind(this)
-                    });
-
-                }.bind(this)
-            });
-        }.bind(this)
-    });
-
-
     /*]]>*/
 
 </script>
