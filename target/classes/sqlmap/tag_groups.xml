@@ -183,7 +183,12 @@
 
     <select id="getTagGroupsWithTags" resultMap="getTagGroupsWithTagsMap">
         SELECT
-        a.*,
+        a.id,
+        a.status,
+        a.create_time,
+        a.update_time,
+        a.name,
+        t.id as tag_id,
         t.NAME as tag_name
         FROM
         (
