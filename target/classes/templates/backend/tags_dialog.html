@@ -37,7 +37,7 @@
     /*<![CDATA[*/
 
     var TagsDialog = function () {
-        this.$tagsDialog = undefined;
+        this.$inputDialog = undefined;
         this.$cancelBtn = undefined;
         this.$sureBtn = undefined;
         this.onCancel = undefined;
@@ -45,10 +45,10 @@
         this.selectedTagIds = [];
         this.$contentDom = undefined;
         this.init = function (args) {
-            this.$tagsDialog = $(args.dialogId);
-            this.$cancelBtn = this.$tagsDialog.find(args.cancelBtnId);
-            this.$sureBtn = this.$tagsDialog.find(args.sureBtnId);
-            this.$contentDom = this.$tagsDialog.find(args.contentDomId);
+            this.$inputDialog = $(args.dialogId);
+            this.$cancelBtn = this.$inputDialog.find(args.cancelBtnId);
+            this.$sureBtn = this.$inputDialog.find(args.sureBtnId);
+            this.$contentDom = this.$inputDialog.find(args.contentDomId);
             this.registEvents();
         };
         this.registEvents = function () {
@@ -76,7 +76,7 @@
             }.bind(this));
         };
         this.hide = function () {
-            this.$tagsDialog.modal('hide')
+            this.$inputDialog.modal('hide')
         };
         this.show = function (args) {
 
@@ -91,7 +91,7 @@
 
             this.selectTagsList(this.echoTagIds);
 
-            this.$tagsDialog.modal('show');
+            this.$inputDialog.modal('show');
         };
         this.makeTagsList = function (tagGroupList) {
             this.$contentDom.html("");

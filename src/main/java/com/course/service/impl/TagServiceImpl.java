@@ -99,6 +99,7 @@ public class TagServiceImpl extends BaseService implements TagService {
     }
 
     @Override
+    @Transactional
     public void addTag(TagsDto tagsDto) {
         //validate
         if (isEmptyString(tagsDto.getTagName())) {
@@ -160,6 +161,7 @@ public class TagServiceImpl extends BaseService implements TagService {
         tags.setCreateTime(now);
         tags.setUpdateTime(now);
         tags.setStatus(tagsDto.getStatus());
+        tags.setStatus(BasePo.Status.NORMAL.getCode());
         return tags;
     }
 

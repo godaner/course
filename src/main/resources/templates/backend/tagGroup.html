@@ -112,10 +112,9 @@
                                 <div class="col-xs-8 ">
                                     <input name="tagGroupName" type="text"
                                            class="form-control input-sm duiqi"
-                                            placeholder="">
+                                           placeholder="">
                                 </div>
                             </div>
-
 
 
                             <div class="form-group ">
@@ -172,6 +171,7 @@
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
         this.$addTagGroupBtn = undefined;
         this.tagsDialog = undefined;
+        this.inputDialog = undefined;
         this.registEvents = function () {
             this.$addTagGroupBtn.unbind("click");
             this.$addTagGroupBtn.click(function () {
@@ -184,6 +184,7 @@
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
             this.tagsDialog = args.tagsDialog;
+            this.inputDialog = args.inputDialog;
 
             this.registEvents();
 
@@ -313,13 +314,13 @@
                     {
                         title: "拥有的标签",
                         name: "tags",
-                        width:3,
-                        filter:function (text,list,index) {
-                            if(isEmptyList(text)){
+                        width: 3,
+                        filter: function (text, list, index) {
+                            if (isEmptyList(text)) {
                                 return makeTipSpan("无标签");
                             }
                             var tagNames = [];
-                            $.each(text,function (i,item) {
+                            $.each(text, function (i, item) {
                                 tagNames.push(item.tagName);
                             }.bind(this));
                             text = tagNames.join(",");
@@ -380,14 +381,38 @@
                             }.bind(this);
 
                             addTag = function (index) {
-                                a("addTag");
+                                var data = list[index];
+                                var tagGroupId = data.tagGroupId;
+                                this.inputDialog.show({
+                                    placeholder: "请输入标签名",
+                                    onSure: function (text) {
+                                        ajax.post({
+                                            url: "/tags/add",
+                                            data: {
+                                                tagName: text,
+                                                tagGroupId: tagGroupId
+                                            },
+                                            onSuccess: function (result) {
+                                                this.msgDialog.showMsg({
+                                                    msg: result.msg
+                                                });
+                                                this.loadTagGroupData();
+
+                                            }.bind(this)
+                                        });
+                                    }.bind(this),
+                                    onCancel: function () {
+
+                                    }.bind(this)
+                                });
+
                             }.bind(this);
                             deleteTag = function (index) {
                                 a("deleteTag");
                             }.bind(this);
-                            return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate("+index+")'>修改</button>" +
-                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete("+index+")'>删除</button>"+
-                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='addTag(" + index + ")'>添加标签</button>"+
+                            return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate(" + index + ")'>修改</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete(" + index + ")'>删除</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='addTag(" + index + ")'>添加标签</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='deleteTag(" + index + ")'>删除标签</button>";
                         }.bind(this)
                     }
@@ -433,7 +458,8 @@
         addBtnId: "#addTagGroupBtn",
         msgDialog: msgDialog,
         confirmDialog: confirmDialog,
-        tagsDialog: tagsDialog
+        tagsDialog: tagsDialog,
+        inputDialog: inputDialog
     });
 
 

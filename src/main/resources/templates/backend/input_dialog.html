@@ -6,20 +6,20 @@
 
 </head>
 
-<body id="confirm_dialog_body">
-<!--弹出确认窗口-->
-<div id="confirm_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+<body id="input_dialog_body">
+<!--弹出输入窗口-->
+<div id="input_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
      aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <!--<button type="button" class=" close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
                 <!--</button>-->
-                <h4 class="modal-title" id="gridSystemModalLabel">确认</h4>
+                <h4 class="modal-title" id="gridSystemModalLabel">输入</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    确定要删除该记录？删除后不可恢复！
+                    <input name="inputContent" type="text" class="form-control input-sm" placeholder="请输入">
                 </div>
             </div>
             <div class="modal-footer">
@@ -36,7 +36,7 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    var ConfirmDialog = function () {
+    var InputDialog = function () {
         this.$inputDialog = undefined;
         this.$cancelBtn = undefined;
         this.$sureBtn = undefined;
@@ -51,12 +51,13 @@
         };
         this.registEvents = function () {
 
-            //确认事件
+            //输入事件
             this.$sureBtn.unbind("click");
             this.$sureBtn.click(function () {
                 this.hide();
                 if (!isUndefined(this.onSure)) {
-                    this.onSure();
+                    var text = this.getInputContent().val();
+                    this.onSure(text);
                 }
             }.bind(this));
             //取消事件
@@ -71,23 +72,31 @@
         this.hide = function () {
             this.$inputDialog.modal('hide')
         };
-        this.showMsg = function (args) {
+        this.show = function (args) {
 
             this.onCancel = args.onCancel;
             this.onSure = args.onSure;
-            var msg = args.msg;
-            if (msg != undefined && msg != "") {
-                this.$inputDialog.find(".modal-body .container-fluid").html(msg);
-                this.$inputDialog.modal('show');
-            }
+            this.showInputContent(args);
+            this.$inputDialog.modal('show');
 
         };
+        this.showInputContent = function (args) {
+            var placeholder = args.placeholder;
+            var $inputContent = this.getInputContent();
+            $inputContent.val("");
+            if (!isEmptyString(placeholder)) {
+                $inputContent.attr("placeholder", placeholder);
+            }
+        };
+        this.getInputContent = function () {
+            return $(this.$inputDialog.find("input[name='inputContent']"));
+        }
 
 
     };
-    var confirmDialog = new ConfirmDialog();
-    confirmDialog.init({
-        dialogId: "#confirm_dialog",
+    var inputDialog = new InputDialog();
+    inputDialog.init({
+        dialogId: "#input_dialog",
         sureBtnId: "#sure_btn",
         cancelBtnId: "#cancel_btn"
     });

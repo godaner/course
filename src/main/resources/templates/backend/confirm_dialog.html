@@ -37,15 +37,15 @@
     /*<![CDATA[*/
 
     var ConfirmDialog = function () {
-        this.$tagsDialog = undefined;
+        this.$inputDialog = undefined;
         this.$cancelBtn = undefined;
         this.$sureBtn = undefined;
         this.onCancel = undefined;
         this.onSure = undefined;
         this.init = function (args) {
-            this.$tagsDialog = $(args.dialogId);
-            this.$cancelBtn = this.$tagsDialog.find(args.cancelBtnId);
-            this.$sureBtn = this.$tagsDialog.find(args.sureBtnId);
+            this.$inputDialog = $(args.dialogId);
+            this.$cancelBtn = this.$inputDialog.find(args.cancelBtnId);
+            this.$sureBtn = this.$inputDialog.find(args.sureBtnId);
 
             this.registEvents();
         };
@@ -69,7 +69,7 @@
             }.bind(this));
         };
         this.hide = function () {
-            this.$tagsDialog.modal('hide')
+            this.$inputDialog.modal('hide')
         };
         this.showMsg = function (args) {
 
@@ -77,8 +77,8 @@
             this.onSure = args.onSure;
             var msg = args.msg;
             if (msg != undefined && msg != "") {
-                this.$tagsDialog.find(".modal-body .container-fluid").html(msg);
-                this.$tagsDialog.modal('show');
+                this.$inputDialog.find(".modal-body .container-fluid").html(msg);
+                this.$inputDialog.modal('show');
             }
 
         };
