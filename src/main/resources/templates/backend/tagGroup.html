@@ -408,7 +408,6 @@
 
                             }.bind(this);
                             deleteTag = function (index) {
-                                a("deleteTag");
                                 var data = list[index];
                                 var tagGroupId = data.tagGroupId;
 
@@ -418,10 +417,7 @@
                                     onSuccess: function (result) {
 
 
-                                        var ids = [];
-                                        $.each(result.data.list,function (i,item) {
-                                            ids.push(item.tagId);
-                                        }.bind(this));
+
                                         var tags = result.data.list;
                                         var tagGroupList = [{
                                             tagGroupName:"",
@@ -429,7 +425,7 @@
                                         }];
                                         this.tagsDialog.show({
                                             tagGroupList: tagGroupList,
-                                            echoTagIds: ids,
+                                            echoTagIds: [],
                                             onSure: function (selectedTagIds) {
 
                                                 ajax.post({
