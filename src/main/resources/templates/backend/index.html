@@ -73,7 +73,8 @@
     <div th:include="backend/tags_dialog :: #tags_dialog_body"></div>
     <!-- tags_dialog -->
     <div th:include="backend/input_dialog :: #input_dialog_body"></div>
-
+    <!-- tags_dialog -->
+    <div th:include="backend/login_dialog :: #login_dialog_body"></div>
     <!-- table_builder -->
     <div th:include="backend/table_builder :: #table_builder_body"></div>
     <!-- pager_builder -->
@@ -145,6 +146,30 @@
     /*<![CDATA[*/
 
     userLoader.loadUserData();
+
+
+    loginDialog.show({
+        onSure: function (data) {
+            ajax.post({
+                url: "/admins/login",
+                data: data,
+                onSuccess: function (result) {
+                    loginDialog.hide();
+
+                    this.msgDialog.showMsg({
+                        msg: result.msg,
+                        onSure:function () {
+                            if(!success(result.code)){
+                                loginDialog.show();
+                            }
+                        }.bind(this)
+                    });
+
+                }.bind(this)
+            });
+        }.bind(this)
+    });
+
 
     /*]]>*/
 

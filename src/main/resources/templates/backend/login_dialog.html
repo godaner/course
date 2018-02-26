@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="login_dialog_body">
+<!--弹出登录窗口-->
+<div id="login_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+     aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class=" close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+                <h4 class="modal-title" id="gridSystemModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+
+                    <div class="form-group ">
+                        <label class="col-xs-3 control-label">用户名：</label>
+                        <div class="col-xs-8 ">
+                            <input name="username" type="text"
+                                   class="form-control input-sm duiqi" placeholder="请输入用户名">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-xs-3 control-label">密码：</label>
+                        <div class="col-xs-8 ">
+                            <input name="password" type="password"
+                                   class="form-control input-sm duiqi" placeholder="请输入密码">
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!--data-dismiss="modal"-->
+                <button id="sure_btn" type="button" class="btn  btn-xs btn-danger">登 录</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var LoginDialog = function () {
+        this.$loginDialog = undefined;
+        this.$sureBtn = undefined;
+        this.onSure = undefined;
+        this.$form = undefined;
+        this.init = function (args) {
+            this.$loginDialog = $(args.dialogId);
+            this.$form = this.$loginDialog.find("form");
+            this.$sureBtn = this.$loginDialog.find(args.sureBtnId);
+
+            this.registEvents();
+        };
+        this.registEvents = function () {
+
+            //登录事件
+            this.$sureBtn.unbind("click");
+            this.$sureBtn.click(function () {
+                this.hide();
+                if (!isUndefined(this.onSure)) {
+                    var data = this.$form.serializeObject();
+                    this.onSure(data);
+                }
+            }.bind(this));
+
+        };
+        this.hide = function () {
+            this.$loginDialog.modal('hide')
+        };
+        this.show = function (args) {
+            if(!isUndefined(args)){
+                this.onSure = args.onSure;
+            }
+            this.$loginDialog.modal('show');
+            clearFormInput(this.$form);
+        };
+
+
+
+    };
+    var loginDialog = new LoginDialog();
+    loginDialog.init({
+        dialogId: "#login_dialog",
+        sureBtnId: "#sure_btn",
+        cancelBtnId: "#cancel_btn"
+    });
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

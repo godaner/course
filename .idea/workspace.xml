@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxOnlineAdminAop.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/RequiredAdminLogin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/login_dialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/AdminService.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/AdminService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/exception/AdminsException.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/exception/AdminsException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/AdminServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/AdminServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/common.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/common.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,12 +21,56 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RequiredAdminLogin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequiredAdminLogin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/RequiredAdminLogin.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
               <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_dialog.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/login_dialog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="150" column="17" lean-forward="true" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/common.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="72" column="25" lean-forward="false" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="300" column="23" lean-forward="true" selection-start-line="284" selection-start-column="20" selection-end-line="300" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1519609988031" expanded="true" signature="16385:16407" ph="..." />
+                <marker date="1519609988031" expanded="true" signature="20481:20498" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,69 +117,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminsMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/AdminsMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admins.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/admins.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="219" column="32" lean-forward="false" selection-start-line="219" selection-start-column="16" selection-end-line="219" selection-end-column="32" />
-              <folding>
-                <marker date="1519351482628" expanded="true" signature="898:933" ph="SELECT count... admins" />
-                <marker date="1519351482628" expanded="true" signature="1053:1239" ph="INSERT INTO admins... " />
-                <marker date="1519351482628" expanded="true" signature="1279:1324" ph="DELETE FROM " />
-                <marker date="1519351482628" expanded="true" signature="1400:1789" ph="UPDATE admin... " />
-                <marker date="1519351482628" expanded="true" signature="1852:1973" ph="SELECT FROM admins" />
-                <marker date="1519351482628" expanded="true" signature="2044:2260" ph="SELECT FROM admins" />
-                <marker date="1519351482628" expanded="true" signature="3324:3361" ph="SELECT * FRO... admins" />
-                <marker date="1519351482628" expanded="true" signature="3752:3794" ph="SELECT id FR... admins" />
-                <marker date="1519351482628" expanded="true" signature="3903:3928" ph="SELECT * FRO... admins" />
-                <marker date="1519351482628" expanded="true" signature="4030:4102" ph="SELECT * FRO... admins" />
-                <marker date="1519351482628" expanded="true" signature="5128:5321" ph="select * fro... admins" />
-                <marker date="1519351482628" expanded="true" signature="5391:5591" ph="select * fro... admins" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminsException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/exception/AdminsException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AjaxAop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="20" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Admins.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/Admins.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -154,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>url:</find>
-      <find>url: &quot;/tagGroups</find>
       <find>getTagGroupsWithTagsCount</find>
       <find>tagGroupSearchBtn</find>
       <find>v2</find>
@@ -179,11 +154,13 @@
       <find>getTagsByTagsIds</find>
       <find>getTagGroupsWithTags</find>
       <find>sty</find>
-      <find>add</find>
       <find>time</find>
       <find>timeF</find>
       <find>&quot;,&quot;</find>
       <find>getAdminByUserId</find>
+      <find>输入</find>
+      <find>add</find>
+      <find>jax</find>
     </findStrings>
     <replaceStrings>
       <replace>{/frontend</replace>
@@ -201,6 +178,7 @@
       <replace>url: &quot;/tagGroup</replace>
       <replace>Input</replace>
       <replace>输入</replace>
+      <replace>登录</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -214,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/CoursesException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/Courses.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/CourseServiceImpl.java" />
@@ -232,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/js/util.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagGroupsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/exception/TagGroupsException.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/common.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/CourseTagRealationsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/TagGroupsServiceImpl.java" />
@@ -245,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagGroupRealationsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/po/query/TagQueryBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/dao/mapper/TagsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/backend/input_dialog.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/TagsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/TagService.java" />
@@ -265,6 +240,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/course/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/AdminService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/course/service/impl/AdminServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/common.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/backend/login_dialog.html" />
       </list>
     </option>
   </component>
@@ -416,6 +394,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="course" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1072,12 +1110,12 @@
       <workItem from="1519346781949" duration="25813000" />
       <workItem from="1519374782179" duration="2609000" />
       <workItem from="1519433447695" duration="17925000" />
-      <workItem from="1519604990680" duration="7048000" />
+      <workItem from="1519604990680" duration="9007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307745000" />
+    <option name="totallyTimeSpent" value="309704000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1103,7 +1141,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30227518" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30227518" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4968017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1194,27 +1232,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/mapper/UsersMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/dto/TagGroupsDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/course/dao/po/custom/TagGroupsWithTags.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/course/service/TagGroupsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1411,14 +1428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/common.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-593">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/input_dialog.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -1567,31 +1576,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/table_builder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
           <folding>
             <marker date="1519450048303" expanded="true" signature="4239:4291" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="372" column="40" lean-forward="false" selection-start-line="372" selection-start-column="35" selection-end-line="372" selection-end-column="40" />
-          <folding>
-            <marker date="1519609988031" expanded="true" signature="16385:16407" ph="..." />
-            <marker date="1519609988031" expanded="true" signature="20481:20498" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1722,6 +1712,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="300" column="23" lean-forward="true" selection-start-line="284" selection-start-column="20" selection-end-line="300" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519609988031" expanded="true" signature="16385:16407" ph="..." />
+            <marker date="1519609988031" expanded="true" signature="20481:20498" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/common.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="72" column="25" lean-forward="false" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/frontend/courses/message_model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/msg_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="150" column="17" lean-forward="true" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/backend/login_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
