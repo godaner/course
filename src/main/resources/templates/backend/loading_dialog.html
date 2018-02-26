@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+<style>
+
+    #loading_dialog #loading_img{
+        height: 20px;
+        width: 20px;
+    }
+</style>
+</head>
+
+<body id="loading_dialog_body">
+<!--等待提示框窗口-->
+<div id="loading_dialog" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+     aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                <div id="loading_content" class="container-fluid">
+                    <img id="loading_img" src="images/loading01.gif">
+                    <div id="loading_msg"></div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">-->
+            <!--<button id="cancel" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>-->
+            <!--<button id="sure_btn" type="button" class="btn btn-xs btn-danger">确定</button>-->
+            <!--</div>-->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var LoadingDialog = function () {
+        this.$loadingDialog = undefined;
+        this.$msg = undefined;
+        this.init = function () {
+            this.$loadingDialog = $("#loading_dialog");
+            this.$msg = this.$loadingDialog.find("#loading_msg");
+        };
+
+        this.hide = function () {
+            this.$loadingDialog.modal('hide');
+        };
+        this.show = function (args) {
+            var msg = args.msg;
+            if(isUndefined(msg)){
+                msg = "请稍等...";
+            }
+            this.$msg.html(msg);
+            this.$loadingDialog.modal('show')
+
+        };
+
+
+    };
+    var loadingDialog = new LoadingDialog();
+    loadingDialog.init();
+
+
+    /*]]>*/
+
+</script>
+</body>
+
+</html>

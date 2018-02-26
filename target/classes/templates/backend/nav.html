@@ -14,7 +14,7 @@
     </div>
     <div id="personInfor">
         <p id="username">用户名 ：请先登录</p>
-        <p id="description" style='overflow: hidden;text-overflow:ellipsis;height:50px;'>简介 ：无</p>
+        <p id="description" style='overflow: hidden;text-overflow:ellipsis;'>简介 ：无</p>
 
         <!--<p><span>yangxp@qq.com</span> <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>-->
         <p>
@@ -60,9 +60,10 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    var onlineAdmin = undefined;
-
     needToLogin();
+
+
+    var onlineAdmin = undefined;
 
     function needToLogin() {
         ajax.post({
@@ -80,12 +81,15 @@
     function login() {
         loginDialog.show({
             onSure: function (data) {
+                loadingDialog.show({
+                    msg:"正在登陆..."
+                });
                 ajax.post({
                     url: "/admins/login",
                     data: data,
                     onSuccess: function (result) {
-                        loginDialog.hide();
 
+                        loadingDialog.hide();
                         this.msgDialog.showMsg({
                             msg: result.msg,
                             onSure: function () {
@@ -104,21 +108,36 @@
     }
 
     function displayOnlineAdminInfo(onlineAdmin) {
-        var $infoDiv = $("#personInfor");
-        $infoDiv.find("#username").html("用户名 ：" + onlineAdmin.username);
-        $infoDiv.find("#description").html("简介 ：" + onlineAdmin.description);
-    }
+        if (isUndefined(onlineAdmin)) {
+            onlineAdmin = {};
+        }
 
+        var $infoDiv = $("#personInfor");
+
+        $infoDiv.find("#username").html(makeDisplayContent("名称 ：", onlineAdmin.username));
+
+        $infoDiv.find("#description").html(makeDisplayContent("简介 ：", onlineAdmin.description));
+    }
+    function makeDisplayContent(prefix, content) {
+        if (isUndefined(content)) {
+            content = "无";
+        }
+        return prefix + content;
+    }
     function logout() {
+        loadingDialog.show({
+            msg:"正在登出..."
+        });
         ajax.post({
             url: "/admins/logout",
             data: onlineAdmin,
             onSuccess: function (result) {
-
+                loadingDialog.hide();
                 this.msgDialog.showMsg({
                     msg: result.msg,
                     onSure: function () {
                         loginDialog.show();
+                        displayOnlineAdminInfo();
                     }.bind(this)
                 });
 
