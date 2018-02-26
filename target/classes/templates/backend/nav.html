@@ -80,7 +80,8 @@
                     if (fail(result.code) || isUndefined(result.data.admin)) {
                         this.login();
                     } else {
-                        this.displayOnlineAdminInfo(result.data.admin);
+                        this.onlineAdmin = result.data.admin;
+                        this.displayOnlineAdminInfo();
                     }
 
                 }.bind(this)
@@ -117,7 +118,7 @@
         }
         this.displayOnlineAdminInfo = function () {
             var onlineAdmin = {};
-            if (!isUndefined(this.onlineAdmin)) {debugger
+            if (!isUndefined(this.onlineAdmin)) {
                 onlineAdmin = this.onlineAdmin;
             }
 
