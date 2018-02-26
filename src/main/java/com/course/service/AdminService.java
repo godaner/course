@@ -16,4 +16,8 @@ public interface AdminService {
     void updateAdmin(AdminsDto adminsDto);
 
     void deleteAdmin(Long adminId);
+
+    AdminsDto getAdminByAdminId(Long adminId);
+
+    void login(AdminsDto adminsDto);
 }

@@ -1,6 +1,7 @@
 package com.course.controller;
 
 import com.course.controller.base.ServiceController;
+import com.course.dao.po.Admins;
 import com.course.dao.po.query.AdminsQueryBean;
 import com.course.service.AdminService;
 import com.course.service.dto.AdminsDto;
@@ -36,10 +37,25 @@ public class AdminController extends ServiceController<AdminService> {
         service.updateAdmin(adminsDto);
         return response.setMsg("更新管理员成功");
     }
+
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object deleteAdmin(@RequestParam("adminId") Long adminId) throws Exception {
         service.deleteAdmin(adminId);
         return response;
+    }
+
+    @RequestMapping(value = "/login")
+    @ResponseBody
+    public Object login(AdminsDto adminsDto) throws Exception {
+        service.login(adminsDto);
+        setSessionAttr(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION, adminsDto);
+        return response.setMsg("管理员 '" + adminsDto.getUsername() + "' 登录成功！");
+    }
+    @RequestMapping(value = "/logout")
+    @ResponseBody
+    public Object logout(AdminsDto adminsDto) throws Exception {
+        removeSessionAttr(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION);
+        return response.setMsg("管理员 '" + adminsDto.getUsername() + "' 注销成功！");
     }
 }

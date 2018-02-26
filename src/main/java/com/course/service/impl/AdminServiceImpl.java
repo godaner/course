@@ -114,6 +114,27 @@ public class AdminServiceImpl extends BaseService implements AdminService {
         }
     }
 
+    @Override
+    public AdminsDto getAdminByAdminId(Long adminId) {
+
+        return makeListAdminsDto(this.getAdminByUserId(adminId, Lists.newArrayList(BasePo.Status.NORMAL.getCode())));
+    }
+
+    @Override
+    public void login(AdminsDto adminsDto) {
+        Admins admins = this.getAdminByUsername(adminsDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
+        if (null == admins) {
+            throw new CoursesException("login admin is not exits !! adminsDto is : " + adminsDto,
+                    AdminsException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
+                    AdminsException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
+        }
+        if(!admins.getPassword().equals(adminsDto.getPassword())){
+            throw new CoursesException("login password is error !! adminsDto is : " + adminsDto,
+                    AdminsException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
+                    AdminsException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
+        }
+    }
+
     private Admins makeUpdateAdmin(AdminsDto adminsDto) {
         Admins admins = new Admins();
         Integer now = DateUtil.unixTime().intValue();

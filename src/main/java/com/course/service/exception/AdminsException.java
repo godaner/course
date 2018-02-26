@@ -23,7 +23,8 @@ public class AdminsException extends CourseRuntimeException {
         USERNAME_IS_NOT_EXITS(-603, "用户名不存在"),
         UPDATE_USER_FAIL(-604, "更新用户失败"),
         USER_IS_NOT_EXITS(-605, "用户不存在"),
-        PASSWORD_IS_NULL(-606, "密码为空");
+        PASSWORD_IS_NULL(-606, "密码为空"),
+        ADMIN_OFFLINE(-607, "管理员离线");
 
         int code;
         String msg;
