@@ -328,7 +328,7 @@
                 cancelId: "#add_course_source_cancel_btn",
                 onSubmit: function (data) {
                     this.loadingDialog.show({
-                        msg:"正在添加..."
+                        msg: "正在添加..."
                     });
 
 
@@ -350,12 +350,14 @@
                         contentType: false,
                         success: function (result) {
                             this.loadingDialog.hide();
-                            if(!handleOffline(result)){
+                            if (!handleOffline(result)) {
                                 this.msgDialog.showMsg({
                                     msg: result.msg,
                                     onSure: function () {
                                         if (!success(result.code)) {
                                             this.addCourseSourceDialogBuilder.show();
+                                        } else {
+                                            clearFormInput($("#addCourseSourceDialog").find("form"))
                                         }
                                     }.bind(this)
                                 });
@@ -751,7 +753,7 @@
         msgDialog: msgDialog,
         confirmDialog: confirmDialog,
         tagsDialog: tagsDialog,
-        loadingDialog:loadingDialog
+        loadingDialog: loadingDialog
     });
     /*]]>*/
 
