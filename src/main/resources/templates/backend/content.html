@@ -12,7 +12,8 @@
     </a>
     <!-- Tab panes -->
     <div id="content" class="tab-content">
-
+        <!-- 主页 -->
+        <div th:replace="backend/home_page :: #home_page_body"></div>
         <!-- 用户管理 -->
         <div th:replace="backend/user :: #user_body"></div>
         <!-- 管理员管理 -->

@@ -21,8 +21,15 @@
             <a href="javascript:nav.logout();">退出登录</a>
         </p>
     </div>
+    <div class="meun-title">首页</div>
+    <div class="meun-item meun-item-active" href="#home_page" aria-controls="user"
+         role="tab" data-toggle="tab">
+        <a href="#">
+            <img src="images/icon_house_grey.png">首页
+        </a>
+    </div>
     <div class="meun-title">账号管理</div>
-    <div class="meun-item meun-item-active" onClick="userLoader.loadUserData();" href="#user" aria-controls="user"
+    <div class="meun-item" onClick="userLoader.loadUserData();" href="#user" aria-controls="user"
          role="tab" data-toggle="tab">
         <a href="#">
             <img src="images/icon_card_grey.png">用户管理
@@ -34,11 +41,11 @@
             <img src="images/icon_chara_grey.png">管理员管理
         </a>
     </div>
-    <div class="meun-item" onClick="" href="#changePwd" aria-controls="changePwd" role="tab" data-toggle="tab">
-        <a href="#">
-            <img src="images/icon_change_grey.png">修改密码
-        </a>
-    </div>
+    <!--<div class="meun-item" onClick="" href="#changePwd" aria-controls="changePwd" role="tab" data-toggle="tab">-->
+        <!--<a href="#">-->
+            <!--<img src="images/icon_change_grey.png">修改密码-->
+        <!--</a>-->
+    <!--</div>-->
     <div class="meun-title">课程管理</div>
     <div class="meun-item" onClick="courseLoader.loadCourseData();" href="#course" aria-controls="course" role="tab"
          data-toggle="tab">

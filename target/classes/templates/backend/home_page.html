@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
+<head>
+
+
+</head>
+
+<body id="home_page_body">
+<style>
+    #home_page > * {
+        width:100%;
+        padding: 0px 50px;
+    }
+
+    #home_page row > div {
+        width: 100%;
+    }
+</style>
+<!--主页模块-->
+<div role="tabpanel" class="tab-pane active" id="home_page">
+    <div class="jumbotron">
+        <h1>您好, 管理员!</h1>
+        <p>Course后端管理系统主要功能是为Course前端功能提供管理支持，主要功能包括：用户的管理，管理员的管理，课程的管理，标签分组管理等功能。</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+    <div class="row">
+        <div class="view">
+            <h2 contenteditable="false">用户的管理</h2>
+            <p contenteditable="false">
+                对用户的基本信息进行管理，对其进行冻结或者解冻。
+            </p>
+            <p>
+                <a class="btn" href="#" contenteditable="false">View details &raquo;</a>
+            </p>
+        </div>
+        <div class="view">
+            <h2 contenteditable="false">管理员的管理</h2>
+            <p contenteditable="false">
+                对管理员的基本信息进行管理，对其进行冻结或者解冻。
+            </p>
+            <p>
+                <a class="btn" href="#" contenteditable="false">View details &raquo;</a>
+            </p>
+        </div>
+
+        <div class="view">
+            <h2 contenteditable="false">课程的管理</h2>
+            <p contenteditable="false">
+                对课程进行基本管理，包括添加，修改和删除课程，并且可以添加课程视频。
+            </p>
+            <p>
+                <a class="btn" href="#" contenteditable="false">View details &raquo;</a>
+            </p>
+        </div>
+        <div class="view">
+            <h2 contenteditable="false">标签分组管理</h2>
+            <p contenteditable="false">
+                对标签分组进行基本管理，包括添加，修改和删除标签分组，并且可以对指定标签分组添加，删除标签。
+            </p>
+            <p>
+                <a class="btn" href="#" contenteditable="false">View details &raquo;</a>
+            </p>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var HomePage = function () {
+
+    }
+    var homePage = new HomePage();
+    homePage.init();
+
+    /*]]>*/
+
+</script>
+</body>
+
+</html>
