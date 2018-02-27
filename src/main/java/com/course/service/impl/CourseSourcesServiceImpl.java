@@ -30,7 +30,6 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
     private CourseSourcesMapper courseSourcesMapper;
 
     @Override
-    @Autowired
     public void addCourseSource(CourseSourcesDto courseSourcesDto) {
         String name = uuid();
         if (1 != courseSourcesMapper.insert(makeCourseSources(courseSourcesDto, name))) {
@@ -81,6 +80,7 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
         courseSources.setCreateTime(now);
         courseSources.setUpdateTime(now);
         courseSources.setStatus(BasePo.Status.NORMAL.getCode());
+        courseSources.setCourseId(courseSourcesDto.getCourseId());
         return courseSources;
     }
 }

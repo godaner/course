@@ -9,6 +9,27 @@ public class CourseSources extends BasePo {
     private String downloadUrl;
     private Integer sort;
     private String description;
+    private Long courseId;
+
+    public static String getDownloadUrlPrefix() {
+        return DOWNLOAD_URL_PREFIX;
+    }
+
+    public static String getWatchUrlPrefix() {
+        return WATCH_URL_PREFIX;
+    }
+
+    public static Integer getDefaultSort() {
+        return DEFAULT_SORT;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
 
     public String getName() {
         return name;

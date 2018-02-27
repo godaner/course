@@ -28,6 +28,29 @@
     function offline(code) {
         return CODE_OF_OFFLINE == code;
     }
+    var handleOffline = function (result, args) {
+        if (offline(result.code)) {
+            if (!isUndefined(args) && !isUndefined(args.onOffline)) {
+                args.onOffline(result);
+            }
+
+            msgDialog.showMsg({
+                onSure: function () {
+                    nav.onlineAdmin = {};
+                    nav.displayOnlineAdminInfo();
+                    nav.showLoginDialog();
+                },
+                msg: "您已离线！"
+            });
+            return true;
+        }
+        return false;
+    };
+    var handleSuceess = function (result, args) {
+        if (success(result.code) && !isUndefined(args) && !isUndefined(args.onSuccess)) {
+            args.onSuccess(result);
+        }
+    };
     /**
      * json用data传递-后台使用@RequestBody;<br/>
      * 非json用url拼接-后台使用@RequestParam
@@ -43,26 +66,9 @@
                 type: args.type,
                 dataType: "json",
                 success: function (result) {
+                    handleOffline(result, args);
 
-                    if (offline(result.code)) {
-                        if (!isUndefined(args.onOffline)) {
-                            args.onOffline(result);
-                        }
-
-                        msgDialog.showMsg({
-                            onSure: function () {
-                                nav.onlineAdmin = {};
-                                nav.displayOnlineAdminInfo();
-                                nav.showLoginDialog();
-                            },
-                            msg: "您已离线！"
-                        });
-                        return;
-                    }
-
-                    if (!isUndefined(args.onSuccess)) {
-                        args.onSuccess(result);
-                    }
+                    handleSuceess(result, args)
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     if (!isUndefined(args.onError)) {

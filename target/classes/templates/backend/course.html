@@ -195,9 +195,8 @@
     <!-- /.modal -->
 
 
-
     <!--弹出添加课程视频资源窗口-->
-    <div id="addCourseSource" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
+    <div id="addCourseSourceDialog" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -211,71 +210,36 @@
 
                             <input name="courseId" type="hidden">
 
-                            <div class="form-group ">
-                                <label for="username" class="col-xs-3 control-label">用户名：</label>
-                                <div class="col-xs-8 ">
-                                    <input name="username" readonly="readonly" type="text"
-                                           class="form-control input-sm duiqi"
-                                           id="username" placeholder="">
-                                </div>
-                            </div>
 
                             <div class="form-group ">
-                                <label for="headFile" class="col-xs-3 control-label">选择视频资源：</label>
+                                <label class="col-xs-3 control-label">选择视频：</label>
                                 <div class="col-xs-8">
-                                    <input name="headFile" type="file" class="duiqi"
-                                           id="headFile" placeholder="">
+                                    <input id="sourceFile" name="sourceFile" type="file" class="duiqi" placeholder="">
                                 </div>
                             </div>
 
                             <div class="form-group ">
-                                <label class="col-xs-3 control-label">密码：</label>
+                                <label for="description" class="col-xs-3 control-label">名称：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="password" type="text"
+                                    <input name="courseSourceName" type="text"
                                            class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="description" class="col-xs-3 control-label">简介：</label>
                                 <div class="col-xs-8 ">
-                                    <input name="description" type="text"
-                                           class="form-control input-sm duiqi"
-                                           id="description" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label for="sex" class="col-xs-3 control-label">性别：</label>
-                                <div class="col-xs-8 ">
-                                    <select id="sex" name="sex" class="form-control input-sm duiqi">
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
-                                        <option value="3">未设置</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label for="status" class="col-xs-3 control-label">状态：</label>
-                                <div class="col-xs-8 ">
-                                    <select id="status" name="status" class="form-control input-sm duiqi">
-                                        <option value="1">普通</option>
-                                        <option value="2">冻结</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="col-xs-3 control-label">创建时间：</label>
-                                <div class="col-xs-8 ">
-                                    <input name="createTime" disabled="disabled" type="text"
+                                    <input name="courseSourceDescription" type="text"
                                            class="form-control input-sm duiqi" placeholder="">
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <!--data-dismiss="modal"-->
-                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
-                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
+                    <button id="add_course_source_cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="add_course_source_submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -301,6 +265,7 @@
         this.sortBuilder = new SortBuilder();
         this.updateCourseDialogBuilder = new AddOrUpdateDialogBuilder();
         this.addCourseDialogBuilder = new AddOrUpdateDialogBuilder();
+        this.addCourseSourceDialogBuilder = new AddOrUpdateDialogBuilder();
         this.seachBuilder = new SearchBuilder();
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
         this.$addCourseBtn = undefined;
@@ -354,6 +319,75 @@
                     this.page = newPage;
                     this.loadCourseData();
                 }.bind(this)
+            });
+            this.addCourseSourceDialogBuilder.init({
+                dialogId: "#addCourseSourceDialog",
+                submitId: "#add_course_source_submit_btn",
+                cancelId: "#add_course_source_cancel_btn",
+                onSubmit: function (data) {
+                    var sourceFile = document.getElementById("sourceFile").files[0];
+                    var form = new FormData(data);
+                    form.append("sourceFile", sourceFile);
+                    form.append("courseId", data.courseId);                       // 可以增加表单数据
+                    form.append("courseSourceName", data.courseSourceName);                       // 可以增加表单数据
+                    form.append("courseSourceDescription", data.courseSourceDescription);                       // 可以增加表单数据
+
+
+                    $.ajax({
+                        url: "/courseSource/add",
+                        type: 'POST',
+                        data: form,
+                        // 告诉jQuery不要去处理发送的数据
+                        processData: false,
+                        // 告诉jQuery不要去设置Content-Type请求头
+                        contentType: false,
+                        success: function (result) {
+                            if(!handleOffline(result)){
+                                this.msgDialog.showMsg({
+                                    msg: result.msg,
+                                    onSure: function () {
+                                        if (!success(result.code)) {
+                                            this.addCourseSourceDialogBuilder.show();
+                                        }
+                                    }.bind(this)
+                                });
+                            }
+
+                        }.bind(this)
+                    });
+
+
+//                    c(data);
+//                    ajax.post({
+//                        url: "/courseSource/add",
+//                        data: form,
+//                        onSuccess: function (result) {
+////                            this.loadCourseData();
+//
+//                            this.msgDialog.showMsg({
+//                                msg: result.msg,
+//                                onSure: function () {
+//                                    if (!success(result.code)) {
+//                                        this.addCourseSourceDialogBuilder.show();
+//                                    }
+//                                }.bind(this)
+//                            });
+//
+//                        }.bind(this)
+//                    });
+                }.bind(this),
+                onCancel: function () {
+
+                },
+                fields: [
+                    {
+                        name: "courseId",
+                        inputType: InputType.TEXT,
+                        filter: function (data) {
+                            return data;
+                        }
+                    }
+                ]
             });
             this.addCourseDialogBuilder.init({
                 dialogId: "#addCourseDialog",
@@ -434,7 +468,7 @@
                         name: "createTime",
                         inputType: InputType.TEXT,
                         filter: function (data) {
-                            return timeFormatter.formatTime(data*1000);
+                            return timeFormatter.formatTime(data * 1000);
                         }
                     },
                     {
@@ -508,13 +542,13 @@
                         name: "createTime",
                         width: 1,
                         filter: function (text) {
-                            return timeFormatter.formatTime(text*1000);
+                            return timeFormatter.formatTime(text * 1000);
                         }
                     },
                     {
                         title: "流量",
                         name: "downloadNumber",
-                        width: 2,
+                        width: 1,
                         filter: function (text, list, index) {
                             var item = list[index];
                             text = "下载数 : " + item.downloadNumber + " , 收藏数 : " + item.collectNumber + " , 观看数 : " + item.watchNumber;
@@ -524,7 +558,7 @@
                     {
                         title: "操作",
                         name: "createTime",
-                        width: 3,
+                        width: 4,
                         filter: function (text, list, index) {
                             //行删除更新事件回调
                             courseDelete = function (index) {
@@ -596,10 +630,21 @@
 
 
                             }.bind(this);
-
+                            addCourseSource = function (index) {
+                                var data = list[index];
+                                this.addCourseSourceDialogBuilder.echoData({
+                                    data: data
+                                });
+                                this.addCourseSourceDialogBuilder.show();
+                            }.bind(this);
+                            deleteCourseSource = function (index) {
+                                a("deleteCourseSource");
+                            }.bind(this);
                             return "<button class='btn btn-success btn-xs' onclick='courseUpdate(" + index + ")'>修改</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='courseDelete(" + index + ")'>删除</button>" +
-                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='courseTags(" + index + ")'>标签</button>";
+                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='courseTags(" + index + ")'>标签</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='addCourseSource(" + index + ")'>添加视频</button>" +
+                                "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='deleteCourseSource(" + index + ")'>删除视频</button>";
                         }.bind(this)
                     }
                 ]
