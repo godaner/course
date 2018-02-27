@@ -328,7 +328,7 @@
                 cancelId: "#add_course_source_cancel_btn",
                 onSubmit: function (data) {
                     this.loadingDialog.show({
-                        msg:"正在添加..."
+                        msg: "正在添加..."
                     });
 
 
@@ -350,12 +350,14 @@
                         contentType: false,
                         success: function (result) {
                             this.loadingDialog.hide();
-                            if(!handleOffline(result)){
+                            if (!handleOffline(result)) {
                                 this.msgDialog.showMsg({
                                     msg: result.msg,
                                     onSure: function () {
                                         if (!success(result.code)) {
                                             this.addCourseSourceDialogBuilder.show();
+                                        } else {
+                                            clearFormInput($("#addCourseSourceDialog").find("form"))
                                         }
                                     }.bind(this)
                                 });
@@ -646,7 +648,52 @@
                                 this.addCourseSourceDialogBuilder.show();
                             }.bind(this);
                             deleteCourseSource = function (index) {
-                                a("deleteCourseSource");
+                                var data = list[index];
+                                ajax.post({
+                                    url: "/courseSource/list",
+                                    data: {
+                                        courseId:data.courseId
+                                    },
+                                    onSuccess: function (result) {
+
+                                        var tags = [];
+                                        $.each(result.data.list,function (i,item) {
+                                            tags.push({
+                                                tagName:item.courseSourceName,
+                                                tagId:item.courseSourceId
+                                            });
+                                        }.bind(this));
+
+
+                                        this.tagsDialog.show({
+                                            tagGroupList: [
+                                                {
+                                                    tagGroupName:"",
+                                                    tags:tags
+                                                }
+                                            ],
+                                            echoTagIds: [],
+                                            onSure: function (selectedTagIds) {
+
+                                                ajax.post({
+                                                    url: "/courseSource/delete",
+                                                    data: {
+                                                        selectedTagIds: selectedTagIds.join(",")
+                                                    },
+                                                    onSuccess: function (result) {
+                                                        this.msgDialog.showMsg({
+                                                            msg: result.msg
+                                                        });
+                                                    }.bind(this)
+                                                });
+                                            }.bind(this),
+                                            onCancel: function () {
+
+                                            }.bind(this)
+                                        });
+                                    }.bind(this)
+                                });
+
                             }.bind(this);
                             return "<button class='btn btn-success btn-xs' onclick='courseUpdate(" + index + ")'>修改</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='courseDelete(" + index + ")'>删除</button>" +
@@ -751,7 +798,7 @@
         msgDialog: msgDialog,
         confirmDialog: confirmDialog,
         tagsDialog: tagsDialog,
-        loadingDialog:loadingDialog
+        loadingDialog: loadingDialog
     });
     /*]]>*/
 

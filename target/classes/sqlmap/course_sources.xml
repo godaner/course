@@ -215,5 +215,16 @@
             #{item}
         </foreach>
     </update>
+    <select id="getCourseSource" resultMap="CourseSourcesMap">
+        SELECT *
+        FROM
+        course_sources
+        where status in
+        <foreach item="item" index="index" collection="query.status" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and course_id = #{query.courseId}
+    </select>
+
     <!--**************************** 自定义mapper end ****************************-->
 </mapper>

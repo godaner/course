@@ -3,6 +3,7 @@ package com.course.service.impl;
 import com.course.dao.mapper.CourseSourcesMapper;
 import com.course.dao.po.BasePo;
 import com.course.dao.po.CourseSources;
+import com.course.dao.po.query.CourseSourcesQueryBean;
 import com.course.service.CourseSourcesService;
 import com.course.service.dto.CourseSourcesDto;
 import com.course.service.exception.CourseSourcesException;
@@ -67,6 +68,24 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
                     CourseSourcesException.ErrorCode.UPDATE_COURSE_SOURCE_FAIL.getMsg());
         }
 
+    }
+
+    @Override
+    public List<CourseSourcesDto> getCourseSource(Long courseId) {
+        CourseSourcesQueryBean query = new CourseSourcesQueryBean();
+        query.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode(), BasePo.Status.FORAZEN.getCode()));
+        query.setCourseId(courseId);
+        return courseSourcesMapper.getCourseSource(query).stream().parallel().map(courseSources -> {
+            return makeCourseSourcesDto(courseSources);
+        }).collect(toList());
+
+    }
+
+    private CourseSourcesDto makeCourseSourcesDto(CourseSources courseSources) {
+        CourseSourcesDto courseSourcesDto = new CourseSourcesDto();
+        courseSourcesDto.setCourseId(courseSources.getId());
+        courseSourcesDto.setCourseSourceName(courseSources.getName());
+        return courseSourcesDto;
     }
 
     private CourseSources makeCourseSources(CourseSourcesDto courseSourcesDto, String name) {
