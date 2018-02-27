@@ -270,6 +270,7 @@
         this.DELETE_TIP = "确定要删除该记录？删除后不可恢复！";
         this.$addCourseBtn = undefined;
         this.tagsDialog = undefined;
+        this.loadingDialog = undefined;
         this.registEvents = function () {
             this.$addCourseBtn.unbind("click");
             this.$addCourseBtn.click(function () {
@@ -282,6 +283,7 @@
             this.confirmDialog = args.confirmDialog;
             this.msgDialog = args.msgDialog;
             this.$addCourseBtn = $(args.addBtnId);
+            this.loadingDialog = args.loadingDialog;
 
             this.registEvents();
 
@@ -325,6 +327,11 @@
                 submitId: "#add_course_source_submit_btn",
                 cancelId: "#add_course_source_cancel_btn",
                 onSubmit: function (data) {
+                    this.loadingDialog.show({
+                        msg:"正在添加..."
+                    });
+
+
                     var sourceFile = document.getElementById("sourceFile").files[0];
                     var form = new FormData(data);
                     form.append("sourceFile", sourceFile);
@@ -342,6 +349,7 @@
                         // 告诉jQuery不要去设置Content-Type请求头
                         contentType: false,
                         success: function (result) {
+                            this.loadingDialog.hide();
                             if(!handleOffline(result)){
                                 this.msgDialog.showMsg({
                                     msg: result.msg,
@@ -742,7 +750,8 @@
         addBtnId: "#addCourseBtn",
         msgDialog: msgDialog,
         confirmDialog: confirmDialog,
-        tagsDialog: tagsDialog
+        tagsDialog: tagsDialog,
+        loadingDialog:loadingDialog
     });
     /*]]>*/
 
