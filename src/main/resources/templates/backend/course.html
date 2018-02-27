@@ -648,6 +648,9 @@
                                 this.addCourseSourceDialogBuilder.show();
                             }.bind(this);
                             deleteCourseSource = function (index) {
+                                this.loadingDialog.show({
+                                    msg:"正在加载..."
+                                });
                                 var data = list[index];
                                 ajax.post({
                                     url: "/courseSource/list",
@@ -655,6 +658,7 @@
                                         courseId:data.courseId
                                     },
                                     onSuccess: function (result) {
+                                        this.loadingDialog.hide();
 
                                         var tags = [];
                                         $.each(result.data.list,function (i,item) {
@@ -678,7 +682,7 @@
                                                 ajax.post({
                                                     url: "/courseSource/delete",
                                                     data: {
-                                                        selectedTagIds: selectedTagIds.join(",")
+                                                        courseSourcesIds: selectedTagIds.join(",")
                                                     },
                                                     onSuccess: function (result) {
                                                         this.msgDialog.showMsg({

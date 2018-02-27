@@ -47,7 +47,7 @@
         return false;
     };
     var handleSuceess = function (result, args) {
-        if (success(result.code) && !isUndefined(args) && !isUndefined(args.onSuccess)) {
+        if (!isUndefined(args) && !isUndefined(args.onSuccess)) {
             args.onSuccess(result);
         }
     };

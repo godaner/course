@@ -62,7 +62,7 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
             return Long.valueOf(courseSourcesId);
         }).collect(toList());
 
-        if (0 < courseSourcesMapper.updateCourseSourcesStatusByIds(courseSourcesIdsList, BasePo.Status.DELETED.getCode())) {
+        if (0 > courseSourcesMapper.updateCourseSourcesStatusByIds(courseSourcesIdsList, BasePo.Status.DELETED.getCode())) {
             throw new CourseSourcesException("deleteCourseSource update course source is fail ! courseSourcesIds is :　" + courseSourcesIds,
                     CourseSourcesException.ErrorCode.UPDATE_COURSE_SOURCE_FAIL.getCode(),
                     CourseSourcesException.ErrorCode.UPDATE_COURSE_SOURCE_FAIL.getMsg());
