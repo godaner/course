@@ -10,6 +10,7 @@ import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.ProjectConfig;
 import org.apache.commons.io.IOUtils;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 
 @Service
@@ -45,6 +49,25 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
                     CourseSourcesException.ErrorCode.WRITE_COURSE_SOURCE_FAIL.getCode(),
                     CourseSourcesException.ErrorCode.WRITE_COURSE_SOURCE_FAIL.getMsg());
         }
+    }
+
+    @Override
+    public void deleteCourseSource(String courseSourcesIds) {
+        if (isEmptyString(courseSourcesIds)) {
+            throw new CourseSourcesException("deleteCourseSource courseSourcesIds is null ! courseSourcesIds is :　" + courseSourcesIds,
+                    CourseSourcesException.ErrorCode.DELETE_IDS_IS_NULL.getCode(),
+                    CourseSourcesException.ErrorCode.DELETE_IDS_IS_NULL.getMsg());
+        }
+        List<Long> courseSourcesIdsList = Lists.newArrayList(courseSourcesIds.split(",")).stream().parallel().map(courseSourcesId -> {
+            return Long.valueOf(courseSourcesId);
+        }).collect(toList());
+
+        if (0 < courseSourcesMapper.updateCourseSourcesStatusByIds(courseSourcesIdsList, BasePo.Status.DELETED.getCode())) {
+            throw new CourseSourcesException("deleteCourseSource update course source is fail ! courseSourcesIds is :　" + courseSourcesIds,
+                    CourseSourcesException.ErrorCode.UPDATE_COURSE_SOURCE_FAIL.getCode(),
+                    CourseSourcesException.ErrorCode.UPDATE_COURSE_SOURCE_FAIL.getMsg());
+        }
+
     }
 
     private CourseSources makeCourseSources(CourseSourcesDto courseSourcesDto, String name) {

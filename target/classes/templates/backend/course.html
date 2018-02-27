@@ -195,6 +195,95 @@
     <!-- /.modal -->
 
 
+
+    <!--弹出添加课程视频资源窗口-->
+    <div id="addCourseSource" class="modal fade" aria-hidden="true" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                    <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">添加课程视频资源</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-horizontal">
+
+                            <input name="courseId" type="hidden">
+
+                            <div class="form-group ">
+                                <label for="username" class="col-xs-3 control-label">用户名：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="username" readonly="readonly" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="username" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="headFile" class="col-xs-3 control-label">选择视频资源：</label>
+                                <div class="col-xs-8">
+                                    <input name="headFile" type="file" class="duiqi"
+                                           id="headFile" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">密码：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="password" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="description" class="col-xs-3 control-label">简介：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="description" type="text"
+                                           class="form-control input-sm duiqi"
+                                           id="description" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="sex" class="col-xs-3 control-label">性别：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="sex" name="sex" class="form-control input-sm duiqi">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                        <option value="3">未设置</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="status" class="col-xs-3 control-label">状态：</label>
+                                <div class="col-xs-8 ">
+                                    <select id="status" name="status" class="form-control input-sm duiqi">
+                                        <option value="1">普通</option>
+                                        <option value="2">冻结</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">创建时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input name="createTime" disabled="disabled" type="text"
+                                           class="form-control input-sm duiqi" placeholder="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--data-dismiss="modal"-->
+                    <button id="cancel_btn" type="button" class="btn btn-xs btn-white">取 消</button>
+                    <button id="submit_btn" type="button" class="btn btn-xs btn-green">保 存</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
 </div>
 
 

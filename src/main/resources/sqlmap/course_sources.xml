@@ -206,5 +206,14 @@
         <include refid="queryCondition"/>
         LIMIT 1
     </select>
-
+    <!--**************************** 自定义mapper start ****************************-->
+    <update id="updateCourseSourcesStatusByIds">
+        update course_sources
+        set status = #{status}
+        where id in
+        <foreach item="item" index="index" collection="courseSourcesIdsList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+    <!--**************************** 自定义mapper end ****************************-->
 </mapper>

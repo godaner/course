@@ -19,7 +19,9 @@ public class CourseSourcesException extends CourseRuntimeException {
     public enum ErrorCode {
 
         INSERT_COURSE_SOURCE_FAIL(-801, "课程视频资源插入数据库失败"),
-        WRITE_COURSE_SOURCE_FAIL(-802, "课程资源视频写入磁盘失败");
+        WRITE_COURSE_SOURCE_FAIL(-802, "课程资源视频写入磁盘失败"),
+        DELETE_IDS_IS_NULL(-803, "待删除列表为空"),
+        UPDATE_COURSE_SOURCE_FAIL(-804, "更新课程资源失败");
         int code;
         String msg;
 
