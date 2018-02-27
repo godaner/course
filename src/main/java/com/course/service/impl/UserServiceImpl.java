@@ -174,12 +174,12 @@ public class UserServiceImpl extends BaseService implements UserService {
     public void login(UsersDto usersDto, HttpSession session) throws Exception {
         Users users = this.getUserByUsername(usersDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (users == null) {
-            logger.error("login username is not exits !! userDto is : " + usersDto);
+            logger.error("showLoginDialog username is not exits !! userDto is : " + usersDto);
             throw new UsersException(UsersException.ErrorCode.USERNAME_IS_NOT_EXITS.getCode(),
                     UsersException.ErrorCode.USERNAME_IS_NOT_EXITS.getMsg());
         }
         if (!users.getPassword().equals(usersDto.getPassword())) {
-            logger.error("login password is error !! userDto is : " + usersDto);
+            logger.error("showLoginDialog password is error !! userDto is : " + usersDto);
             throw new UsersException(UsersException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
                     UsersException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
         }

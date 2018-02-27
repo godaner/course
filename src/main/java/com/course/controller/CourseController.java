@@ -1,5 +1,6 @@
 package com.course.controller;
 
+import com.course.aop.RequiredAdminLogin;
 import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.CoursesQueryBean;
@@ -73,12 +74,14 @@ public class CourseController extends ServiceController<CourseService> {
     }
 
     /*************************************** 管理端 *************************************/
+    @RequiredAdminLogin
     @RequestMapping(value = "/list/v2")
     @ResponseBody
     public Object getCoursesV2(PageBean page, CoursesQueryBean query) throws Exception {
         return response.putData("list", service.getCoursesV2(page, query)).putData("total", service.getCoursesCountV2(page, query));
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object addCourse(CoursesDto coursesDto) throws Exception {
@@ -86,6 +89,7 @@ public class CourseController extends ServiceController<CourseService> {
         return response.setMsg("添加课程 '" + coursesDto.getName() + "' 成功");
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object updateCourses(CoursesDto coursesDto) throws Exception {
@@ -93,6 +97,7 @@ public class CourseController extends ServiceController<CourseService> {
         return response;
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object deleteCourse(@RequestParam("courseId") Long courseId) throws Exception {
@@ -100,6 +105,7 @@ public class CourseController extends ServiceController<CourseService> {
         return response;
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/update/img")
     @ResponseBody
     public Object updateHeadFile(CoursesDto coursesDto) throws Exception {

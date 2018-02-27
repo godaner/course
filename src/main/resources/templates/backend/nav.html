@@ -78,7 +78,7 @@
                 url: "/admins/onlineAdmin",
                 onSuccess: function (result) {
                     if (fail(result.code) || isUndefined(result.data.admin)) {
-                        this.login();
+                        this.showLoginDialog();
                     } else {
                         this.onlineAdmin = result.data.admin;
                         this.displayOnlineAdminInfo();
@@ -87,7 +87,7 @@
                 }.bind(this)
             });
         }
-        this.login = function () {
+        this.showLoginDialog = function () {
             this.loginDialog.show({
                 onSure: function (data) {
                     this.loadingDialog.show({

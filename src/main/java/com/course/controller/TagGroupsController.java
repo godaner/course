@@ -1,5 +1,6 @@
 package com.course.controller;
 
+import com.course.aop.RequiredAdminLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.BasePo;
 import com.course.dao.po.query.TagGroupsQueryBean;
@@ -34,6 +35,8 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
     }
 
     /*************************************** 管理端 *************************************/
+
+    @RequiredAdminLogin
     @RequestMapping(value = "/list/v2")
     @ResponseBody
     public Object getTagGroupsWithTagsV2(PageBean pageBean, TagGroupsQueryBean queryBean) throws Exception {
@@ -43,6 +46,7 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
         return response.putData("list", list).putData("total", total);
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object updateTagGroup(TagGroupsDto tagGroupsDto) throws Exception {
@@ -51,6 +55,7 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
     }
 
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object deleteTagGroup(@RequestParam("tagGroupId") Long tagGroupId) throws Exception {
@@ -58,6 +63,7 @@ public class TagGroupsController extends ServiceController<TagGroupsService> {
         return response;
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object addTagGroup(TagGroupsDto tagGroupsDto) throws Exception {

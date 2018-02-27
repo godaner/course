@@ -2,7 +2,6 @@ package com.course.aop;
 
 import com.course.dao.po.Admins;
 import com.course.service.AdminService;
-import com.course.service.UserService;
 import com.course.service.dto.AdminsDto;
 import com.course.service.exception.AdminsException;
 import com.course.util.CommonUtil;
@@ -36,11 +35,12 @@ public class AjaxOnlineAdminAop extends CommonUtil {
         HttpServletRequest request = getHttpServletRequest();
         AdminsDto sessionAdmin = (AdminsDto) request.getSession().getAttribute(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION);
         if (isNullObject(sessionAdmin)) {
-            throw new AdminsException("AjaxOnlineAdminAop admin is offline !!", AdminsException.ErrorCode.ADMIN_OFFLINE.getCode(),
+            throw new AdminsException("AjaxOnlineAdminAop admin is offline !!",
+                    AdminsException.ErrorCode.ADMIN_OFFLINE.getCode(),
                     AdminsException.ErrorCode.ADMIN_OFFLINE.getMsg());
         }
         AdminsDto adminsDto = adminService.getAdminByAdminId(sessionAdmin.getAdminId());
-        request.getSession().setAttribute(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION,adminsDto);
+        request.getSession().setAttribute(Admins.KEY_OF_ONLINE_ADMIN_IN_HTTP_SESSION, adminsDto);
         return joinPoint.proceed();
     }
 

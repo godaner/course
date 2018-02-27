@@ -1,5 +1,6 @@
 package com.course.controller;
 
+import com.course.aop.RequiredAdminLogin;
 import com.course.aop.RequiredUserLogin;
 import com.course.controller.base.ServiceController;
 import com.course.dao.po.query.UsersQueryBean;
@@ -108,12 +109,15 @@ public class UserController extends ServiceController<UserService> {
 
 
     /*************************************** 管理端 *************************************/
+
+    @RequiredAdminLogin
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object getUsers(PageBean page, UsersQueryBean query) throws Exception {
         return response.putData("list", service.getUsers(page, query)).putData("total", service.getUsersCount(page, query));
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object updateUser(UsersDto usersDto) throws Exception {
@@ -121,6 +125,7 @@ public class UserController extends ServiceController<UserService> {
         return response.setMsg("更新用户成功");
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/update/img")
     @ResponseBody
     public Object updateUserHeadImg(UsersDto usersDto) throws Exception {
@@ -128,6 +133,7 @@ public class UserController extends ServiceController<UserService> {
         return response;
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object deleteUser(@RequestParam("userId") Long userId) throws Exception {
@@ -135,6 +141,7 @@ public class UserController extends ServiceController<UserService> {
         return response;
     }
 
+    @RequiredAdminLogin
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object addUser(UsersDto usersDto) throws Exception {
