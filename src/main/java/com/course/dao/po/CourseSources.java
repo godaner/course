@@ -1,6 +1,9 @@
 package com.course.dao.po;
 
 public class CourseSources extends BasePo {
+    public final static String DOWNLOAD_URL_PREFIX = "/courses/download/";
+    public final static String WATCH_URL_PREFIX = "/courses/src/";
+    public final static Integer DEFAULT_SORT = 0;
     private String name;
     private String watchUrl;
     private String downloadUrl;

@@ -1,6 +1,8 @@
 package com.course.service.dto;
 
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CourseSourcesDto {
     private Long courseSourceId;
     private String courseSourceName;
@@ -8,6 +10,24 @@ public class CourseSourcesDto {
     private String courseDownloadSourceUrl;
     private Integer courseSourceSort;
     private String courseSourceDescription;
+    private Long courseId;
+    private MultipartFile sourceFile;
+
+    public MultipartFile getSourceFile() {
+        return sourceFile;
+    }
+
+    public void setSourceFile(MultipartFile sourceFile) {
+        this.sourceFile = sourceFile;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
 
     public String getCourseDownloadSourceUrl() {
         return courseDownloadSourceUrl;
