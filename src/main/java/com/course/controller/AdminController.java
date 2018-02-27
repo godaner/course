@@ -58,7 +58,6 @@ public class AdminController extends ServiceController<AdminService> {
         return response.putData("admin", adminsDto).setMsg("管理员 '" + adminsDto.getUsername() + "' 登录成功！");
     }
 
-    @RequiredAdminLogin
     @RequestMapping(value = "/onlineAdmin")
     @ResponseBody
     public Object onlineAdmin() throws Exception {
