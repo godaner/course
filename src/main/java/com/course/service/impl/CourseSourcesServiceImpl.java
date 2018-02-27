@@ -83,7 +83,7 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
 
     private CourseSourcesDto makeCourseSourcesDto(CourseSources courseSources) {
         CourseSourcesDto courseSourcesDto = new CourseSourcesDto();
-        courseSourcesDto.setCourseId(courseSources.getId());
+        courseSourcesDto.setCourseSourceId(courseSources.getId());
         courseSourcesDto.setCourseSourceName(courseSources.getName());
         return courseSourcesDto;
     }
