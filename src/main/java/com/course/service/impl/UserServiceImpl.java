@@ -241,13 +241,13 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (isEmptyString(usersDto.getPassword()) || isEmptyString(usersDto.getRePassword())) {
             request.setAttribute("msg", "密码不能为空");
-            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
+            request.setAttribute("forward", "forward:/users/onlineUser" );
             throw new UsersException("updateOnlinePwd password or repassword is null !! usersDto is :" + usersDto);
         }
 
         if (!usersDto.getPassword().equals(usersDto.getRePassword())) {
             request.setAttribute("msg", "两次密码不一致");
-            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
+            request.setAttribute("forward", "forward:/users/onlineUser" );
             throw new UsersException("updateOnlinePwd password and repassword is not same !! usersDto is :" + usersDto);
         }
 
@@ -264,7 +264,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (usersMapper.update(users) != 1) {
             request.setAttribute("msg", "修改密码失败");
-            request.setAttribute("forward", "forward:/users/" + onlineUser.getUserId());
+            request.setAttribute("forward", "forward:/users/onlineUser" );
             throw new UsersException("updateOnlinePwd update users is fail !! usersDto is :" + usersDto);
         }
 
@@ -282,7 +282,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (usersDto.getHeadFile().getOriginalFilename().equals("") || usersDto.getHeadFile().getOriginalFilename() == null) {
             request.setAttribute("msg", "文件为空");
-            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            request.setAttribute("forward", "forward:/users/onlineUser" );
             throw new UsersException("updateOnlineUserHead user head file is null !! usersDto is :" + usersDto);
         }
 
@@ -295,7 +295,7 @@ public class UserServiceImpl extends BaseService implements UserService {
             e.printStackTrace();
             deleteFiles(targetFile);
             request.setAttribute("msg", "上传文件错误");
-            request.setAttribute("forward", "forward:/users/" + sessionUser.getUserId());
+            request.setAttribute("forward", "forward:/users/onlineUser" );
             throw new UsersException("updateOnlineUserHead upload headImg is fail !! usersDto is :" + usersDto);
         }
 

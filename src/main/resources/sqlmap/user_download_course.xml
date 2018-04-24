@@ -183,7 +183,10 @@ id=#{id}
 		from
 		user_download_course
 		where
-		status = #{query.status}
+		status in
+		<foreach collection ="query.status" item ="item" open="(" close=")" separator =",">
+			${item}
+		</foreach>
 		and user_id = #{query.userId}
 	</select>
 

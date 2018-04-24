@@ -124,12 +124,12 @@ public class AdminServiceImpl extends BaseService implements AdminService {
     public AdminsDto login(AdminsDto adminsDto) {
         Admins admins = this.getAdminByUsername(adminsDto.getUsername(), Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
         if (null == admins) {
-            throw new CoursesException("showLoginDialog admin is not exits !! adminsDto is : " + adminsDto,
+            throw new CoursesException("login admin is not exits !! adminsDto is : " + adminsDto,
                     AdminsException.ErrorCode.USER_IS_NOT_EXITS.getCode(),
                     AdminsException.ErrorCode.USER_IS_NOT_EXITS.getMsg());
         }
         if(!admins.getPassword().equals(adminsDto.getPassword())){
-            throw new CoursesException("showLoginDialog password is error !! adminsDto is : " + adminsDto,
+            throw new CoursesException("login password is error !! adminsDto is : " + adminsDto,
                     AdminsException.ErrorCode.PASSWORD_IS_ERROR.getCode(),
                     AdminsException.ErrorCode.PASSWORD_IS_ERROR.getMsg());
         }

@@ -29,7 +29,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="D:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="GBK"/>
-    <property name="java.library.path" value="D:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;d:\Ruby24-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;d:\Program Files\Java\jdk1.8.0_131\\bin;d:\Program Files\Java\jdk1.8.0_131\\jre\bin;E:\qs\;D:\Program Files\TortoiseGit\bin;D:\Program Files\Git\bin;D:\Program Files\TortoiseSVN\bin;D:\maven3\bin;D:\node-v9.2.0-win-x64;D:\curl\;d:\Program Files\GPAC;d:\Program Files\GPAC;d:\Program Files\GPAC;d:\Program Files\Microsoft VS Code\bin;."/>
+    <property name="java.library.path" value="D:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;d:\Ruby24-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;d:\Program Files\Java\jdk1.8.0_131\\bin;d:\Program Files\Java\jdk1.8.0_131\\jre\bin;E:\qs\;D:\Program Files\TortoiseGit\bin;D:\Program Files\Git\bin;D:\Program Files\TortoiseSVN\bin;D:\maven3\bin;D:\node-v9.2.0-win-x64;D:\curl\;D:\Program Files\MySQL\MySQL Server 6.0\bin;d:\Program Files\GPAC;d:\Program Files\GPAC;d:\Program Files\GPAC;d:\Program Files\Microsoft VS Code\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="D:\Program Files\Java\jdk1.8.0_131\jre"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2017.1.2 package -P prod"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2017.1.2 package -P dev,!prod"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
