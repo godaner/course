@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/config/ResolverConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/course/listener/ApplicationRefreshedListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/course.jar.original" afterPath="$PROJECT_DIR$/target/course.jar.original" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/BootApp.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/BootApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUserMethodArgumentResolver.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/resolver/OnlineUserMethodArgumentResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/AdminServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/AdminServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-dev.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/application-prod.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/application-prod.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/user_download_course.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/application-dev.properties" afterPath="$PROJECT_DIR$/target/classes/config/application-dev.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/application-prod.properties" afterPath="$PROJECT_DIR$/target/classes/config/application-prod.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/application.properties" afterPath="$PROJECT_DIR$/target/classes/config/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.BaseControllerTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.BaseControllerTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.TempleControllerTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.course.test.controller.TempleControllerTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.BaseControllerTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.BaseControllerTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.TempleControllerTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.course.test.controller.TempleControllerTest.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxExceptionAop.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/AjaxOnlineAdminAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/RequiredAdminLoginAop.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpExceptionAop.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/course/aop/HttpOnlineUserAop.java" afterPath="$PROJECT_DIR$/src/main/java/com/course/aop/RequiredUserLoginAop.java" />
-    </list>
+    <list default="true" id="33b1d469-b83f-46f5-a90c-ce3f8ef3b3ec" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -168,7 +144,7 @@
       <file leaf-file-name="user_collect_course.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
+            <state relative-caret-position="482">
               <caret line="186" column="91" lean-forward="false" selection-start-line="186" selection-start-column="91" selection-end-line="186" selection-end-column="91" />
               <folding>
                 <marker date="1524573329666" expanded="true" signature="858:906" ph="SELECT count... user_collect_course" />
@@ -1345,12 +1321,12 @@
       <workItem from="1522378426504" duration="980000" />
       <workItem from="1522391490177" duration="621000" />
       <workItem from="1524549357644" duration="156000" />
-      <workItem from="1524565672042" duration="5188000" />
+      <workItem from="1524565672042" duration="5784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339081000" />
+    <option name="totallyTimeSpent" value="339677000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1376,7 +1352,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4143167" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4143167" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4968017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1879,7 +1855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/user_collect_course.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
+        <state relative-caret-position="482">
           <caret line="186" column="91" lean-forward="false" selection-start-line="186" selection-start-column="91" selection-end-line="186" selection-end-column="91" />
           <folding>
             <marker date="1524573329666" expanded="true" signature="858:906" ph="SELECT count... user_collect_course" />
