@@ -295,7 +295,7 @@
                         name: "createTime",
                         inputType: InputType.TEXT,
                         filter: function (data) {
-                            return timeFormatter.formatTime(data*1000);
+                            return timeFormatter.formatTime(data * 1000);
                         }
                     }
                 ]
@@ -346,7 +346,7 @@
                         name: "createTime",
                         width: 2,
                         filter: function (text) {
-                            return timeFormatter.formatTime(text*1000);
+                            return timeFormatter.formatTime(text * 1000);
                         }
                     },
                     {
@@ -412,16 +412,15 @@
                                 var tagGroupId = data.tagGroupId;
 
                                 ajax.post({
-                                    url: "/tags/tagGroup/"+tagGroupId,
+                                    url: "/tags/tagGroup/" + tagGroupId,
                                     data: {},
                                     onSuccess: function (result) {
 
 
-
                                         var tags = result.data.list;
                                         var tagGroupList = [{
-                                            tagGroupName:"",
-                                            tags:tags
+                                            tagGroupName: "",
+                                            tags: tags
                                         }];
                                         this.tagsDialog.show({
                                             tagGroupList: tagGroupList,
@@ -452,6 +451,7 @@
                             }.bind(this);
                             return "<button class='btn btn-success btn-xs' onclick='tagGroupUpdate(" + index + ")'>修改</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='tagGroupDelete(" + index + ")'>删除</button>" +
+                                " | " +
                                 "<button style='margin-left: 4px;' class='btn btn-success btn-xs' onclick='addTag(" + index + ")'>添加标签</button>" +
                                 "<button style='margin-left: 4px;' class='btn btn-danger btn-xs' onclick='deleteTag(" + index + ")'>删除标签</button>";
                         }.bind(this)
