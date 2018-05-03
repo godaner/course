@@ -1,3 +1,18 @@
-http://localhost:8888/courses/index
-
-http://localhost:8888/backend/index
+# course
+## *涉及技术
+    * springboot
+    * 基于aop的异常捕获机制
+    * 基于aop的请求日志输出机制
+    * 基于aop的权限拦截机制
+    * mybatis模板化
+    * restful风格api
+    * 参数注入机制
+    * 优雅的代码
+    * 多环境打包
+    * maven
+    * mysql
+    * thymeleaf
+    * ajax自定义
+    * 自定义前端插件
+    * git 
+    * idea
