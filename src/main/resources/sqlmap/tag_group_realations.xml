@@ -188,10 +188,13 @@ id=#{id}
 		SELECT tag_id
 		FROM
 		tag_group_realations
-		where status IN
+		where
+		group_id = #{tagGroupId}
+		and status IN
 		<foreach item="item" index="index" collection="status" open="(" separator="," close=")">
 			#{item}
 		</foreach>
+
 	</select>
 
 	<select id="getTagIdsOfTagGroup" resultType="long">
