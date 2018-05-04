@@ -23,8 +23,6 @@ public interface UserService {
 
     void getUserImg(String name, HttpServletResponse httpServletResponse) throws Exception;
 
-//    UsersDto getOnlineUser(HttpServletRequest request);
-
     void updateOnlineUser(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request);
 
     void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request);
@@ -36,6 +34,8 @@ public interface UserService {
     List<CoursesDto> getUserCollectCourse(UsersDto onlineUser);
 
     List<CoursesDto> getUserDownloadCourse(UsersDto onlineUser);
+
+    void deleteUserCollectCourse(UsersDto onlineUser, Long courseId);
 
     /*************************************** 管理端 *************************************/
 
@@ -54,4 +54,5 @@ public interface UserService {
     void updateUserHeadImg(UsersDto usersDto);
 
     void addUser(UsersDto usersDto);
+
 }

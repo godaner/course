@@ -19,6 +19,7 @@ public class UsersDto {
 
     private Byte status;
 
+
     public Integer getCreateTime() {
         return createTime;
     }

@@ -101,6 +101,15 @@ public class UserController extends ServiceController<UserService> {
     }
 
     @RequiredUserLogin
+    @RequestMapping(value = "/onlineUser/collect/del/{courseId}")
+    public Object deleteUserCollectCourse(@OnlineUser UsersDto onlineUser, @PathVariable("courseId") Long courseId, HttpServletRequest request) throws Exception {
+        service.deleteUserCollectCourse(onlineUser,courseId);
+        request.setAttribute("courses", service.getUserCollectCourse(onlineUser));
+        request.setAttribute("msg", "取消收藏成功");
+        return "frontend/users/user_info";
+    }
+
+    @RequiredUserLogin
     @RequestMapping(value = "/onlineUser/download")
     public Object getUserDownloadCourse(@OnlineUser UsersDto onlineUser, HttpServletRequest httpServletRequest) throws Exception {
         httpServletRequest.setAttribute("courses", service.getUserDownloadCourse(onlineUser));

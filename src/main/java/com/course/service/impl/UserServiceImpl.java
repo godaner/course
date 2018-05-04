@@ -21,6 +21,7 @@ import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.IOUtils;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
         session.setAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION, makeUsersDto(user));
     }
+
 
     public UsersDto makeUsersDto(Users user) {
         UsersDto usersDto = new UsersDto();
@@ -204,18 +206,6 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
     }
 
-//    @Override
-//    public UsersDto getOnlineUser(HttpServletRequest request) {
-//        UsersDto sessionUser = (UsersDto) request.getSession().getAttribute(Users.KEY_OF_ONLINE_USER_IN_HTTP_SESSION);
-//
-//        Long userId = sessionUser.getUserId();
-//
-//        Users users = this.getUserByUserId(userId, Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
-//        if (isNullObject(users)) {
-//            throw new UsersException("getOnlineUser users is null !! sessionUser is : " + sessionUser);
-//        }
-//        return makeUsersDto(users);
-//    }
 
     @Override
     public void updateOnlineUser(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request) {
@@ -232,6 +222,19 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     }
 
+
+    @Override
+    @Transactional
+    public void deleteUserCollectCourse(UsersDto onlineUser, Long courseId) {
+        List<UserCollectCourse> courses = userCollectCourseMapper.selectBy(ImmutableMap.of(
+                "courseId", courseId,
+                "userId", onlineUser.getUserId()
+        ));
+
+        courses.stream().parallel().forEach(c -> {
+            coursesMapper.delete(c.getCourseId());
+        });
+    }
     @Override
     @Transactional
     public void updateOnlinePwd(UsersDto usersDto, UsersDto onlineUser, HttpServletRequest request) {
@@ -241,13 +244,13 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (isEmptyString(usersDto.getPassword()) || isEmptyString(usersDto.getRePassword())) {
             request.setAttribute("msg", "密码不能为空");
-            request.setAttribute("forward", "forward:/users/onlineUser" );
+            request.setAttribute("forward", "forward:/users/onlineUser");
             throw new UsersException("updateOnlinePwd password or repassword is null !! usersDto is :" + usersDto);
         }
 
         if (!usersDto.getPassword().equals(usersDto.getRePassword())) {
             request.setAttribute("msg", "两次密码不一致");
-            request.setAttribute("forward", "forward:/users/onlineUser" );
+            request.setAttribute("forward", "forward:/users/onlineUser");
             throw new UsersException("updateOnlinePwd password and repassword is not same !! usersDto is :" + usersDto);
         }
 
@@ -264,7 +267,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (usersMapper.update(users) != 1) {
             request.setAttribute("msg", "修改密码失败");
-            request.setAttribute("forward", "forward:/users/onlineUser" );
+            request.setAttribute("forward", "forward:/users/onlineUser");
             throw new UsersException("updateOnlinePwd update users is fail !! usersDto is :" + usersDto);
         }
 
@@ -282,7 +285,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         if (usersDto.getHeadFile().getOriginalFilename().equals("") || usersDto.getHeadFile().getOriginalFilename() == null) {
             request.setAttribute("msg", "文件为空");
-            request.setAttribute("forward", "forward:/users/onlineUser" );
+            request.setAttribute("forward", "forward:/users/onlineUser");
             throw new UsersException("updateOnlineUserHead user head file is null !! usersDto is :" + usersDto);
         }
 
@@ -295,7 +298,7 @@ public class UserServiceImpl extends BaseService implements UserService {
             e.printStackTrace();
             deleteFiles(targetFile);
             request.setAttribute("msg", "上传文件错误");
-            request.setAttribute("forward", "forward:/users/onlineUser" );
+            request.setAttribute("forward", "forward:/users/onlineUser");
             throw new UsersException("updateOnlineUserHead upload headImg is fail !! usersDto is :" + usersDto);
         }
 

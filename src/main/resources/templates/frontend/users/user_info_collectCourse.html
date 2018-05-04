@@ -17,7 +17,7 @@
                      th:alt="${course.name}">
             </a>
         </div>
-        <div class="media-body">
+        <div class="media-body" style="width:60%;">
             <h4 class="media-heading" th:text="${course.name}"></h4>
             <p th:text="'描述：'+${course.description}">
 
@@ -31,6 +31,11 @@
             <p th:text="'收藏数：'+${course.collectNumber}">
 
             </p>
+        </div>
+        <div class="media-right media-middle">
+            <a th:href="@{'/users/onlineUser/collect/del/'+${course.courseId}+'?currtTab=collectCourse'}">
+                取消收藏
+            </a>
         </div>
     </div>
 
