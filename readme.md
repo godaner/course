@@ -1,6 +1,8 @@
 # course
 ## *涉及技术
     * springboot
+    * 多环境打包或运行
+    * thymeleaf模板引擎
     * 基于aop的异常捕获机制
     * 基于aop的请求日志输出机制
     * 基于aop的权限拦截机制
@@ -8,10 +10,8 @@
     * restful风格api
     * 参数注入机制
     * 优雅的代码
-    * 多环境打包
     * maven
     * mysql
-    * thymeleaf
     * ajax自定义
     * 自定义前端插件
     * git 

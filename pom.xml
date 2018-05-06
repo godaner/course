@@ -223,11 +223,5 @@
                 <profileActive>prod</profileActive>
             </properties>
         </profile>
-        <profile>
-            <id>bugfix</id>
-            <properties>
-                <profileActive>bugfix</profileActive>
-            </properties>
-        </profile>
     </profiles>
 </project>
