@@ -15,6 +15,7 @@ import com.course.util.BaseService;
 import com.course.util.DateUtil;
 import com.course.util.PageBean;
 import com.course.util.ProjectConfig;
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.IOUtils;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,14 +73,31 @@ public class CourseServiceImpl extends BaseService implements CourseService {
     @Transactional
     public CoursesDto getCourseInfo(PageBean pageBean, Long courseId) {
 
-        CourseSourcesQueryBean queryBean = new CourseSourcesQueryBean();
-        queryBean.setStatus(Lists.newArrayList(BasePo.Status.NORMAL.getCode()));
-        CoursesWithSources coursesWithSources = coursesMapper.getCourseWithSources(pageBean, queryBean, courseId);
-        return makeCourseDto(coursesWithSources);
+
+        Courses courses = getCourseById(courseId);
+
+        CoursesDto coursesDto = makeCourseDto(courses);
+
+        List<CourseSources> courseSources = courseSourcesMapper.selectBy(ImmutableMap.of(
+                "courseId", courseId,
+                "status", BasePo.Status.NORMAL.getCode()
+        ));
+
+        List<CourseSourcesDto> courseSourcesDtos = makeCourseSourcesDto(courseSources);
+
+        coursesDto.setCourseSourcesDtoList(courseSourcesDtos);
+
+
+        return coursesDto;
+    }
+
+    private Courses getCourseById(Long courseId) {
+        Courses courses = coursesMapper.select(courseId);
+        return (courses == null || !courses.getStatus().equals(BasePo.Status.NORMAL.getCode())) ? null : courses;
     }
 
     @Override
-    public void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+    public void getCourseSrc(String name, String suffix, Long courseId, HttpServletResponse httpServletResponse) throws Exception {
 
         Courses courses = coursesMapper.select(courseId);
         if (courses == null) {
@@ -92,7 +110,7 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         }
         ServletOutputStream outputStream = httpServletResponse.getOutputStream();
         try {
-            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + ".mp4"), outputStream);
+            IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + name + "." + suffix), outputStream);
         } catch (IOException e) {
             e.printStackTrace();
             IOUtils.copy(new FileInputStream(ProjectConfig.COURSE_SRC_PATH + "default.mp4"), outputStream);
@@ -304,16 +322,9 @@ public class CourseServiceImpl extends BaseService implements CourseService {
         return courses;
     }
 
-    private CoursesDto makeCourseDto(CoursesWithSources coursesWithSources) {
-        CoursesDto coursesDto = new CoursesDto();
-        coursesDto.setCourseId(coursesWithSources.getId());
-        coursesDto.setDescription(coursesWithSources.getDescription());
-        coursesDto.setDownloadNumber(coursesWithSources.getDownloadNumber());
-        coursesDto.setWatchNumber(coursesWithSources.getWatchNumber());
-        coursesDto.setCollectNumber(coursesWithSources.getCollectNumber());
-        coursesDto.setName(coursesWithSources.getName());
-        coursesDto.setImgUrl(coursesWithSources.getImgUrl());
-        List<CourseSourcesDto> courseSourcesDtos = coursesWithSources.getCourseSourcesList().stream().parallel().map(courseSources -> {
+    private List<CourseSourcesDto> makeCourseSourcesDto(List<CourseSources> courseSourcess) {
+
+        return courseSourcess.stream().parallel().map(courseSources -> {
 
             CourseSourcesDto courseSourcesDto = new CourseSourcesDto();
             courseSourcesDto.setCourseSourceDescription(courseSources.getDescription());
@@ -325,8 +336,6 @@ public class CourseServiceImpl extends BaseService implements CourseService {
 
             return courseSourcesDto;
         }).collect(toList());
-        coursesDto.setCourseSourcesDtoList(courseSourcesDtos);
-        return coursesDto;
     }
 
     private CoursesDto makeCourseDto(Courses courses) {

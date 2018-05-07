@@ -59,9 +59,9 @@ public class CourseController extends ServiceController<CourseService> {
 
     }
 
-    @RequestMapping(value = "/src/{name}")
-    public void getCourseSrc(@PathVariable("name") String name, @RequestParam("courseId") Long courseId, HttpServletResponse httpServletResponse) throws Exception {
-        service.getCourseSrc(name, courseId, httpServletResponse);
+    @RequestMapping(value = "/src/{name}/{suffix}")
+    public void getCourseSrc(@PathVariable("name") String name,@PathVariable("suffix") String suffix, @RequestParam("courseId") Long courseId, HttpServletResponse httpServletResponse) throws Exception {
+        service.getCourseSrc(name, suffix,courseId, httpServletResponse);
 
     }
 

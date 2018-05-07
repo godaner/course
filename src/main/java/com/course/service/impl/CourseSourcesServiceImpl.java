@@ -8,6 +8,7 @@ import com.course.service.CourseSourcesService;
 import com.course.service.dto.CourseSourcesDto;
 import com.course.service.exception.CourseSourcesException;
 import com.course.util.BaseService;
+import com.course.util.CommonUtil;
 import com.course.util.DateUtil;
 import com.course.util.ProjectConfig;
 import org.apache.commons.io.IOUtils;
@@ -15,6 +16,7 @@ import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,16 +34,19 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
 
     @Override
     public void addCourseSource(CourseSourcesDto courseSourcesDto) {
-        String name = uuid();
-        if (1 != courseSourcesMapper.insert(makeCourseSources(courseSourcesDto, name))) {
+        MultipartFile sourceFile = courseSourcesDto.getSourceFile();
+        String suffix = CommonUtil.getFileNameExt(sourceFile.getOriginalFilename());
+        String uuid = uuid();
+        String name = uuid + "."+suffix;
+        if (1 != courseSourcesMapper.insert(makeCourseSources(courseSourcesDto, uuid,suffix))) {
             throw new CourseSourcesException("addCourseSource#insert is fail ! courseSourcesDto is :　" + courseSourcesDto,
                     CourseSourcesException.ErrorCode.INSERT_COURSE_SOURCE_FAIL.getCode(),
                     CourseSourcesException.ErrorCode.INSERT_COURSE_SOURCE_FAIL.getMsg());
         }
 
-        File targetFile = new File(ProjectConfig.COURSE_SRC_PATH + name + ".mp4");
+        File targetFile = new File(ProjectConfig.COURSE_SRC_PATH + name);
         try {
-            IOUtils.copy(courseSourcesDto.getSourceFile().getInputStream(), new FileOutputStream(targetFile));
+            IOUtils.copy(sourceFile.getInputStream(), new FileOutputStream(targetFile));
         } catch (IOException e) {
             e.printStackTrace();
             deleteFile(targetFile);
@@ -88,12 +93,12 @@ public class CourseSourcesServiceImpl extends BaseService implements CourseSourc
         return courseSourcesDto;
     }
 
-    private CourseSources makeCourseSources(CourseSourcesDto courseSourcesDto, String name) {
+    private CourseSources makeCourseSources(CourseSourcesDto courseSourcesDto, String name,String suffix) {
         Integer now = DateUtil.unixTime().intValue();
         CourseSources courseSources = new CourseSources();
         courseSources.setDescription(courseSourcesDto.getCourseSourceDescription());
         courseSources.setDownloadUrl(CourseSources.DOWNLOAD_URL_PREFIX + name);
-        courseSources.setWatchUrl(CourseSources.WATCH_URL_PREFIX + name);
+        courseSources.setWatchUrl(CourseSources.WATCH_URL_PREFIX + name+"/"+suffix);
         courseSources.setName(courseSourcesDto.getCourseSourceName());
         courseSources.setSort(CourseSources.DEFAULT_SORT);
         courseSources.setCreateTime(now);

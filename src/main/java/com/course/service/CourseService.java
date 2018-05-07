@@ -17,7 +17,7 @@ public interface CourseService {
 
     CoursesDto getCourseInfo(PageBean pageBean, Long courseId);
 
-    void getCourseSrc(String name, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
+    void getCourseSrc(String name,String suffix, Long courseId, HttpServletResponse httpServletResponse) throws Exception;
 
     void downloadCourseSrc(String name, Long courseId, UsersDto onlineUser, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception;
 
